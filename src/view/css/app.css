@@ -24,7 +24,6 @@
     .scroll-bar:vertical .thumb {-fx-background-color:#DDD;-fx-background-radius:0;}
     .scroll-bar:horizontal .track, .scroll-bar:horizontal .thumb, .scroll-bar:horizontal .increment, .scroll-bar:horizontal .decrement{-fx-background-color:transparent;}
 
-
 	/** Textos*/
 	.h1, .h2, .h3, .h4{-fx-font-family:"Roboto", sans-serif; -fx-text-fill:#3A454B;}
 	.h1{-fx-font-size:23; -fx-font-weight:bold;}
