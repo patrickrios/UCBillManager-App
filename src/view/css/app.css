@@ -38,3 +38,7 @@
 	.main-button-menu:hover{-fx-background-color:rgba(0,0,0,0.50);}
 	.textfield-header-search{-fx-background-color:rgba(0,0,0,0.25); -fx-font-size:13; -fx-text-fill:#EEE; -fx-padding:2 8; -fx-border-color:transparent;-fx-background-radius:5; -fx-border-radius:3;}
 	.textfield-header-search:focused{-fx-background-color:rgba(0,0,0,0.55);}
+
+	/** Add novo*/
+	.choice-button{-fx-border-width:1; -fx-text-fill:#999;-fx-background-color:#FFF; -fx-border-color:#CCC; -fx-border-radius:0; -fx-background-radius:0;}
+	.choice-button-selected{-fx-text-fill:#444; -fx-background-color:#FFF;-fx-border-color:#777;-fx-border-radius:0; -fx-background-radius:0;}

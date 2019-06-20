@@ -11,7 +11,7 @@
    <children>
       <AnchorPane maxHeight="1.7976931348623157E308" prefHeight="40.0" styleClass="main-header" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="378.0" layoutY="8.0" mnemonicParsing="false" prefHeight="18.0" styleClass="main-button-menu" text="NOVO REGISTRO" />
+            <Button layoutX="378.0" layoutY="8.0" mnemonicParsing="false" onAction="#carregarLayoutNovoRegistro" prefHeight="18.0" styleClass="main-button-menu" text="NOVO REGISTRO" />
             <Button layoutX="505.0" layoutY="8.0" mnemonicParsing="false" prefHeight="18.0" styleClass="main-button-menu" text="LISTA REGISTROS" />
             <Button layoutX="639.0" layoutY="8.0" mnemonicParsing="false" prefHeight="18.0" styleClass="main-button-menu" text="RELATORIOS" />
             <Group layoutX="880.0" layoutY="5.0" AnchorPane.rightAnchor="232.0">
