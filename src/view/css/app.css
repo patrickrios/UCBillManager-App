@@ -4,11 +4,11 @@
     .text{-fx-font-family:'Titillium Web';}
 
     /** Buttons*/
-	.button{-fx-border-width:1; -fx-border-color:transparent; -fx-cursor:hand; -fx-border-radius:5; -fx-font-family:"Roboto", sans-serif; -fx-font-size:15; -fx-background-color:#F5F6F7; -fx-text-fill:#3A454B;}
+	.button{-fx-border-width:1; -fx-border-color:transparent; -fx-cursor:hand; -fx-border-radius:5; -fx-font-family:"Titillium Web", sans-serif; -fx-font-size:15; -fx-background-color:#F5F6F7; -fx-text-fill:#3A454B;}
     .button-reset{-fx-padding:0;-fx-border:0; -fx-background-color:transparent;}
 
 	/** Textfiedls*/
-	.text-field{-fx-background-color:#FFF;-fx-border-color:#DDD; -fx-border-radius:5; -fx-font-family:"Roboto", sans-serif; -fx-font-size:16; -fx-text-fill:#000; }
+	.text-field{-fx-background-color:#FFF;-fx-border-color:#DDD; -fx-border-radius:5; -fx-font-family:"Titillium Web", sans-serif; -fx-font-size:16; -fx-text-fill:#000; }
 	.text-field:focused{-fx-border-color:#067CD7;}
 
 	/** Check-boxes*/
@@ -25,12 +25,12 @@
     .scroll-bar:horizontal .track, .scroll-bar:horizontal .thumb, .scroll-bar:horizontal .increment, .scroll-bar:horizontal .decrement{-fx-background-color:transparent;}
 
 	/** Textos*/
-	.h1, .h2, .h3, .h4{-fx-font-family:"Roboto", sans-serif; -fx-text-fill:#3A454B;}
+	.h1, .h2, .h3, .h4{-fx-font-family:"Titillium Web", sans-serif; -fx-text-fill:#3A454B;}
 	.h1{-fx-font-size:23; -fx-font-weight:bold;}
 	.h2{-fx-font-size:19;}
 	.h3{-fx-font-size:16;}
 	.h4{-fx-font-size:15;}
-	.h2-label{-fx-font-family:"Roboto", sans-serif; -fx-font-size:15; -fx-text-fill:#515F66;}
+	.h2-label{-fx-font-family:"Titillium Web", sans-serif; -fx-font-size:15; -fx-text-fill:#515F66;}
 
 	/** Main*/
 	.main-header{-fx-background-color:linear-gradient(to right, #129A8E, #4BB077);}
@@ -41,4 +41,5 @@
 
 	/** Add novo*/
 	.choice-button{-fx-border-width:1; -fx-text-fill:#999;-fx-background-color:#FFF; -fx-border-color:#CCC; -fx-border-radius:0; -fx-background-radius:0;}
-	.choice-button-selected{-fx-text-fill:#444; -fx-background-color:#FFF;-fx-border-color:#777;-fx-border-radius:0; -fx-background-radius:0;}
+	.choice-button-selected{-fx-text-fill:#23929E; -fx-background-color:#FFF;-fx-border-color:#23929E;-fx-border-radius:0; -fx-background-radius:0;}
+	.pane-row-content{-fx-padding:10 20; -fx-border-color:#DDD;}
