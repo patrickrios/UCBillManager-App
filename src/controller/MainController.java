@@ -37,10 +37,23 @@ public class MainController implements Initializable
     }
 
     @FXML
-    public void carregarLayoutNovoRegistro()
+    public void loadCreateNewLayout()
     {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLNovoRegistro.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLCreateNew.fxml"));
+            new FadeEffect(parent);
+            anchorpaneContent.getChildren().setAll(parent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    public void loadListRegisterLayout()
+    {
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLList.fxml"));
             new FadeEffect(parent);
             anchorpaneContent.getChildren().setAll(parent);
         } catch (IOException e) {

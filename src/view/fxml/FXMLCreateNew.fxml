@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="33.0" layoutY="25.0" styleClass="h1" text="Novo registro" />
+      <Label layoutX="33.0" layoutY="95.0" styleClass="h3" text="Tipo" />
+      <Button layoutX="33.0" layoutY="123.0" mnemonicParsing="false" styleClass="choice-button-selected" text="Despesa" />
+      <Button layoutX="128.0" layoutY="123.0" mnemonicParsing="false" styleClass="choice-button" text="Receita" />
+      <Label layoutX="302.0" layoutY="93.0" styleClass="h3" text="Pagamento" />
+      <Button layoutX="302.0" layoutY="121.0" mnemonicParsing="false" styleClass="choice-button-selected" text="Dinheiro " />
+      <Button layoutX="397.0" layoutY="121.0" mnemonicParsing="false" styleClass="choice-button" text="Cartão " />
+      <Button layoutX="485.0" layoutY="121.0" mnemonicParsing="false" styleClass="choice-button" text="Cheque" />
+      <TextField layoutX="31.0" layoutY="217.0" prefHeight="43.0" prefWidth="195.0" />
+      <Label layoutX="33.0" layoutY="195.0" styleClass="h3" text="Código" />
+      <TextField layoutX="33.0" layoutY="337.0" prefHeight="43.0" prefWidth="195.0" promptText="R$ 00,00" />
+      <Label layoutX="35.0" layoutY="315.0" styleClass="h3" text="Valor" />
+      <Label layoutX="302.0" layoutY="305.0" styleClass="h3" text="Parcelas" />
+      <TextField layoutX="300.0" layoutY="337.0" prefHeight="48.0" prefWidth="82.0" text="1" />
+      <VBox layoutX="383.0" layoutY="337.0" prefHeight="43.0" prefWidth="26.0">
+         <children>
+            <Button mnemonicParsing="false" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/plusIcon12x12-min.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/minusIcon12x12-min.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Label layoutX="35.0" layoutY="414.0" styleClass="h3" text="Vencimento" />
+      <DatePicker layoutX="35.0" layoutY="443.0" prefHeight="43.0" prefWidth="195.0" />
+      <Label layoutX="302.0" layoutY="416.0" styleClass="h3" text="Pago?" />
+      <Button layoutX="302.0" layoutY="448.0" mnemonicParsing="false" styleClass="button-reset">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/toggle-off-icon-min.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="35.0" layoutY="531.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="141.0" style="-fx-background-color: #D02F67; -fx-text-fill: #FFF;" text="Salvar" />
+      <ChoiceBox layoutX="302.0" layoutY="217.0" prefHeight="43.0" prefWidth="205.0" />
+      <Label layoutX="302.0" layoutY="195.0" styleClass="h3" text="Categoria" />
+   </children>
+</AnchorPane>
