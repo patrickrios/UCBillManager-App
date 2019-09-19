@@ -35,7 +35,7 @@
 	.h2-label{-fx-font-family:"Roboto", sans-serif; -fx-font-size:15; -fx-text-fill:#515F66;}
 
 	/** Main*/
-	.main-button-menu{-fx-background-color:#e1e1e1; -fx-text-fill:#444; -fx-padding:8 18;-fx-pref-width:165; -fx-font-size:15; -fx-background-radius:30; -fx-border-radius:30;}
+	.main-button-menu{-fx-background-color:#e1e1e1;-fx-text-fill:#444; -fx-padding:8 18;-fx-pref-width:165; -fx-font-size:15; -fx-background-radius:30; -fx-border-radius:30;}
 	.main-button-menu:hover{-fx-background-color:#ccc;}
 
 	/** Add novo*/
