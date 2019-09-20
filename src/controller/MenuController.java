@@ -26,11 +26,13 @@ public class MenuController
     private Button buttonPayment;
     private Button buttonSel;
     private AnchorPane anchorPane;
+    private String iconPathUnmark = "";
 
-    public void initi(AnchorPane anchorPane){
-            this.anchorPane = anchorPane;
-            this.buttonSel = this.buttonHomepage;
-            loadHomepage();
+    public void initi(AnchorPane anchorPane)
+    {
+    	this.anchorPane = anchorPane;
+        this.buttonSel = this.buttonHomepage;
+        loadHomepage();
     }
 
     @FXML
@@ -41,7 +43,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonHomepage, "/view/img/homeIconSelected.png");
+            markButton(this.buttonHomepage, "/view/img/homeIconSelected.png", "/view/img/homeIcon.png");
         }
 
         catch (IOException e){
@@ -57,7 +59,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonCreate, "/view/img/addNewIconSelected.png");
+            markButton(this.buttonCreate, "/view/img/addNewIconSelected.png", "/view/img/addNewIcon.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -72,7 +74,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonListView, "/view/img/listIconSelected.png");
+            markButton(this.buttonListView, "/view/img/listIconSelected.png", "/view/img/listIcon.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -90,7 +92,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonCategory, "/view/img/categoryIconSelected.png");
+            markButton(this.buttonCategory, "/view/img/categoryIconSelected.png", "/view/img/categoryIcon.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -108,7 +110,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonPayment, "/view/img/paymentIconSelected.png");
+            markButton(this.buttonPayment, "/view/img/paymentIconSelected.png", "/view/img/paymentIcon.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -122,13 +124,13 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonReport, "/view/img/reportIconSelected.png");
+            markButton(this.buttonReport, "/view/img/reportIconSelected.png", "/view/img/reportIcon.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void markButton(Button button, String iconPath){
+    private void markButton(Button button, String iconPath, String unmarkPath){
         button.getStyleClass().clear();
         button.getStyleClass().add("main-button-menu-selected");
 
@@ -136,11 +138,20 @@ public class MenuController
         button.setGraphic(new ImageView(icon));
 
         this.buttonSel = button;
+        this.iconPathUnmark = unmarkPath;
     }
 
     private void unmarkButton()
-    {
+    {    	
         this.buttonSel.getStyleClass().clear();
         this.buttonSel.getStyleClass().add("main-button-menu");
+        
+        Image icon = new Image(getClass().getResourceAsStream(this.iconPathUnmark));
+    	ImageView g = new ImageView(icon);
+    	
+    	this.buttonSel.setGraphic(g);
+    	
+        	
     }
+   
 }
