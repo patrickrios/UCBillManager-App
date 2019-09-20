@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ListController
+public class ListController implements Initializable
 {
 
     @FXML
@@ -48,33 +48,25 @@ public class ListController
     @FXML
     private VBox vboxItens;
 
-    @FXML
-    private AnchorPane anchorListeSaleItem;
 
-    @FXML
-    private Label labelSaleCode;
-
-    @FXML
-    private Label labelNumItens;
-
-    @FXML
-    private Label labelTotalValue;
-
-    @FXML
-    private Label labelDateTime;
-
-    @FXML
-    private CheckBox checkboxItem;
-
-    @FXML
-    private Button buttonFavorite;
-
-    private boolean favoriteControl = false;
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		loadList();
+	}
 
 
     private void loadList()
     {
-
+    	for(int i=0; i<10; i++)
+    	{
+    		try {
+				Parent item = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
+				this.vboxItens.getChildren().add(item);
+    		} 
+    		catch (IOException e) {
+				e.printStackTrace();
+			}
+    	}
     }
 
     void setListHeader(String path)
@@ -150,41 +142,5 @@ public class ListController
         Image icon = null;
         icon = new Image(getClass().getResourceAsStream("/view/img/list/view-list-unselected-17x14.png"));
         this.buttonViewList.setGraphic(new ImageView(icon));
-    }
-
-    @FXML
-    public void checkboxSelected()
-    {
-        if(this.checkboxItem.isSelected()){
-            this.anchorListeSaleItem.getStyleClass().add("list-sale-item-selected");
-        }
-        else{
-            this.anchorListeSaleItem.getStyleClass().clear();
-            this.anchorListeSaleItem.getStyleClass().add("anchor-list-item");
-        }
-    }
-
-    @FXML
-    public void viewDetails()
-    {
-
-    }
-
-    @FXML
-    public void markAsFavorite()
-    {
-        Image icon = null;
-
-        if(favoriteControl){
-            this.favoriteControl = false;
-            icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-unselected.png"));
-        }
-
-        else{
-            this.favoriteControl = true;
-            icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-selected.png"));
-        }
-
-        this.buttonFavorite.setGraphic(new ImageView(icon));
-    }
+    }    
 }

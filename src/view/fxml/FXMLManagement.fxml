@@ -15,6 +15,7 @@
       <AnchorPane layoutX="40.0" layoutY="144.0" prefHeight="42.0" prefWidth="610.0" style="-fx-border-color: #DDD; -fx-background-radius: 5 5 0 0; -fx-border-radius: 5 5 0 0;">
          <children>
             <Label layoutX="22.0" layoutY="11.0" styleClass="h3" text="Todas" />
+            <Label layoutX="75.0" layoutY="11.0" style="-fx-text-fill: #0099CC;" styleClass="h3" text="(27)" />
          </children>
       </AnchorPane>
       <ScrollPane layoutX="40.0" layoutY="186.0" prefHeight="376.0" prefWidth="610.0" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="40.0" AnchorPane.topAnchor="186.0">

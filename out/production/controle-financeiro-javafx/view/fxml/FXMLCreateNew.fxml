@@ -26,9 +26,9 @@
       <Label layoutX="37.0" layoutY="347.0" styleClass="h3" text="Valor" />
       <Label layoutX="304.0" layoutY="337.0" styleClass="h3" text="Parcelas" />
       <TextField fx:id="textfieldParcel" layoutX="302.0" layoutY="369.0" prefHeight="48.0" prefWidth="82.0" text="1" />
-      <VBox layoutX="383.0" layoutY="369.0" prefHeight="43.0" prefWidth="26.0">
+      <VBox layoutX="390.0" layoutY="369.0" prefHeight="43.0" prefWidth="26.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#incrementParcelQuantity" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
+            <Button mnemonicParsing="false" onAction="#incrementParcelQuantity" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0; -fx-background-color: #e4e4e4;">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,7 +37,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#decrementParcelQuantity" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
+            <Button mnemonicParsing="false" onAction="#decrementParcelQuantity" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0; -fx-background-color: #e4e4e4;">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>

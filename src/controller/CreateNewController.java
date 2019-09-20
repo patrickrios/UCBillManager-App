@@ -57,8 +57,7 @@ public class CreateNewController implements Initializable{
     }
 
     @FXML
-    void setPaid()
-    {
+    void setPaid(){
     	
     	if(this.paidControl){
     		this.paidControl = false;
@@ -71,7 +70,6 @@ public class CreateNewController implements Initializable{
     		Image img = new Image(getClass().getResourceAsStream("/view/img/toggle-on-icon-min.png"));
     		this.buttonPaid.setGraphic(new ImageView(img));
     	}
-
     }
     
     private void updateParcelText()

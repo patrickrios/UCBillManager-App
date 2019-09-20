@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane fx:id="anchorListeSaleItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#viewDetails" prefHeight="40.0" prefWidth="793.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-border-style: dashed; -fx-cursor: hand;" styleClass="anchor-list-item" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ListItemController">
+   <children>
+      <Label fx:id="labelSaleCode" layoutX="65.0" layoutY="10.0" styleClass="h3" text="01D704" />
+      <Label fx:id="labelNumItens" layoutX="201.0" layoutY="10.0" styleClass="h3" text="01" />
+      <Label fx:id="labelTotalValue" layoutX="378.0" layoutY="10.0" styleClass="h3" text="R$ 76,35" />
+      <Label fx:id="labelDateTime" layoutX="533.0" layoutY="10.0" styleClass="h3" text="data e hora" />
+      <CheckBox fx:id="checkboxItem" graphicTextGap="0.0" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#checkboxSelected" />
+      <HBox layoutX="503.0" layoutY="7.0" prefHeight="20.0" spacing="8.0" styleClass="hbox-item-options" AnchorPane.rightAnchor="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#viewDetails" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/list/item-view-details-dark-16x12.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/list/item-edit-option-dark-14x14.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/list/item-delete-icon-dark-11x14.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <Button fx:id="buttonFavorite" layoutX="35.0" layoutY="10.0" mnemonicParsing="false" onAction="#markAsFavorite" styleClass="button-reset">
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/list/star-favorite-unselected.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

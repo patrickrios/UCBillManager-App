@@ -38,7 +38,7 @@
 	/** Main*/
 	.main-button-menu{-fx-background-color:transparent;-fx-cursor:hand; -fx-border-color:#F4F5F6;-fx-text-fill:#354751; -fx-padding:8 12;-fx-pref-width:165; -fx-font-size:16; -fx-background-radius:3; -fx-border-radius:3;}
 	.main-button-menu:hover{-fx-background-color:#E3E3E3;-fx-border-color:#E3E3E3;}
-	.main-button-menu-selected{-fx-background-color:#EEE;-fx-cursor:hand;  -fx-border-color:#DDD; -fx-text-fill:#4F87E6;-fx-padding:8 12;-fx-pref-width:165; -fx-font-size:16; -fx-background-radius:3; -fx-border-radius:3;}
+	.main-button-menu-selected{-fx-background-color:#EEE;-fx-cursor:hand;  -fx-border-color:#CCC; -fx-text-fill:#4F87E6;-fx-padding:8 12;-fx-pref-width:165; -fx-font-size:16; -fx-background-radius:3; -fx-border-radius:3;}
 
 	/** Add novo*/
 	.choice-button{-fx-border-width:2; -fx-text-fill:#999;-fx-background-color:#FFF; -fx-border-color:#CCC; -fx-border-radius:3; -fx-background-radius:3;}
