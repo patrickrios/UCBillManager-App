@@ -20,34 +20,24 @@ public class ListController implements Initializable
 
     @FXML
     private Label labelListTitle;
-
     @FXML
     private TextField textfieldSearch;
-
     @FXML
     private Button buttonPagPreviousPage;
-
     @FXML
     private Label labelPaginationInfo;
-
     @FXML
     private Button buttonPagNextPage;
-
     @FXML
     private Button buttonDeleteAll;
-
     @FXML
     private Button buttonViewList;
-
     @FXML
     private Button buttonViewGrid;
-
     @FXML
     private AnchorPane anchorListHeader;
-
     @FXML
     private VBox vboxItens;
-
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
