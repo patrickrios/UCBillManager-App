@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateNewController">
    <children>
       <Label layoutX="33.0" layoutY="25.0" styleClass="h1" text="Novo registro" />
       <Label layoutX="31.0" layoutY="122.0" styleClass="h3" text="Tipo" />
@@ -20,15 +20,15 @@
       <Button layoutX="300.0" layoutY="148.0" mnemonicParsing="false" styleClass="choice-button-selected" text="Dinheiro " />
       <Button layoutX="395.0" layoutY="148.0" mnemonicParsing="false" styleClass="choice-button" text="Cartão " />
       <Button layoutX="483.0" layoutY="148.0" mnemonicParsing="false" styleClass="choice-button" text="Cheque" />
-      <TextField layoutX="31.0" layoutY="225.0" prefHeight="43.0" prefWidth="195.0" promptText="Identificador" />
+      <TextField fx:id="textfieldCode" layoutX="31.0" layoutY="225.0" prefHeight="43.0" prefWidth="195.0" promptText="Identificador" />
       <Label layoutX="33.0" layoutY="203.0" styleClass="h3" text="Código" />
-      <TextField layoutX="35.0" layoutY="369.0" prefHeight="43.0" prefWidth="195.0" promptText="R$ 00,00" />
+      <TextField fx:id="textfieldValue" layoutX="35.0" layoutY="369.0" prefHeight="43.0" prefWidth="195.0" promptText="R$ 00,00" />
       <Label layoutX="37.0" layoutY="347.0" styleClass="h3" text="Valor" />
       <Label layoutX="304.0" layoutY="337.0" styleClass="h3" text="Parcelas" />
-      <TextField layoutX="302.0" layoutY="369.0" prefHeight="48.0" prefWidth="82.0" text="1" />
+      <TextField fx:id="textfieldParcel" layoutX="302.0" layoutY="369.0" prefHeight="48.0" prefWidth="82.0" text="1" />
       <VBox layoutX="383.0" layoutY="369.0" prefHeight="43.0" prefWidth="26.0">
          <children>
-            <Button mnemonicParsing="false" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
+            <Button mnemonicParsing="false" onAction="#incrementParcelQuantity" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,7 +37,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
+            <Button mnemonicParsing="false" onAction="#decrementParcelQuantity" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -49,9 +49,9 @@
          </children>
       </VBox>
       <Label layoutX="40.0" layoutY="441.0" styleClass="h3" text="Vencimento" />
-      <DatePicker layoutX="40.0" layoutY="470.0" prefHeight="43.0" prefWidth="195.0" />
+      <DatePicker fx:id="datepickerExpiration" layoutX="40.0" layoutY="470.0" prefHeight="43.0" prefWidth="195.0" />
       <Label layoutX="307.0" layoutY="443.0" styleClass="h3" text="Pago?" />
-      <Button layoutX="307.0" layoutY="475.0" mnemonicParsing="false" styleClass="button-reset">
+      <Button fx:id="buttonPaid" layoutX="307.0" layoutY="475.0" mnemonicParsing="false" onAction="#setPaid" styleClass="button-reset">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -61,7 +61,7 @@
          </graphic>
       </Button>
       <Button layoutX="35.0" layoutY="552.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="141.0" style="-fx-background-color: #D02F67; -fx-text-fill: #FFF; -fx-border-color: #801C3F; -fx-border-width: 0 0 2 0;" text="Salvar" />
-      <ChoiceBox layoutX="302.0" layoutY="225.0" prefHeight="43.0" prefWidth="205.0" />
+      <ChoiceBox fx:id="choiceboxCatgories" layoutX="302.0" layoutY="225.0" prefHeight="43.0" prefWidth="205.0" />
       <Label layoutX="302.0" layoutY="203.0" styleClass="h3" text="Categoria" />
       <Label layoutX="33.0" layoutY="79.0" style="-fx-text-fill: #7B458D;" styleClass="h2" text="Identificação" />
       <Label layoutX="33.0" layoutY="310.0" style="-fx-text-fill: #7B458D;" styleClass="h2" text="Valores" />

@@ -15,7 +15,7 @@
          <content>
             <VBox>
                <children>
-                  <Button fx:id="buttonHomepage" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadHomepage" styleClass="main-button-menu-selected" text="Início">
+                  <Button fx:id="buttonHomepage" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadHomepage" styleClass="main-button-menu-selected" text="Página Inicial">
                      <VBox.margin>
                         <Insets top="22.0" />
                      </VBox.margin>
