@@ -25,14 +25,12 @@ public class ExpirationListController implements Initializable{
 	
 	private void loadList()
 	{
-		for(int i=0;i<3;i++)
-		{
+		for(int i=0;i<3;i++){
 			try {
 				Parent item = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLExpirationItem.fxml"));
 				this.vboxItens.getChildren().add(item);
 			} 
 			catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
