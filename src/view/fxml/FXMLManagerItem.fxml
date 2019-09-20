@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="40.0" prefWidth="608.0" style="-fx-background-color: #FFF; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-border-style: dashed;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManagerItemController">
+   <children>
+      <CheckBox fx:id="checkboxMarker" layoutX="24.0" layoutY="12.0" mnemonicParsing="false" />
+      <Label fx:id="labelTitle" layoutX="54.0" layoutY="11.0" styleClass="h3" text="Name of row" />
+      <HBox prefHeight="20.0" spacing="8.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="7.0">
+         <children>
+            <Button mnemonicParsing="false" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/list/item-edit-option-dark-14x14.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/list/item-delete-icon-dark-11x14.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
