@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="650.0" prefWidth="350.0" style="-fx-background-color: #F4F5F6; -fx-border-color: #DDD; -fx-border-width: 0 1 0 0;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+   <children>
+      <ScrollPane layoutX="150.0" layoutY="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox>
+               <children>
+                  <Button fx:id="buttonHomepage" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadHomepage" styleClass="main-button-menu-selected" text="Início">
+                     <VBox.margin>
+                        <Insets top="22.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/homeIconSelected.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label style="-fx-text-fill: #192E39;" styleClass="h3" text="Ações">
+                     <VBox.margin>
+                        <Insets top="28.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="buttonCreate" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadCreateNewLayout" styleClass="main-button-menu" text="Adicionar novo">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/addNewIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Label style="-fx-text-fill: #192E39;" styleClass="h3" text="Abas">
+                     <VBox.margin>
+                        <Insets top="28.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="buttonListView" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadListRegisterLayout" styleClass="main-button-menu" text="Lista registros">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/listIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="buttonReport" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadReportLayout" styleClass="main-button-menu" text="Relatórios">
+                     <graphic>
+                        <ImageView fitHeight="12.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/reportIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Label style="-fx-text-fill: #192E39;" styleClass="h3" text="Gerenciar">
+                     <VBox.margin>
+                        <Insets top="28.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="buttonCategory" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadCategoryManagementLayout" styleClass="main-button-menu" text="Categorias ">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/categoryIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="buttonPayment" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadPaymentsManagementLayout" styleClass="main-button-menu" text="Pagamentos">
+                     <graphic>
+                        <ImageView fitHeight="12.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/paymentIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets right="22.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

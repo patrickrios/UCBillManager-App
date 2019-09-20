@@ -15,80 +15,27 @@ public class MainController implements Initializable
     @FXML
     private AnchorPane anchorpaneContent;
 
+    @FXML
+    private AnchorPane menuConteiner;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        loadHomepage();
+        loadMenu();
     }
 
-    @FXML
-    public void loadHomepage()
+    private void loadMenu()
     {
-        try{
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLHomepage.fxml"));
-            new FadeEffect(parent);
-            anchorpaneContent.getChildren().setAll(parent);
-        }
-
-        catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void loadCreateNewLayout()
-    {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLCreateNew.fxml"));
-            new FadeEffect(parent);
-            anchorpaneContent.getChildren().setAll(parent);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @FXML
-    public void loadListRegisterLayout()
-    {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLList.fxml"));
-            new FadeEffect(parent);
-            anchorpaneContent.getChildren().setAll(parent);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void loadCategoryManagementLayout()
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManagement.fxml"));
+        FXMLLoader loader  = new FXMLLoader(getClass().getResource("/view/fxml/FXMLMenu.fxml"));
 
         try {
             Parent parent = loader.load();
-            ManagementController controller = loader.getController();
-            controller.initi("Categorias");
-            new FadeEffect(parent);
-            this.anchorpaneContent.getChildren().setAll(parent);
+            MenuController controller = loader.getController();
+            controller.initi(this.anchorpaneContent);
+            this.menuConteiner.getChildren().setAll(parent);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    @FXML
-    public void loadPaymentsManagementLayout()
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManagement.fxml"));
-
-        try {
-            Parent parent = loader.load();
-            ManagementController controller = loader.getController();
-            controller.initi("Pagamentos");
-            new FadeEffect(parent);
-            this.anchorpaneContent.getChildren().setAll(parent);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="34.0" layoutY="25.0" styleClass="h1" text="Relatório" />
+      <Label layoutX="234.0" layoutY="15.0" styleClass="h3" text="Incluir" />
+      <ChoiceBox layoutX="234.0" layoutY="35.0" prefHeight="34.0" prefWidth="150.0" />
+      <DatePicker layoutX="496.0" layoutY="34.0" prefHeight="36.0" prefWidth="137.0" />
+      <Label layoutX="496.0" layoutY="15.0" styleClass="h3" text="Período" />
+      <DatePicker layoutX="643.0" layoutY="34.0" prefHeight="36.0" prefWidth="137.0" />
+   </children>
+</AnchorPane>
