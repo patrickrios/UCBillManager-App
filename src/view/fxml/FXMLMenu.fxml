@@ -20,9 +20,9 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                      <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/homeIconSelected.png" />
+                              <Image url="@../img/pack2/homepage-min.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -34,9 +34,9 @@
                   </Label>
                   <Button fx:id="buttonCreate" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadCreateNewLayout" styleClass="main-button-menu" text="Adicionar novo">
                      <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="19.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/addNewIcon.png" />
+                              <Image url="@../img/pack2/create-new-min.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -51,9 +51,9 @@
                   </Label>
                   <Button fx:id="buttonListView" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadListRegisterLayout" styleClass="main-button-menu" text="Lista registros">
                      <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/listIcon.png" />
+                              <Image url="@../img/pack2/list-view-min.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -63,9 +63,9 @@
                   </Button>
                   <Button fx:id="buttonReport" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadReportLayout" styleClass="main-button-menu" text="Relatórios">
                      <graphic>
-                        <ImageView fitHeight="12.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/reportIcon.png" />
+                              <Image url="@../img/pack2/report-icon-min.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -80,9 +80,9 @@
                   </Label>
                   <Button fx:id="buttonCategory" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadCategoryManagementLayout" styleClass="main-button-menu" text="Categorias ">
                      <graphic>
-                        <ImageView fitHeight="14.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/categoryIcon.png" />
+                              <Image url="@../img/pack2/category-min.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -92,9 +92,9 @@
                   </Button>
                   <Button fx:id="buttonPayment" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadPaymentsManagementLayout" styleClass="main-button-menu" text="Pagamentos">
                      <graphic>
-                        <ImageView fitHeight="12.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/paymentIcon.png" />
+                              <Image url="@../img/pack2/payment-min.png" />
                            </image>
                         </ImageView>
                      </graphic>

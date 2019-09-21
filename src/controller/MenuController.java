@@ -43,7 +43,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonHomepage, "/view/img/homeIconSelected.png", "/view/img/homeIcon.png");
+            markButton(this.buttonHomepage, "/view/img/pack2/homepageSelected-min.png", "/view/img/pack2/homepage-min.png");
         }
 
         catch (IOException e){
@@ -59,7 +59,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonCreate, "/view/img/addNewIconSelected.png", "/view/img/addNewIcon.png");
+            markButton(this.buttonCreate, "/view/img/pack2/createSelected-min.png", "/view/img/pack2/create-new-min.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,7 +74,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonListView, "/view/img/listIconSelected.png", "/view/img/listIcon.png");
+            markButton(this.buttonListView, "/view/img/pack2/listSelected-min.png", "/view/img/pack2/list-view-min.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,7 +92,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonCategory, "/view/img/categoryIconSelected.png", "/view/img/categoryIcon.png");
+            markButton(this.buttonCategory, "/view/img/pack2/categorySelected-min.png", "/view/img/pack2/category-min.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -110,7 +110,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonPayment, "/view/img/paymentIconSelected.png", "/view/img/paymentIcon.png");
+            markButton(this.buttonPayment, "/view/img/pack2/paymentSelected-min.png", "/view/img/pack2/payment-min.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -124,7 +124,7 @@ public class MenuController
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
-            markButton(this.buttonReport, "/view/img/reportIconSelected.png", "/view/img/reportIcon.png");
+            markButton(this.buttonReport, "/view/img/pack2/reportSelected-min.png", "/view/img/pack2/report-icon-min.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
