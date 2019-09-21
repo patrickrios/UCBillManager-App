@@ -83,6 +83,23 @@ public class ListItemController {
 			e.printStackTrace();
 		}
     }
+    
+    @FXML
+    public void deleteThisItem()
+    {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLDeletePopup.fxml"));
+    	
+    	try {
+			Parent popup = loader.load();
+			DeleteItemController c = loader.getController();
+			c.initi("01D-704", this.stackList);
+			new FadeEffect(popup);
+			this.stackList.getChildren().add(popup);
+		} 
+    	catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
 
     @FXML
     public void markAsFavorite()

@@ -35,7 +35,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+            <Button mnemonicParsing="false" onAction="#deleteThisItem" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                      <image>
