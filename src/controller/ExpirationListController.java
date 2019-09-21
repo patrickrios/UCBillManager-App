@@ -23,8 +23,7 @@ public class ExpirationListController implements Initializable{
 		loadList();
 	}
 	
-	private void loadList()
-	{
+	private void loadList(){
 		for(int i=0;i<3;i++){
 			try {
 				Parent item = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLExpirationItem.fxml"));
@@ -37,8 +36,7 @@ public class ExpirationListController implements Initializable{
 	}
 	
 	@FXML
-	public void closeList()
-	{
+	public void closeList(){
 		StackPane stack = (StackPane)this.anchorTransparent.getParent();
 		stack.getChildren().remove(this.anchorTransparent);
 	}

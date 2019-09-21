@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -17,7 +18,8 @@ import java.util.ResourceBundle;
 
 public class ListController implements Initializable
 {
-
+	 @FXML
+	private StackPane stackpaneList;
     @FXML
     private Label labelListTitle;
     @FXML
@@ -49,8 +51,11 @@ public class ListController implements Initializable
     {
     	for(int i=0; i<10; i++)
     	{
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
     		try {
-				Parent item = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
+				Parent item = loader.load();
+				ListItemController c = loader.getController();
+				c.inti(this.stackpaneList);
 				this.vboxItens.getChildren().add(item);
     		} 
     		catch (IOException e) {
