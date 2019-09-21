@@ -14,7 +14,7 @@
       <Label fx:id="labelTitle" layoutX="54.0" layoutY="11.0" styleClass="h3" text="Name of row" />
       <HBox prefHeight="20.0" spacing="8.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="7.0">
          <children>
-            <Button mnemonicParsing="false" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+            <Button mnemonicParsing="false" onAction="#editThisItem" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -6,10 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 public class ManagementController
 {
+	@FXML
+    private StackPane stackManegerLayout;
     @FXML
     private Label labelTitle;
     
@@ -34,7 +37,7 @@ public class ManagementController
 	    	try {
 				Parent parent = loader.load();
 				ManagerItemController controller = loader.getController();
-				controller.initi(this.name+" "+(i+1));
+				controller.initi(this.name+" "+(i+1), this.stackManegerLayout);
 				this.vboxManagerList.getChildren().add(parent);
 			} 
 	    	catch (IOException e) {

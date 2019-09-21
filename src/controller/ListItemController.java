@@ -85,8 +85,7 @@ public class ListItemController {
     }
     
     @FXML
-    public void deleteThisItem()
-    {
+    public void deleteThisItem(){
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLDeletePopup.fxml"));
     	
     	try {

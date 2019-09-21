@@ -1,8 +1,14 @@
 package controller;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import view.util.FadeEffect;
 
 public class ManagerItemController {
 
@@ -12,8 +18,26 @@ public class ManagerItemController {
     @FXML
     private Label labelTitle;
     
-    public void initi(String name)
+    private StackPane stack;
+    
+    public void initi(String name, StackPane stack)
     {
     	this.labelTitle.setText(name);
+    	this.stack = stack;
+    }
+    
+    @FXML
+    void editThisItem() {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLEditManegerItem.fxml"));
+    	try {
+			Parent popup = loader.load();
+			EditManegerItemController c = loader.getController();
+			c.initi(this.labelTitle.getText(), this.stack);
+			new FadeEffect(popup);
+			this.stack.getChildren().add(popup);
+		} 
+    	catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 }
