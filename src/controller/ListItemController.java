@@ -67,6 +67,22 @@ public class ListItemController {
 			e.printStackTrace();
 		}
     }
+    
+    @FXML
+    public void editThisItem(){
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLEditRegister.fxml"));
+    	
+    	try {
+			Parent edit = loader.load();
+			EditRegisterController c = loader.getController();
+			c.initi(this.stackList);
+			new FadeEffect(edit);
+			this.stackList.getChildren().add(edit);
+		} 
+    	catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
 
     @FXML
     public void markAsFavorite()
