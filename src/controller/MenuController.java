@@ -95,7 +95,8 @@ public class MenuController
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
             markButton(this.buttonCategory, "/view/img/pack2/categorySelected-min.png", "/view/img/pack2/category-min.png");
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -113,7 +114,8 @@ public class MenuController
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
             markButton(this.buttonPayment, "/view/img/pack2/paymentSelected-min.png", "/view/img/pack2/payment-min.png");
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             e.printStackTrace();
         }
     }

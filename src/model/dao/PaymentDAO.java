@@ -1,7 +1,6 @@
 package model.dao;
 
 import java.util.ArrayList;
-
 import model.bean.Category;
 import model.bean.Payment;
 import model.bean.Persistent;

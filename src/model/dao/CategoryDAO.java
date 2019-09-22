@@ -1,7 +1,6 @@
 package model.dao;
 
 import java.util.ArrayList;
-
 import model.bean.Category;
 import model.bean.Persistent;
 
@@ -29,7 +28,7 @@ public class CategoryDAO implements PersistentBean {
 	public ArrayList<Persistent> findGroup(int offset, int limit) {
 		ArrayList<Persistent> list = new ArrayList<>();
 		list.add(new Category(1, "Transporte"));
-		list.add(new Category(2, "Alimetação"));
+		list.add(new Category(2, "Alimentação"));
 		list.add(new Category(3,  "Internet"));
 		return list;
 	}
