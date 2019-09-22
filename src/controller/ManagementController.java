@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import model.bean.Persistent;
+import model.dao.PersistentBean;
 
 public class ManagementController
 {
@@ -21,29 +24,35 @@ public class ManagementController
     
     private String name = "";
 
-    public void initi(String title)
+    public void initi(String title, PersistentBean dao)
     {
         this.labelTitle.setText(title);
         this.name = title;
-        this.loadItens();
+        this.loadItens(dao);
     }
     
-    private void loadItens()
+    private void loadItens(PersistentBean b)
     {
+    	ArrayList<Persistent> list = b.findGroup(0, 0);
     	
-    	for(int i=0;i<5; i++) {
+    	for(Persistent p : list)
+    	{
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManagerItem.fxml"));
         	
 	    	try {
 				Parent parent = loader.load();
 				ManagerItemController controller = loader.getController();
-				controller.initi(this.name+" "+(i+1), this.stackManegerLayout);
+				controller.initi(p.toString(), this.stackManegerLayout);
 				this.vboxManagerList.getChildren().add(parent);
 			} 
 	    	catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+    	}
+    	
+    	for(int i=0;i<5; i++) {
+    		
     	}
     }
 }
