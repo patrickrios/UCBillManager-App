@@ -10,6 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import model.bean.Persistent;
+import model.bean.Register;
+import model.dao.RegisterDAO;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,16 +49,17 @@ public class ListController implements Initializable
 		loadList();
 	}
 
-
-    private void loadList()
-    {
-    	for(int i=0; i<10; i++)
+    private void loadList(){
+    	ArrayList<Persistent> l = new RegisterDAO().findGroup(0,0);
+    	
+    	for(Persistent p : l)
     	{
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
-    		try {
+    		try 
+    		{
 				Parent item = loader.load();
 				ListItemController c = loader.getController();
-				c.inti(this.stackpaneList);
+				c.inti((Register)p, this.stackpaneList);
 				this.vboxItens.getChildren().add(item);
     		} 
     		catch (IOException e) {
@@ -64,23 +68,8 @@ public class ListController implements Initializable
     	}
     }
 
-    void setListHeader(String path)
-    {
-        try
-        {
-            Parent parent = FXMLLoader.load(getClass().getResource(path));
-            anchorListHeader.getChildren().setAll(parent);
-        }
-
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
     @FXML
-    public void viewGridLayout()
-    {
+    public void viewGridLayout(){
         markButtonView(this.buttonViewGrid);
         unmarkButtonView(this.buttonViewList);
         changeViewGridIconOn();
@@ -88,52 +77,45 @@ public class ListController implements Initializable
     }
 
     @FXML
-    void viewListLayout()
-    {
+    void viewListLayout(){
         markButtonView(this.buttonViewList);
         unmarkButtonView(this.buttonViewGrid);
         changeViewListIconOn();
         changeViewGridIconOff();
     }
 
-    private void markButtonView (Button button)
-    {
+    private void markButtonView (Button button){
         button.getStyleClass().clear();
         button.getStyleClass().add("button");
         button.getStyleClass().add("button-pagination-nav");
         button.getStyleClass().add("button-view-selected");
     }
 
-    private void unmarkButtonView(Button button)
-    {
+    private void unmarkButtonView(Button button){
         button.getStyleClass().clear();
         button.getStyleClass().add("button");
         button.getStyleClass().add("button-pagination-nav");
     }
 
-    private void changeViewGridIconOn()
-    {
+    private void changeViewGridIconOn(){
         Image icon = null;
         icon = new Image(getClass().getResourceAsStream("/view/img/list/view-grid-selected-17x13.png"));
         this.buttonViewGrid.setGraphic(new ImageView(icon));
     }
 
-    private void changeViewGridIconOff()
-    {
+    private void changeViewGridIconOff(){
         Image icon = null;
         icon = new Image(getClass().getResourceAsStream("/view/img/list/view-grid-unselected-17x13.png"));
         this.buttonViewGrid.setGraphic(new ImageView(icon));
     }
 
-    private void changeViewListIconOn()
-    {
+    private void changeViewListIconOn(){
         Image icon = null;
         icon = new Image(getClass().getResourceAsStream("/view/img/list/view-list-selected-17x14.png"));
         this.buttonViewList.setGraphic(new ImageView(icon));
     }
 
-    private void changeViewListIconOff()
-    {
+    private void changeViewListIconOff(){
         Image icon = null;
         icon = new Image(getClass().getResourceAsStream("/view/img/list/view-list-unselected-17x14.png"));
         this.buttonViewList.setGraphic(new ImageView(icon));

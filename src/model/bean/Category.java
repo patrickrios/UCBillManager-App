@@ -8,6 +8,11 @@ public class Category implements Persistent {
 		this.id = id;
 		this.name = name;
 	}
+	
+	public Category(String name){
+		this.id = null;
+		this.name = name;
+	}
 
 	@Override
 	public void createNewIfNotExists() {

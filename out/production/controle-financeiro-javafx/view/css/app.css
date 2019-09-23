@@ -58,9 +58,9 @@
             .button-search-icon{-fx-background-color:transparent; -fx-padding:4 12; -fx-border-radius:0 5 5 0; -fx-background-radius:0 5 5 0;}
             .button-search-icon:hover{-fx-background-color:#00D9A3; -fx-border-color:#00D9A3;}
 
-	.label-item-yes, .label-item-not{-fx-font-size:14; -fx-text-fill:#FFF;-fx-padding:3 5;-fx-border-radius:30; -fx-background-radius:30;}
-	.label-item-yes{-fx-background-color:#5CB94F;}
-	.label-item-not{-fx-background-color:#FF6666;}
+	.label-item-yes{-fx-text-fill:#5CB94F;}
+	.label-item-not{-fx-text-fill:#FF6666;}
+
     .hbox-item-options{visibility:hidden;}
         .anchor-list-item{-fx-background-color:#FFF;}
         .anchor-list-item:hover .hbox-item-options{visibility:visible;}

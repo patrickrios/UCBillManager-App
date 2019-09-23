@@ -40,6 +40,17 @@ public class Register implements Persistent{
 		this.type = type;
 	}
 	
+	public Register(Integer id, String code, String cName, String pName, float value, boolean paid, int parcel, int type) {
+		this.id = id;
+		this.code = code;
+		this.category = new Category(cName);
+		this.payment = new Payment(pName);
+		this.value = value;
+		this.paid = paid;
+		this.parcel = parcel;
+		this.type = type;
+	}
+	
 	@Override
 	public void createNewIfNotExists() {
 		if(this.id == null)
@@ -67,6 +78,23 @@ public class Register implements Persistent{
 	public void updateThis() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public String getValueFormatted()
+	{
+		return RealFormat.floatToRealString(this.value);
+	}
+	
+	public String getCode() {
+		return this.code;
+	}
+	
+	public String getCategoryName() {
+		return category.toString();
+	}
+	
+	public boolean isPaid() {
+		return paid;
 	}
 	
 }

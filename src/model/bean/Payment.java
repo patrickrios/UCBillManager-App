@@ -9,6 +9,11 @@ public class Payment implements Persistent{
 		this.name = name;
 	}
 	
+	public Payment(String name) {
+		this.id = null;
+		this.name = name;
+	}
+	
 	@Override
 	public void createNewIfNotExists() {
 		// TODO Auto-generated method stub

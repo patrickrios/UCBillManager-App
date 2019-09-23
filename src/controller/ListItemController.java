@@ -12,20 +12,23 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import model.bean.Register;
 import view.util.FadeEffect;
 
 public class ListItemController {
 	
 	@FXML
     private AnchorPane anchorListeSaleItem;
+	@FXML
+    private Label labelCode;
     @FXML
-    private Label labelSaleCode;
-    @FXML
-    private Label labelNumItens;
+    private Label labelCategoryName;
     @FXML
     private Label labelTotalValue;
     @FXML
-    private Label labelDateTime;
+    private Label labelPaid;
+    @FXML
+    private Label labelExpired;
     @FXML
     private CheckBox checkboxItem;
     @FXML
@@ -35,9 +38,13 @@ public class ListItemController {
 
     private boolean favoriteControl = false;
     
-    public void inti(StackPane stack)
+    private Register register;
+    
+    public void inti(Register register, StackPane stack)
     {
+    	this.register = register;
     	this.stackList = stack;
+    	initializeDatas();
     }
     
     @FXML
@@ -91,7 +98,7 @@ public class ListItemController {
     	try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi("01D-704", this.stackList);
+			c.initi(this.register.getCode(), this.stackList);
 			new FadeEffect(popup);
 			this.stackList.getChildren().add(popup);
 		} 
@@ -118,4 +125,27 @@ public class ListItemController {
         this.buttonFavorite.setGraphic(new ImageView(icon));
     }
 
+    private void initializeDatas()
+    {
+    	this.labelCode.setText(this.register.getCode());
+    	this.labelCategoryName.setText(this.register.getCategoryName());
+    	this.labelTotalValue.setText(this.register.getValueFormatted());
+    	defineBoolLabel(this.register.isPaid(), this.labelPaid);
+    	defineBoolLabel(!this.register.isPaid(), this.labelExpired);
+    }
+    
+    private void defineBoolLabel(boolean is, Label l)
+    {
+    	String yes = "label-item-yes";
+    	String not = "label-item-not";
+    	
+    	if(is) {
+    		l.getStyleClass().add(yes);
+    		l.setText("sim");
+    	}
+    	else {
+    		l.getStyleClass().add(not);
+    		l.setText("não");
+    	}
+    }
 }
