@@ -40,4 +40,22 @@ public class ViewDetailController {
 			e.printStackTrace();
 		}
 	}
+	
+	@FXML
+	void editThisRegister()
+	{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLEditRegister.fxml"));
+		
+		try 
+		{
+			Parent edit = loader.load();
+			EditRegisterController c = loader.getController();
+			c.initi(this.stack);
+			new FadeEffect(edit);
+			this.stack.getChildren().add(edit);
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
