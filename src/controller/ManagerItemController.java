@@ -20,8 +20,7 @@ public class ManagerItemController {
     
     private StackPane stack;
     
-    public void initi(String name, StackPane stack)
-    {
+    public void initi(String name, StackPane stack){
     	this.labelTitle.setText(name);
     	this.stack = stack;
     }
@@ -55,7 +54,6 @@ public class ManagerItemController {
 		} 
     	
     	catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
