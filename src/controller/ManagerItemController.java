@@ -40,4 +40,23 @@ public class ManagerItemController {
 			e.printStackTrace();
 		}
     }
+    
+    @FXML
+    void deleteThisItem()
+    {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLDeletePopup.fxml"));
+    	
+    	try {
+			Parent delete = loader.load();
+			DeleteItemController c = loader.getController();
+			c.initi(this.labelTitle.getText(), this.stack);
+			new FadeEffect(delete);
+			this.stack.getChildren().add(delete);
+		} 
+    	
+    	catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 }

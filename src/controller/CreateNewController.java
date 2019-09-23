@@ -59,8 +59,8 @@ public class CreateNewController implements Initializable{
 	private Register getRegisterFromForm()
 	{
 		String code = this.textfieldCode.getText();
-		Category c = (Category)this.choiceboxCatgories.getSelectionModel().getSelectedItem();
-		Payment p = (Payment)this.choiceboxPayments.getSelectionModel().getSelectedItem();
+		Category c = (Category)this.choiceboxCatgories.getValue();
+		Payment p = (Payment)this.choiceboxPayments.getValue();
 		float value = RealFormat.realStringToFloat(this.textfieldValue.getText());
 		int parcel = Integer.parseInt(this.textfieldParcel.getText());
 		Timestamp exp = getDateExpiratinFormat();
