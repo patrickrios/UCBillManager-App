@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import view.util.ExtendedAnchorConst;
 
 public class ExpirationListController implements Initializable{
 
@@ -21,6 +22,7 @@ public class ExpirationListController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		loadList();
+		ExtendedAnchorConst.setConstrants(anchorTransparent);
 	}
 	
 	private void loadList(){
