@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
+import model.bean.Register;
 import view.util.FadeEffect;
 
 public class ViewDetailController {
@@ -15,8 +16,11 @@ public class ViewDetailController {
 	
 	private StackPane stack;
 	
-	public void initi(StackPane stack){
+	private Register register;
+	
+	public void initi(StackPane stack, Register register){
 		this.stack = stack;
+		this.register = register;
 	}
 	
 	@FXML
@@ -50,7 +54,7 @@ public class ViewDetailController {
 		{
 			Parent edit = loader.load();
 			EditRegisterController c = loader.getController();
-			c.initi(this.stack);
+			c.initi(this.stack, this.register);
 			new FadeEffect(edit);
 			this.stack.getChildren().add(edit);
 		} 

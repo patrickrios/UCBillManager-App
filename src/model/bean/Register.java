@@ -14,7 +14,7 @@ public class Register implements Persistent{
 	private int parcel;
 	private Timestamp expirationDate;
 	private Timestamp inclusionDate;
-	private int type;
+	private TypeRegister type;
 	
 	public Register(Integer id, String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
 		this.id = id;
@@ -25,7 +25,7 @@ public class Register implements Persistent{
 		this.paid = paid;
 		this.parcel = parcel;
 		this.expirationDate = expiration;
-		this.type = type;
+		this.type = new TypeRegister(type);
 	}
 	
 	public Register(String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
@@ -37,7 +37,7 @@ public class Register implements Persistent{
 		this.paid = paid;
 		this.parcel = parcel;
 		this.expirationDate = expiration;
-		this.type = type;
+		this.type = new TypeRegister(type);
 	}
 	
 	public Register(Integer id, String code, String cName, String pName, float value, boolean paid, int parcel, int type) {
@@ -48,7 +48,7 @@ public class Register implements Persistent{
 		this.value = value;
 		this.paid = paid;
 		this.parcel = parcel;
-		this.type = type;
+		this.type = new TypeRegister(type);
 	}
 	
 	@Override
@@ -96,5 +96,28 @@ public class Register implements Persistent{
 	public boolean isPaid() {
 		return paid;
 	}
+	
+	public int getParcel() {
+		return parcel;
+	}
+	
+	public String getTypeName()
+	{
+		return this.type.toString();
+	}
+	
+	public Category getCategory() {
+		return category;
+	}
+	
+	public Payment getPayment() {
+		return payment;
+	}
+	
+	public String getValueWithoutPrefix()
+	{
+		return RealFormat.stringWithoutPrefix(this.value);
+	}
+	
 	
 }

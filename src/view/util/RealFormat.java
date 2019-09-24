@@ -17,4 +17,12 @@ public class RealFormat {
 		
 		return Float.valueOf(value);
 	}
+	
+	public static String stringWithoutPrefix(float value)
+	{
+		String valueString = Float.toString(value);
+		valueString = valueString.replace(".", ",");
+		
+		return valueString;
+	}
 }

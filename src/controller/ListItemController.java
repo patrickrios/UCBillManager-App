@@ -66,7 +66,7 @@ public class ListItemController {
     	try {
 			Parent detailLayout = loader.load();
 			ViewDetailController c = loader.getController();
-			c.initi(this.stackList);
+			c.initi(this.stackList,this.register);
 			new FadeEffect(detailLayout);
 			this.stackList.getChildren().add(detailLayout);
     	} 
@@ -82,7 +82,7 @@ public class ListItemController {
     	try {
 			Parent edit = loader.load();
 			EditRegisterController c = loader.getController();
-			c.initi(this.stackList);
+			c.initi(this.stackList, this.register);
 			new FadeEffect(edit);
 			this.stackList.getChildren().add(edit);
 		} 
