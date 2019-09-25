@@ -14,6 +14,8 @@ public class ViewDetailController {
 	@FXML
     private StackPane stackpaneViewDetail;
 	@FXML
+    private Label labelCode;
+	@FXML
 	private Label labelValue;
 	@FXML
 	private Label labelTypeRegister;
@@ -35,6 +37,7 @@ public class ViewDetailController {
 	public void initi(StackPane stack, Register register){
 		this.stack = stack;
 		this.register = register;
+		this.labelCode.setText(register.getCode());
 		this.labelTypeRegister.setText(register.getTypeName());
 		this.labelCategoryName.setText(register.getCategoryName());
 		this.labelParcel.setText(register.getParcel()+"");
@@ -53,7 +56,6 @@ public class ViewDetailController {
 	void deleteThisRegister()
 	{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLDeletePopup.fxml"));
-		
 		try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
@@ -70,9 +72,7 @@ public class ViewDetailController {
 	void editThisRegister()
 	{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLEditRegister.fxml"));
-		
-		try 
-		{
+		try {
 			Parent edit = loader.load();
 			EditRegisterController c = loader.getController();
 			c.initi(this.stack, this.register);

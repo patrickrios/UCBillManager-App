@@ -15,7 +15,7 @@
 	.check-box{-fx-text-fill:#999;}
 	.check-box .box{-fx-background-color:#FFF; -fx-border-color:#DDD; -fx-pref-width:12; -fx-pref-height:13; -fx-border-radius:2;}
 
-	.choice-box{-fx-background-color:#FFF; -fx-border-width:2; -fx-border-color:#DDD;-fx-border-radius:3; -fx-background-radius:3;}
+	.choice-box{-fx-background-color:#FFF; -fx-border-width:2; -fx-border-color:#DDD;-fx-border-radius:3; -fx-background-radius:3;-fx-font-size:14;}
 
     /** Panes*/
     .scroll-pane > .viewport{-fx-background-color:#FFF;}
@@ -48,6 +48,7 @@
 	.scroll-pane > .viewport {  //not .scrollpane but .scroll-pane
        -fx-background-color: transparent;
     }
+	.textfield-empty{-fx-border-color:#EE6969;}
 
     /** Quantify/pagination buttons*/
         .button-pagination-nav{-fx-border-color:#DDD; -fx-border-radius:5;}

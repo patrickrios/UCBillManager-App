@@ -16,7 +16,14 @@
          <children>
             <AnchorPane layoutX="117.0" layoutY="46.0" prefHeight="530.0" prefWidth="620.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
                <children>
-                  <Label layoutX="23.0" layoutY="14.0" style="-fx-padding: 15 30; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0;" styleClass="h2" text="01D-704" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label fx:id="labelCode" graphicTextGap="10.0" layoutX="23.0" layoutY="14.0" style="-fx-padding: 15 30; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-text-fill: #EE6969;" styleClass="h2" text="01D-704" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/invoice.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Label>
                   <HBox layoutX="183.0" layoutY="93.0" spacing="3.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
                      <children>
                         <Button mnemonicParsing="false" style="-fx-background-color: #FF9933;">

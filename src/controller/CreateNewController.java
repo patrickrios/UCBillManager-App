@@ -56,8 +56,7 @@ public class CreateNewController implements Initializable{
 		initiExpiration();
 	}
 	
-	private Register getRegisterFromForm()
-	{
+	private Register getRegisterFromForm(){
 		String code = this.textfieldCode.getText();
 		Category c = (Category)this.choiceboxCatgories.getValue();
 		Payment p = (Payment)this.choiceboxPayments.getValue();
@@ -108,26 +107,32 @@ public class CreateNewController implements Initializable{
     }
     
     @FXML
-    void markRegisterAsIn()
-    {
+    void markRegisterAsIn(){
     	this.type=2;
-    	markAsSelectedType(buttonInType, buttonOutType);
-    	
+    	markAsSelectedType(buttonInType, buttonOutType);	
     }
     
     @FXML
-    void save()
-    {
-    	Register reg = getRegisterFromForm();
-    	reg.createNewIfNotExists();
+    void save(){
+    	if(validateTextField(this.textfieldCode)&& validateTextField(this.textfieldValue)){
+    		Register reg = getRegisterFromForm();
+        	reg.createNewIfNotExists();
+    	}
+    	
+    	else{
+    		if(!validateTextField(this.textfieldCode))
+    			markTextfieldAsEmpty(this.textfieldCode);
+    		
+    		if(!validateTextField(this.textfieldValue))
+    			markTextfieldAsEmpty(this.textfieldValue);
+    	}
     }
     
     private void updateParcelText(){
     	this.textfieldParcel.setText(""+this.parcel);
     }
     
-    private void populateCategories()
-    {
+    private void populateCategories(){
     	ArrayList<Persistent> list = new CategoryDAO().findGroup(0,0);	
     	choiceboxCatgories.getItems().addAll(list);	
     	
@@ -135,8 +140,7 @@ public class CreateNewController implements Initializable{
     	choiceboxCatgories.setValue(p);
     }
     
-    private void populatePayments()
-    {
+    private void populatePayments(){
     	ArrayList<Persistent> list = new PaymentDAO().findGroup(0,0);
     	choiceboxPayments.getItems().addAll(list);
     	
@@ -144,8 +148,7 @@ public class CreateNewController implements Initializable{
     	choiceboxPayments.setValue(p);
     }
     
-    private void markAsSelectedType(Button selected, Button unselected)
-    {
+    private void markAsSelectedType(Button selected, Button unselected){
     	String selectedStyle = "choice-button-selected";
     	String unselectedStyle = "choice-button";
     	
@@ -158,16 +161,22 @@ public class CreateNewController implements Initializable{
     	unselected.getStyleClass().add(unselectedStyle);
     }
     
-    private void initiExpiration()
-    {
+    private void initiExpiration(){
     	this.datepickerExpiration.setValue(LocalDate.now());
     }
 
-    private Timestamp getDateExpiratinFormat()
-    {
+    private Timestamp getDateExpiratinFormat(){
     	LocalDate d = this.datepickerExpiration.getValue();
     	Timestamp t = Timestamp.valueOf(d.toString()+" 00:00:00.00");
     	
     	return t;
+    }
+    
+    private boolean validateTextField(TextField tf){
+    	return !tf.getText().isEmpty();
+    }
+    
+    private void markTextfieldAsEmpty(TextField tf){
+    	tf.getStyleClass().add("textfield-empty");
     }
 }
