@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-
+import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +13,21 @@ public class ViewDetailController {
 
 	@FXML
     private StackPane stackpaneViewDetail;
-	
+	@FXML
+	private Label labelValue;
+	@FXML
+	private Label labelTypeRegister;
+	@FXML
+	private Label labelCategoryName;
+	@FXML
+	private Label labelParcel;
+	@FXML
+	private Label labelPayment;
+	@FXML
+	private Label labelExpirationDate;
+	@FXML
+	private Label labelPaidStatus;
+
 	private StackPane stack;
 	
 	private Register register;
@@ -21,6 +35,13 @@ public class ViewDetailController {
 	public void initi(StackPane stack, Register register){
 		this.stack = stack;
 		this.register = register;
+		this.labelTypeRegister.setText(register.getTypeName());
+		this.labelCategoryName.setText(register.getCategoryName());
+		this.labelParcel.setText(register.getParcel()+"");
+		this.labelPayment.setText(register.getPayment().toString());
+		this.labelExpirationDate.setText("04/10/2019");
+		this.labelPaidStatus.setText((register.isPaid())?"Sim":"Não");
+		this.labelValue.setText(register.getValueFormatted());
 	}
 	
 	@FXML
@@ -36,7 +57,7 @@ public class ViewDetailController {
 		try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi("$code", this.stack);
+			c.initi(this.register.getCode(), this.stack);
 			new FadeEffect(popup);
 			this.stack.getChildren().add(popup);
 		} 

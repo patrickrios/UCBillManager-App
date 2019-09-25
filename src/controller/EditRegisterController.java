@@ -75,8 +75,8 @@ public class EditRegisterController {
     	}
     }
 	
-	 @FXML
-	    void save() {
+	@FXML
+	 void save() {
 
-	    }
+	}
 }
