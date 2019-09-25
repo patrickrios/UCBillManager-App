@@ -9,9 +9,9 @@
    <children>
       <AnchorPane prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to right,#48B767,#3EBD9D); -fx-border-color: #3AA374; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="25.0" fitWidth="136.0" layoutX="163.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="26.0" fitWidth="182.0" layoutX="163.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/dominus-min.png" />
+                  <Image url="@../img/logo-uc-bill-manager-min.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
