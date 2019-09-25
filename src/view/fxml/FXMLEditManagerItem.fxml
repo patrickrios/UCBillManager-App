@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane fx:id="paneEditManegerItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditManegerItemController">
+<Pane fx:id="paneEditManegerItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditManagerItemController">
    <children>
       <AnchorPane layoutX="96.0" layoutY="57.0" prefHeight="192.0" prefWidth="409.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>

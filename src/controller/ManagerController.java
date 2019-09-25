@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import model.bean.Persistent;
 import model.dao.PersistentBean;
 
-public class ManagementController
+public class ManagerController
 {
 	@FXML
     private StackPane stackManegerLayout;
@@ -49,10 +49,6 @@ public class ManagementController
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-    	}
-    	
-    	for(int i=0;i<5; i++) {
-    		
     	}
     }
 }

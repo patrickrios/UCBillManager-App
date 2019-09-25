@@ -85,11 +85,11 @@ public class MenuController
     @FXML
     public void loadCategoryManagementLayout()
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManagement.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManager.fxml"));
 
         try {
             Parent parent = loader.load();
-            ManagementController controller = loader.getController();
+            ManagerController controller = loader.getController();
             controller.initi("Categorias", new CategoryDAO());
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
@@ -104,11 +104,11 @@ public class MenuController
     @FXML
     public void loadPaymentsManagementLayout()
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManagement.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManager.fxml"));
 
         try {
             Parent parent = loader.load();
-            ManagementController controller = loader.getController();
+            ManagerController controller = loader.getController();
             controller.initi("Pagamentos", new PaymentDAO());
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);

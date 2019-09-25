@@ -27,10 +27,10 @@ public class ManagerItemController {
     
     @FXML
     void editThisItem() {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLEditManegerItem.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLEditManagerItem.fxml"));
     	try {
 			Parent popup = loader.load();
-			EditManegerItemController c = loader.getController();
+			EditManagerItemController c = loader.getController();
 			c.initi(this.labelTitle.getText(), this.stack);
 			new FadeEffect(popup);
 			this.stack.getChildren().add(popup);
