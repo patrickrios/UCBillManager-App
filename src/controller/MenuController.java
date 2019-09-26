@@ -47,7 +47,6 @@ public class MenuController
             unmarkButton();
             markButton(this.buttonHomepage, "/view/img/pack2/homepageSelected-min.png", "/view/img/pack2/homepage-min.png");
         }
-
         catch (IOException e){
             e.printStackTrace();
         }
@@ -62,7 +61,8 @@ public class MenuController
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
             markButton(this.buttonCreate, "/view/img/pack2/createSelected-min.png", "/view/img/pack2/create-new-min.png");
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -153,9 +153,6 @@ public class MenuController
         Image icon = new Image(getClass().getResourceAsStream(this.iconPathUnmark));
     	ImageView g = new ImageView(icon);
     	
-    	this.buttonSel.setGraphic(g);
-    	
-        	
+    	this.buttonSel.setGraphic(g);        	
     }
-   
 }

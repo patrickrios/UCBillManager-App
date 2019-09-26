@@ -18,21 +18,15 @@ public class ManagerController
     private StackPane stackManegerLayout;
     @FXML
     private Label labelTitle;
-    
     @FXML
     private VBox vboxManagerList;
-    
-    private String name = "";
 
-    public void initi(String title, PersistentBean dao)
-    {
+    public void initi(String title, PersistentBean dao){
         this.labelTitle.setText(title);
-        this.name = title;
         this.loadItens(dao);
     }
     
-    private void loadItens(PersistentBean b)
-    {
+    private void loadItens(PersistentBean b){
     	ArrayList<Persistent> list = b.findGroup(0, 0);
     	
     	for(Persistent p : list)
@@ -46,7 +40,6 @@ public class ManagerController
 				this.vboxManagerList.getChildren().add(parent);
 			} 
 	    	catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
     	}
