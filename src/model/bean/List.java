@@ -1,7 +1,6 @@
 package model.bean;
 
 import java.util.ArrayList;
-
 import model.dao.PersistentBean;
 
 public class List implements Paginable {

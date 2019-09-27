@@ -119,5 +119,10 @@ public class Register implements Persistent{
 		return RealFormat.stringWithoutPrefix(this.value);
 	}
 	
+	public String getPaidStatus()
+	{
+		return (this.paid)?"sim":"não";
+	}
+	
 	
 }
