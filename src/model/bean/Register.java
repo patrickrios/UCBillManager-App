@@ -7,6 +7,7 @@ import view.util.RealFormat;
 public class Register implements Persistent{
 	private Integer id;
 	private String code;
+	private TypeRegister type;
 	private Category category;
 	private Payment payment;
 	private float value;
@@ -14,7 +15,7 @@ public class Register implements Persistent{
 	private int parcel;
 	private Timestamp expirationDate;
 	private Timestamp inclusionDate;
-	private TypeRegister type;
+	private boolean favorite;
 	
 	public Register(Integer id, String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
 		this.id = id;

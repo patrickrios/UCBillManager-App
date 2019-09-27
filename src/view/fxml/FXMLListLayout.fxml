@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ListLayoutController">
+   <children>
+      <AnchorPane prefHeight="30.0" prefWidth="795.0" style="-fx-border-color: #CCC; -fx-border-width: 1; -fx-background-radius: 5 5 0 0; -fx-border-radius: 5 5 0 0; -fx-background-color: #F9F9F9;">
+         <children>
+            <Label layoutX="65.0" layoutY="7.0" style="-fx-text-fill: #E94057;" text="CODIGO" />
+            <Label layoutX="172.0" layoutY="7.0" style="-fx-text-fill: #E94057;" text="CATEGORIA" />
+            <Label layoutX="360.0" layoutY="7.0" style="-fx-text-fill: #E94057;" text="VALOR TOTAL" />
+            <Label layoutX="503.0" layoutY="7.0" style="-fx-text-fill: #E94057;" text="PAGO" />
+            <Label layoutX="593.0" layoutY="7.0" style="-fx-text-fill: #E94057;" text="ATRASADO?" />
+         </children>
+      </AnchorPane>
+      <VBox fx:id="vboxItens" layoutY="30.0" style="-fx-border-color: #CCC; -fx-background-radius: 0 0 5 5; -fx-border-radius: 0 0 5 5; -fx-border-width: 0 1 1 1;" />
+   </children>
+</Pane>

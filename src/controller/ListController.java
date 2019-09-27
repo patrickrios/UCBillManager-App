@@ -8,11 +8,13 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.bean.Persistent;
 import model.bean.Register;
 import model.dao.RegisterDAO;
+import view.util.FadeEffect;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,34 +44,52 @@ public class ListController implements Initializable
     @FXML
     private AnchorPane anchorListHeader;
     @FXML
-    private VBox vboxItens;
+    private Pane paneListLayout;
+    
+    ArrayList<Persistent> list ;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		loadList();
+		this.list = new RegisterDAO().findGroup(0,0);
+		this.loadList();
 	}
 
-    private void loadList(){
-    	ArrayList<Persistent> l = new RegisterDAO().findGroup(0,0);
+    private void loadList()
+	{ 
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListLayout.fxml"));
+		
+		try {
+			Parent p = loader.load();
+			ListLayoutController c = loader.getController();
+			c.initi(this.list, this.stackpaneList);
+			this.paneListLayout.getChildren().setAll(p);
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
+    @FXML
+    public void loadListCards()
+    {
+    	FXMLLoader l = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListCardsLayout.fxml"));
     	
-    	for(Persistent p : l)
-    	{
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
-    		try 
-    		{
-				Parent item = loader.load();
-				ListItemController c = loader.getController();
-				c.inti((Register)p, this.stackpaneList);
-				this.vboxItens.getChildren().add(item);
-    		} 
-    		catch (IOException e) {
-				e.printStackTrace();
-			}
-    	}
+    	try {
+			Parent p = l.load();
+			ListGridLayoutController c = l.getController();
+			c.initi(this.list, this.stackpaneList);
+			new FadeEffect(p);
+			this.paneListLayout.getChildren().setAll(p);
+			
+		} 
+    	catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 
     @FXML
     public void viewGridLayout(){
+    	loadListCards();
         markButtonView(this.buttonViewGrid);
         unmarkButtonView(this.buttonViewList);
         changeViewGridIconOn();
@@ -78,6 +98,7 @@ public class ListController implements Initializable
 
     @FXML
     void viewListLayout(){
+    	loadList();
         markButtonView(this.buttonViewList);
         unmarkButtonView(this.buttonViewGrid);
         changeViewListIconOn();
