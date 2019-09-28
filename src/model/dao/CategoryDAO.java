@@ -39,7 +39,6 @@ public class CategoryDAO implements PersistentBean {
 
 	@Override
 	public void delete(int idRegister) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -70,7 +69,8 @@ public class CategoryDAO implements PersistentBean {
 		String sql = "SELECT * FROM ucbm_category";
 		ArrayList<Persistent> list = new ArrayList<>();
 		
-		try {
+		try 
+		{
 			PreparedStatement statement = connection.prepareStatement(sql);
 			ResultSet r = statement.executeQuery();
 			

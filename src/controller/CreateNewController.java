@@ -133,7 +133,7 @@ public class CreateNewController implements Initializable{
     }
     
     private void populateCategories(){
-    	ArrayList<Persistent> list = new CategoryDAO().findGroup(0,0);	
+    	ArrayList<Persistent> list = new CategoryDAO().findAll();	
     	choiceboxCatgories.getItems().addAll(list);	
     	
     	Persistent p = list.get(0);
@@ -141,7 +141,7 @@ public class CreateNewController implements Initializable{
     }
     
     private void populatePayments(){
-    	ArrayList<Persistent> list = new PaymentDAO().findGroup(0,0);
+    	ArrayList<Persistent> list = new PaymentDAO().findAll();
     	choiceboxPayments.getItems().addAll(list);
     	
     	Persistent p = list.get(0);
