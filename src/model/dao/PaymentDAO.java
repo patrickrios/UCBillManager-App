@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.bean.Category;
 import model.bean.Payment;
 import model.bean.Persistent;
 
@@ -31,8 +30,21 @@ public class PaymentDAO implements PersistentBean {
 
 	@Override
 	public void update(Persistent register) {
-		// TODO Auto-generated method stub
+		Payment p = (Payment)register;
+		int id = p.getId();
+		String name = p.getName();
 		
+		String sql = "UPDATE ucbm_payments SET name='"+name+"' WHERE id_payment='"+id+"'";
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			statement.executeUpdate();
+			statement.close();
+			this.connection.close();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}	
 	}
 
 	@Override
@@ -62,7 +74,6 @@ public class PaymentDAO implements PersistentBean {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override

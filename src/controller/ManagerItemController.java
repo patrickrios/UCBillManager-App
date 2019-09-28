@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import model.bean.Persistent;
 import view.util.FadeEffect;
 
 public class ManagerItemController {
@@ -20,9 +21,12 @@ public class ManagerItemController {
     
     private StackPane stack;
     
-    public void initi(String name, StackPane stack){
-    	this.labelTitle.setText(name);
+    private Persistent persistent;
+    
+    public void initi(Persistent p, StackPane stack){
+    	this.labelTitle.setText(p.toString());
     	this.stack = stack;
+    	this.persistent = p;
     }
     
     @FXML
@@ -31,7 +35,7 @@ public class ManagerItemController {
     	try {
 			Parent popup = loader.load();
 			EditManagerItemController c = loader.getController();
-			c.initi(this.labelTitle.getText(), this.stack);
+			c.initi(this.persistent, this.stack);
 			new FadeEffect(popup);
 			this.stack.getChildren().add(popup);
 		} 

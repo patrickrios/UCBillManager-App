@@ -1,5 +1,7 @@
 package model.bean;
 
+import model.dao.PaymentDAO;
+
 public class Payment implements Persistent{
 	private Integer id;
 	private String name;
@@ -28,13 +30,27 @@ public class Payment implements Persistent{
 	
 	@Override
 	public void updateThis() {
-		// TODO Auto-generated method stub
+		new PaymentDAO().update(this);
 		
 	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return this.name;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void changeName(String name)
+	{
+		this.name = name;
 	}
 	
 }

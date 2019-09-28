@@ -44,7 +44,21 @@ public class CategoryDAO implements PersistentBean {
 
 	@Override
 	public void update(Persistent register) {
-		// TODO Auto-generated method stub
+		Category c = (Category)register;
+		int id = c.getId();
+		String name = c.getName();
+		
+		String sql = "UPDATE ucbm_category SET name='"+name+"' WHERE id='"+id+"'";
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			statement.executeUpdate();
+			statement.close();
+			this.connection.close();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 

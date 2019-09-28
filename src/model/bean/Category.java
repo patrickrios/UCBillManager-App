@@ -33,9 +33,20 @@ public class Category implements Persistent {
 	}
 	
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
+	public String toString(){
 		return this.name;
+	}
+	
+	public Integer getId(){
+		return id;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public void changeName(String name){
+		this.name = name;
 	}
 
 

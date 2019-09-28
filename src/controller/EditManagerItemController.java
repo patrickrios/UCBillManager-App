@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import model.bean.Persistent;
 
 public class EditManagerItemController {
 
@@ -16,12 +17,15 @@ public class EditManagerItemController {
     private TextField textfieldItemName;
     
     private StackPane stack;
+    
+    private Persistent persistent;
 
-	public void initi(String name, StackPane stack)
+	public void initi(Persistent p, StackPane stack)
 	{
 		this.stack = stack;
-		this.labelItemName.setText(name);
-		this.textfieldItemName.setText(name);
+		this.labelItemName.setText(p.toString());
+		this.textfieldItemName.setText(p.toString());
+		this.persistent = p;
 	}
 
     @FXML
@@ -31,7 +35,7 @@ public class EditManagerItemController {
 
     @FXML
     void updateItem() {
-
+    	this.persistent.updateThis();
     }
     
 }

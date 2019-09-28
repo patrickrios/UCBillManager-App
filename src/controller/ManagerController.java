@@ -42,7 +42,7 @@ public class ManagerController
 	    	try {
 				Parent parent = loader.load();
 				ManagerItemController controller = loader.getController();
-				controller.initi(p.toString(), this.stackManegerLayout);
+				controller.initi(p, this.stackManegerLayout);
 				this.vboxManagerList.getChildren().add(parent);
 			} 
 	    	catch (IOException e) {
