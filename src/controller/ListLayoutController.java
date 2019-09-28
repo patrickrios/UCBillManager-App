@@ -28,11 +28,10 @@ public class ListLayoutController {
 	public void loadList(){ 
 		this.vboxItens.getChildren().clear();
 		
-    	for(Persistent p : this.list)
-    	{
+    	for(Persistent p : this.list){
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
-    		try 
-    		{
+    		
+    		try{
 				Parent item = loader.load();
 				ListItemController c = loader.getController();
 				c.inti((Register)p, this.stack);

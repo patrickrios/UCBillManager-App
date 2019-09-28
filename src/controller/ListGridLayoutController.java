@@ -20,8 +20,7 @@ public class ListGridLayoutController {
 	
 	private StackPane stack;
 	
-	public void initi(ArrayList<Persistent> l, StackPane stack)
-	{
+	public void initi(ArrayList<Persistent> l, StackPane stack){
 		this.list = l;
 		this.stack = stack;
 		loadListCards();
@@ -32,11 +31,10 @@ public class ListGridLayoutController {
     {
     	this.flowpaneListCards.getChildren().clear();
     	
-    	for(Persistent p : list)
-    	{
+    	for(Persistent p : list){
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItemCard.fxml"));
-    		try 
-    		{
+    		
+    		try{
 				Parent item = loader.load();
 				ListItemGridController c = loader.getController();
 				c.initi((Register)p, this.stack);
