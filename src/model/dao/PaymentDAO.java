@@ -29,8 +29,8 @@ public class PaymentDAO implements PersistentBean {
 	public ArrayList<Persistent> findGroup(int offset, int limit) {
 		ArrayList<Persistent> list = new ArrayList<>();
 		list.add(new Payment(1, "Dinheiro"));
-		list.add(new Category(2, "Cartão de crédito"));
-		list.add(new Category(3,  "Cheque"));
+		list.add(new Payment(2, "Cartão de crédito"));
+		list.add(new Payment(3,  "Cheque"));
 		return list;
 	}
 
@@ -38,6 +38,21 @@ public class PaymentDAO implements PersistentBean {
 	public boolean verifyExistenceOf(String identifyCode) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void createNew(String name) {
+		System.out.println("Pagamento salvo: "+name);
+		
+	}
+
+	@Override
+	public ArrayList<Persistent> findAll() {
+		ArrayList<Persistent> list = new ArrayList<>();
+		list.add(new Payment(1, "Dinheiro"));
+		list.add(new Payment(2, "Cartão de crédito"));
+		list.add(new Payment(3,  "Cheque"));
+		return list;
 	}
 
 }

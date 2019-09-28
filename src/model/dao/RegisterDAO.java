@@ -45,4 +45,16 @@ public class RegisterDAO implements PersistentBean {
 		return false;
 	}
 
+	@Override
+	public void createNew(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<Persistent> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

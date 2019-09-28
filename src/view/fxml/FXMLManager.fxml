@@ -15,8 +15,8 @@
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css">
          <children>
             <Label fx:id="labelTitle" layoutX="40.0" layoutY="25.0" styleClass="h1" text="title" />
-            <TextField layoutX="291.0" layoutY="21.0" prefHeight="42.0" prefWidth="264.0" promptText="Insira um nome" />
-            <Button layoutX="564.0" layoutY="21.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="86.0" style="-fx-background-color: #00A3D9; -fx-text-fill: #FFF; -fx-border-width: 0 0 1 0; -fx-border-color: #00769D;" text="Adicionar" />
+            <TextField fx:id="textfieldInput" layoutX="291.0" layoutY="21.0" prefHeight="42.0" prefWidth="264.0" promptText="Insira um nome" />
+            <Button layoutX="564.0" layoutY="21.0" mnemonicParsing="false" onAction="#create" prefHeight="42.0" prefWidth="86.0" style="-fx-background-color: #00A3D9; -fx-text-fill: #FFF; -fx-border-width: 0 0 1 0; -fx-border-color: #00769D;" text="Adicionar" />
             <AnchorPane layoutX="40.0" layoutY="81.0" prefHeight="42.0" prefWidth="610.0" style="-fx-border-color: #DDD; -fx-background-radius: 5 5 0 0; -fx-border-radius: 5 5 0 0; -fx-background-color: #F9F9F9;">
                <children>
                   <Label layoutX="22.0" layoutY="11.0" styleClass="h3" text="Todas" />

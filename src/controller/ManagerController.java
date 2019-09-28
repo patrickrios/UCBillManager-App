@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.bean.Persistent;
@@ -20,14 +21,19 @@ public class ManagerController
     private Label labelTitle;
     @FXML
     private VBox vboxManagerList;
+    @FXML
+    private TextField textfieldInput;
+    
+    private PersistentBean pBean;
 
     public void initi(String title, PersistentBean dao){
         this.labelTitle.setText(title);
+        this.pBean = dao;
         this.loadItens(dao);
     }
     
     private void loadItens(PersistentBean b){
-    	ArrayList<Persistent> list = b.findGroup(0, 0);
+    	ArrayList<Persistent> list = b.findAll();
     	
     	for(Persistent p : list)
     	{
@@ -43,5 +49,29 @@ public class ManagerController
 				e.printStackTrace();
 			}
     	}
+    }
+    
+    @FXML
+    void create()
+    {
+    	if(textInputIsValid()){
+    		String input = this.textfieldInput.getText();
+    		this.pBean.createNew(input);
+    		cleanTexfieldInput();
+    	}
+    	else{
+    		this.textfieldInput.getStyleClass().add("textfield-empty");
+    	}
+   
+    }
+    
+    private boolean textInputIsValid()
+    {
+    	return !this.textfieldInput.getText().isEmpty();
+    }
+    
+    private void cleanTexfieldInput()
+    {
+    	this.textfieldInput.clear();
     }
 }
