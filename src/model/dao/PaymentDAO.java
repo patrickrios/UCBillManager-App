@@ -29,7 +29,8 @@ public class PaymentDAO implements PersistentBean {
 	}
 
 	@Override
-	public void update(Persistent register) {
+	public void update(Persistent register) 
+	{
 		Payment p = (Payment)register;
 		int id = p.getId();
 		String name = p.getName();
@@ -40,7 +41,6 @@ public class PaymentDAO implements PersistentBean {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			statement.executeUpdate();
 			statement.close();
-			this.connection.close();
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -57,13 +57,28 @@ public class PaymentDAO implements PersistentBean {
 	}
 
 	@Override
-	public boolean verifyExistenceOf(String identifyCode) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean verifyExistenceOf(String identifyCode) 
+	{
+		String sql = "SELECT * FROM ucbm_payments WHERE name LIKE '"+identifyCode+"'";
+		boolean exist = true;
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			ResultSet result = statement.executeQuery();
+			
+			if(!result.next())
+				exist = false;
+			statement.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return exist;
 	}
 
 	@Override
-	public void createNew(String name) {
+	public void createNew(String name)
+	{
 		String sql = "INSERT INTO ucbm_payments (name) VALUES ('"+name+"')";
 		
 		try {
@@ -77,7 +92,8 @@ public class PaymentDAO implements PersistentBean {
 	}
 
 	@Override
-	public ArrayList<Persistent> findAll() {
+	public ArrayList<Persistent> findAll() 
+	{
 		ArrayList<Persistent> list = new ArrayList<>();
 		String query = "SELECT * FROM ucbm_payments";
 		try {

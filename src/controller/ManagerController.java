@@ -5,12 +5,14 @@ import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.bean.Persistent;
+import model.dao.PaymentDAO;
 import model.dao.PersistentBean;
 
 public class ManagerController
@@ -24,12 +26,13 @@ public class ManagerController
     @FXML
     private TextField textfieldInput;
     
-    private PersistentBean pBean;
+    private PersistentBean persistentBean;
 
     public void initi(String title, PersistentBean dao){
         this.labelTitle.setText(title);
-        this.pBean = dao;
+        this.persistentBean = dao;
         this.loadItens(dao);
+        this.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
     }
     
     private void loadItens(PersistentBean b){
@@ -54,10 +57,18 @@ public class ManagerController
     @FXML
     void create()
     {
-    	if(textInputIsValid()){
+    	if(textInputIsValid())
+    	{
     		String input = this.textfieldInput.getText();
-    		this.pBean.createNew(input);
-    		cleanTexfieldInput();
+    		
+    		if(this.persistentBean.verifyExistenceOf(input)){
+    			showMessage(input, 2);
+    		}
+    		else{
+        		this.persistentBean.createNew(input);
+        		cleanTexfieldInput();
+        		showMessage(input, 1);
+    		}
     	}
     	else{
     		this.textfieldInput.getStyleClass().add("textfield-empty");
@@ -71,5 +82,19 @@ public class ManagerController
     
     private void cleanTexfieldInput(){
     	this.textfieldInput.clear();
+    }
+    
+    private void showMessage(String input, int type)
+    {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLConfirmMessage.fxml"));
+    	
+    	try {
+			loader.load();
+			ConfirmMessageController c = loader.getController();
+			c.inti(input, type, this.stackManegerLayout);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    			
     }
 }

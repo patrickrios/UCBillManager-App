@@ -22,6 +22,7 @@ public class ConfirmMessageController {
     	this.labelCode.setText(code);
     	this.stack = stack;
     	this.defineLabelMessage(type);
+    	stack.getChildren().add(this.anchorConfirmMessage);
     }
     
     @FXML

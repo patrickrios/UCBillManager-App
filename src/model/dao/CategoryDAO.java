@@ -54,7 +54,6 @@ public class CategoryDAO implements PersistentBean {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			statement.executeUpdate();
 			statement.close();
-			this.connection.close();
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -73,8 +72,22 @@ public class CategoryDAO implements PersistentBean {
 
 	@Override
 	public boolean verifyExistenceOf(String identifyCode) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		String sql = "SELECT * FROM ucbm_category WHERE name LIKE '"+identifyCode+"'";
+		boolean exist = true;
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			ResultSet r = statement.executeQuery();
+			
+			if(!r.next())
+				exist = false;
+			statement.close();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return exist;
 	}
 
 
