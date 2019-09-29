@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane fx:id="paneDelete" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteItemController">
+<Pane fx:id="paneDelete" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="669.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteItemController">
    <children>
-      <AnchorPane layoutX="131.0" layoutY="46.0" prefHeight="180.0" prefWidth="357.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
+      <AnchorPane layoutX="156.0" layoutY="119.0" prefHeight="180.0" prefWidth="357.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>
             <Label graphicTextGap="8.0" layoutX="76.0" layoutY="23.0" style="-fx-padding: 8 15; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0;" styleClass="h3" text="Informações do sistema" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <graphic>
@@ -23,7 +22,7 @@
             </Label>
             <Label alignment="CENTER" layoutX="24.0" layoutY="59.0" styleClass="h3" text="Realmente deseja apagar o registro" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
             <Label fx:id="labelCode" alignment="CENTER" layoutX="29.0" layoutY="90.0" prefHeight="15.0" prefWidth="299.0" style="-fx-text-fill: #FF3333;" styleClass="h3" text="\$code_register" />
-            <Button layoutX="272.0" layoutY="135.0" mnemonicParsing="false" style="-fx-background-color: #EE6969; -fx-text-fill: #FFF;" text="Apagar" />
+            <Button layoutX="272.0" layoutY="135.0" mnemonicParsing="false" onAction="#deleteItem" style="-fx-background-color: #EE6969; -fx-text-fill: #FFF;" text="Apagar" />
             <Button layoutX="179.0" layoutY="135.0" mnemonicParsing="false" onAction="#cancelDeleting" prefHeight="31.0" prefWidth="81.0" text="Cancelar" />
          </children>
       </AnchorPane>

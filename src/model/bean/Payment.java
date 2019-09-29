@@ -24,7 +24,7 @@ public class Payment implements Persistent{
 	
 	@Override
 	public void deleteThis() {
-		// TODO Auto-generated method stub
+		new PaymentDAO().delete(this.id);
 		
 	}
 	

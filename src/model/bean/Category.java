@@ -1,5 +1,7 @@
 package model.bean;
 
+import model.dao.CategoryDAO;
+
 public class Category implements Persistent {
 	private Integer id;
 	private String name;
@@ -22,7 +24,7 @@ public class Category implements Persistent {
 
 	@Override
 	public void deleteThis() {
-		// TODO Auto-generated method stub
+		new CategoryDAO().delete(this.id);
 		
 	}
 

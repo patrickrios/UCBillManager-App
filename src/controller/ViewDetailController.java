@@ -59,7 +59,7 @@ public class ViewDetailController {
 		try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi(this.register.getCode(), this.stack);
+			c.initi(this.register, this.stack);
 			new FadeEffect(popup);
 			this.stack.getChildren().add(popup);
 		} 

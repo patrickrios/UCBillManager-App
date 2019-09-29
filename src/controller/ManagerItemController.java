@@ -52,7 +52,7 @@ public class ManagerItemController {
     	try {
 			Parent delete = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi(this.labelTitle.getText(), this.stack);
+			c.initi(this.persistent, this.stack);
 			new FadeEffect(delete);
 			this.stack.getChildren().add(delete);
 		} 

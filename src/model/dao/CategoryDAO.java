@@ -39,7 +39,16 @@ public class CategoryDAO implements PersistentBean {
 
 	@Override
 	public void delete(int idRegister) {
+		String sql = "DELETE FROM ucbm_category WHERE id_category = '"+idRegister+"'";
 		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			statement.executeUpdate();
+			statement.close();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import model.bean.Persistent;
 import model.dao.PaymentDAO;
 import model.dao.PersistentBean;
+import view.util.ConfirmMessageType;
 
 public class ManagerController
 {
@@ -62,18 +63,18 @@ public class ManagerController
     		String input = this.textfieldInput.getText();
     		
     		if(this.persistentBean.verifyExistenceOf(input)){
-    			showMessage(input, 2);
+    			showMessage(input, ConfirmMessageType.ERROR);
     		}
     		else{
         		this.persistentBean.createNew(input);
         		cleanTexfieldInput();
-        		showMessage(input, 1);
+        		showMessage(input, ConfirmMessageType.SUCESS);
+        		loadItens(persistentBean);
     		}
     	}
     	else{
     		this.textfieldInput.getStyleClass().add("textfield-empty");
     	}
-   
     }
     
     private boolean textInputIsValid(){
@@ -84,7 +85,7 @@ public class ManagerController
     	this.textfieldInput.clear();
     }
     
-    private void showMessage(String input, int type)
+    private void showMessage(String input, String type)
     {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLConfirmMessage.fxml"));
     	

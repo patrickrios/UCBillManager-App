@@ -2,6 +2,7 @@ package model.bean;
 
 import java.sql.Timestamp;
 
+import model.dao.RegisterDAO;
 import view.util.RealFormat;
 
 public class Register implements Persistent{
@@ -71,14 +72,18 @@ public class Register implements Persistent{
 	
 	@Override
 	public void deleteThis() {
-		// TODO Auto-generated method stub
-		
+		new RegisterDAO().delete(this.id);
 	}
 	
 	@Override
 	public void updateThis() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String toString() {
+		return this.code;
 	}
 	
 	public String getValueFormatted()

@@ -24,7 +24,15 @@ public class PaymentDAO implements PersistentBean {
 
 	@Override
 	public void delete(int idRegister) {
-		// TODO Auto-generated method stub
+		String sql = "DELETE FROM ucbm_payments WHERE id_payment = '"+idRegister+"'";
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			statement.executeUpdate();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 

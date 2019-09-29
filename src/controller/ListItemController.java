@@ -98,7 +98,7 @@ public class ListItemController {
     	try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi(this.register.getCode(), this.stackList);
+			c.initi(this.register, this.stackList);
 			new FadeEffect(popup);
 			this.stackList.getChildren().add(popup);
 		} 

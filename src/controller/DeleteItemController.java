@@ -1,9 +1,14 @@
 package controller;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import model.bean.Persistent;
+import view.util.ConfirmMessageType;
 
 public class DeleteItemController {
 
@@ -14,15 +19,40 @@ public class DeleteItemController {
 	
 	private StackPane stack;
 	
-	public void initi(String code, StackPane stack)
+	private Persistent persistent;
+	
+	public void initi(Persistent p, StackPane stack)
 	{
-		this.labelCode.setText(code);
+		this.labelCode.setText(p.toString());
 		this.stack = stack;
+		this.persistent = p;
 	}
 	
 	@FXML
 	void cancelDeleting()
 	{
 		this.stack.getChildren().remove(this.paneDelete);
+	}
+	
+	@FXML
+	void deleteItem()
+	{
+		this.persistent.deleteThis();
+		showMessage();
+		cancelDeleting();
+	}
+	
+	private void showMessage()
+	{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLConfirmMessage.fxml"));
+		
+		try {
+			loader.load();
+			ConfirmMessageController c = loader.getController();
+			c.inti(this.persistent.toString(), ConfirmMessageType.ERROR, this.stack);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
