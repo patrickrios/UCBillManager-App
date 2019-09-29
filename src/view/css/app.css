@@ -49,6 +49,8 @@
        -fx-background-color: transparent;
     }
 	.textfield-empty{-fx-border-color:#EE6969;}
+	.confirm-sucess{-fx-border-color:#43BA82; -fx-border-width:0 0 2 0;}
+	.confirm-error{-fx-border-color:#EE6969; -fx-border-width:0 0 2 0;}
 
     /** Quantify/pagination buttons*/
         .button-pagination-nav{-fx-border-color:#DDD; -fx-border-radius:5;}

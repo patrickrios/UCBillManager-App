@@ -65,13 +65,11 @@ public class ManagerController
    
     }
     
-    private boolean textInputIsValid()
-    {
+    private boolean textInputIsValid(){
     	return !this.textfieldInput.getText().isEmpty();
     }
     
-    private void cleanTexfieldInput()
-    {
+    private void cleanTexfieldInput(){
     	this.textfieldInput.clear();
     }
 }
