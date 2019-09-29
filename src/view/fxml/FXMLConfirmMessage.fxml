@@ -3,11 +3,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
 <AnchorPane fx:id="anchorConfirmMessage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="600.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConfirmMessageController">
    <children>
-      <Button layoutX="36.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeMessage" prefHeight="31.0" prefWidth="55.0" style="-fx-background-color: #DDD;" text="Ok" />
-      <Label fx:id="labelCode" layoutX="106.0" layoutY="18.0" prefHeight="20.0" style="-fx-text-fill: #0099CC;" styleClass="h3" text="\$code" />
-      <Label fx:id="labelMessage" layoutX="205.0" layoutY="18.0" styleClass="h3" text="\$Message" />
+      <HBox layoutX="292.0" layoutY="5.0" prefHeight="31.0" spacing="8.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="12.0">
+         <children>
+            <Label fx:id="labelCode" prefHeight="32.0" style="-fx-text-fill: #0099CC;" styleClass="h3" text="\$code" />
+            <Label fx:id="labelMessage" prefHeight="33.0" styleClass="h3" text="\$Message" />
+            <Button mnemonicParsing="false" onAction="#closeMessage" prefHeight="31.0" prefWidth="55.0" style="-fx-background-color: #DDD;" text="Ok" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

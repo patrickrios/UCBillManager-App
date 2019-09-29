@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -49,7 +48,7 @@ public class DeleteItemController {
 		try {
 			loader.load();
 			ConfirmMessageController c = loader.getController();
-			c.inti(this.persistent.toString(), ConfirmMessageType.ERROR, this.stack);
+			c.inti(this.persistent.toString(), ConfirmMessageType.DELETING, this.stack);
 			
 		} catch (IOException e) {
 			e.printStackTrace();

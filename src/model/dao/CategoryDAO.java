@@ -66,8 +66,7 @@ public class CategoryDAO implements PersistentBean {
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
-		}
-		
+		}	
 	}
 
 	@Override

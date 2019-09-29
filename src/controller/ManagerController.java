@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -12,7 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.bean.Persistent;
-import model.dao.PaymentDAO;
 import model.dao.PersistentBean;
 import view.util.ConfirmMessageType;
 
@@ -38,6 +36,7 @@ public class ManagerController
     
     private void loadItens(PersistentBean b){
     	ArrayList<Persistent> list = b.findAll();
+    	this.vboxManagerList.getChildren().clear();
     	
     	for(Persistent p : list)
     	{

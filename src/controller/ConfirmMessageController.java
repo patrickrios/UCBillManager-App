@@ -37,14 +37,11 @@ public class ConfirmMessageController {
     		this.labelMessage.setText("registrado com sucesso");
     		this.anchorConfirmMessage.getStyleClass().add("confirm-sucess");
     	}
-    	else if(type.equals(ConfirmMessageType.ERROR))
-    	{
+    	else if(type.equals(ConfirmMessageType.ERROR)){
     		this.labelMessage.setText("já existe. Tente novamento com um código diferente");
     		this.anchorConfirmMessage.getStyleClass().add("confirm-error");
     	}
-    	
-    	else if(type.equals(ConfirmMessageType.DELETING))
-    	{
+    	else if(type.equals(ConfirmMessageType.DELETING)){
     		this.labelMessage.setText("apagado do sistema");
     		this.anchorConfirmMessage.getStyleClass().add("confirm-error");
     	}
