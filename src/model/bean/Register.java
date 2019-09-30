@@ -59,10 +59,11 @@ public class Register implements Persistent{
 		{
 			System.out.println("Registro {");
 			System.out.println("\tcode='"+this.code+"'");
-			System.out.println("\tcategory='"+this.category.toString()+"'");
-			System.out.println("\tpayment="+this.payment.toString()+"'");
+			System.out.println("\ttype="+this.type.toString());
+			System.out.println("\tcategory='"+this.category.toString()+"', id='"+this.category.getId()+"'");
+			System.out.println("\tpayment="+this.payment.toString()+"', id="+this.payment.getId()+"'");
 			System.out.println("\tvalue='"+RealFormat.floatToRealString(this.value)+"'");
-			System.out.println((paid) ? "\tpaid": "\tnot paid");
+			System.out.println((paid) ? "\tpaid= yes": "\tpaid = not paid");
 			System.out.println("\tparcel='"+this.parcel+"'");
 			System.out.println("\texpiration='"+this.expirationDate.toString()+"'");
 			System.out.println("}");

@@ -25,6 +25,7 @@
     .scroll-bar:vertical{-fx-background-color:#FFF;}
     .scroll-bar:vertical .thumb {-fx-background-color:#DDD;-fx-background-radius:0;}
     .scroll-bar:horizontal .track, .scroll-bar:horizontal .thumb, .scroll-bar:horizontal .increment, .scroll-bar:horizontal .decrement{-fx-background-color:transparent;}
+	.stack-pane{-fx-alignment:left;}
 
 	.transparent-panel{-fx-background-color:rgba(0,0,0,0.20)}
 	/** Textos*/
@@ -61,8 +62,10 @@
             .button-search-icon{-fx-background-color:transparent; -fx-padding:4 12; -fx-border-radius:0 5 5 0; -fx-background-radius:0 5 5 0;}
             .button-search-icon:hover{-fx-background-color:#00D9A3; -fx-border-color:#00D9A3;}
 
-	.label-item-yes{-fx-text-fill:#5CB94F;}
+	.label-item-yes{-fx-text-fill:#009966;}
 	.label-item-not{-fx-text-fill:#FF6666;}
+	.label-item-type-out{-fx-text-fill:#FF6666;}
+	.label-item-type-in{-fx-text-fill:#0078D7;}
 
     .hbox-item-options{visibility:hidden;}
         .anchor-list-item{-fx-background-color:#FFF;}

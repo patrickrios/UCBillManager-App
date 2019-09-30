@@ -14,7 +14,6 @@ public class MainController implements Initializable
 {
     @FXML
     private AnchorPane anchorpaneContent;
-
     @FXML
     private AnchorPane menuConteiner;
 

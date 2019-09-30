@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -51,6 +52,7 @@ public class ListController implements Initializable
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.list = new RegisterDAO().findGroup(0,0);
+		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
 		this.loadList();
 	}
 

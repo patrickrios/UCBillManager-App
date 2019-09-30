@@ -21,6 +21,8 @@ public class ListItemController {
     private AnchorPane anchorListeSaleItem;
 	@FXML
     private Label labelCode;
+	@FXML
+    private Label labelTypeRegister;
     @FXML
     private Label labelCategoryName;
     @FXML
@@ -130,6 +132,7 @@ public class ListItemController {
     	this.labelCode.setText(this.register.getCode());
     	this.labelCategoryName.setText(this.register.getCategoryName());
     	this.labelTotalValue.setText(this.register.getValueFormatted());
+    	markTypeLabel(this.register.getTypeName());
     	defineBoolLabel(this.register.isPaid(), this.labelPaid);
     	defineBoolLabel(!this.register.isPaid(), this.labelExpired);
     }
@@ -147,5 +150,20 @@ public class ListItemController {
     		l.getStyleClass().add(not);
     		l.setText("não");
     	}
+    }
+
+    private void markTypeLabel(String type)
+    {
+    	String out = "label-item-type-out";
+    	String in = "label-item-type-in";
+    	
+    	if(type.equals("Despesa")) {
+    		this.labelTypeRegister.setText(type);
+    		this.labelTypeRegister.getStyleClass().add(out);
+    	}else {
+    		this.labelTypeRegister.setText(type);
+    		this.labelTypeRegister.getStyleClass().add(in);
+    	}
+    	
     }
 }

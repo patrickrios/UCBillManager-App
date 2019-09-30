@@ -15,9 +15,26 @@
          <content>
             <VBox>
                <children>
+                  <Button fx:id="buttonCreate" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadCreateNewLayout" prefHeight="45.0" prefWidth="163.0" styleClass="main-button-menu" text="Adicionar novo">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/pack2/create-new-min.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Label style="-fx-text-fill: #192E39;" styleClass="h3" text="ABAS">
+                     <VBox.margin>
+                        <Insets top="28.0" />
+                     </VBox.margin>
+                  </Label>
                   <Button fx:id="buttonHomepage" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadHomepage" styleClass="main-button-menu-selected" text="Página Inicial">
                      <VBox.margin>
-                        <Insets top="22.0" />
+                        <Insets top="8.0" />
                      </VBox.margin>
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -27,28 +44,6 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label style="-fx-text-fill: #192E39;" styleClass="h3" text="Ações">
-                     <VBox.margin>
-                        <Insets top="28.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Button fx:id="buttonCreate" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadCreateNewLayout" styleClass="main-button-menu" text="Adicionar novo">
-                     <graphic>
-                        <ImageView fitHeight="19.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/pack2/create-new-min.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Label style="-fx-text-fill: #192E39;" styleClass="h3" text="Abas">
-                     <VBox.margin>
-                        <Insets top="28.0" />
-                     </VBox.margin>
-                  </Label>
                   <Button fx:id="buttonListView" alignment="BASELINE_LEFT" graphicTextGap="11.0" mnemonicParsing="false" onAction="#loadListRegisterLayout" styleClass="main-button-menu" text="Lista registros">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
@@ -73,7 +68,7 @@
                         <Insets top="12.0" />
                      </VBox.margin>
                   </Button>
-                  <Label style="-fx-text-fill: #192E39;" styleClass="h3" text="Gerenciar">
+                  <Label style="-fx-text-fill: #192E39;" styleClass="h3" text="GERENCIAR">
                      <VBox.margin>
                         <Insets top="28.0" />
                      </VBox.margin>
