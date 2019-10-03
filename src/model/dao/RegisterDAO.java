@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+
+import model.bean.Category;
+import model.bean.Payment;
 import model.bean.Persistent;
 import model.bean.Register;
 
@@ -42,7 +46,17 @@ public class RegisterDAO implements PersistentBean {
 
 	@Override
 	public void delete(int idRegister) {
-		// TODO Auto-generated method stub
+		
+		String sql = "DELETE FROM ucbm_register WHERE id_register = '"+idRegister+"'";
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			statement.executeUpdate();
+			statement.close();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -55,7 +69,40 @@ public class RegisterDAO implements PersistentBean {
 	@Override
 	public ArrayList<Persistent> findGroup(int offset, int limit) {
 		ArrayList<Persistent> list = new ArrayList<>();
-		list.add(new Register(1, "WAM-K455", "Transporte", "Dinheiro", 89.90f, true, 3, 1));
+		
+		String query = "SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "
+						+ "ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "
+						+ "ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
+						"FROM ucbm_register "+ 
+						"INNER JOIN ucbm_category  ON ucbm_register.category_id = ucbm_category.id_category "+ 
+						"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment";
+		//1:id, 2:code, 3:value, 4:parcel, 5:paid, 6:exp, 
+		//7:inclusion, 8:type, 9:fav, 10:cat-id, 11:cat-name, 12:pay-id, 13:pay-name
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			
+			while(result.next()){
+				Integer id = result.getInt(1);
+				String code = result.getString(2);
+				float value = result.getFloat(3);
+				int parcel = result.getInt(4);
+				boolean paid = intToBool(result.getInt(5));
+				Timestamp exp = result.getTimestamp(6);
+				Timestamp inc = result.getTimestamp(7);
+				int type = result.getInt(8);
+				boolean fav = intToBool(result.getInt(9));
+				Category cat = new Category(result.getInt(10), result.getString(11));
+				Payment pay = new Payment(result.getInt(12), result.getString(12));
+				
+				list.add(new Register(id,code,value,parcel,paid,exp,inc,type,fav,cat,pay));
+			}
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		/*list.add(new Register(1, "WAM-K455", "Transporte", "Dinheiro", 89.90f, true, 3, 1));
 		list.add(new Register(2, "DSL-K322", "Alimentação", "Dinheiro", 76.45f, true, 1, 2));
 		list.add(new Register(3, "PPk-012", "Saúde", "Cartão de crédito", 12.50f, false, 1, 1));
 		list.add(new Register(4, "10D-704", "Manutenção", "Cartão de débito", 33.99f, true, 1, 1));
@@ -64,7 +111,7 @@ public class RegisterDAO implements PersistentBean {
 		list.add(new Register(1, "WAM-K455", "Transporte", "Dinheiro", 89.90f, true, 3, 1));
 		list.add(new Register(2, "DSL-K322", "Alimentação", "Dinheiro", 76.45f, true, 1, 2));
 		list.add(new Register(3, "PPk-012", "Saúde", "Cartão de crédito", 12.50f, false, 1, 1));
-		list.add(new Register(4, "10D-704", "Manutenção", "Cartão de débito", 33.99f, true, 1, 1));
+		list.add(new Register(4, "10D-704", "Manutenção", "Cartão de débito", 33.99f, true, 1, 1));*/
 		return list;
 	}
 
@@ -96,6 +143,14 @@ public class RegisterDAO implements PersistentBean {
 	public ArrayList<Persistent> findAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	private boolean intToBool(int i)
+	{
+		boolean val = false;
+		if(i==1)
+			val = true;
+		return val;
 	}
 
 }

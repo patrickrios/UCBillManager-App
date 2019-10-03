@@ -53,6 +53,20 @@ public class Register implements Persistent{
 		this.type = new TypeRegister(type);
 	}
 	
+	public Register(Integer id, String code, float value, int parcel, boolean paid, Timestamp expiration, Timestamp inclusion,  int type, boolean favorite, Category c, Payment p) {
+		this.id = id;
+		this.code = code;
+		this.value = value;
+		this.parcel = parcel;
+		this.paid = paid;
+		this.expirationDate = expiration;
+		this.inclusionDate = inclusion;
+		this.type = new TypeRegister(type);
+		this.favorite = favorite;
+		this.category = c;
+		this.payment = p;
+	}
+	
 	@Override
 	public void createNewIfNotExists() {
 		if(this.id == null)
