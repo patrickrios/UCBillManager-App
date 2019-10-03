@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -60,6 +61,7 @@ public class CreateNewController implements Initializable{
 		populatePayments();
 		updateParcelText();
 		initiExpiration();
+		this.stackCreateNew.setAlignment(Pos.TOP_LEFT);
 	}
 	
 	private Register getRegisterFromForm(){

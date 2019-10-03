@@ -13,7 +13,7 @@
 
 	/** Check-boxes*/
 	.check-box{-fx-text-fill:#999;}
-	.check-box .box{-fx-background-color:#FFF; -fx-border-color:#DDD; -fx-pref-width:12; -fx-pref-height:13; -fx-border-radius:2;}
+	.check-box .box{-fx-background-color:#FFF; -fx-border-color:#CCC; -fx-pref-width:17; -fx-pref-height:17; -fx-border-radius:2;}
 
 	.choice-box{-fx-background-color:#FFF; -fx-border-width:2; -fx-border-color:#DDD;-fx-border-radius:3; -fx-background-radius:3;-fx-font-size:14;}
 
@@ -70,7 +70,7 @@
     .hbox-item-options{visibility:hidden;}
         .anchor-list-item{-fx-background-color:#FFF;}
         .anchor-list-item:hover .hbox-item-options{visibility:visible;}
-        .anchor-list-item:hover{-fx-background-color:#eff8fc;}
+        .anchor-list-item:hover{-fx-background-color:#F7F7F7;}
 
      .list-sale-item-selected{-fx-background-color:#F5F6F7; -fx-border-style:solid !important; -fx-border-color:transparent transparent #DDD #009D76 !important; -fx-border-width:0 0 1 3 !important;}
          .button-view-selected{-fx-border-color:#5192D0;-fx-background-color:#F5F6F7; }

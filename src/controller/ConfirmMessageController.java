@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import view.util.ConfirmMessageType;
+import view.util.FadeEffect;
 
 public class ConfirmMessageController {
 
@@ -23,6 +24,7 @@ public class ConfirmMessageController {
     	this.labelCode.setText(code);
     	this.stack = stack;
     	this.defineLabelMessage(type);
+    	new FadeEffect(this.anchorConfirmMessage);
     	stack.getChildren().add(this.anchorConfirmMessage);
     }
     

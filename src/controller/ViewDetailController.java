@@ -42,7 +42,7 @@ public class ViewDetailController {
 		this.labelCategoryName.setText(register.getCategoryName());
 		this.labelParcel.setText(register.getParcel()+"");
 		this.labelPayment.setText(register.getPayment().toString());
-		this.labelExpirationDate.setText("04/10/2019");
+		this.labelExpirationDate.setText(register.getExpirationDate().toString());
 		this.labelPaidStatus.setText((register.isPaid())?"Sim":"Não");
 		this.labelValue.setText(register.getValueFormatted());
 	}
