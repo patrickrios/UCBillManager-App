@@ -17,5 +17,9 @@ public class TypeRegister
 	public String toString() {
 		return this.name;
 	}
+	
+	public int getCode() {
+		return code;
+	}
 
 }

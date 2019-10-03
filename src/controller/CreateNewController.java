@@ -1,11 +1,13 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -13,16 +15,20 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import model.bean.Category;
 import model.bean.Payment;
 import model.bean.Persistent;
 import model.bean.Register;
 import model.dao.CategoryDAO;
 import model.dao.PaymentDAO;
+import model.dao.RegisterDAO;
+import view.util.ConfirmMessageType;
 import view.util.RealFormat;
 
 public class CreateNewController implements Initializable{
-	
+	@FXML
+    private StackPane stackCreateNew;
 	@FXML
     private TextField textfieldCode;
     @FXML
@@ -115,8 +121,18 @@ public class CreateNewController implements Initializable{
     @FXML
     void save(){
     	if(validateTextField(this.textfieldCode)&& validateTextField(this.textfieldValue)){
-    		Register reg = getRegisterFromForm();
-        	reg.createNewIfNotExists();
+    		String code = this.textfieldCode.getText();
+    		
+    		if(!new RegisterDAO().verifyExistenceOf(code))
+    		{
+    			Register reg = getRegisterFromForm();
+            	reg.createNewIfNotExists();
+            	clearForm();
+            	showMessage(code, ConfirmMessageType.SUCESS);
+    		}
+    		else{
+    			showMessage(code, ConfirmMessageType.ERROR);
+    		}
     	}
     	
     	else{
@@ -178,5 +194,25 @@ public class CreateNewController implements Initializable{
     
     private void markTextfieldAsEmpty(TextField tf){
     	tf.getStyleClass().add("textfield-empty");
+    }
+    
+    private void showMessage(String code, String type)
+    {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLConfirmMessage.fxml"));
+    	
+    	try {
+			loader.load();
+			ConfirmMessageController c = loader.getController();
+			c.inti(code, type, this.stackCreateNew);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
+    private void clearForm()
+    {
+    	this.textfieldCode.setText("");
+    	this.textfieldParcel.setText("1");
+    	this.textfieldValue.setText("");
     }
 }

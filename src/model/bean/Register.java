@@ -16,7 +16,7 @@ public class Register implements Persistent{
 	private int parcel;
 	private Timestamp expirationDate;
 	private Timestamp inclusionDate;
-	private boolean favorite;
+	private boolean favorite = false;
 	
 	public Register(Integer id, String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
 		this.id = id;
@@ -57,16 +57,7 @@ public class Register implements Persistent{
 	public void createNewIfNotExists() {
 		if(this.id == null)
 		{
-			System.out.println("Registro {");
-			System.out.println("\tcode='"+this.code+"'");
-			System.out.println("\ttype="+this.type.toString());
-			System.out.println("\tcategory='"+this.category.toString()+"', id='"+this.category.getId()+"'");
-			System.out.println("\tpayment="+this.payment.toString()+"', id="+this.payment.getId()+"'");
-			System.out.println("\tvalue='"+RealFormat.floatToRealString(this.value)+"'");
-			System.out.println((paid) ? "\tpaid= yes": "\tpaid = not paid");
-			System.out.println("\tparcel='"+this.parcel+"'");
-			System.out.println("\texpiration='"+this.expirationDate.toString()+"'");
-			System.out.println("}");
+			new RegisterDAO().createNew(this);
 		}
 		
 	}
@@ -129,6 +120,23 @@ public class Register implements Persistent{
 	public String getPaidStatus()
 	{
 		return (this.paid)?"sim":"não";
+	}
+	
+	public float getValue() {
+		return value;
+	}
+	
+	public Timestamp getExpirationDate() {
+		return expirationDate;
+	}
+	
+	public int getTypeValue()
+	{
+		return this.type.getCode();
+	}
+	
+	public boolean isFavorite() {
+		return favorite;
 	}
 	
 	
