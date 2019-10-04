@@ -153,5 +153,15 @@ public class Register implements Persistent{
 		return favorite;
 	}
 	
+	public void markAsFavorite()
+	{
+		this.favorite = true;
+	}
+	
+	public void unmarkAsFavorite()
+	{
+		this.favorite = false;
+	}
+	
 	
 }

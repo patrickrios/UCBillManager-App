@@ -37,8 +37,6 @@ public class ListItemController {
     private Button buttonFavorite;
     
     private StackPane stackList;
-
-    private boolean favoriteControl = false;
     
     private Register register;
     
@@ -47,6 +45,7 @@ public class ListItemController {
     	this.register = register;
     	this.stackList = stack;
     	initializeDatas();
+    	initiFavorite();
     }
     
     @FXML
@@ -114,13 +113,13 @@ public class ListItemController {
     {
         Image icon = null;
 
-        if(favoriteControl){
-            this.favoriteControl = false;
+        if(this.register.isFavorite()){
+            this.register.unmarkAsFavorite();
             icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-unselected.png"));
         }
 
         else{
-            this.favoriteControl = true;
+            this.register.markAsFavorite();
             icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-selected.png"));
         }
 
@@ -164,6 +163,13 @@ public class ListItemController {
     		this.labelTypeRegister.setText(type);
     		this.labelTypeRegister.getStyleClass().add(in);
     	}
-    	
+    }
+    
+    private void initiFavorite()
+    {
+    	if(this.register.isFavorite()){
+    		this.register.unmarkAsFavorite();
+    		markAsFavorite();
+    	}
     }
 }

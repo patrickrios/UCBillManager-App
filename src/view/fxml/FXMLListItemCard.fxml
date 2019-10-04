@@ -7,10 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="250.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: DDD; -fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ListItemGridController">
    <children>
-      <Label fx:id="labelCode" graphicTextGap="7.0" prefHeight="35.0" prefWidth="250.0" style="-fx-padding: 7 10; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-background-color: #F4F5F6; -fx-background-radius: 5 5 0 0;" styleClass="h3" text="code" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label fx:id="labelCode" graphicTextGap="7.0" prefHeight="35.0" prefWidth="250.0" style="-fx-padding: 7 10; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-background-radius: 5 5 0 0;" styleClass="h3" text="code" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <graphic>
             <ImageView fitHeight="16.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,7 +25,7 @@
       <Label layoutX="-55.0" layoutY="121.0" prefHeight="30.0" prefWidth="218.0" style="-fx-text-fill: #666; -fx-padding: 7 0; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-border-style: dashed;" text="atrasado?" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
       <Label fx:id="labelExpiration" layoutX="209.0" layoutY="126.0" styleClass="h4" text="1||0" AnchorPane.rightAnchor="16.0" />
       <Label fx:id="labelValue" layoutX="125.0" layoutY="166.0" style="-fx-text-fill: #7B458D;" styleClass="h1" text="R$ 00,00" AnchorPane.rightAnchor="16.0" />
-      <Button layoutX="175.0" layoutY="3.0" mnemonicParsing="false" AnchorPane.rightAnchor="5.0">
+      <Button layoutX="175.0" layoutY="3.0" mnemonicParsing="false" AnchorPane.rightAnchor="3.0">
          <graphic>
             <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -35,8 +34,8 @@
             </ImageView>
          </graphic>
       </Button>
-      <CheckBox fx:id="checkboxItem" graphicTextGap="0.0" layoutX="166.0" layoutY="9.0" mnemonicParsing="false" onAction="#checkboxSelected" prefHeight="19.0" prefWidth="25.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="8.0" />
-      <Button fx:id="buttonFavorite" layoutX="45.0" layoutY="20.0" mnemonicParsing="false" onAction="#markAsFavorite" styleClass="button-reset" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="7.0">
+      <CheckBox fx:id="checkboxItem" graphicTextGap="0.0" layoutX="160.0" layoutY="9.0" mnemonicParsing="false" onAction="#checkboxSelected" prefHeight="19.0" prefWidth="25.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="9.0" />
+      <Button fx:id="buttonFavorite" layoutX="45.0" layoutY="20.0" mnemonicParsing="false" onAction="#markAsFavorite" styleClass="button-reset" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="7.0">
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
