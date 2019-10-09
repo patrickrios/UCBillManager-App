@@ -30,7 +30,7 @@ public class Category implements Persistent {
 
 	@Override
 	public void updateThis() {
-		// TODO Auto-generated method stub
+		new CategoryDAO().update(this);
 		
 	}
 	
@@ -51,5 +51,9 @@ public class Category implements Persistent {
 		this.name = name;
 	}
 
-
+	@Override
+	public void updateIdentify(String name) {
+		this.name = name;
+		this.updateThis();
+	}
 }

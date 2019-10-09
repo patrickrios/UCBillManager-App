@@ -162,6 +162,10 @@ public class Register implements Persistent{
 	{
 		this.favorite = false;
 	}
-	
-	
+
+	@Override
+	public void updateIdentify(String name) {
+		this.code = name;
+		
+	}
 }

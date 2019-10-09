@@ -52,5 +52,12 @@ public class Payment implements Persistent{
 	{
 		this.name = name;
 	}
+
+	@Override
+	public void updateIdentify(String name) {
+		this.name = name;
+		this.updateThis();
+		
+	}
 	
 }

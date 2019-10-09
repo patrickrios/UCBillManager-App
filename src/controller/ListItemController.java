@@ -16,7 +16,6 @@ import model.bean.Register;
 import view.util.FadeEffect;
 
 public class ListItemController {
-	
 	@FXML
     private AnchorPane anchorListeSaleItem;
 	@FXML

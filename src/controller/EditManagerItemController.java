@@ -35,7 +35,8 @@ public class EditManagerItemController {
 
     @FXML
     void updateItem() {
-    	this.persistent.updateThis();
+    	String newName = this.textfieldItemName.getText();
+    	this.persistent.updateIdentify(newName);
     }
     
 }

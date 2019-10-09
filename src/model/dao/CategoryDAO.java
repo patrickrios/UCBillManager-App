@@ -28,9 +28,9 @@ public class CategoryDAO implements PersistentBean {
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
-		}
-		
+		}	
 	}
+	
 	@Override
 	public void createNew(Persistent register) {
 		
@@ -57,7 +57,7 @@ public class CategoryDAO implements PersistentBean {
 		int id = c.getId();
 		String name = c.getName();
 		
-		String sql = "UPDATE ucbm_category SET name='"+name+"' WHERE id='"+id+"'";
+		String sql = "UPDATE ucbm_category SET name='"+name+"' WHERE id_category='"+id+"'";
 		
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
