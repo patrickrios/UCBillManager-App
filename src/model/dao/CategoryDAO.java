@@ -120,5 +120,4 @@ public class CategoryDAO implements PersistentBean {
 		}
 		return list;
 	}
-
 }

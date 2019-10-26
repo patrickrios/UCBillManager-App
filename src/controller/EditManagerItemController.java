@@ -20,8 +20,7 @@ public class EditManagerItemController {
     
     private Persistent persistent;
 
-	public void initi(Persistent p, StackPane stack)
-	{
+	public void initi(Persistent p, StackPane stack){
 		this.stack = stack;
 		this.labelItemName.setText(p.toString());
 		this.textfieldItemName.setText(p.toString());
