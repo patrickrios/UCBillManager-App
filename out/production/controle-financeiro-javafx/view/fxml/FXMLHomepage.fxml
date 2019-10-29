@@ -36,7 +36,7 @@
                   <Label layoutX="354.0" layoutY="187.0" style="-fx-text-fill: #777; -fx-label-padding: 5 0;" styleClass="h4" text="R$ 00,00" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="20.0" />
                </children>
             </AnchorPane>
-            <Label alignment="BASELINE_RIGHT" graphicTextGap="8.0" layoutX="574.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="h3" text="04 de Setembro de 2019">
+            <Label fx:id="labelCurrentDate" alignment="BASELINE_RIGHT" graphicTextGap="8.0" layoutX="574.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="h3" text="04 de Setembro de 2019" AnchorPane.rightAnchor="130.0">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
