@@ -1,4 +1,4 @@
-package model.bean;
+package model.entity;
 
 public class TypeRegister
 {

@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
-import model.bean.Register;
+import model.entity.Register;
 import view.util.FadeEffect;
 
 public class ViewDetailController {

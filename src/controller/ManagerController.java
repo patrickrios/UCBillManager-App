@@ -10,8 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import model.bean.Persistent;
 import model.dao.PersistentBean;
+import model.entity.Persistent;
 import view.util.ConfirmMessageType;
 
 public class ManagerController

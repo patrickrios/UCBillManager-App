@@ -1,4 +1,4 @@
-package model.bean;
+package model.entity;
 
 import java.util.ArrayList;
 import model.dao.PersistentBean;

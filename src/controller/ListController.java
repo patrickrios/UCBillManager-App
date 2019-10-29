@@ -12,9 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import model.bean.Persistent;
-import model.bean.Register;
 import model.dao.RegisterDAO;
+import model.entity.Persistent;
+import model.entity.Register;
 import view.util.FadeEffect;
 
 import java.io.IOException;

@@ -1,7 +1,8 @@
 package model.dao;
 
 import java.util.ArrayList;
-import model.bean.Persistent;
+
+import model.entity.Persistent;
 
 public interface PersistentBean {
 

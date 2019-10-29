@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-import model.bean.Category;
-import model.bean.Payment;
-import model.bean.Persistent;
-import model.bean.Register;
+import model.entity.Category;
+import model.entity.Payment;
+import model.entity.Persistent;
+import model.entity.Register;
 
 public class RegisterDAO implements PersistentBean {
 	private Connection connection;

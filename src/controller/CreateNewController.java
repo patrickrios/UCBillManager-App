@@ -17,13 +17,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import model.bean.Category;
-import model.bean.Payment;
-import model.bean.Persistent;
-import model.bean.Register;
 import model.dao.CategoryDAO;
 import model.dao.PaymentDAO;
 import model.dao.RegisterDAO;
+import model.entity.Category;
+import model.entity.Payment;
+import model.entity.Persistent;
+import model.entity.Register;
 import view.util.ConfirmMessageType;
 import view.util.RealFormat;
 

@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import model.bean.Persistent;
+import model.entity.Persistent;
 import view.util.FadeEffect;
 
 public class ManagerItemController {

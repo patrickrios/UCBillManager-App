@@ -8,8 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
-import model.bean.Persistent;
-import model.bean.Register;
+import model.entity.Persistent;
+import model.entity.Register;
 
 public class ListGridLayoutController {
 

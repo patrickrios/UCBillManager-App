@@ -1,55 +1,53 @@
-package model.bean;
+package model.entity;
 
-import model.dao.PaymentDAO;
+import model.dao.CategoryDAO;
 
-public class Payment implements Persistent{
+public class Category implements Persistent {
 	private Integer id;
 	private String name;
 	
-	public Payment(Integer id, String name) {
+	public Category(Integer id, String name){
 		this.id = id;
 		this.name = name;
 	}
 	
-	public Payment(String name) {
+	public Category(String name){
 		this.id = null;
 		this.name = name;
 	}
-	
+
 	@Override
 	public void createNewIfNotExists() {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 	@Override
 	public void deleteThis() {
-		new PaymentDAO().delete(this.id);
+		new CategoryDAO().delete(this.id);
 		
 	}
-	
+
 	@Override
 	public void updateThis() {
-		new PaymentDAO().update(this);
+		new CategoryDAO().update(this);
 		
 	}
 	
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
+	public String toString(){
 		return this.name;
 	}
 	
-	public Integer getId() {
+	public Integer getId(){
 		return id;
 	}
 	
-	public String getName() {
+	public String getName(){
 		return name;
 	}
 	
-	public void changeName(String name)
-	{
+	public void changeName(String name){
 		this.name = name;
 	}
 
@@ -57,7 +55,5 @@ public class Payment implements Persistent{
 	public void updateIdentify(String name) {
 		this.name = name;
 		this.updateThis();
-		
 	}
-	
 }

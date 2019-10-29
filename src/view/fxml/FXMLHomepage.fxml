@@ -12,47 +12,28 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFF;">
          <children>
-            <Label layoutX="29.0" layoutY="22.0" styleClass="h1" text="Página Inicial" AnchorPane.leftAnchor="33.0" />
-            <AnchorPane layoutX="29.0" layoutY="81.0" prefHeight="200.0" prefWidth="420.0" style="-fx-border-color: #DDD; -fx-background-radius: 4; -fx-border-radius: 4;" AnchorPane.leftAnchor="33.0">
+            <Label layoutX="29.0" layoutY="22.0" styleClass="h1" text="Página Inicial" AnchorPane.leftAnchor="45.0" />
+            <AnchorPane layoutX="29.0" layoutY="81.0" prefHeight="215.0" prefWidth="420.0" style="-fx-border-color: #DDD #DDD #DDD #C5C5CD; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-width: 1 1 1 2;" AnchorPane.leftAnchor="45.0">
                <children>
-                  <Label layoutX="27.0" layoutY="22.0" style="-fx-padding: 8 18; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-text-fill: #B7295A;" styleClass="h2" text="Despesas" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <Pane layoutX="1.0" layoutY="57.0" prefHeight="132.0" prefWidth="210.0" style="-fx-border-color: #DDD; -fx-border-width: 0 1 0 0;" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="57.0">
+                  <Label layoutX="27.0" layoutY="22.0" style="-fx-text-fill: #FF5555;" styleClass="h2" text="Despesas" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="12.0" />
+                  <Pane layoutX="1.0" layoutY="57.0" prefHeight="115.0" prefWidth="210.0" style="-fx-border-color: #EEE; -fx-border-width: 0 1 0 0;" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="50.0">
                      <children>
-                        <Label layoutX="21.0" layoutY="20.0" styleClass="h3" text="Não pagas" />
-                        <Label layoutX="21.0" layoutY="59.0" styleClass="h1" text="R$ 00,00" />
-                        <Label layoutX="21.0" layoutY="112.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0" />
-                        <Label alignment="BASELINE_RIGHT" layoutX="129.0" layoutY="112.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
+                        <Label layoutX="21.0" layoutY="5.0" styleClass="h3" text="Não pagas" />
+                        <Label layoutX="21.0" layoutY="41.0" styleClass="h1" text="R$ 00,00" />
+                        <Label layoutX="105.0" layoutY="5.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="(5)" />
+                        <Label alignment="BASELINE_RIGHT" layoutX="21.0" layoutY="87.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
                      </children>
                   </Pane>
-                  <Pane layoutX="212.0" layoutY="58.0" prefHeight="132.0" prefWidth="210.0" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="57.0">
+                  <Pane layoutX="212.0" layoutY="58.0" prefHeight="115.0" prefWidth="210.0" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="50.0">
                      <children>
-                        <Label layoutX="21.0" layoutY="20.0" styleClass="h3" text="Pagas" />
-                        <Label layoutX="21.0" layoutY="59.0" styleClass="h1" text="R$ 00,00" />
-                        <Label layoutX="21.0" layoutY="112.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0" />
-                        <Label alignment="BASELINE_RIGHT" layoutX="129.0" layoutY="112.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
+                        <Label layoutX="21.0" layoutY="5.0" styleClass="h3" text="Pagas" />
+                        <Label layoutX="21.0" layoutY="41.0" styleClass="h1" text="R$ 00,00" />
+                        <Label layoutX="75.0" layoutY="6.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="(11)" />
+                        <Label alignment="BASELINE_RIGHT" layoutX="19.0" layoutY="87.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
                      </children>
                   </Pane>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="29.0" layoutY="322.0" prefHeight="200.0" prefWidth="420.0" style="-fx-border-color: #DDD; -fx-background-radius: 4; -fx-border-radius: 4;" AnchorPane.leftAnchor="33.0">
-               <children>
-                  <Label layoutX="43.0" layoutY="11.0" style="-fx-padding: 8 18; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-text-fill: #008C8C;" styleClass="h2" text="Receitas" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <Pane layoutX="1.0" layoutY="54.0" prefHeight="132.0" prefWidth="210.0" style="-fx-border-color: #DDD; -fx-border-width: 0 1 0 0;" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="57.0">
-                     <children>
-                        <Label layoutX="21.0" layoutY="20.0" styleClass="h3" text="Não pagas" />
-                        <Label layoutX="21.0" layoutY="59.0" styleClass="h1" text="R$ 00,00" />
-                        <Label layoutX="21.0" layoutY="112.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0" />
-                        <Label alignment="BASELINE_RIGHT" layoutX="129.0" layoutY="112.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="132.0" prefWidth="210.0" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="57.0">
-                     <children>
-                        <Label layoutX="21.0" layoutY="20.0" styleClass="h3" text="Pagas" />
-                        <Label layoutX="21.0" layoutY="59.0" styleClass="h1" text="R$ 00,00" />
-                        <Label layoutX="21.0" layoutY="112.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0" />
-                        <Label alignment="BASELINE_RIGHT" layoutX="129.0" layoutY="112.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
-                     </children>
-                  </Pane>
+                  <Label layoutX="21.0" layoutY="187.0" style="-fx-text-fill: #777; -fx-border-color: #EEE; -fx-border-width: 1 0 0 0; -fx-label-padding: 5 0;" styleClass="h4" text="total: 16" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Label layoutX="354.0" layoutY="187.0" style="-fx-text-fill: #777; -fx-label-padding: 5 0;" styleClass="h4" text="R$ 00,00" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="20.0" />
                </children>
             </AnchorPane>
             <Label alignment="BASELINE_RIGHT" graphicTextGap="8.0" layoutX="574.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="h3" text="04 de Setembro de 2019">
@@ -64,9 +45,9 @@
                   </ImageView>
                </graphic>
             </Label>
-            <AnchorPane layoutX="521.0" layoutY="81.0" prefHeight="327.0" prefWidth="249.0" style="-fx-border-color: #DDD; -fx-background-radius: 5; -fx-border-radius: 5;">
+            <AnchorPane layoutX="521.0" layoutY="81.0" prefHeight="285.0" prefWidth="249.0" style="-fx-border-color: #DDD; -fx-background-radius: 5; -fx-border-radius: 5;">
                <children>
-                  <Pane layoutX="13.0" layoutY="46.0" prefHeight="85.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="46.0">
+                  <Pane layoutX="13.0" layoutY="46.0" prefHeight="85.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="10.0">
                      <children>
                         <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Hoje" />
                         <Label layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
@@ -81,7 +62,7 @@
                         </Button>
                      </children>
                   </Pane>
-                  <Pane layoutX="13.0" layoutY="141.0" prefHeight="85.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
+                  <Pane layoutX="15.0" layoutY="96.0" prefHeight="85.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                      <children>
                         <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Esta semana" />
                         <Label layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
@@ -96,7 +77,7 @@
                         </Button>
                      </children>
                   </Pane>
-                  <Pane layoutX="13.0" layoutY="233.0" prefHeight="85.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
+                  <Pane layoutX="15.0" layoutY="181.0" prefHeight="85.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                      <children>
                         <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Este mes" />
                         <Label layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
@@ -111,7 +92,29 @@
                         </Button>
                      </children>
                   </Pane>
-                  <Label style="-fx-padding: 8 18; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0;" styleClass="h2" text="Vencimentos" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="33.0" layoutY="332.0" prefHeight="215.0" prefWidth="420.0" style="-fx-border-color: #DDD #DDD #DDD #C5C5CD; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-width: 1 1 1 2;" AnchorPane.leftAnchor="45.0">
+               <children>
+                  <Label layoutX="27.0" layoutY="22.0" style="-fx-text-fill: #3A9A63;" styleClass="h2" text="Receitas" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="12.0" />
+                  <Pane layoutX="1.0" layoutY="57.0" prefHeight="115.0" prefWidth="210.0" style="-fx-border-color: #EEE; -fx-border-width: 0 1 0 0;" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="50.0">
+                     <children>
+                        <Label layoutX="21.0" layoutY="5.0" styleClass="h3" text="Não pagas" />
+                        <Label layoutX="21.0" layoutY="41.0" styleClass="h1" text="R$ 00,00" />
+                        <Label layoutX="105.0" layoutY="5.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="(5)" />
+                        <Label alignment="BASELINE_RIGHT" layoutX="21.0" layoutY="87.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="212.0" layoutY="58.0" prefHeight="115.0" prefWidth="210.0" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="50.0">
+                     <children>
+                        <Label layoutX="21.0" layoutY="5.0" styleClass="h3" text="Pagas" />
+                        <Label layoutX="21.0" layoutY="41.0" styleClass="h1" text="R$ 00,00" />
+                        <Label layoutX="75.0" layoutY="6.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="(11)" />
+                        <Label alignment="BASELINE_RIGHT" layoutX="19.0" layoutY="87.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="21.0" layoutY="187.0" style="-fx-text-fill: #777; -fx-border-color: #EEE; -fx-border-width: 1 0 0 0; -fx-label-padding: 5 0;" styleClass="h4" text="total: 16" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Label layoutX="354.0" layoutY="187.0" style="-fx-text-fill: #777; -fx-label-padding: 5 0;" styleClass="h4" text="R$ 00,00" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="20.0" />
                </children>
             </AnchorPane>
          </children>

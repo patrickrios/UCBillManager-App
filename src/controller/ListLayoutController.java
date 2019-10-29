@@ -7,8 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import model.bean.Persistent;
-import model.bean.Register;
+import model.entity.Persistent;
+import model.entity.Register;
 
 public class ListLayoutController {
 

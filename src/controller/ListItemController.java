@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import model.bean.Register;
+import model.entity.Register;
 import view.util.FadeEffect;
 
 public class ListItemController {

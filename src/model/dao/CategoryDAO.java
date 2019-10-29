@@ -1,8 +1,10 @@
 package model.dao;
 
 import java.util.ArrayList;
-import model.bean.Category;
-import model.bean.Persistent;
+
+import model.entity.Category;
+import model.entity.Persistent;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -5,8 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.bean.Payment;
-import model.bean.Persistent;
+
+import model.entity.Payment;
+import model.entity.Persistent;
 
 public class PaymentDAO implements PersistentBean {
 	
