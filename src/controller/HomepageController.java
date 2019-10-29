@@ -37,11 +37,9 @@ public class HomepageController implements Initializable
 		}
 	}
 	
-	private void initiCurrentDate()
-	{
+	private void initiCurrentDate(){
 		Date today = new Date();
 		DateFormat formated = DateFormat.getDateInstance(DateFormat.FULL);
-		
 		this.labelCurrentDate.setText(formated.format(today));
 	}
 
