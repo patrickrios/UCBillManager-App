@@ -16,19 +16,22 @@ public class RegisterInformations {
 		this.type = type;
 	}
 	
-	public void loadCardDatas(String name){
+	public HomeCard loadCardDatas(){
 		this.card = dao.loadInfo(this.type);
 		this.card.setName(TypeRegister.getTypeName(this.type));
+		return this.card;
 	}
 	
-	public void loadPaidDatas(){
+	public HomeCard loadPaidDatas(){
 		this.paid = dao.loadInfo(this.type, TypePaid.PAID);
 		this.paid.setName("Pagas");
+		return this.paid;
 	}
 	
-	public void loadNotPaidDatas(){
+	public HomeCard loadNotPaidDatas(){
 		this.notPaid = dao.loadInfo(this.type, TypePaid.NOTPAID);
 		this.notPaid.setName("Não pagas");
+		return this.notPaid;
 	}
 	
 }

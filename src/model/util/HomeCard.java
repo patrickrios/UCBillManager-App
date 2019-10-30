@@ -1,5 +1,7 @@
 package model.util;
 
+import view.util.RealFormat;
+
 public class HomeCard {
 	private String name;
 	private int total;
@@ -17,9 +19,28 @@ public class HomeCard {
 		this.name = name;
 	}
 	
-	public float calcPercent()
+	private float calcPercent(){
+		if(total == 0)
+			return 0;
+		else
+			return (100*this.subtotal)/this.total;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public String getSubtotal() {
+		return ""+this.subtotal;
+	}
+	
+	public String getValue() {
+		return RealFormat.floatToRealString(this.value);
+	}
+	
+	public String getPercentual()
 	{
-		return this.percent;
+		return this.calcPercent()+"%";
 	}
 
 }

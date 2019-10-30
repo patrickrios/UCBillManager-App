@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import view.util.FadeEffect;
+import javafx.scene.layout.VBox;
+import model.entity.TypeRegister;
 
 public class HomepageController implements Initializable
 {
@@ -19,10 +21,14 @@ public class HomepageController implements Initializable
     private StackPane stackpaneHomepage;
 	@FXML
     private Label labelCurrentDate;
+	@FXML
+    private VBox vboxCards;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		initiCurrentDate();
+		loadCard(TypeRegister.DESPESA);
+		loadCard(TypeRegister.RECEITA);
 	}
 	
 	@FXML
@@ -41,6 +47,22 @@ public class HomepageController implements Initializable
 		Date today = new Date();
 		DateFormat formated = DateFormat.getDateInstance(DateFormat.FULL);
 		this.labelCurrentDate.setText(formated.format(today));
+	}
+	
+	private void loadCard(int type)
+	{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLHomeCard.fxml"));
+		
+		try {
+			Parent p = loader.load();
+			HomeCardController c = loader.getController();
+			c.inti(type);
+			this.vboxCards.getChildren().add(p);
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
