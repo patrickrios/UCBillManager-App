@@ -79,9 +79,9 @@ public class ExpiredDAO {
 	{
 		int[] values = new int[3];
 		int i = 0;
-		String sql = "(SELECT count(id_register) AS count FROM ucbm_register WHERE "+ExpirationInterval.MONTHLY+" AND paid='0')"
+		String sql = "(SELECT count(id_register) AS count FROM ucbm_register WHERE "+ExpirationInterval.DAILY+" AND paid='0')"
 				   + "UNION (SELECT count(id_register) FROM ucbm_register WHERE "+ExpirationInterval.WEEKLY+" AND paid='0') "
-				   + "UNION (SELECT count(id_register) FROM ucbm_register WHERE "+ExpirationInterval.DAILY+" AND paid='0')";
+				   + "UNION (SELECT count(id_register) FROM ucbm_register WHERE "+ExpirationInterval.MONTHLY+" AND paid='0')";
 		
 		try {
 			PreparedStatement s = this.connection.prepareStatement(sql);

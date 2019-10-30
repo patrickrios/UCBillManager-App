@@ -12,8 +12,8 @@
       <AnchorPane layoutX="110.0" layoutY="38.0" prefWidth="520.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>
             <Label layoutX="20.0" layoutY="22.0" styleClass="h2" text="Vencimentos" />
-            <ChoiceBox layoutX="383.0" layoutY="20.0" prefHeight="32.0" prefWidth="110.0" />
-            <Label layoutX="156.0" layoutY="26.0" style="-fx-text-fill: #0099CC;" styleClass="h3" text="(2)" />
+            <ChoiceBox fx:id="choiceboxInterval" layoutX="383.0" layoutY="20.0" prefHeight="32.0" prefWidth="110.0" />
+            <Label fx:id="labelTotalExpirations" layoutX="156.0" layoutY="26.0" style="-fx-text-fill: #0099CC;" styleClass="h3" text="(0)" />
             <VBox fx:id="vboxItens" layoutX="20.0" layoutY="71.0">
                <padding>
                   <Insets bottom="60.0" />

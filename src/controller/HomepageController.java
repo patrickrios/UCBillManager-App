@@ -20,6 +20,7 @@ import javafx.scene.layout.StackPane;
 import view.util.FadeEffect;
 import javafx.scene.layout.VBox;
 import model.dao.ExpiredDAO;
+import model.entity.TypExpInterval;
 import model.entity.TypeRegister;
 import model.util.ExpirationDate;
 import model.util.ExpiredRegister;
@@ -44,13 +45,30 @@ public class HomepageController implements Initializable
 		initiCurrentDate();
 		loadCard(TypeRegister.DESPESA);
 		loadCard(TypeRegister.RECEITA);
-		testExp();
+		initExpLabels();
 	}
 	
 	@FXML
-    void loadExpirationList() {
+    void loadDailyExpirationList() {
+		loadExpirationList(0);
+    }
+	
+    @FXML
+    void loadWeeklyExpirationList() {
+    	loadExpirationList(1);
+    }
+
+    @FXML
+    void loadMonthlyExpirationList() {
+    	loadExpirationList(2);
+    }
+
+    private void loadExpirationList(int typeExpInt) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLExpirationList.fxml"));
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLExpirationListHomepage.fxml"));
+			Parent parent = loader.load();
+			ExpirationListController c = loader.getController();
+			c.initi(loadNumbersExpirations(), typeExpInt);
 			new FadeEffect(parent);
 			this.stackpaneHomepage.getChildren().add(parent);
 		} 
@@ -65,8 +83,7 @@ public class HomepageController implements Initializable
 		this.labelCurrentDate.setText(formated.format(today));
 	}
 	
-	private void loadCard(int type)
-	{
+	private void loadCard(int type){
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLHomeCard.fxml"));
 		
 		try {
@@ -80,31 +97,15 @@ public class HomepageController implements Initializable
 		}
 	}
 	
-	private void testExp()
-	{
-		ExpiredDAO dao = new ExpiredDAO();
-		ArrayList<ExpiredRegister> list = dao.loadMonthlyExpiration();
-		
-		int m[] = dao.numberOfExpirations();
-		this.labelDailyExp.setText(labelDailyExp.getText().replace("0",""+m[2]));
+	private int[] loadNumbersExpirations(){
+		int values[] = new ExpiredDAO().numberOfExpirations();
+		return values;
+	}
+	
+	private void initExpLabels(){
+		int m[] = new ExpiredDAO().numberOfExpirations();
+		this.labelDailyExp.setText(labelDailyExp.getText().replace("0",""+m[0]));
 		this.labelWeeklyExp.setText(labelWeeklyExp.getText().replace("0",""+m[1]));
-		this.labelMonthlyExp.setText(labelMonthlyExp.getText().replace("0",""+m[0]));
-		
-		System.out.println("\nMONTHLY EXPIRATIONS ("+m[0]+")");
-		printList(list);
-		System.out.println("\nWEEKLY EXPIRATIONS ("+m[1]+")");
-		list = dao.loadWeeklyExpiration();
-		printList(list);
-		System.out.println("\nDAILY EXPIRATIONS ("+m[2]+")");
-		list = dao.loadDailyExpiration();
-		printList(list);
-	}
-	
-	private void printList(ArrayList<ExpiredRegister> list)
-	{
-		for(ExpiredRegister r : list){
-			System.out.println("Expired {code="+r.getCode()+", value="+r.formattedValue()+", expiration="+r.formattedExpDate()+"}");
-		}
-	}
-	
+		this.labelMonthlyExp.setText(labelMonthlyExp.getText().replace("0",""+m[2]));
+	}	
 }

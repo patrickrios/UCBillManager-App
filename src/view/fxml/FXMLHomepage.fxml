@@ -29,7 +29,7 @@
                      <children>
                         <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Hoje" />
                         <Label fx:id="labelDailyExp" layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
-                        <Button layoutX="183.0" layoutY="46.0" mnemonicParsing="false" onAction="#loadExpirationList" style="-fx-padding: 2 4; -fx-background-color: #EEE;">
+                        <Button layoutX="183.0" layoutY="46.0" mnemonicParsing="false" onAction="#loadDailyExpirationList" style="-fx-padding: 2 4; -fx-background-color: #EEE;">
                            <graphic>
                               <ImageView fitHeight="10.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -44,7 +44,7 @@
                      <children>
                         <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Esta semana" />
                         <Label fx:id="labelWeeklyExp" layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
-                        <Button layoutX="183.0" layoutY="46.0" mnemonicParsing="false" onAction="#loadExpirationList" style="-fx-padding: 2 4; -fx-background-color: #EEE;">
+                        <Button layoutX="183.0" layoutY="46.0" mnemonicParsing="false" onAction="#loadWeeklyExpirationList" style="-fx-padding: 2 4; -fx-background-color: #EEE;">
                            <graphic>
                               <ImageView fitHeight="10.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -59,7 +59,7 @@
                      <children>
                         <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Este mês" />
                         <Label fx:id="labelMonthlyExp" layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
-                        <Button layoutX="183.0" layoutY="46.0" mnemonicParsing="false" onAction="#loadExpirationList" style="-fx-padding: 2 4; -fx-background-color: #EEE;">
+                        <Button layoutX="183.0" layoutY="46.0" mnemonicParsing="false" onAction="#loadMonthlyExpirationList" style="-fx-padding: 2 4; -fx-background-color: #EEE;">
                            <graphic>
                               <ImageView fitHeight="10.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
