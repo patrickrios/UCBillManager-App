@@ -3,8 +3,13 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
+
+import com.mysql.cj.exceptions.FeatureNotAvailableException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +19,7 @@ import javafx.scene.layout.StackPane;
 import view.util.FadeEffect;
 import javafx.scene.layout.VBox;
 import model.entity.TypeRegister;
+import model.util.ExpirationDate;
 
 public class HomepageController implements Initializable
 {
@@ -62,8 +68,6 @@ public class HomepageController implements Initializable
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
-
+	
 }
-

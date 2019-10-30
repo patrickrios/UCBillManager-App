@@ -23,8 +23,7 @@ public class ExpiredRegister {
 		return RealFormat.floatToRealString(this.value);
 	}
 	
-	public String formattedExpDate()
-	{
+	public String formattedExpDate(){
 		return this.expDate.toString();
 	}
 }
