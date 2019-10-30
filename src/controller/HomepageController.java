@@ -31,6 +31,12 @@ public class HomepageController implements Initializable
 	@FXML
     private Label labelCurrentDate;
 	@FXML
+    private Label labelDailyExp;
+    @FXML
+    private Label labelWeeklyExp;
+    @FXML
+    private Label labelMonthlyExp;
+	@FXML
     private VBox vboxCards;
 
 	@Override
@@ -78,12 +84,18 @@ public class HomepageController implements Initializable
 	{
 		ExpiredDAO dao = new ExpiredDAO();
 		ArrayList<ExpiredRegister> list = dao.loadMonthlyExpiration();
-		System.out.println("\nMONTHLY EXPIRATIONS");
+		
+		int m[] = dao.numberOfExpirations();
+		this.labelDailyExp.setText(labelDailyExp.getText().replace("0",""+m[2]));
+		this.labelWeeklyExp.setText(labelWeeklyExp.getText().replace("0",""+m[1]));
+		this.labelMonthlyExp.setText(labelMonthlyExp.getText().replace("0",""+m[0]));
+		
+		System.out.println("\nMONTHLY EXPIRATIONS ("+m[0]+")");
 		printList(list);
-		System.out.println("\nWEEKLY EXPIRATIONS");
+		System.out.println("\nWEEKLY EXPIRATIONS ("+m[1]+")");
 		list = dao.loadWeeklyExpiration();
 		printList(list);
-		System.out.println("\nDAILY EXPIRATIONS");
+		System.out.println("\nDAILY EXPIRATIONS ("+m[2]+")");
 		list = dao.loadDailyExpiration();
 		printList(list);
 	}

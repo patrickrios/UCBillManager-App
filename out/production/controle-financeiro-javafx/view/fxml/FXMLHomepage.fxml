@@ -13,7 +13,7 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFF;">
          <children>
-            <Label layoutX="29.0" layoutY="22.0" styleClass="h1" text="Página Inicial" AnchorPane.leftAnchor="45.0" />
+            <Label layoutX="29.0" layoutY="22.0" styleClass="h1" text="Página inicial" AnchorPane.leftAnchor="45.0" />
             <Label fx:id="labelCurrentDate" alignment="BASELINE_RIGHT" graphicTextGap="8.0" layoutX="574.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="h3" text="04 de Setembro de 2019" AnchorPane.rightAnchor="130.0">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
@@ -28,7 +28,7 @@
                   <Pane layoutX="13.0" layoutY="46.0" prefHeight="85.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="10.0">
                      <children>
                         <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Hoje" />
-                        <Label layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
+                        <Label fx:id="labelDailyExp" layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
                         <Button layoutX="183.0" layoutY="46.0" mnemonicParsing="false" onAction="#loadExpirationList" style="-fx-padding: 2 4; -fx-background-color: #EEE;">
                            <graphic>
                               <ImageView fitHeight="10.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
@@ -43,7 +43,7 @@
                   <Pane layoutX="15.0" layoutY="96.0" prefHeight="85.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                      <children>
                         <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Esta semana" />
-                        <Label layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
+                        <Label fx:id="labelWeeklyExp" layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
                         <Button layoutX="183.0" layoutY="46.0" mnemonicParsing="false" onAction="#loadExpirationList" style="-fx-padding: 2 4; -fx-background-color: #EEE;">
                            <graphic>
                               <ImageView fitHeight="10.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
@@ -57,8 +57,8 @@
                   </Pane>
                   <Pane layoutX="15.0" layoutY="181.0" prefHeight="85.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                      <children>
-                        <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Este mes" />
-                        <Label layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
+                        <Label layoutX="4.0" layoutY="14.0" styleClass="h3" text="Este mês" />
+                        <Label fx:id="labelMonthlyExp" layoutX="6.0" layoutY="48.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="0 vencimentos" />
                         <Button layoutX="183.0" layoutY="46.0" mnemonicParsing="false" onAction="#loadExpirationList" style="-fx-padding: 2 4; -fx-background-color: #EEE;">
                            <graphic>
                               <ImageView fitHeight="10.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
