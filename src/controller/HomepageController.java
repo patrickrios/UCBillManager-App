@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -18,8 +19,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import view.util.FadeEffect;
 import javafx.scene.layout.VBox;
+import model.dao.ExpiredDAO;
 import model.entity.TypeRegister;
 import model.util.ExpirationDate;
+import model.util.ExpiredRegister;
 
 public class HomepageController implements Initializable
 {
@@ -35,6 +38,7 @@ public class HomepageController implements Initializable
 		initiCurrentDate();
 		loadCard(TypeRegister.DESPESA);
 		loadCard(TypeRegister.RECEITA);
+		testExp();
 	}
 	
 	@FXML
@@ -67,6 +71,27 @@ public class HomepageController implements Initializable
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	private void testExp()
+	{
+		ExpiredDAO dao = new ExpiredDAO();
+		ArrayList<ExpiredRegister> list = dao.loadMonthlyExpiration();
+		System.out.println("\nMONTHLY EXPIRATIONS");
+		printList(list);
+		System.out.println("\nWEEKLY EXPIRATIONS");
+		list = dao.loadWeeklyExpiration();
+		printList(list);
+		System.out.println("\nDAILY EXPIRATIONS");
+		list = dao.loadDailyExpiration();
+		printList(list);
+	}
+	
+	private void printList(ArrayList<ExpiredRegister> list)
+	{
+		for(ExpiredRegister r : list){
+			System.out.println("Expired {code="+r.getCode()+", value="+r.formattedValue()+", expiration="+r.formattedExpDate()+"}");
 		}
 	}
 	

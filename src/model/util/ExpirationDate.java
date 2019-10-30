@@ -7,39 +7,34 @@ import java.util.GregorianCalendar;
 
 public class ExpirationDate {
 
-	private static SimpleDateFormat first = new SimpleDateFormat("y-MM-dd 00:00:00");
-	private static SimpleDateFormat last = new SimpleDateFormat("y-MM-dd 59:59:29");
+	private static SimpleDateFormat f = new SimpleDateFormat("y-MM-dd");
 	
 	public static String today(){
 		Date today = new Date();
-		return first.format(today);
+		return f.format(today);
 	}
 	
-	public static String firstDayWeek()
-	{
+	public static String firstDayWeek(){
 		Date firstDay = week(true);
-		return first.format(firstDay);
+		return f.format(firstDay);
 	}
 	
-	public static String lastDayWeek()
-	{
+	public static String lastDayWeek(){
 		Date lastDay = week(false);
-		return last.format(lastDay);
+		return f.format(lastDay);
 	}
 	
-	public static String firstDayMonth()
-	{
+	public static String firstDayMonth(){
 		Date firstDay = month(true);
-		return first.format(firstDay);
+		return f.format(firstDay);
 	}
 	
-	public static String lastDayMonth()
-	{
+	public static String lastDayMonth(){
 		Date lastDay = month(false);
-		return last.format(lastDay);
+		return f.format(lastDay);
 	}
 	
-	public static Date week(boolean isFirst) {
+	public static Date week(boolean isFirst){
 
 	       Date dataGB = new Date();
 
@@ -47,12 +42,11 @@ public class ExpirationDate {
 	        calendar.setFirstDayOfWeek(Calendar.SUNDAY);
 	        calendar.setTime(dataGB);
 
-	        if (isFirst) {
+	        if (isFirst) 
 	            calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-	        } else {
+	        else 
 	            calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
-	        }
-
+	        
 	        return calendar.getTime();
 	    }
 	
@@ -63,13 +57,11 @@ public class ExpirationDate {
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.setTime(dataGB);
 
-        if (isFirst) {
+        if (isFirst) 
             calendar.set(Calendar.DAY_OF_MONTH, 1);
-        } else {
+        else 
             calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
-        }
-
+        
         return calendar.getTime();
 	}
-
 }

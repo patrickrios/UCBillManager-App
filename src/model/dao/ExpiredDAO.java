@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import model.util.ExpirationDate;
+import model.util.ExpirationInterval;
 import model.util.ExpiredRegister;
 
 public class ExpiredDAO {
@@ -18,7 +18,7 @@ public class ExpiredDAO {
 	
 	public ArrayList<ExpiredRegister> loadDailyExpiration(){
 		ArrayList<ExpiredRegister> list = new ArrayList<>();
-		String query = "SELECT code, value, expiration FROM ucbm_register WHERE (expiration='$today' AND paid='0')";
+		String query = "SELECT code, value, expiration FROM ucbm_register WHERE "+ExpirationInterval.DAILY+" AND paid='0'";
 		query = query.replace("$today", ExpirationDate.today());
 		
 		try {
@@ -39,10 +39,8 @@ public class ExpiredDAO {
 	public ArrayList<ExpiredRegister> loadWeeklyExpiration()
 	{
 		ArrayList<ExpiredRegister> list = new ArrayList<>();
-		String query = "SELECT code, value, expiration FROM ucbm_register WHERE ((expiration>='$firstDay' AND expiration<='$lastDay') AND paid = '0')";
-		query = query.replace("$firstDay", ExpirationDate.firstDayWeek());
-		query = query.replace("$lastDay", ExpirationDate.lastDayWeek());
-		
+		String query = "SELECT code, value, expiration FROM ucbm_register WHERE "+ExpirationInterval.WEEKLY+" AND paid = '0'";
+	
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
 			ResultSet r = statement.executeQuery();
@@ -60,9 +58,7 @@ public class ExpiredDAO {
 
 	public ArrayList<ExpiredRegister> loadMonthlyExpiration(){
 		ArrayList<ExpiredRegister> list = new ArrayList<>();
-		String query = "SELECT code, value, expiration FROM ucbm_register WHERE (expiration>=$first AND expiration<=$last) AND paid='0'";
-		query = query.replace("$first", ExpirationDate.firstDayMonth());
-		query = query.replace("$last", ExpirationDate.lastDayMonth());
+		String query = "SELECT code, value, expiration FROM ucbm_register WHERE "+ExpirationInterval.MONTHLY+" AND paid='0'";
 		
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
@@ -72,7 +68,8 @@ public class ExpiredDAO {
 				list.add(new ExpiredRegister(r.getString(1), r.getFloat(2), r.getTimestamp(3)));
 			}
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return list;
