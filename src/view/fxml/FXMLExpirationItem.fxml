@@ -4,11 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="460.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-border-style: dashed; -fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="460.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-border-style: dashed; -fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ExpirationItemController">
    <children>
       <CheckBox layoutX="14.0" layoutY="10.0" mnemonicParsing="false" />
-      <Label layoutX="37.0" layoutY="10.0" styleClass="h4" text="code" />
-      <Label layoutX="108.0" layoutY="10.0" styleClass="h4" text="category" />
-      <Label layoutX="240.0" layoutY="10.0" styleClass="h4" text="value" />
+      <Label fx:id="labelCode" layoutX="59.0" layoutY="10.0" styleClass="h4" text="code" />
+      <Label fx:id="labelExpiration" layoutX="148.0" layoutY="10.0" styleClass="h4" text="exp" />
+      <Label fx:id="labelValue" layoutX="365.0" layoutY="10.0" styleClass="h4" text="value" />
    </children>
 </Pane>

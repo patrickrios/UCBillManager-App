@@ -16,9 +16,9 @@ public class ExpiredDAO {
 		this.connection = ConnectionFactory.getConnection();
 	}
 	
-	public ArrayList<ExpiredRegister> loadDailyExpiration(){
+	public ArrayList<ExpiredRegister> loadExpiration(String interval){
 		ArrayList<ExpiredRegister> list = new ArrayList<>();
-		String query = "SELECT code, value, expiration FROM ucbm_register WHERE "+ExpirationInterval.DAILY+" AND paid='0'";
+		String query = "SELECT code, value, expiration FROM ucbm_register WHERE "+interval+" AND paid='0'";
 		query = query.replace("$today", ExpirationDate.today());
 		
 		try {
@@ -35,46 +35,7 @@ public class ExpiredDAO {
 		}
 		return list;
 	}
-
-	public ArrayList<ExpiredRegister> loadWeeklyExpiration()
-	{
-		ArrayList<ExpiredRegister> list = new ArrayList<>();
-		String query = "SELECT code, value, expiration FROM ucbm_register WHERE "+ExpirationInterval.WEEKLY+" AND paid = '0'";
 	
-		try {
-			PreparedStatement statement = this.connection.prepareStatement(query);
-			ResultSet r = statement.executeQuery();
-			
-			while(r.next()) {
-				list.add(new ExpiredRegister(r.getString(1), r.getFloat(2), r.getTimestamp(3)));
-			}
-			statement.close();
-		} 
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-
-	public ArrayList<ExpiredRegister> loadMonthlyExpiration(){
-		ArrayList<ExpiredRegister> list = new ArrayList<>();
-		String query = "SELECT code, value, expiration FROM ucbm_register WHERE "+ExpirationInterval.MONTHLY+" AND paid='0'";
-		
-		try {
-			PreparedStatement statement = this.connection.prepareStatement(query);
-			ResultSet r = statement.executeQuery();
-			
-			while(r.next()) {
-				list.add(new ExpiredRegister(r.getString(1), r.getFloat(2), r.getTimestamp(3)));
-			}
-			statement.close();
-		} 
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-
 	public int[] numberOfExpirations()
 	{
 		int[] values = new int[3];

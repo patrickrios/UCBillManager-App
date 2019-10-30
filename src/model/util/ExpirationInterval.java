@@ -25,4 +25,16 @@ public class ExpirationInterval {
 		return t;
 	}
 	
+	public static String getIntervalOfInt(int type)
+	{
+		String interval = "";
+		if(type==0)
+			interval = today();
+		else if(type==1)
+			interval = week();
+		else
+			interval = month();
+		return interval;	
+	}
+	
 }
