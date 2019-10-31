@@ -39,13 +39,13 @@
 	/** Main*/
 	.main-button-menu{-fx-background-color:transparent;-fx-cursor:hand; -fx-border-color:#F4F5F6;-fx-text-fill:#354751; -fx-padding:8 12;-fx-pref-width:165; -fx-font-size:16; -fx-background-radius:3; -fx-border-radius:3;}
 	.main-button-menu:hover{-fx-background-color:#E3E3E3;-fx-border-color:#E3E3E3;}
-	.main-button-menu-selected{-fx-background-color:#EEE;-fx-cursor:hand;  -fx-border-color:#CCC; -fx-text-fill:#4F87E6;-fx-padding:8 12;-fx-pref-width:165; -fx-font-size:16; -fx-background-radius:3; -fx-border-radius:3;}
+	.main-button-menu-selected{-fx-background-color:#EEE;-fx-cursor:hand;  -fx-border-color:#4F87E6; -fx-text-fill:#4F87E6;-fx-padding:8 12;-fx-pref-width:165; -fx-font-size:16; -fx-background-radius:3; -fx-border-radius:3;}
 	.home-card-title-receita{-fx-text-fill:#3A9A63;}
 	.home-card-title-despesa{-fx-text-fill:#FF5555;}
 
 	/** Add novo*/
 	.choice-button{-fx-border-width:2; -fx-text-fill:#999;-fx-background-color:#FFF; -fx-border-color:#CCC; -fx-border-radius:3; -fx-background-radius:3;}
-	.choice-button-selected{-fx-text-fill:#23929E; -fx-border-width:2;-fx-background-color:#FFF;-fx-border-color:#23929E;-fx-border-radius:3; -fx-background-radius:3;}
+	.choice-button-selected{-fx-text-fill:#21AF84; -fx-border-width:2;-fx-background-color:#FFF;-fx-border-color:#21AF84;-fx-border-radius:2; -fx-background-radius:2;}
 	.pane-row-content{-fx-padding:10 20; -fx-border-color:#DDD;}
 
 	.scroll-pane > .viewport {  //not .scrollpane but .scroll-pane

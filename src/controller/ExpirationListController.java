@@ -43,12 +43,12 @@ public class ExpirationListController{
 	{
 		this.choiceboxInterval.getSelectionModel().selectedIndexProperty().addListener(new 
 				ChangeListener<Number>() {
-					@Override
-					public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-							Number newValue) {
-						loadList(newValue.intValue());
-						setLabelTotalExp(values[newValue.intValue()]);
-					}		
+				@Override
+				public void changed(ObservableValue<? extends Number> observable, Number oldValue,
+					Number newValue) {
+					loadList(newValue.intValue());
+					setLabelTotalExp(values[newValue.intValue()]);
+				}		
 		});
 	}
 	

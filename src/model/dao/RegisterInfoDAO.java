@@ -49,7 +49,6 @@ public class RegisterInfoDAO {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return card;
 	}
 }
