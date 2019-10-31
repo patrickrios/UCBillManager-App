@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.dao.RegisterDAO;
+import model.entity.List;
 import model.entity.Persistent;
 import model.entity.Register;
 import view.util.FadeEffect;
@@ -52,23 +53,24 @@ public class ListController implements Initializable
     @FXML
     private VBox vboxListItens;
     
-    ArrayList<Persistent> list ;
+    ArrayList<Persistent> itens ;
+    
+    List list = new List();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		this.list = new RegisterDAO().findGroup(0,0);
-		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
 		this.loadList();
-		this.loadListView();
+		this.viewListLayout();
 		this.scrollListItens.setHbarPolicy(ScrollBarPolicy.NEVER);
+		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
 	}
 
     private void loadList(){ 
-    	this.list = new RegisterDAO().findGroup(0,0);
+    	this.itens = this.list.getItens();
     }
     
     @FXML
-    void loadListView()
+    void showListView()
     {
     	this.vboxListItens.getChildren().clear();
     	
@@ -76,7 +78,7 @@ public class ListController implements Initializable
 			Parent header = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLListViewHeader.fxml"));
 			this.vboxListItens.getChildren().add(header);
 			
-			for(Persistent p : this.list){
+			for(Persistent p : this.itens){
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
 				Parent item = loader.load();
 				ListItemController c = loader.getController();
@@ -90,15 +92,14 @@ public class ListController implements Initializable
     }
     
     @FXML
-    public void loadListCards()
+    public void showGridView()
     {
-    	FXMLLoader l = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListCardsLayout.fxml"));
+    	FXMLLoader grid = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListGridItem.fxml"));
     	
     	try {
-			Parent p = l.load();
-			ListGridLayoutController c = l.getController();
-			c.initi(this.list, this.stackpaneList);
-			new FadeEffect(p);
+			grid.load();
+			ListGridLayoutController c = grid.getController();
+			c.initi(this.itens, this.vboxListItens, this.stackpaneList);
 			//this.paneListLayout.getChildren().setAll(p);
 			
 		} 
@@ -109,7 +110,7 @@ public class ListController implements Initializable
 
     @FXML
     public void viewGridLayout(){
-    	loadListCards();
+    	showGridView();
         markButtonView(this.buttonViewGrid);
         unmarkButtonView(this.buttonViewList);
         changeViewGridIconOn();
@@ -118,7 +119,7 @@ public class ListController implements Initializable
 
     @FXML
     void viewListLayout(){
-    	loadList();
+    	showListView();
         markButtonView(this.buttonViewList);
         unmarkButtonView(this.buttonViewGrid);
         changeViewListIconOn();

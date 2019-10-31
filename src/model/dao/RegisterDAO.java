@@ -8,11 +8,12 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import model.entity.Category;
+import model.entity.Listable;
 import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
 
-public class RegisterDAO implements PersistentBean {
+public class RegisterDAO implements PersistentBean, Listable {
 	private Connection connection;
 	
 	public RegisterDAO() {
@@ -139,6 +140,30 @@ public class RegisterDAO implements PersistentBean {
 		if(i==1)
 			val = true;
 		return val;
+	}
+
+	@Override
+	public ArrayList<Persistent> loadNextPage(int offset, int limit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Persistent> loadPreviousPage(int offset, int limit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Persistent> loadFavorites(int offset, int limit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Persistent> findItens(int offset, int limit, String input) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
