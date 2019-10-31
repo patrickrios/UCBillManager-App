@@ -5,20 +5,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import model.dao.RegisterDAO;
 import model.entity.List;
 import model.entity.Persistent;
 import model.entity.Register;
-import view.util.FadeEffect;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -33,11 +32,11 @@ public class ListController implements Initializable
     @FXML
     private TextField textfieldSearch;
     @FXML
-    private Button buttonPagPreviousPage;
+    private Button buttonPreviousPage;
     @FXML
     private Label labelPaginationInfo;
     @FXML
-    private Button buttonPagNextPage;
+    private Button buttonNextPage;
     @FXML
     private Button buttonDeleteAll;
     @FXML
@@ -53,16 +52,15 @@ public class ListController implements Initializable
     @FXML
     private VBox vboxListItens;
     
-    ArrayList<Persistent> itens ;
+    private ArrayList<Persistent> itens ;
     
-    List list = new List();
+    private List list = new List();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		this.loadList();
-		this.viewListLayout();
-		this.scrollListItens.setHbarPolicy(ScrollBarPolicy.NEVER);
-		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
+		loadList();
+		viewListLayout();
+		initComponents();
 	}
 
     private void loadList(){ 
@@ -95,13 +93,10 @@ public class ListController implements Initializable
     public void showGridView()
     {
     	FXMLLoader grid = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListGridItem.fxml"));
-    	
     	try {
 			grid.load();
 			ListGridLayoutController c = grid.getController();
 			c.initi(this.itens, this.vboxListItens, this.stackpaneList);
-			//this.paneListLayout.getChildren().setAll(p);
-			
 		} 
     	catch (IOException e) {
 			e.printStackTrace();
@@ -126,6 +121,26 @@ public class ListController implements Initializable
         changeViewGridIconOff();
     }
 
+    @FXML
+    void searchItens(){
+
+    }
+    @FXML
+    void showNextPage(){
+    	this.itens = list.loadNextPage();
+    	showListView();
+    	updatePaginationInfo();
+    	updatePaginationControls();
+    	
+    }
+    @FXML
+    void showPreviousPage(){
+    	this.itens = list.loadPreviousPage();
+    	showListView();
+    	updatePaginationControls();
+    	updatePaginationControls();
+    }
+    
     private void markButtonView (Button button){
         button.getStyleClass().clear();
         button.getStyleClass().add("button");
@@ -162,4 +177,28 @@ public class ListController implements Initializable
         icon = new Image(getClass().getResourceAsStream("/view/img/list/view-list-unselected-17x14.png"));
         this.buttonViewList.setGraphic(new ImageView(icon));
     }    
+    
+    private void initComponents(){
+    	this.labelTotalRegisters.setText("("+this.list.valueOfTotalRegister()+")");
+    	updatePaginationInfo();
+    	updatePaginationControls();
+    	this.scrollListItens.setHbarPolicy(ScrollBarPolicy.NEVER);
+		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
+    }
+
+    private void updatePaginationInfo(){
+    	this.labelPaginationInfo.setText(this.list.paginationInfo());
+    }
+    
+    private void updatePaginationControls(){
+    	if(this.list.isFirstPage())
+    		this.buttonPreviousPage.setDisable(true);
+    	else
+    		this.buttonPreviousPage.setDisable(false);
+    	
+    	if(this.list.isLastPage())
+    		this.buttonNextPage.setDisable(true);
+    	else
+    		this.buttonNextPage.setDisable(false);	
+    }
 }

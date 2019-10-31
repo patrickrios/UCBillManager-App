@@ -75,9 +75,10 @@ public class RegisterDAO implements PersistentBean, Listable {
 		String query = "SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
 				"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
 				"ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
-				"FROM ucbm_register "+ 
+				"FROM ucbm_register "+
 				"INNER JOIN ucbm_category ON ucbm_register.category_id = ucbm_category.id_category "+ 
-				"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment";
+				"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment "+
+				"LIMIT "+limit+" OFFSET "+offset;
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
@@ -143,18 +144,6 @@ public class RegisterDAO implements PersistentBean, Listable {
 	}
 
 	@Override
-	public ArrayList<Persistent> loadNextPage(int offset, int limit) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<Persistent> loadPreviousPage(int offset, int limit) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ArrayList<Persistent> loadFavorites(int offset, int limit) {
 		// TODO Auto-generated method stub
 		return null;
@@ -164,6 +153,37 @@ public class RegisterDAO implements PersistentBean, Listable {
 	public ArrayList<Persistent> findItens(int offset, int limit, String input) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public int[] loadDatasToInitList()
+	{
+		int[] datas = new int[2];
+		String query1 = "SELECT count(id_register) FROM ucbm_register";
+		String query2 = "SELECT count(id_register) FROM ucbm_register WHERE favorite='1'";
+		
+		try {
+			PreparedStatement stat1 = this.connection.prepareStatement(query1);
+			PreparedStatement stat2 = this.connection.prepareStatement(query2);
+			
+			ResultSet r = stat1.executeQuery();
+			while(r.next()) {
+				datas[0] = r.getInt(1);
+				break;
+			}
+			
+			r = stat2.executeQuery();
+			while(r.next()) {
+				datas[1] = r.getInt(1);
+				break;
+			}
+			stat1.close();
+			stat2.close();
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return datas;
 	}
 
 }
