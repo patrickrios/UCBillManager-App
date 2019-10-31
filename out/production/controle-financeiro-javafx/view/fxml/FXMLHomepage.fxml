@@ -14,7 +14,7 @@
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFF;">
          <children>
             <Label layoutX="29.0" layoutY="22.0" styleClass="h1" text="Página inicial" AnchorPane.leftAnchor="45.0" />
-            <Label fx:id="labelCurrentDate" alignment="BASELINE_RIGHT" graphicTextGap="8.0" layoutX="574.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="h3" text="04 de Setembro de 2019" AnchorPane.rightAnchor="130.0">
+            <Label fx:id="labelCurrentDate" alignment="BASELINE_RIGHT" graphicTextGap="8.0" layoutX="574.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="h3" text="full date" AnchorPane.rightAnchor="130.0">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>

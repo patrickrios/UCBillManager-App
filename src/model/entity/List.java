@@ -3,17 +3,14 @@ package model.entity;
 import java.util.ArrayList;
 import model.dao.PersistentBean;
 
-public class List implements Paginable {
+public class List implements Listable {
 
-	private int offset=1;
-	private int limit=15;
-	private int numOfRegister;
-	private PersistentBean pDao;
+	private int totalRegisters;
+	private int offset;
+	private int limit;
+	private int totalFavorites;
+	private ArrayList<Persistent> itensList;
 	
-	public List(PersistentBean p) {
-		this.pDao = p;
-	}
-
 	@Override
 	public ArrayList<Persistent> loadNextPage() {
 		// TODO Auto-generated method stub

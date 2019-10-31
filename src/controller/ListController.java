@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -24,7 +25,7 @@ import java.util.ResourceBundle;
 
 public class ListController implements Initializable
 {
-	 @FXML
+	@FXML
 	private StackPane stackpaneList;
     @FXML
     private Label labelListTitle;
@@ -45,7 +46,11 @@ public class ListController implements Initializable
     @FXML
     private AnchorPane anchorListHeader;
     @FXML
-    private Pane paneListLayout;
+    private Label labelTotalRegisters;
+    @FXML
+    private ScrollPane scrollListItens;
+    @FXML
+    private VBox vboxListItens;
     
     ArrayList<Persistent> list ;
 
@@ -54,19 +59,32 @@ public class ListController implements Initializable
 		this.list = new RegisterDAO().findGroup(0,0);
 		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
 		this.loadList();
+		this.loadListView();
+		this.scrollListItens.setHbarPolicy(ScrollBarPolicy.NEVER);
 	}
 
-    private void loadList()
-	{ 
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListLayout.fxml"));
-		
-		try {
-			Parent p = loader.load();
-			ListLayoutController c = loader.getController();
-			c.initi(this.list, this.stackpaneList);
-			this.paneListLayout.getChildren().setAll(p);
+    private void loadList(){ 
+    	this.list = new RegisterDAO().findGroup(0,0);
+    }
+    
+    @FXML
+    void loadListView()
+    {
+    	this.vboxListItens.getChildren().clear();
+    	
+    	try {
+			Parent header = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLListViewHeader.fxml"));
+			this.vboxListItens.getChildren().add(header);
+			
+			for(Persistent p : this.list){
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
+				Parent item = loader.load();
+				ListItemController c = loader.getController();
+				c.inti((Register)p, this.stackpaneList);
+				this.vboxListItens.getChildren().add(item);
+			}
 		} 
-		catch (IOException e) {
+    	catch (IOException e) {
 			e.printStackTrace();
 		}
     }
@@ -81,7 +99,7 @@ public class ListController implements Initializable
 			ListGridLayoutController c = l.getController();
 			c.initi(this.list, this.stackpaneList);
 			new FadeEffect(p);
-			this.paneListLayout.getChildren().setAll(p);
+			//this.paneListLayout.getChildren().setAll(p);
 			
 		} 
     	catch (IOException e) {
