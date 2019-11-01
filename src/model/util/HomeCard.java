@@ -6,7 +6,6 @@ public class HomeCard {
 	private String name;
 	private int total;
 	private int subtotal;
-	private float percent;
 	private float value;
 	
 	public HomeCard(int total, int subtotal, float value) {

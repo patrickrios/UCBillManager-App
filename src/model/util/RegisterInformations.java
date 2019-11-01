@@ -1,6 +1,6 @@
 package model.util;
 
-import model.dao.RegisterInfoDAO;
+import model.dao.HomeCardDAO;
 import model.entity.TypePaid;
 import model.entity.TypeRegister;
 
@@ -8,11 +8,11 @@ public class RegisterInformations {
 	private HomeCard card;
 	private HomeCard paid;
 	private HomeCard notPaid;
-	private RegisterInfoDAO dao;
+	private HomeCardDAO dao;
 	private int type;
 	
 	public RegisterInformations(int type) {
-		dao = new RegisterInfoDAO();
+		dao = new HomeCardDAO();
 		this.type = type;
 	}
 	
