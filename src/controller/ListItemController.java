@@ -56,6 +56,13 @@ public class ListItemController {
             this.anchorListeSaleItem.getStyleClass().add("anchor-list-item");
         }
     }
+    
+    @FXML
+    void switchPaymentStatus()
+    {
+    	this.register.switchPaymentStatus();
+    	defineButtonPaymentStatus(this.register.isPaid());
+    }
 
     @FXML
     public void viewDetails()
@@ -129,29 +136,35 @@ public class ListItemController {
     	this.labelCategoryName.setText(this.register.getCategoryName());
     	this.labelTotalValue.setText(this.register.getValueFormatted());
     	//markTypeLabel(this.register.getTypeName());
-    	defineBoolLabel(this.register.isPaid(), this.buttonPaidStatus);
-    	showLabelIfIsExpired();
+    	defineButtonPaymentStatus(this.register.isPaid());
+    	
     }
     
-    private void defineBoolLabel(boolean is, Button button){
+    private void defineButtonPaymentStatus(boolean status){
     	String yes = "button-item-list-paid";
     	String not = "button-item-list-notpaid";
     	
-    	if(is) {
-    		button.getStyleClass().add(yes);
-    		button.setText("sim");
+    	this.buttonPaidStatus.getStyleClass().clear();
+    	//this.buttonPaidStatus.getStyleClass().add(e)
+    	
+    	if(status) {
+    		buttonPaidStatus.getStyleClass().add(yes);
+    		buttonPaidStatus.setText("sim");
     	}
     	else {
-    		button.getStyleClass().add(not);
-    		button.setText("não");
+    		buttonPaidStatus.getStyleClass().add(not);
+    		buttonPaidStatus.setText("não");
     	}
+    	showLabelIfIsExpired();
     }
     private void showLabelIfIsExpired()
     {
     	if(this.register.isExpired() && !this.register.isPaid())
     		this.labelExpired.setText("atrasado");
-    	if(!this.register.isPaid() && !this.register.isExpired())
+    	else if(!this.register.isPaid() && !this.register.isExpired())
     		this.labelExpired.setText("a vencer");
+    	else
+    		this.labelExpired.setText("");
     }
     
     private void initiFavorite()

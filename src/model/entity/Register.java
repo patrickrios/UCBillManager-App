@@ -145,8 +145,7 @@ public class Register implements Persistent{
 		return expirationDate;
 	}
 	
-	public int getTypeValue()
-	{
+	public int getTypeValue(){
 		return this.type.getCode();
 	}
 	
@@ -180,5 +179,9 @@ public class Register implements Persistent{
 			yes = true;
 		
 		return yes;
+	}
+	
+	public void switchPaymentStatus(){
+		this.paid = !this.paid;
 	}
 }

@@ -37,6 +37,6 @@
       </Button>
       <Label fx:id="labelCategoryName" layoutX="215.0" layoutY="10.0" style="-fx-text-fill: #888;" styleClass="h3" text="\$category_name" />
       <Label fx:id="labelExpired" layoutX="510.0" layoutY="10.0" style="-fx-text-fill: #888;" styleClass="h3" />
-      <Button fx:id="buttonPaidStatus" layoutX="450.0" layoutY="8.0" mnemonicParsing="false" text="não" />
+      <Button fx:id="buttonPaidStatus" layoutX="450.0" layoutY="8.0" mnemonicParsing="false" onAction="#switchPaymentStatus" text="não" />
    </children>
 </AnchorPane>
