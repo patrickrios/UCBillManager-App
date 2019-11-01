@@ -1,6 +1,7 @@
 package model.entity;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 
 import model.dao.RegisterDAO;
 import view.util.RealFormat;
@@ -167,5 +168,17 @@ public class Register implements Persistent{
 	public void updateIdentify(String name) {
 		this.code = name;
 		
+	}
+	
+	public boolean isExpired()
+	{
+		boolean yes = false;
+		Instant now = Instant.now();
+		Instant exp = this.expirationDate.toInstant();
+		
+		if(now.isAfter(exp))
+			yes = true;
+		
+		return yes;
 	}
 }
