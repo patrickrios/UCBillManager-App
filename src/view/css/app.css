@@ -18,12 +18,12 @@
 	.choice-box{-fx-background-color:#FFF; -fx-border-width:2; -fx-border-color:#DDD;-fx-border-radius:3; -fx-background-radius:3;-fx-font-size:14;}
 
     /** Panes*/
-    .scroll-pane > .viewport{-fx-background-color:#FFF;}
+    .scroll-pane > .viewport{-fx-background-color:transparent;}
     .scroll-pane{-fx-background-insets:0;-fx-padding:0;}
     .scroll-pane:focused{-fx-background-insets: 0;}
     .scroll-pane .corner{-fx-background-insets:0;-fx-background-color:#FFF;}
     .scroll-bar:vertical{-fx-background-color:#FFF;}
-    .scroll-bar:vertical .thumb {-fx-background-color:#DDD;-fx-background-radius:0;}
+    .scroll-bar:vertical .thumb {-fx-background-color:#DDD;-fx-background-radius:10;}
     .scroll-bar:horizontal .track, .scroll-bar:horizontal .thumb, .scroll-bar:horizontal .increment, .scroll-bar:horizontal .decrement{-fx-background-color:transparent;}
 	.stack-pane{-fx-alignment:left;}
 

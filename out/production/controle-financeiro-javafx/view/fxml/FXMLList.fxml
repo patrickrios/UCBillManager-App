@@ -135,7 +135,7 @@
                </children>
             </Group>
             <Label fx:id="labelTotalRegisters" layoutX="207.0" layoutY="11.0" style="-fx-text-fill: #0099CC;" styleClass="h2" text="(3)" />
-            <ScrollPane fx:id="scrollListItens" layoutX="121.0" layoutY="105.0" prefHeight="200.0" prefWidth="795.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="98.0">
+            <ScrollPane fx:id="scrollListItens" layoutX="121.0" layoutY="105.0" prefHeight="200.0" prefWidth="795.0" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="98.0">
                <content>
                   <VBox fx:id="vboxListItens" />
                </content>

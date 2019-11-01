@@ -19,10 +19,12 @@ public class HomeCard {
 	}
 	
 	private float calcPercent(){
-		if(total == 0)
-			return 0;
-		else
-			return (100*this.subtotal)/this.total;
+		float perc = 0.0f;
+		
+		if(this.total > 0)
+			perc = (100*this.subtotal)/this.total;
+		
+		return perc;
 	}
 	
 	public String getName() {

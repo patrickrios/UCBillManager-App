@@ -67,8 +67,12 @@ public class List {
 	}
 	
 	public String paginationInfo(){
-		
-		return "mostrando "+this.offset+"-"+this.limit+" de "+this.totalRegisters;
+		String pagInfo = "";
+		if(this.limit > this.totalRegisters)
+			pagInfo = this.offset+"-"+(this.totalRegisters)+" de "+this.totalRegisters;
+		else
+		pagInfo = this.offset+"-"+this.limit+" de "+this.totalRegisters;
+		return pagInfo;
 	}
 	
 	public int valueOfTotalFavoriteItens(){
@@ -118,8 +122,8 @@ public class List {
 	}
 	
 	private void verifyExcepLimit(){
-		if(this.limit > this.totalRegisters)
-			this.limit = this.totalRegisters;
+		//if(this.limit > this.totalRegisters)
+		//	this.limit = this.totalRegisters;
 	}
 	
 	private void verifyExcepOff()
