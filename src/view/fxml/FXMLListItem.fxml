@@ -15,29 +15,11 @@
       <CheckBox fx:id="checkboxItem" graphicTextGap="0.0" layoutX="12.0" layoutY="12.0" mnemonicParsing="false" onAction="#checkboxSelected" AnchorPane.topAnchor="12.0" />
       <HBox layoutX="503.0" layoutY="7.0" prefHeight="20.0" spacing="8.0" styleClass="hbox-item-options" AnchorPane.rightAnchor="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#viewDetails" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+            <Button mnemonicParsing="false" style="-fx-border-color: #CCC; -fx-padding: 4 8; -fx-background-radius: 30; -fx-border-radius: 30;">
                <graphic>
-                  <ImageView fitHeight="12.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/list/item-view-details-dark-16x12.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#editThisItem" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
-               <graphic>
-                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/list/item-edit-option-dark-14x14.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#deleteThisItem" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
-               <graphic>
-                  <ImageView fitHeight="14.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/list/item-delete-icon-dark-11x14.png" />
+                        <Image url="@../img/show-more-button-with-three-dots.png" />
                      </image>
                   </ImageView>
                </graphic>
