@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.entity.List;
@@ -92,15 +93,26 @@ public class ListController implements Initializable
     @FXML
     public void showGridView()
     {
-    	FXMLLoader grid = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListGridItem.fxml"));
-    	try {
-			grid.load();
-			ListGridLayoutController c = grid.getController();
-			c.initi(this.itens, this.vboxListItens, this.stackpaneList);
-		} 
-    	catch (IOException e) {
-			e.printStackTrace();
-		}
+    	this.vboxListItens.getChildren().clear();
+    	FlowPane flow = new FlowPane();
+    	flow.getChildren().clear();
+    	flow.setHgap(30);
+    	flow.setVgap(25);
+    	flow.setPrefWidth(795);
+    	
+    	for(Persistent p : this.itens) {
+	    	FXMLLoader grid = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItemCard.fxml"));
+	    	try {
+				Parent card = grid.load();
+				ListItemController c = grid.getController();
+				c.inti((Register)p, this.stackpaneList);
+				flow.getChildren().add(card);
+			} 
+	    	catch (IOException e) {
+				e.printStackTrace();
+			}
+    	}
+    	this.vboxListItens.getChildren().add(flow);
     }
 
     @FXML
