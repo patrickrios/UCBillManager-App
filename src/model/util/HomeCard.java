@@ -39,8 +39,7 @@ public class HomeCard {
 		return RealFormat.floatToRealString(this.value);
 	}
 	
-	public String getPercentual()
-	{
+	public String getPercentual(){
 		String p = String.format("%.2f", this.calcPercent());
 		p += " %";
 		return p;
