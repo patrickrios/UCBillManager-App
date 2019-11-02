@@ -1,6 +1,7 @@
 package model.util;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 import view.util.RealFormat;
 
@@ -24,6 +25,7 @@ public class ExpiredRegister {
 	}
 	
 	public String formattedExpDate(){
-		return this.expDate.toString();
+		String formExpDate = new SimpleDateFormat("dd/MM/yyyy").format(this.expDate);
+		return formExpDate;
 	}
 }
