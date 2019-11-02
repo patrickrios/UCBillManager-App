@@ -38,7 +38,7 @@ public class HomeCardController {
 	{
 		HomeCard card = this.info.loadCardDatas();
 		this.labelCardTitle.setText(card.getName());
-		this.labelCardTotal.setText(card.getSubtotal());
+		this.labelCardTotal.setText("Total: "+card.getSubtotal()+"  ("+card.getPercentual()+")");
 		this.labelCardValue.setText(card.getValue());
 		stylingTitleName(card.getName());
 	}

@@ -41,7 +41,9 @@ public class HomeCard {
 	
 	public String getPercentual()
 	{
-		return this.calcPercent()+"%";
+		String p = String.format("%.2f", this.calcPercent());
+		p += " %";
+		return p;
 	}
 
 }

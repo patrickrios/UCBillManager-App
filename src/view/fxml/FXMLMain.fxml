@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="1366.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <AnchorPane prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #192E39; -fx-border-color: #784288; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #192E39; -fx-border-color: #AB76BB; -fx-border-width: 0 0 2 0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="20.0" fitWidth="136.0" layoutX="163.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -15,8 +15,8 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="menuConteiner" prefHeight="650.0" prefWidth="350.0" style="-fx-background-color: #F4F5F6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0" />
-      <ScrollPane layoutX="350.0" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+      <AnchorPane fx:id="menuConteiner" prefHeight="650.0" prefWidth="350.0" style="-fx-background-color: #F4F5F6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="42.0" />
+      <ScrollPane layoutX="350.0" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
          <content>
             <AnchorPane fx:id="anchorpaneContent" style="-fx-background-color: #FFF;" />
          </content>
