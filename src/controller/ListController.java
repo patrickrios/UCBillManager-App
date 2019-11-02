@@ -56,11 +56,13 @@ public class ListController implements Initializable
     private ArrayList<Persistent> itens ;
     
     private List list = new List();
+    
+    boolean isListView = true;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		loadList();
-		viewListLayout();
+		loadListLayout();
 		initComponents();
 	}
 
@@ -68,8 +70,14 @@ public class ListController implements Initializable
     	this.itens = this.list.getItens();
     }
     
-    @FXML
-    void showListView()
+    private void loadListLayout() {
+    	if(this.isListView)
+    		viewListLayout();
+    	else
+    		viewGridLayout();
+    }
+    
+    private void showListView()
     {
     	this.vboxListItens.getChildren().clear();
     	
@@ -90,8 +98,7 @@ public class ListController implements Initializable
 		}
     }
     
-    @FXML
-    public void showGridView()
+    private void showGridView()
     {
     	this.vboxListItens.getChildren().clear();
     	FlowPane flow = new FlowPane();
@@ -117,6 +124,7 @@ public class ListController implements Initializable
 
     @FXML
     public void viewGridLayout(){
+    	this.isListView = false;
     	showGridView();
         markButtonView(this.buttonViewGrid);
         unmarkButtonView(this.buttonViewList);
@@ -126,6 +134,7 @@ public class ListController implements Initializable
 
     @FXML
     void viewListLayout(){
+    	this.isListView = true;
     	showListView();
         markButtonView(this.buttonViewList);
         unmarkButtonView(this.buttonViewGrid);
@@ -135,12 +144,15 @@ public class ListController implements Initializable
 
     @FXML
     void searchItens(){
-
+    	String input = this.textfieldSearch.getText();
+    	this.list.resetPagination();
+    	this.itens = this.list.searchItens(input);
+    	loadListLayout();
     }
     @FXML
     void showNextPage(){
     	this.itens = list.loadNextPage();
-    	showListView();
+    	loadListLayout();
     	updatePaginationInfo();
     	updatePaginationControls();
     	
@@ -148,8 +160,8 @@ public class ListController implements Initializable
     @FXML
     void showPreviousPage(){
     	this.itens = list.loadPreviousPage();
-    	showListView();
-    	updatePaginationControls();
+    	loadListLayout();
+    	updatePaginationInfo();
     	updatePaginationControls();
     }
     

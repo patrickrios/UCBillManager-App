@@ -58,15 +58,13 @@ public class ListItemController {
     }
     
     @FXML
-    void switchPaymentStatus()
-    {
+    void switchPaymentStatus(){
     	this.register.switchPaymentStatus();
     	defineButtonPaymentStatus(this.register.isPaid());
     }
 
     @FXML
-    public void viewDetails()
-    {
+    public void viewDetails(){
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLViewDetail.fxml"));
     	try {
 			Parent detailLayout = loader.load();
@@ -113,15 +111,13 @@ public class ListItemController {
     }
 
     @FXML
-    public void markAsFavorite()
-    {
+    public void markAsFavorite(){
         Image icon = null;
 
         if(this.register.isFavorite()){
             this.register.unmarkAsFavorite();
             icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-unselected.png"));
         }
-
         else{
             this.register.markAsFavorite();
             icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-selected.png"));
@@ -130,12 +126,10 @@ public class ListItemController {
         this.buttonFavorite.setGraphic(new ImageView(icon));
     }
 
-    private void initializeDatas()
-    {
+    private void initializeDatas(){
     	this.labelCode.setText(this.register.getCode());
     	this.labelCategoryName.setText(this.register.getCategoryName());
     	this.labelTotalValue.setText(this.register.getValueFormatted());
-    	//markTypeLabel(this.register.getTypeName());
     	defineButtonPaymentStatus(this.register.isPaid());
     	
     }
@@ -145,7 +139,6 @@ public class ListItemController {
     	String not = "button-item-list-notpaid";
     	
     	this.buttonPaidStatus.getStyleClass().clear();
-    	//this.buttonPaidStatus.getStyleClass().add(e)
     	
     	if(status) {
     		buttonPaidStatus.getStyleClass().add(yes);
@@ -157,6 +150,7 @@ public class ListItemController {
     	}
     	showLabelIfIsExpired();
     }
+    
     private void showLabelIfIsExpired()
     {
     	if(this.register.isExpired() && !this.register.isPaid())
@@ -167,8 +161,7 @@ public class ListItemController {
     		this.labelExpired.setText("");
     }
     
-    private void initiFavorite()
-    {
+    private void initiFavorite(){
     	if(this.register.isFavorite()){
     		this.register.unmarkAsFavorite();
     		markAsFavorite();

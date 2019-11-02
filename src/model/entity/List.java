@@ -40,7 +40,7 @@ public class List {
 		return null;
 	}
 	
-	ArrayList<Persistent> searchItens(String input){
+	public ArrayList<Persistent> searchItens(String input){
 		return new RegisterDAO().findItens(this.offset, this.limit, input);
 	}
 	
@@ -68,10 +68,10 @@ public class List {
 	
 	public String paginationInfo(){
 		String pagInfo = "";
-		if(this.limit > this.totalRegisters)
+		if((this.offset+this.limit) > this.totalRegisters)
 			pagInfo = this.offset+"-"+(this.totalRegisters)+" de "+this.totalRegisters;
 		else
-		pagInfo = this.offset+"-"+this.limit+" de "+this.totalRegisters;
+			pagInfo = this.offset+"-"+(this.offset+this.limit)+" de "+this.totalRegisters;
 		return pagInfo;
 	}
 	
@@ -89,7 +89,7 @@ public class List {
 	public boolean isLastPage(){
 		boolean ok = false;
 		
-		if(this.limit >= this.totalRegisters)
+		if(this.offset+this.limit >= this.totalRegisters)
 			ok = true;
 		return ok;
 	}
@@ -102,34 +102,29 @@ public class List {
 		 if(this.totalRegisters <= 0)	this.offset = 0;
 		 else	this.offset = 1;
 		 
-		 if(this.totalRegisters < 15) this.limit = this.totalRegisters;
-		 else this.limit = 15;
+		 if(this.totalRegisters <= 15)
+			 this.limit = this.totalRegisters;
+		 else
+			 this.limit = 15;
 	 }
 	
 	private void incrementControls(){
 		this.offset += 15;
-		this.limit  += 15;
-		verifyExcepLimit();
 		verifyExcepOff();
 	}
 	
-	private void decrementControls()
-	{
+	private void decrementControls(){
 		this.offset -= 15;
-		this.limit  -= 15;
-		verifyExcepLimit();
 		verifyExcepOff();
 	}
 	
-	private void verifyExcepLimit(){
-		//if(this.limit > this.totalRegisters)
-		//	this.limit = this.totalRegisters;
-	}
-	
-	private void verifyExcepOff()
-	{
+	private void verifyExcepOff(){
 		if(this.offset < 1)
 			this.offset = 1;
+	}
+	
+	public void resetPagination(){
+		this.offset = 1;
 	}
 	
 }
