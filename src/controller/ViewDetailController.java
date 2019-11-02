@@ -5,12 +5,12 @@ import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.entity.Register;
 import view.util.FadeEffect;
 
 public class ViewDetailController {
-
 	@FXML
     private StackPane stackpaneViewDetail;
 	@FXML
@@ -29,10 +29,15 @@ public class ViewDetailController {
 	private Label labelExpirationDate;
 	@FXML
 	private Label labelPaidStatus;
+	@FXML
+    private Pane paneOptions;
+	
+	private boolean showOptionControl = true;
 
 	private StackPane stack;
 	
 	private Register register;
+	
 	
 	public void initi(StackPane stack, Register register){
 		this.stack = stack;
@@ -42,10 +47,16 @@ public class ViewDetailController {
 		this.labelCategoryName.setText(register.getCategoryName());
 		this.labelParcel.setText(register.getParcel()+"");
 		this.labelPayment.setText(register.getPayment().toString());
-		this.labelExpirationDate.setText(register.getExpirationDate().toString());
-		this.labelPaidStatus.setText((register.isPaid())?"Sim":"Não");
+		this.labelExpirationDate.setText(register.exiprationDateFormatted());
+		this.labelPaidStatus.setText(register.getPaidStatus());
 		this.labelValue.setText(register.getValueFormatted());
 	}
+	
+	@FXML
+    void showOptions() {
+		this.paneOptions.setVisible(showOptionControl);
+		this.showOptionControl = !this.showOptionControl;
+    }
 	
 	@FXML
 	void exitDetails(){

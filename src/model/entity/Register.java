@@ -1,6 +1,7 @@
 package model.entity;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 
 import model.dao.RegisterDAO;
@@ -143,6 +144,11 @@ public class Register implements Persistent{
 	
 	public Timestamp getExpirationDate() {
 		return expirationDate;
+	}
+	
+	public String exiprationDateFormatted(){
+		String exp = new SimpleDateFormat("dd/MM/yyyy").format(this.expirationDate);
+		return exp;
 	}
 	
 	public int getTypeValue(){
