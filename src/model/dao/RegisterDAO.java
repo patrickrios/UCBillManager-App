@@ -145,8 +145,39 @@ public class RegisterDAO implements PersistentBean, Listable {
 
 	@Override
 	public ArrayList<Persistent> loadFavorites(int offset, int limit) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Persistent> list = new ArrayList<>();
+		
+		String query = "SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
+				"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
+				"ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
+				"FROM ucbm_register "+
+				"INNER JOIN ucbm_category ON ucbm_register.category_id = ucbm_category.id_category "+ 
+				"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment "+
+				"WHERE ucbm_register.favorite='1' LIMIT "+limit+" OFFSET "+offset;
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			
+			while(result.next()){
+				Integer id = result.getInt(1);
+				String code = result.getString(2);
+				float value = result.getFloat(3);
+				int parcel = result.getInt(4);
+				boolean paid = intToBool(result.getInt(5));
+				Timestamp exp = result.getTimestamp(6);
+				Timestamp inc = result.getTimestamp(7);
+				int type = result.getInt(8);
+				boolean fav = intToBool(result.getInt(9));
+				Category cat = new Category(result.getInt(10), result.getString(11));
+				Payment pay = new Payment(result.getInt(12), result.getString(13));
+				
+				list.add(new Register(id,code,value,parcel,paid,exp,inc,type,fav,cat,pay));
+			}
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override

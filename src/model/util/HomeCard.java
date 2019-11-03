@@ -44,5 +44,4 @@ public class HomeCard {
 		p += " %";
 		return p;
 	}
-
 }

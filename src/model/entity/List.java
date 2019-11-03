@@ -29,15 +29,16 @@ public class List {
 		 
 		 return this.itensList;
 	 }
-	 public ArrayList<Persistent> loadPreviousPage()
-	 {
+	 
+	 public ArrayList<Persistent> loadPreviousPage(){
 		 decrementControls();
 		 this.itensList = acess.findGroup(this.offset, this.limit);
 		 return this.itensList;
 	 }
 	
-	ArrayList<Persistent> loadItensMarkedAsFavorite(){
-		return null;
+	public ArrayList<Persistent> loadItensMarkedAsFavorite(){
+		this.itensList = acess.loadFavorites(this.offset, this.limit);
+		return this.itensList;
 	}
 	
 	public ArrayList<Persistent> searchItens(String input){
@@ -99,8 +100,7 @@ public class List {
 		 this.totalRegisters = values[0];
 		 this.totalFavorites = values[1];
 		
-		 if(this.totalRegisters <= 0)	this.offset = 0;
-		 else	this.offset = 1;
+		 this.offset = 0;
 		 
 		 if(this.totalRegisters <= 15)
 			 this.limit = this.totalRegisters;

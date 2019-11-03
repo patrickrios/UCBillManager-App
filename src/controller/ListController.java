@@ -164,6 +164,14 @@ public class ListController implements Initializable
     	updatePaginationInfo();
     	updatePaginationControls();
     }
+    @FXML
+    void showFavorites(){
+    	//this.list.resetPagination();
+    	this.itens = list.loadItensMarkedAsFavorite();
+    	loadListLayout();
+    	updatePaginationControls();
+    	updatePaginationInfo();
+    }
     
     private void markButtonView (Button button){
         button.getStyleClass().clear();
