@@ -19,7 +19,7 @@
          <children>
             <AnchorPane layoutX="60.0" layoutY="-72.0" prefHeight="45.0" style="-fx-border-color: #DDD; -fx-border-width: 1 0 0 0; -fx-border-style: dashed;" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Button layoutX="404.0" layoutY="10.0" mnemonicParsing="false" onAction="#showFavorites" style="-fx-border-color: #EEE; -fx-padding: 3 5;" text="Favoritos">
+                  <Button fx:id="buttonFavorites" layoutX="404.0" layoutY="10.0" mnemonicParsing="false" onAction="#showFavorites" style="-fx-padding: 3 5;" text="Favoritos">
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>

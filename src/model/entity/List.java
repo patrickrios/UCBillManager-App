@@ -2,6 +2,7 @@ package model.entity;
 
 import java.util.ArrayList;
 import model.dao.RegisterDAO;
+import model.types.TypeList;
 
 public class List {
 
@@ -18,24 +19,23 @@ public class List {
 		loadItens();
 	}
 	
-	 void loadItens(){
+	private void loadItens(){
 		this.itensList = acess.findGroup(this.offset, this.limit);
 	}
 	 
-	 public ArrayList<Persistent> loadNextPage(){
+	 public ArrayList<Persistent> loadNextPage(int type){
 		 incrementControls();
-		 this.itensList = acess.findGroup(this.offset, this.limit);
-		 
+		 getItens(type);
 		 return this.itensList;
 	 }
 	 
-	 public ArrayList<Persistent> loadPreviousPage(){
+	 public ArrayList<Persistent> loadPreviousPage(int type){
 		 decrementControls();
-		 this.itensList = acess.findGroup(this.offset, this.limit);
+		 getItens(type);
 		 return this.itensList;
 	 }
 	
-	public ArrayList<Persistent> loadItensMarkedAsFavorite(){
+	private ArrayList<Persistent> loadFavorites(){
 		this.itensList = acess.loadFavorites(this.offset, this.limit);
 		return this.itensList;
 	}
@@ -50,7 +50,7 @@ public class List {
 		}
 	}
 	
-	void marAllSelectedAsFavorite(ArrayList<Persistent> itens){
+	void markAllSelectedAsFavorite(ArrayList<Persistent> itens){
 		//TODO
 	}
 	
@@ -58,7 +58,11 @@ public class List {
 		//TODO
 	}
 	
-	public ArrayList<Persistent> getItens(){
+	public ArrayList<Persistent> getItens(int type){
+		if(type == TypeList.ALL)
+			loadItens();
+		else if(type == TypeList.FAV)
+			loadFavorites();
 		return this.itensList;
 	}
 	

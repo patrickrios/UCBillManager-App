@@ -19,6 +19,9 @@ import javafx.scene.layout.VBox;
 import model.entity.List;
 import model.entity.Persistent;
 import model.entity.Register;
+import model.types.TypeList;
+import model.types.TypeListLayout;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -45,6 +48,8 @@ public class ListController implements Initializable
     @FXML
     private Button buttonViewGrid;
     @FXML
+    private Button buttonFavorites;
+    @FXML
     private AnchorPane anchorListHeader;
     @FXML
     private Label labelTotalRegisters;
@@ -57,27 +62,31 @@ public class ListController implements Initializable
     
     private List list = new List();
     
-    boolean isListView = true;
-
+    private int listLayout = TypeListLayout.LIST;
+    
+    private int itensType = TypeList.ALL;
+    
+    private boolean favToggle = false;
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		loadList();
-		loadListLayout();
+		loadViewLayout();
 		initComponents();
 	}
 
     private void loadList(){ 
-    	this.itens = this.list.getItens();
+    	this.itens = this.list.getItens(this.itensType);
     }
     
-    private void loadListLayout() {
-    	if(this.isListView)
+    private void loadViewLayout() {
+    	if(this.listLayout == TypeListLayout.LIST)
     		viewListLayout();
     	else
     		viewGridLayout();
     }
     
-    private void showListView()
+    private void loadListLayout()
     {
     	this.vboxListItens.getChildren().clear();
     	
@@ -98,7 +107,7 @@ public class ListController implements Initializable
 		}
     }
     
-    private void showGridView()
+    private void loadGridLayout()
     {
     	this.vboxListItens.getChildren().clear();
     	FlowPane flow = new FlowPane();
@@ -124,8 +133,8 @@ public class ListController implements Initializable
 
     @FXML
     public void viewGridLayout(){
-    	this.isListView = false;
-    	showGridView();
+    	this.listLayout = TypeListLayout.GRID;
+    	loadGridLayout();
         markButtonView(this.buttonViewGrid);
         unmarkButtonView(this.buttonViewList);
         changeViewGridIconOn();
@@ -134,8 +143,8 @@ public class ListController implements Initializable
 
     @FXML
     void viewListLayout(){
-    	this.isListView = true;
-    	showListView();
+    	this.listLayout = TypeListLayout.LIST;
+    	loadListLayout();
         markButtonView(this.buttonViewList);
         unmarkButtonView(this.buttonViewGrid);
         changeViewListIconOn();
@@ -147,30 +156,44 @@ public class ListController implements Initializable
     	String input = this.textfieldSearch.getText();
     	this.list.resetPagination();
     	this.itens = this.list.searchItens(input);
-    	loadListLayout();
+    	loadViewLayout();
     }
     @FXML
     void showNextPage(){
-    	this.itens = list.loadNextPage();
-    	loadListLayout();
+    	this.itens = list.loadNextPage(this.itensType);
+    	loadViewLayout();
     	updatePaginationInfo();
     	updatePaginationControls();
     	
     }
     @FXML
     void showPreviousPage(){
-    	this.itens = list.loadPreviousPage();
-    	loadListLayout();
+    	this.itens = list.loadPreviousPage(this.itensType);
+    	loadViewLayout();
     	updatePaginationInfo();
     	updatePaginationControls();
     }
     @FXML
     void showFavorites(){
-    	this.list.resetPagination();
-    	this.itens = list.loadItensMarkedAsFavorite();
-    	loadListLayout();
-    	updatePaginationControls();
-    	updatePaginationInfo();
+    	this.favToggle = !this.favToggle;
+    	if(this.favToggle) {
+        	this.itensType = TypeList.FAV;
+        	this.list.resetPagination();
+        	this.itens = list.getItens(this.itensType);
+        	loadViewLayout();
+        	updatePaginationControls();
+        	updatePaginationInfo();
+        	markButtonView(this.buttonFavorites);
+    	}
+    	else{
+    		this.itensType = TypeList.ALL;
+        	this.list.resetPagination();
+        	loadList();
+    		loadViewLayout();
+    		updatePaginationControls();
+        	updatePaginationInfo();
+        	unmarkButtonView(this.buttonFavorites);
+    	}		
     }
     
     private void markButtonView (Button button){
