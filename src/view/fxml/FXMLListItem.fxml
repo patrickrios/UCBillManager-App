@@ -26,7 +26,7 @@
             </Button>
          </children>
       </HBox>
-      <Button fx:id="buttonFavorite" layoutX="35.0" layoutY="9.0" mnemonicParsing="false" onAction="#markAsFavorite" styleClass="button-reset">
+      <Button fx:id="buttonFavorite" layoutX="35.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchFavoriteStatus" styleClass="button-reset">
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                <image>

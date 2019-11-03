@@ -109,18 +109,20 @@ public class ListItemController {
 			e.printStackTrace();
 		}
     }
-
     @FXML
-    public void markAsFavorite(){
+    public void switchFavoriteStatus() {
+    	this.register.switchFavoriteStatus();
+    	markAsFavorite();
+    }
+
+    private void markAsFavorite(){
         Image icon = null;
 
         if(this.register.isFavorite()){
-            this.register.unmarkAsFavorite();
-            icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-unselected.png"));
+            icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-selected.png"));
         }
         else{
-            this.register.markAsFavorite();
-            icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-selected.png"));
+            icon = new Image(getClass().getResourceAsStream("/view/img/list/favorite-star-unselected-light-15x14.png"));
         }
 
         this.buttonFavorite.setGraphic(new ImageView(icon));
@@ -163,7 +165,7 @@ public class ListItemController {
     
     private void initiFavorite(){
     	if(this.register.isFavorite()){
-    		this.register.unmarkAsFavorite();
+    		//this.register.unmarkAsFavorite();
     		markAsFavorite();
     	}
     }

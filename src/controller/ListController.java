@@ -58,7 +58,7 @@ public class ListController implements Initializable
     @FXML
     private VBox vboxListItens;
     
-    private ArrayList<Persistent> itens ;
+    private ArrayList<Persistent> itens;
     
     private List list = new List();
     
@@ -86,10 +86,8 @@ public class ListController implements Initializable
     		viewGridLayout();
     }
     
-    private void loadListLayout()
-    {
+    private void loadListLayout(){
     	this.vboxListItens.getChildren().clear();
-    	
     	try {
 			Parent header = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLListViewHeader.fxml"));
 			this.vboxListItens.getChildren().add(header);
@@ -107,8 +105,7 @@ public class ListController implements Initializable
 		}
     }
     
-    private void loadGridLayout()
-    {
+    private void loadGridLayout(){
     	this.vboxListItens.getChildren().clear();
     	FlowPane flow = new FlowPane();
     	flow.getChildren().clear();
@@ -181,8 +178,6 @@ public class ListController implements Initializable
         	this.list.resetPagination();
         	this.itens = list.getItens(this.itensType);
         	loadViewLayout();
-        	updatePaginationControls();
-        	updatePaginationInfo();
         	markButtonView(this.buttonFavorites);
     	}
     	else{
@@ -190,8 +185,6 @@ public class ListController implements Initializable
         	this.list.resetPagination();
         	loadList();
     		loadViewLayout();
-    		updatePaginationControls();
-        	updatePaginationInfo();
         	unmarkButtonView(this.buttonFavorites);
     	}		
     }

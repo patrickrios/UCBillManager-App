@@ -129,21 +129,19 @@ public class Register implements Persistent{
 		return payment;
 	}
 	
-	public String getValueWithoutPrefix()
-	{
+	public String getValueWithoutPrefix(){
 		return RealFormat.stringWithoutPrefix(this.value);
 	}
 	
-	public String getPaidStatus()
-	{
+	public String getPaidStatus(){
 		return (this.paid)?"sim":"não";
 	}
 	
-	public float getValue() {
+	public float getValue(){
 		return value;
 	}
 	
-	public Timestamp getExpirationDate() {
+	public Timestamp getExpirationDate(){
 		return expirationDate;
 	}
 	
@@ -156,17 +154,26 @@ public class Register implements Persistent{
 		return this.type.getCode();
 	}
 	
-	public boolean isFavorite() {
+	public boolean isFavorite(){
 		return favorite;
 	}
 	
-	public void markAsFavorite()
-	{
+	public void markAsFavorite(){
 		this.favorite = true;
 	}
 	
-	public void unmarkAsFavorite()
-	{
+	public void switchFavoriteStatus() {
+		this.favorite = !this.favorite;
+		updateFavoriteStatus();
+	}
+	
+	private void updateFavoriteStatus() {
+		if(this.id != null) {
+			new RegisterDAO().changeFavoriteStatus(id, favorite);
+		}
+	}
+	
+	public void unmarkAsFavorite(){
 		this.favorite = false;
 	}
 
@@ -176,8 +183,7 @@ public class Register implements Persistent{
 		
 	}
 	
-	public boolean isExpired()
-	{
+	public boolean isExpired(){
 		boolean yes = false;
 		Instant now = Instant.now();
 		Instant exp = this.expirationDate.toInstant();
@@ -190,5 +196,11 @@ public class Register implements Persistent{
 	
 	public void switchPaymentStatus(){
 		this.paid = !this.paid;
+		updatePayStatus();
+	}
+	
+	private void updatePayStatus(){
+		if(this.id != null)
+			new RegisterDAO().changePayStatus(id, paid);
 	}
 }

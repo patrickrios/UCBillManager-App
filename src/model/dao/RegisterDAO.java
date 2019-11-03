@@ -248,4 +248,29 @@ public class RegisterDAO implements PersistentBean, Listable {
 		return datas;
 	}
 
+	public void changeFavoriteStatus(int id, boolean status){
+		int bit = (status)?1:0;
+		String update = "UPDATE ucbm_register SET favorite="+bit+" WHERE id_register='"+id+"'";
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(update);
+			statement.executeUpdate();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void changePayStatus(int id, boolean status) {
+		int bit = (status)?1:0;
+		String update = "UPDATE ucbm_register SET paid="+bit+" WHERE id_register='"+id+"'";
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(update);
+			statement.executeUpdate();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
