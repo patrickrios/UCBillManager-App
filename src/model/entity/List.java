@@ -1,7 +1,6 @@
 package model.entity;
 
 import java.util.ArrayList;
-import model.dao.PersistentBean;
 import model.dao.RegisterDAO;
 
 public class List {
