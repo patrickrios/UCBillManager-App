@@ -1,4 +1,4 @@
-package model.entity;
+package model.types;
 
 public class TypeList{
 	public static final int ALL = 1;

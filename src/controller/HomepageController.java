@@ -20,8 +20,8 @@ import javafx.scene.layout.StackPane;
 import view.util.FadeEffect;
 import javafx.scene.layout.VBox;
 import model.dao.ExpiredDAO;
-import model.entity.TypExpInterval;
-import model.entity.TypeRegister;
+import model.types.TypExpInterval;
+import model.types.TypeRegister;
 import model.util.ExpirationDate;
 import model.util.ExpiredRegister;
 

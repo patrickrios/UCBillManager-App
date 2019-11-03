@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 
 import model.dao.RegisterDAO;
+import model.types.TypeRegister;
 import view.util.RealFormat;
 
 public class Register implements Persistent{

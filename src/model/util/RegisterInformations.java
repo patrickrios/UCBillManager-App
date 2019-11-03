@@ -1,8 +1,8 @@
 package model.util;
 
 import model.dao.HomeCardDAO;
-import model.entity.TypePaid;
-import model.entity.TypeRegister;
+import model.types.TypePaid;
+import model.types.TypeRegister;
 
 public class RegisterInformations {
 	private HomeCard card;

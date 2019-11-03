@@ -1,4 +1,4 @@
-package model.entity;
+package model.types;
 
 public class TypExpInterval {
 	public static int DAILY = 0;
