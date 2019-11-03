@@ -166,7 +166,7 @@ public class ListController implements Initializable
     }
     @FXML
     void showFavorites(){
-    	//this.list.resetPagination();
+    	this.list.resetPagination();
     	this.itens = list.loadItensMarkedAsFavorite();
     	loadListLayout();
     	updatePaginationControls();

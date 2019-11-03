@@ -69,9 +69,9 @@ public class List {
 	public String paginationInfo(){
 		String pagInfo = "";
 		if((this.offset+this.limit) > this.totalRegisters)
-			pagInfo = this.offset+"-"+(this.totalRegisters)+" de "+this.totalRegisters;
+			pagInfo = (this.offset+1)+"-"+(this.totalRegisters)+" de "+this.totalRegisters;
 		else
-			pagInfo = this.offset+"-"+(this.offset+this.limit)+" de "+this.totalRegisters;
+			pagInfo = (this.offset+1)+"-"+(this.offset+this.limit+1)+" de "+this.totalRegisters;
 		return pagInfo;
 	}
 	
@@ -81,8 +81,7 @@ public class List {
 	
 	public boolean isFirstPage(){
 		boolean ok = false;
-		if(this.offset <= 1)
-			ok = true;
+		if(this.offset <= 1)	ok=true;
 		return ok;
 	}
 	
@@ -119,11 +118,11 @@ public class List {
 	
 	private void verifyExcepOff(){
 		if(this.offset < 1)
-			this.offset = 1;
+			this.offset = 0;
 	}
 	
 	public void resetPagination(){
-		this.offset = 1;
+		this.offset = 0;
 	}
 	
 }

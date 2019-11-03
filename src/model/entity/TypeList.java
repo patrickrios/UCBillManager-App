@@ -1,8 +1,8 @@
 package model.entity;
 
 public class TypeList{
-	public static int ALL = 1;
-	public static int FAV = 2;
-	public static int SEARCH = 3;
+	public static final int ALL = 1;
+	public static final int FAV = 2;
+	public static final int SEARCH = 3;
 
 }
