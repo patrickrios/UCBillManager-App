@@ -25,8 +25,7 @@ public class DeleteItemController {
 	
 	private Persistent persistent;
 	
-	public void initi(Persistent p, StackPane stack, int type)
-	{
+	public void initi(Persistent p, StackPane stack, int type){
 		this.labelCode.setText(p.toString());
 		this.stack = stack;
 		this.persistent = p;
@@ -34,8 +33,7 @@ public class DeleteItemController {
 	}
 	
 	@FXML
-	void cancelDeleting()
-	{
+	void cancelDeleting(){
 		this.stack.getChildren().remove(this.paneDelete);
 	}
 	
@@ -58,7 +56,6 @@ public class DeleteItemController {
 			e.printStackTrace();
 		}
 	}
-
 	
 	private void defineIconType(int type){
 		Image icon = null;
@@ -66,10 +63,8 @@ public class DeleteItemController {
 			icon = new Image(getClass().getResourceAsStream("/view/img/delete-file.png"));
 		else if(type == TypeDeleting.PAYMENT)
 				icon = new Image(getClass().getResourceAsStream("/view/img/delete-creditcard.png"));
-		else//(type == TypeDeleting.CATEGORY)
+		else
 				icon = new Image(getClass().getResourceAsStream("/view/img/delete-ribbon.png"));	
-		
-			
 		
 		this.imageviewTypeIcon.setImage(icon);			
 	}

@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,7 +22,7 @@ public class EditRegisterController {
     @FXML
     private ChoiceBox<Persistent> choiceboxCategory;
     @FXML
-    private TextField textfieldPArcel;
+    private TextField textfieldParcel;
     @FXML
     private ChoiceBox<Persistent> choiceboxPayment;
     @FXML
@@ -30,6 +31,10 @@ public class EditRegisterController {
     private TextField textfieldValue;
     @FXML
     private Button buttonPaid;
+    @FXML
+    private Label labelCode;
+    @FXML
+    private TextField textfieldCode;
     
 	private StackPane stack;
 	
@@ -37,22 +42,41 @@ public class EditRegisterController {
 	
 	private boolean paidControl;
 	
+	private int parcelValue;
+	
 	public void initi(StackPane stack, Register register)
 	{
 		this.stack = stack;
 		this.register = register;
+		this.labelCode.setText(register.getCode());
 		this.choiceboxType.getItems().add(register.getTypeName());
 		this.choiceboxType.setValue(register.getTypeName());
 		this.choiceboxCategory.getItems().add(register.getCategory());
 		this.choiceboxCategory.setValue(register.getCategory());
-		this.textfieldPArcel.setText(register.getParcel()+"");
+		this.textfieldCode.setText(register.getCode());
+		this.textfieldParcel.setText(register.getParcel()+"");
 		this.choiceboxPayment.getItems().add(register.getPayment());
 		this.choiceboxPayment.setValue(register.getPayment());
 		this.textfieldValue.setText(register.getValueWithoutPrefix());
 		this.paidControl = !register.isPaid();
+		this.parcelValue = register.getParcel();
 		setPaid();
 		
 	}
+	
+	@FXML
+    void decrementParcelQuantity() {
+		if(this.parcelValue > 1) {
+			this.parcelValue--;
+			this.textfieldParcel.setText(""+this.parcelValue);
+		}
+    }
+
+    @FXML
+    void incrementParcelQuantity() {
+    	this.parcelValue++;
+    	this.textfieldParcel.setText(""+this.parcelValue);
+    }
 	
 	@FXML
 	void closeEdit(){
@@ -77,6 +101,6 @@ public class EditRegisterController {
 	
 	@FXML
 	 void save() {
-
+		this.register.updateThis();
 	}
 }
