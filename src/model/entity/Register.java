@@ -3,7 +3,6 @@ package model.entity;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
-
 import model.dao.RegisterDAO;
 import model.types.TypeRegister;
 import view.util.RealFormat;

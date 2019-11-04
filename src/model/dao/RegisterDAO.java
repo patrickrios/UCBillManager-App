@@ -248,6 +248,11 @@ public class RegisterDAO implements PersistentBean, Listable {
 		return datas;
 	}
 
+	public void deleteItens(ArrayList<Persistent> list) {
+		for(Persistent p : list) {
+			p.deleteThis();
+		}
+	}
 	public void changeFavoriteStatus(int id, boolean status){
 		int bit = (status)?1:0;
 		String update = "UPDATE ucbm_register SET favorite="+bit+" WHERE id_register='"+id+"'";

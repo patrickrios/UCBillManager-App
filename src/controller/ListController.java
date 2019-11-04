@@ -44,6 +44,8 @@ public class ListController implements Initializable
     @FXML
     private Button buttonDeleteAll;
     @FXML
+    private Button buttonFavAll;
+    @FXML
     private Button buttonViewList;
     @FXML
     private Button buttonViewGrid;
@@ -232,6 +234,8 @@ public class ListController implements Initializable
     	updatePaginationControls();
     	this.scrollListItens.setHbarPolicy(ScrollBarPolicy.NEVER);
 		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
+		this.buttonDeleteAll.setDisable(true);
+		this.buttonFavAll.setDisable(true);
     }
 
     private void updatePaginationInfo(){

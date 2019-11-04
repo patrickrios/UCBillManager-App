@@ -153,8 +153,7 @@ public class ListItemController {
     	showLabelIfIsExpired();
     }
     
-    private void showLabelIfIsExpired()
-    {
+    private void showLabelIfIsExpired(){
     	if(this.register.isExpired() && !this.register.isPaid())
     		this.labelExpired.setText("atrasado");
     	else if(!this.register.isPaid() && !this.register.isExpired())
@@ -165,7 +164,6 @@ public class ListItemController {
     
     private void initiFavorite(){
     	if(this.register.isFavorite()){
-    		//this.register.unmarkAsFavorite();
     		markAsFavorite();
     	}
     }
