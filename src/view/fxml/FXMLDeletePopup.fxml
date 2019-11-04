@@ -9,20 +9,14 @@
 
 <Pane fx:id="paneDelete" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteItemController">
    <children>
-      <AnchorPane layoutX="191.0" layoutY="136.0" prefHeight="227.0" prefWidth="415.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
+      <AnchorPane layoutX="191.0" layoutY="136.0" prefHeight="189.0" prefWidth="433.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>
-            <Label layoutX="140.0" layoutY="104.0" styleClass="h3" text="Tem certeza que quer apagar?" />
-            <Label fx:id="labelCode" graphicTextGap="8.0" layoutX="140.0" layoutY="52.0" prefHeight="34.0" prefWidth="252.0" style="-fx-text-fill: #303E49;" styleClass="h1" text="\$code_register">
+            <Label layoutX="140.0" layoutY="80.0" styleClass="h3" text="Tem certeza que quer apagar?" />
+            <Label fx:id="labelCode" graphicTextGap="8.0" layoutX="140.0" layoutY="33.0" prefHeight="34.0" prefWidth="252.0" style="-fx-text-fill: #303E49;" styleClass="h1" text="\$code_register">
                <graphic>
                   <ImageView fx:id="imageviewTypeIcon" fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
                </graphic></Label>
-            <Pane layoutX="22.0" layoutY="-5.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #F1F3F4; -fx-background-radius: 0 0 5 5; -fx-border-radius: 0 0 5 5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <Button layoutX="311.0" layoutY="12.0" mnemonicParsing="false" onAction="#deleteItem" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #EE6969; -fx-text-fill: #FFF;" text="Apagar" />
-                  <Button layoutX="216.0" layoutY="12.0" mnemonicParsing="false" onAction="#cancelDeleting" prefHeight="36.0" prefWidth="82.0" style="-fx-border-color: #DDD;" text="Cancelar" />
-               </children>
-            </Pane>
-            <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="38.0" layoutY="25.0" prefWidth="120.0" style="-fx-border-color: #EEE; -fx-border-width: 0 1 0 0;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="38.0" layoutY="25.0" prefWidth="120.0" style="-fx-border-color: #EEE; -fx-border-width: 0 1 0 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <graphic>
                   <ImageView fitHeight="54.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -40,6 +34,8 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button layoutX="351.0" layoutY="125.0" mnemonicParsing="false" onAction="#deleteItem" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #EE6969; -fx-text-fill: #FFF;" text="Apagar" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="249.0" layoutY="118.0" mnemonicParsing="false" onAction="#cancelDeleting" prefHeight="36.0" prefWidth="82.0" text="Cancelar" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="115.0" />
          </children>
       </AnchorPane>
    </children>
