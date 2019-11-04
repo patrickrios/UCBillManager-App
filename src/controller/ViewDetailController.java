@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.entity.Register;
+import model.types.TypeDeleting;
 import view.util.FadeEffect;
 
 public class ViewDetailController {
@@ -70,7 +71,7 @@ public class ViewDetailController {
 		try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi(this.register, this.stack);
+			c.initi(this.register, this.stack, TypeDeleting.REGISTER);
 			new FadeEffect(popup);
 			this.stack.getChildren().add(popup);
 		} 

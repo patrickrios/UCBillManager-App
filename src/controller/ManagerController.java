@@ -26,10 +26,13 @@ public class ManagerController
     private TextField textfieldInput;
     
     private PersistentBean persistentBean;
+    
+    private int deleteType;
 
-    public void initi(String title, PersistentBean dao){
+    public void initi(String title, PersistentBean dao, int deleteType){
         this.labelTitle.setText(title);
         this.persistentBean = dao;
+        this.deleteType = deleteType;
         this.loadItens(dao);
         this.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
     }
@@ -45,7 +48,7 @@ public class ManagerController
 	    	try {
 				Parent parent = loader.load();
 				ManagerItemController controller = loader.getController();
-				controller.initi(p, this.stackManegerLayout);
+				controller.initi(p, this.stackManegerLayout, this.deleteType);
 				this.vboxManagerList.getChildren().add(parent);
 			} 
 	    	catch (IOException e) {

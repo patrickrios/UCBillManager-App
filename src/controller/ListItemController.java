@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import model.entity.Register;
+import model.types.TypeDeleting;
 import view.util.FadeEffect;
 
 public class ListItemController {
@@ -101,7 +102,7 @@ public class ListItemController {
     	try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi(this.register, this.stackList);
+			c.initi(this.register, this.stackList, TypeDeleting.REGISTER);
 			new FadeEffect(popup);
 			this.stackList.getChildren().add(popup);
 		} 
