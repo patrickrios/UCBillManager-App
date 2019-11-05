@@ -2,9 +2,9 @@ package model.util;
 
 public class ExpirationInterval {
 	static String statement = "(expiration>=TIMESTAMP(\"$first\",\"00:00:00\")  AND expiration<=TIMESTAMP(\"$last\",\"59:59:59\"))";
-	public static String MONTHLY = month();
-	public static String WEEKLY = week();
-	public static String DAILY = today();
+	public static final String MONTHLY = month();
+	public static final String WEEKLY = week();
+	public static final String DAILY = today();
 	
 	static String month(){
 		String m = statement.replace("$first", ExpirationDate.firstDayMonth());
