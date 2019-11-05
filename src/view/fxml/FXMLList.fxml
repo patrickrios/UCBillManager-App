@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -17,18 +18,9 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css">
          <children>
-            <AnchorPane layoutX="60.0" layoutY="-72.0" prefHeight="45.0" style="-fx-border-color: #DDD; -fx-border-width: 1 0 0 0; -fx-border-style: dashed;" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="50.0">
+            <AnchorPane prefHeight="40.0" prefWidth="795.0" style="-fx-border-color: #DDD; -fx-border-width: 1;" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Button fx:id="buttonFavorites" layoutX="404.0" layoutY="10.0" mnemonicParsing="false" onAction="#showFavorites" style="-fx-padding: 3 5;" text="Favoritos">
-                     <graphic>
-                        <ImageView fitHeight="13.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/list/favorite-star-14x13.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <HBox layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" spacing="6.0" AnchorPane.rightAnchor="0.0">
+                  <HBox layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" spacing="6.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                      <children>
                         <Label fx:id="labelPaginationInfo" layoutY="13.0" style="-fx-font-family: &quot;Lato&quot;, sans-serif; -fx-font-size: 15; -fx-text-fill: #000 /*515F66*/; -fx-padding: 6 10;" text="1-15 de 300" />
                         <Button fx:id="buttonPreviousPage" layoutY="13.0" mnemonicParsing="false" onAction="#showPreviousPage" style="-fx-padding: 4 10;" styleClass="button-pagination-nav">
@@ -51,7 +43,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Pane layoutY="11.0" prefHeight="25.0" prefWidth="66.0" style="-fx-border-color: #DDD; -fx-border-width: 0 1 0 0; -fx-border-style: dashed;">
+                  <Pane layoutX="515.0" layoutY="10.0" prefHeight="25.0" prefWidth="66.0" style="-fx-border-color: #DDD; -fx-border-width: 0 1 0 0; -fx-border-style: dashed;" visible="false">
                      <children>
                         <Button fx:id="buttonDeleteAll" mnemonicParsing="false" style="-fx-background-color: #DDD; -fx-padding: 2 4;">
                            <graphic>
@@ -73,54 +65,25 @@
                         </Button>
                      </children>
                   </Pane>
-                  <Pane layoutX="78.0" layoutY="11.0" prefHeight="25.0" prefWidth="75.0" style="-fx-border-color: #DDD; -fx-border-width: 0 1 0 0; -fx-border-style: dashed;">
-                     <children>
-                        <Button fx:id="buttonViewList" mnemonicParsing="false" onAction="#viewListLayout" style="-fx-padding: 2 4;" styleClass="button-pagination-nav">
-                           <graphic>
-                              <ImageView fitHeight="11.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/list/view-list-selected-17x14.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="buttonViewGrid" layoutX="33.0" mnemonicParsing="false" onAction="#viewGridLayout" style="-fx-padding: 2 4;" styleClass="button-pagination-nav">
-                           <graphic>
-                              <ImageView fitHeight="11.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/list/view-grid-unselected-17x13.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="170.0" layoutY="11.0" prefHeight="25.0" prefWidth="103.0" style="-fx-border-color: #DDD; -fx-border-width: 0 1 0 0; -fx-border-style: dashed;">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" style="-fx-border-color: #EEE; -fx-padding: 3 5;" text="Filtrar">
-                           <graphic>
-                              <ImageView fitHeight="11.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/list/list-filter-10x11.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="290.0" layoutY="11.0" prefHeight="25.0" prefWidth="103.0" style="-fx-border-color: #DDD; -fx-border-width: 0 1 0 0; -fx-border-style: dashed;">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" style="-fx-border-color: #EEE; -fx-padding: 3 5;" text="Ordenar">
-                           <graphic>
-                              <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/list/sort-variant-14x14.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </Pane>
+                  <Button fx:id="buttonViewList" layoutX="3.0" layoutY="3.0" mnemonicParsing="false" onAction="#viewListLayout" prefWidth="36.0" style="-fx-padding: 2 4;" styleClass="button-list-control" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <ImageView fitHeight="11.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/list/view-list-selected-17x14.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="buttonViewGrid" layoutX="45.0" layoutY="3.0" mnemonicParsing="false" onAction="#viewGridLayout" prefWidth="36.0" style="-fx-padding: 2 4;" styleClass="button-list-control" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <ImageView fitHeight="11.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/list/view-grid-unselected-17x13.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ChoiceBox fx:id="choiceboxType" layoutX="78.0" layoutY="6.0" prefHeight="31.0" prefWidth="131.0" style="-fx-border-width: 0; -fx-background-color: #F9F9F9; -fx-background-radius: 0; -fx-border-radius: 0;" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
                </children>
             </AnchorPane>
             <Label fx:id="labelListTitle" layoutX="32.0" layoutY="11.0" styleClass="h2" text="Lista de registros" />
@@ -135,9 +98,9 @@
                </children>
             </Group>
             <Label fx:id="labelTotalRegisters" layoutX="207.0" layoutY="11.0" style="-fx-text-fill: #0099CC;" styleClass="h2" text="(3)" />
-            <ScrollPane fx:id="scrollListItens" layoutX="121.0" layoutY="105.0" prefHeight="200.0" prefWidth="795.0" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="98.0">
+            <ScrollPane fx:id="scrollListItens" layoutX="121.0" layoutY="105.0" prefHeight="200.0" prefWidth="795.0" style="-fx-background-color: #FFF;" styleClass="scrol-list" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="90.0">
                <content>
-                  <VBox fx:id="vboxListItens" />
+                  <VBox fx:id="vboxListItens" style="-fx-border-color: #DDD; -fx-border-width: 0 1 1 1;" />
                </content>
             </ScrollPane>
          </children>

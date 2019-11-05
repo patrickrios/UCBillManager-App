@@ -1,11 +1,14 @@
 package controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
@@ -50,7 +53,7 @@ public class ListController implements Initializable
     @FXML
     private Button buttonViewGrid;
     @FXML
-    private Button buttonFavorites;
+    private ChoiceBox<String> choiceboxType;
     @FXML
     private AnchorPane anchorListHeader;
     @FXML
@@ -67,8 +70,6 @@ public class ListController implements Initializable
     private int listLayout = TypeListLayout.LIST;
     
     private int itensType = TypeList.ALL;
-    
-    private boolean favToggle = false;
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -174,34 +175,22 @@ public class ListController implements Initializable
     }
     @FXML
     void showFavorites(){
-    	this.favToggle = !this.favToggle;
-    	if(this.favToggle) {
         	this.itensType = TypeList.FAV;
         	this.list.resetPagination();
         	this.itens = list.getItens(this.itensType);
-        	loadViewLayout();
-        	markButtonView(this.buttonFavorites);
-    	}
-    	else{
-    		this.itensType = TypeList.ALL;
-        	this.list.resetPagination();
-        	loadList();
-    		loadViewLayout();
-        	unmarkButtonView(this.buttonFavorites);
-    	}		
+        	loadViewLayout();		
     }
     
     private void markButtonView (Button button){
         button.getStyleClass().clear();
         button.getStyleClass().add("button");
-        button.getStyleClass().add("button-pagination-nav");
-        button.getStyleClass().add("button-view-selected");
+        button.getStyleClass().add("button-list-control-selected");
     }
 
     private void unmarkButtonView(Button button){
         button.getStyleClass().clear();
         button.getStyleClass().add("button");
-        button.getStyleClass().add("button-pagination-nav");
+        button.getStyleClass().add("button-list-control");
     }
 
     private void changeViewGridIconOn(){
@@ -236,6 +225,7 @@ public class ListController implements Initializable
 		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
 		this.buttonDeleteAll.setDisable(true);
 		this.buttonFavAll.setDisable(true);
+		initiChoicebox();
     }
 
     private void updatePaginationInfo(){
@@ -252,5 +242,26 @@ public class ListController implements Initializable
     		this.buttonNextPage.setDisable(true);
     	else
     		this.buttonNextPage.setDisable(false);	
+    }
+    
+    private void initiChoicebox() {
+    	this.choiceboxType.getItems().addAll("Todos", "Despesas", "Receitas", "Favoritos");
+    	this.choiceboxType.setValue("Todos");
+    	
+    	this.choiceboxType.getSelectionModel().selectedIndexProperty().addListener(new 
+				ChangeListener<Number>() {
+				@Override
+				public void changed(ObservableValue<? extends Number> observable, Number oldValue,
+					Number newValue) {
+					if(newValue.intValue()==3)
+						showFavorites();
+					if(newValue.intValue()==0) {
+						itensType = TypeList.ALL;
+			        	list.resetPagination();
+			        	loadList();
+			    		loadViewLayout();
+					}
+				}		
+		});
     }
 }
