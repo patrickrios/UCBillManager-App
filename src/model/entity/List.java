@@ -9,9 +9,9 @@ public class List {
 	private int totalRegisters;
 	private int offset;
 	private int limit;
-	private int totalFavorites;
 	private ArrayList<Persistent> itensList;
 	private RegisterDAO acess = new RegisterDAO();
+	int[] totalValues = new int[4];
 	
 	
 	public List(){
@@ -35,11 +35,6 @@ public class List {
 		 return this.itensList;
 	 }
 	
-	private ArrayList<Persistent> loadFavorites(){
-		this.itensList = acess.loadFavorites(this.offset, this.limit);
-		return this.itensList;
-	}
-	
 	public ArrayList<Persistent> searchItens(String input){
 		return new RegisterDAO().findItens(this.offset, this.limit, input);
 	}
@@ -59,10 +54,8 @@ public class List {
 	}
 	
 	public ArrayList<Persistent> getItens(int type){
-		if(type == TypeList.ALL)
-			loadItens();
-		else if(type == TypeList.FAV)
-			loadFavorites();
+		this.itensList = acess.getItens(this.offset, this.limit, type);
+		this.totalRegisters = this.totalValues[type];
 		return this.itensList;
 	}
 	
@@ -78,10 +71,7 @@ public class List {
 			pagInfo = (this.offset+1)+"-"+(this.offset+this.limit+1)+" de "+this.totalRegisters;
 		return pagInfo;
 	}
-	
-	public int valueOfTotalFavoriteItens(){
-		return this.totalFavorites;
-	}
+
 	
 	public boolean isFirstPage(){
 		boolean ok = false;
@@ -98,9 +88,8 @@ public class List {
 	}
 	
 	private void initValues(){
-		 int[] values = new RegisterDAO().loadDatasToInitList();
-		 this.totalRegisters = values[0];
-		 this.totalFavorites = values[1];
+		 this.totalValues = new RegisterDAO().loadDatasToInitList();
+		 this.totalRegisters = totalValues[0];
 		
 		 this.offset = 0;
 		 

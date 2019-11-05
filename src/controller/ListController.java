@@ -232,6 +232,10 @@ public class ListController implements Initializable
     	this.labelPaginationInfo.setText(this.list.paginationInfo());
     }
     
+    private void updateTotalInfo() {
+    	labelTotalRegisters.setText("("+list.valueOfTotalRegister()+")");
+    }
+    
     private void updatePaginationControls(){
     	if(this.list.isFirstPage())
     		this.buttonPreviousPage.setDisable(true);
@@ -253,14 +257,13 @@ public class ListController implements Initializable
 				@Override
 				public void changed(ObservableValue<? extends Number> observable, Number oldValue,
 					Number newValue) {
-					if(newValue.intValue()==3)
-						showFavorites();
-					if(newValue.intValue()==0) {
-						itensType = TypeList.ALL;
-			        	list.resetPagination();
-			        	loadList();
-			    		loadViewLayout();
-					}
+					itensType = newValue.intValue();
+					list.resetPagination();
+		        	loadList();
+		    		loadViewLayout();
+		    		updateTotalInfo();
+		    		updatePaginationInfo();
+		        	updatePaginationControls();
 				}		
 		});
     }

@@ -12,9 +12,17 @@ import model.entity.Listable;
 import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
+import model.types.TypeList;
 
 public class RegisterDAO implements PersistentBean, Listable {
+	
 	private Connection connection;
+	private String queryStat = "SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
+			"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
+			"ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
+			"FROM ucbm_register "+
+			"INNER JOIN ucbm_category ON ucbm_register.category_id = ucbm_category.id_category "+ 
+			"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment ";
 	
 	public RegisterDAO() {
 		this.connection = ConnectionFactory.getConnection();
@@ -66,19 +74,52 @@ public class RegisterDAO implements PersistentBean, Listable {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public ArrayList<Persistent> getItens(int offset, int limit, int typeList){
+		ArrayList<Persistent> list = new ArrayList<>();
+		String query = this.queryStat;
+		
+		if(typeList == TypeList.EXPENSE)
+			query += "WHERE type='"+typeList+"' ";
+		else if(typeList == TypeList.REVENUE)
+			query += "WHERE type='"+typeList+"' ";
+		else if(typeList == TypeList.FAV)
+			query += "WHERE favorite='1' ";
+		
+		query += "LIMIT "+limit+" OFFSET "+offset;
+			
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			
+			while(result.next()){
+				Integer id = result.getInt(1);
+				String code = result.getString(2);
+				float value = result.getFloat(3);
+				int parcel = result.getInt(4);
+				boolean paid = intToBool(result.getInt(5));
+				Timestamp exp = result.getTimestamp(6);
+				Timestamp inc = result.getTimestamp(7);
+				int type = result.getInt(8);
+				boolean fav = intToBool(result.getInt(9));
+				Category cat = new Category(result.getInt(10), result.getString(11));
+				Payment pay = new Payment(result.getInt(12), result.getString(13));
+				
+				list.add(new Register(id,code,value,parcel,paid,exp,inc,type,fav,cat,pay));
+			}
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 	@Override
 	public ArrayList<Persistent> findGroup(int offset, int limit) 
 	{
 		ArrayList<Persistent> list = new ArrayList<>();
 		
-		String query = "SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
-				"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
-				"ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
-				"FROM ucbm_register "+
-				"INNER JOIN ucbm_category ON ucbm_register.category_id = ucbm_category.id_category "+ 
-				"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment "+
-				"LIMIT "+limit+" OFFSET "+offset;
+		String query = this.queryStat+"LIMIT "+limit+" OFFSET "+offset;
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
@@ -144,43 +185,6 @@ public class RegisterDAO implements PersistentBean, Listable {
 	}
 
 	@Override
-	public ArrayList<Persistent> loadFavorites(int offset, int limit) {
-		ArrayList<Persistent> list = new ArrayList<>();
-		
-		String query = "SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
-				"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
-				"ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
-				"FROM ucbm_register "+
-				"INNER JOIN ucbm_category ON ucbm_register.category_id = ucbm_category.id_category "+ 
-				"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment "+
-				"WHERE ucbm_register.favorite='1' LIMIT "+limit+" OFFSET "+offset;
-		try {
-			PreparedStatement statement = this.connection.prepareStatement(query);
-			ResultSet result = statement.executeQuery();
-			
-			while(result.next()){
-				Integer id = result.getInt(1);
-				String code = result.getString(2);
-				float value = result.getFloat(3);
-				int parcel = result.getInt(4);
-				boolean paid = intToBool(result.getInt(5));
-				Timestamp exp = result.getTimestamp(6);
-				Timestamp inc = result.getTimestamp(7);
-				int type = result.getInt(8);
-				boolean fav = intToBool(result.getInt(9));
-				Category cat = new Category(result.getInt(10), result.getString(11));
-				Payment pay = new Payment(result.getInt(12), result.getString(13));
-				
-				list.add(new Register(id,code,value,parcel,paid,exp,inc,type,fav,cat,pay));
-			}
-			statement.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-
-	@Override
 	public ArrayList<Persistent> findItens(int offset, int limit, String input) {
 		ArrayList<Persistent> list = new ArrayList<>();
 		
@@ -219,13 +223,17 @@ public class RegisterDAO implements PersistentBean, Listable {
 	
 	public int[] loadDatasToInitList()
 	{
-		int[] datas = new int[2];
+		int[] datas = new int[4];
 		String query1 = "SELECT count(id_register) FROM ucbm_register";
-		String query2 = "SELECT count(id_register) FROM ucbm_register WHERE favorite='1'";
+		String query2 = "SELECT count(id_register) FROM ucbm_register WHERE type='"+TypeList.EXPENSE+"'";
+		String query3 = "SELECT count(id_register) FROM ucbm_register WHERE type='"+TypeList.REVENUE+"'";
+		String query4 = "SELECT count(id_register) FROM ucbm_register WHERE favorite='1'";
 		
 		try {
 			PreparedStatement stat1 = this.connection.prepareStatement(query1);
 			PreparedStatement stat2 = this.connection.prepareStatement(query2);
+			PreparedStatement stat3 = this.connection.prepareStatement(query3);
+			PreparedStatement stat4 = this.connection.prepareStatement(query4);
 			
 			ResultSet r = stat1.executeQuery();
 			while(r.next()) {
@@ -238,8 +246,22 @@ public class RegisterDAO implements PersistentBean, Listable {
 				datas[1] = r.getInt(1);
 				break;
 			}
+			
+			r = stat3.executeQuery();
+			while(r.next()) {
+				datas[2] = r.getInt(1);
+				break;
+			}
+			
+			r = stat4.executeQuery();
+			while(r.next()) {
+				datas[3] = r.getInt(1);
+				break;
+			}
 			stat1.close();
 			stat2.close();
+			stat3.close();
+			stat4.close();
 				
 		} catch (SQLException e) {
 			e.printStackTrace();
