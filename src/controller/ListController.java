@@ -24,6 +24,7 @@ import model.entity.Persistent;
 import model.entity.Register;
 import model.types.TypeList;
 import model.types.TypeListLayout;
+import model.types.TypePaid;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,6 +56,8 @@ public class ListController implements Initializable
     @FXML
     private ChoiceBox<String> choiceboxType;
     @FXML
+    private ChoiceBox<String> choiceboxPay;
+    @FXML
     private AnchorPane anchorListHeader;
     @FXML
     private Label labelTotalRegisters;
@@ -71,6 +74,8 @@ public class ListController implements Initializable
     
     private int itensType = TypeList.ALL;
     
+    private int payType = TypePaid.ALL;
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		loadList();
@@ -79,7 +84,7 @@ public class ListController implements Initializable
 	}
 
     private void loadList(){ 
-    	this.itens = this.list.getItens(this.itensType);
+    	this.itens = this.list.getItens(this.itensType,this.payType);
     }
     
     private void loadViewLayout() {
@@ -160,7 +165,7 @@ public class ListController implements Initializable
     }
     @FXML
     void showNextPage(){
-    	this.itens = list.loadNextPage(this.itensType);
+    	this.itens = list.loadNextPage(this.itensType,this.payType);
     	loadViewLayout();
     	updatePaginationInfo();
     	updatePaginationControls();
@@ -168,7 +173,7 @@ public class ListController implements Initializable
     }
     @FXML
     void showPreviousPage(){
-    	this.itens = list.loadPreviousPage(this.itensType);
+    	this.itens = list.loadPreviousPage(this.itensType,this.payType);
     	loadViewLayout();
     	updatePaginationInfo();
     	updatePaginationControls();
@@ -177,7 +182,7 @@ public class ListController implements Initializable
     void showFavorites(){
         	this.itensType = TypeList.FAV;
         	this.list.resetPagination();
-        	this.itens = list.getItens(this.itensType);
+        	this.itens = list.getItens(this.itensType,this.payType);
         	loadViewLayout();		
     }
     
@@ -252,12 +257,37 @@ public class ListController implements Initializable
     	this.choiceboxType.getItems().addAll("Todos", "Despesas", "Receitas", "Favoritos");
     	this.choiceboxType.setValue("Todos");
     	
+    	this.choiceboxPay.getItems().addAll("Pagos ou não", "Pagos", "Não pagos");
+    	this.choiceboxPay.setValue("Pagos ou não");
+    	
     	this.choiceboxType.getSelectionModel().selectedIndexProperty().addListener(new 
 				ChangeListener<Number>() {
 				@Override
 				public void changed(ObservableValue<? extends Number> observable, Number oldValue,
 					Number newValue) {
 					itensType = newValue.intValue();
+					list.resetPagination();
+		        	loadList();
+		    		loadViewLayout();
+		    		updateTotalInfo();
+		    		updatePaginationInfo();
+		        	updatePaginationControls();
+				}		
+		});
+    	
+    	this.choiceboxPay.getSelectionModel().selectedIndexProperty().addListener(new 
+				ChangeListener<Number>() {
+				@Override
+				public void changed(ObservableValue<? extends Number> observable, Number oldValue,
+					Number newValue) {
+					int val = newValue.intValue();
+					if(val == 2)
+						payType = TypePaid.NOTPAID;
+					else if(val == 1)
+						payType = TypePaid.PAID;
+					else
+						payType = TypePaid.ALL;
+					
 					list.resetPagination();
 		        	loadList();
 		    		loadViewLayout();

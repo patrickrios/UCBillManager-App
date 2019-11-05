@@ -13,6 +13,7 @@ import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
 import model.types.TypeList;
+import model.types.TypePaid;
 
 public class RegisterDAO implements PersistentBean, Listable {
 	
@@ -75,7 +76,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 		
 	}
 	
-	public ArrayList<Persistent> getItens(int offset, int limit, int typeList){
+	public ArrayList<Persistent> getItens(int offset, int limit, int typeList, int paidOrNot){
 		ArrayList<Persistent> list = new ArrayList<>();
 		String query = this.queryStat;
 		
@@ -85,6 +86,11 @@ public class RegisterDAO implements PersistentBean, Listable {
 			query += "WHERE type='"+typeList+"' ";
 		else if(typeList == TypeList.FAV)
 			query += "WHERE favorite='1' ";
+		
+		if(paidOrNot == TypePaid.NOTPAID)
+			query += "AND paid='"+paidOrNot+"' ";
+		else if(paidOrNot == TypePaid.PAID)
+			query += "AND paid='"+paidOrNot+"' ";
 		
 		query += "LIMIT "+limit+" OFFSET "+offset;
 			

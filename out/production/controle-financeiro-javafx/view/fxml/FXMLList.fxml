@@ -83,7 +83,8 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <ChoiceBox fx:id="choiceboxType" layoutX="78.0" layoutY="6.0" prefHeight="31.0" prefWidth="131.0" style="-fx-border-width: 0; -fx-background-color: #F9F9F9; -fx-background-radius: 0; -fx-border-radius: 0;" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                  <ChoiceBox fx:id="choiceboxType" layoutX="78.0" layoutY="8.0" prefHeight="30.0" prefWidth="99.0" style="-fx-border-width: 0; -fx-background-color: #F9F9F9; -fx-background-radius: 0; -fx-border-radius: 0;" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                  <ChoiceBox fx:id="choiceboxPay" layoutX="193.0" layoutY="7.0" prefHeight="30.0" prefWidth="123.0" style="-fx-border-width: 0; -fx-background-color: #F9F9F9; -fx-background-radius: 0; -fx-border-radius: 0;" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
                </children>
             </AnchorPane>
             <Label fx:id="labelListTitle" layoutX="32.0" layoutY="11.0" styleClass="h2" text="Lista de registros" />

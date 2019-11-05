@@ -3,6 +3,7 @@ package model.entity;
 import java.util.ArrayList;
 import model.dao.RegisterDAO;
 import model.types.TypeList;
+import model.types.TypePaid;
 
 public class List {
 
@@ -10,7 +11,7 @@ public class List {
 	private int offset;
 	private int limit;
 	private ArrayList<Persistent> itensList;
-	private RegisterDAO acess = new RegisterDAO();
+	private RegisterDAO dataAcess = new RegisterDAO();
 	int[] totalValues = new int[4];
 	
 	
@@ -20,18 +21,18 @@ public class List {
 	}
 	
 	private void loadItens(){
-		this.itensList = acess.findGroup(this.offset, this.limit);
+		this.itensList = dataAcess.getItens(this.offset,this.limit,TypeList.ALL,TypePaid.ALL);
 	}
 	 
-	 public ArrayList<Persistent> loadNextPage(int type){
+	 public ArrayList<Persistent> loadNextPage(int type, int paid){
 		 incrementControls();
-		 getItens(type);
+		 getItens(type,paid);
 		 return this.itensList;
 	 }
 	 
-	 public ArrayList<Persistent> loadPreviousPage(int type){
+	 public ArrayList<Persistent> loadPreviousPage(int type, int paid){
 		 decrementControls();
-		 getItens(type);
+		 getItens(type,paid);
 		 return this.itensList;
 	 }
 	
@@ -53,8 +54,8 @@ public class List {
 		//TODO
 	}
 	
-	public ArrayList<Persistent> getItens(int type){
-		this.itensList = acess.getItens(this.offset, this.limit, type);
+	public ArrayList<Persistent> getItens(int type, int paid){
+		this.itensList = dataAcess.getItens(this.offset, this.limit, type, paid);
 		this.totalRegisters = this.totalValues[type];
 		return this.itensList;
 	}
@@ -116,6 +117,5 @@ public class List {
 	
 	public void resetPagination(){
 		this.offset = 0;
-	}
-	
+	}	
 }
