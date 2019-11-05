@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteListItensController">
+<AnchorPane fx:id="anchorDeleteList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteListItensController">
    <children>
       <AnchorPane layoutX="120.0" layoutY="48.0" prefWidth="520.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>
@@ -22,15 +21,15 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Label fx:id="labelTotalExpirations" layoutX="173.0" layoutY="26.0" style="-fx-text-fill: #0099CC;" styleClass="h3" text="(0)" />
+            <Label fx:id="labelTotalItens" layoutX="173.0" layoutY="26.0" style="-fx-text-fill: #0099CC;" styleClass="h3" text="(0)" />
             <VBox fx:id="vboxItens" layoutX="20.0" layoutY="71.0">
                <padding>
                   <Insets bottom="60.0" />
                </padding>
             </VBox>
-            <Button fx:id="deleteAllItens" mnemonicParsing="false" onAction="#deleteItem" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #EE6969; -fx-text-fill: #FFF;" text="Apagar" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+            <Button fx:id="deleteAllItens" mnemonicParsing="false" onAction="#deleteAll" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #EE6969; -fx-text-fill: #FFF;" text="Apagar" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
             <Button fx:id="closeDeleting" mnemonicParsing="false" onAction="#cancelDeleting" prefHeight="36.0" prefWidth="82.0" text="Cancelar" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="110.0" />
-            <Button layoutX="397.0" layoutY="24.0" mnemonicParsing="false" onAction="#closeDeleting" styleClass="button-reset" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="12.0">
+            <Button layoutX="397.0" layoutY="24.0" mnemonicParsing="false" onAction="#cancelDeleting" styleClass="button-reset" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="12.0">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -39,6 +38,7 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Label fx:id="labelDeletingStatus" layoutX="220.0" layoutY="28.0" styleClass="h4" />
          </children>
       </AnchorPane>
    </children>
