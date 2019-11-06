@@ -47,10 +47,6 @@ public class ListController implements Initializable
     @FXML
     private Button buttonNextPage;
     @FXML
-    private Button buttonDeleteAll;
-    @FXML
-    private Button buttonFavAll;
-    @FXML
     private Button buttonViewList;
     @FXML
     private Button buttonViewGrid;
@@ -204,6 +200,16 @@ public class ListController implements Initializable
 				e.printStackTrace();
 			}    		
     	}
+    }
+    @FXML
+    void markAllSelectedAsFavorite() {
+    	for(Persistent per : this.selectedItems) {
+    		Register reg = (Register)per;
+    		reg.markAsFavorite();
+    	}
+		loadViewLayout();
+		this.paneOptions.setVisible(false);
+		this.selectedItems.clear();
     }
     
     private void markButtonView (Button button){

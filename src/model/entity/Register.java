@@ -159,6 +159,7 @@ public class Register implements Persistent{
 	
 	public void markAsFavorite(){
 		this.favorite = true;
+		updateFavoriteStatus();
 	}
 	
 	public void switchFavoriteStatus() {
