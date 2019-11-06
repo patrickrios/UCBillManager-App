@@ -20,8 +20,6 @@ public class DeleteListItensController {
     @FXML
     private Label labelTotalItens;
     @FXML
-    private Label labelDeletingStatus;
-    @FXML
     private VBox vboxItens;
     @FXML
     private Button deleteAllItens;
@@ -49,10 +47,7 @@ public class DeleteListItensController {
 
     @FXML
     void deleteAll() {
-    	int i = 1;
-    	
     	for(Persistent p : this.list) {
-    		this.labelDeletingStatus.setText("Apagando "+i+" de "+this.total);
     		//p.deleteThis();
     	}
 

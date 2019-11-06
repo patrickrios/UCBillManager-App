@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.entity.List;
@@ -54,6 +55,8 @@ public class ListController implements Initializable
     @FXML
     private Button buttonViewGrid;
     @FXML
+    private Pane paneOptions;
+    @FXML
     private ChoiceBox<String> choiceboxType;
     @FXML
     private ChoiceBox<String> choiceboxPay;
@@ -67,6 +70,8 @@ public class ListController implements Initializable
     private VBox vboxListItens;
     
     private ArrayList<Persistent> itens;
+    
+    private ArrayList<Persistent> selectedItems = new ArrayList<>();
     
     private List list = new List();
     
@@ -104,7 +109,7 @@ public class ListController implements Initializable
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
 				Parent item = loader.load();
 				ListItemController c = loader.getController();
-				c.inti((Register)p, this.stackpaneList);
+				c.inti((Register)p, this.stackpaneList, this.selectedItems, this.paneOptions);
 				this.vboxListItens.getChildren().add(item);
 			}
 		} 
@@ -126,7 +131,7 @@ public class ListController implements Initializable
 	    	try {
 				Parent card = grid.load();
 				ListItemController c = grid.getController();
-				c.inti((Register)p, this.stackpaneList);
+				c.inti((Register)p, this.stackpaneList, this.selectedItems,this.paneOptions);
 				flow.getChildren().add(card);
 			} 
 	    	catch (IOException e) {
@@ -185,6 +190,21 @@ public class ListController implements Initializable
         	this.itens = list.getItens(this.itensType,this.payType);
         	loadViewLayout();		
     }
+    @FXML
+    void deleteAllSelected() {
+    	if(!this.selectedItems.isEmpty()){
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLDeleteListPopup.fxml"));
+    		
+    		try {
+				Parent parent = loader.load();
+				DeleteListItensController c = loader.getController();
+				c.init(this.selectedItems, this.stackpaneList);
+				this.stackpaneList.getChildren().add(parent);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}    		
+    	}
+    }
     
     private void markButtonView (Button button){
         button.getStyleClass().clear();
@@ -228,8 +248,6 @@ public class ListController implements Initializable
     	updatePaginationControls();
     	this.scrollListItens.setHbarPolicy(ScrollBarPolicy.NEVER);
 		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
-		this.buttonDeleteAll.setDisable(true);
-		this.buttonFavAll.setDisable(true);
 		initiChoicebox();
     }
 

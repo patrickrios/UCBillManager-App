@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import model.entity.Persistent;
 import model.entity.Register;
 import model.types.TypeDeleting;
 import view.util.FadeEffect;
@@ -38,10 +41,15 @@ public class ListItemController {
     
     private Register register;
     
-    public void inti(Register register, StackPane stack)
-    {
+    private ArrayList<Persistent> list;
+    
+    private Pane opt;
+    
+    public void inti(Register register, StackPane stack, ArrayList<Persistent> list, Pane opt){
     	this.register = register;
     	this.stackList = stack;
+    	this.list = list;
+    	this.opt = opt;
     	initializeDatas();
     	initiFavorite();
     }
@@ -51,10 +59,16 @@ public class ListItemController {
     {
         if(this.checkboxItem.isSelected()){
             this.anchorListeSaleItem.getStyleClass().add("list-sale-item-selected");
+            if(this.list.isEmpty())
+            	this.opt.setVisible(true);
+            this.list.add(this.register);
         }
         else{
             this.anchorListeSaleItem.getStyleClass().clear();
             this.anchorListeSaleItem.getStyleClass().add("anchor-list-item");
+            this.list.remove(this.register);
+            if(this.list.isEmpty())
+            	this.opt.setVisible(false);
         }
     }
     

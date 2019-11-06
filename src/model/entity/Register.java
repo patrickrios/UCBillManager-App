@@ -175,6 +175,7 @@ public class Register implements Persistent{
 	public void unmarkAsFavorite(){
 		this.favorite = false;
 	}
+	
 
 	@Override
 	public void updateIdentify(String name) {
