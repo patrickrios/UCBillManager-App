@@ -19,7 +19,6 @@ public class ExpiredDAO {
 	public ArrayList<ExpiredRegister> loadExpiration(String interval){
 		ArrayList<ExpiredRegister> list = new ArrayList<>();
 		String query = "SELECT code, value, expiration FROM ucbm_register WHERE "+interval+" AND paid='0'";
-		query = query.replace("$today", ExpirationDate.today());
 		
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
@@ -40,9 +39,10 @@ public class ExpiredDAO {
 	{
 		int[] values = new int[3];
 		
-		String query1 = "SELECT count(id_register) FROM ucbm_register WHERE "+ExpirationInterval.DAILY+" AND paid='0' LIMIT 1";
-		String query2 = query1.replace(ExpirationInterval.DAILY, ExpirationInterval.WEEKLY);
-		String query3 = query2.replace(ExpirationInterval.WEEKLY, ExpirationInterval.MONTHLY);
+		String query = "SELECT COUNT(id_register) FROM ucbm_register WHERE $interval AND paid='0' LIMIT 1";
+		String query1 = query.replace("$interval", ExpirationInterval.DAILY);
+		String query2 = query.replace("$interval", ExpirationInterval.WEEKLY);
+		String query3 = query.replace("$interval", ExpirationInterval.MONTHLY);
 		
 		try {
 			PreparedStatement st1 = this.connection.prepareStatement(query1);
