@@ -1,7 +1,7 @@
 package model.util;
 
 public class ExpirationInterval {
-	static String statement = "(expiration>=TIMESTAMP(\"$first\",\"00:00:00\")  AND expiration<=TIMESTAMP(\"$last\",\"59:59:59\"))";
+	static String statement = "(expiration>=TIMESTAMP(\"$first\",\"00:00:00\")  AND expiration<=TIMESTAMP(\"$last\",\"23:59:59\"))";
 	public static final String MONTHLY = month();
 	public static final String WEEKLY = week();
 	public static final String DAILY = today();

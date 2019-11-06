@@ -39,18 +39,27 @@ public class ExpiredDAO {
 	public int[] numberOfExpirations()
 	{
 		int[] values = new int[3];
-		int i = 0;
-		String sql = "(SELECT count(id_register) AS count FROM ucbm_register WHERE "+ExpirationInterval.DAILY+" AND paid='0')"
-				   + "UNION (SELECT count(id_register) FROM ucbm_register WHERE "+ExpirationInterval.WEEKLY+" AND paid='0') "
-				   + "UNION (SELECT count(id_register) FROM ucbm_register WHERE "+ExpirationInterval.MONTHLY+" AND paid='0')";
+		
+		String query1 = "SELECT count(id_register) FROM ucbm_register WHERE "+ExpirationInterval.DAILY+" AND paid='0' LIMIT 1";
+		String query2 = query1.replace(ExpirationInterval.DAILY, ExpirationInterval.WEEKLY);
+		String query3 = query2.replace(ExpirationInterval.WEEKLY, ExpirationInterval.MONTHLY);
 		
 		try {
-			PreparedStatement s = this.connection.prepareStatement(sql);
-			ResultSet r = s.executeQuery();
-			while(r.next()) {
-				values[i] = r.getInt(1);
-				i++;
-			}
+			PreparedStatement st1 = this.connection.prepareStatement(query1);
+			PreparedStatement st2 = this.connection.prepareStatement(query2);
+			PreparedStatement st3 = this.connection.prepareStatement(query3);
+			
+			ResultSet r = st1.executeQuery();
+			while(r.next())	values[0] = r.getInt(1);
+			st1.close();
+			
+			r = st2.executeQuery();
+			while (r.next()) values[1] = r.getInt(1);
+			st2.close();
+			
+			r = st3.executeQuery();
+			while(r.next()) values[2] = r.getInt(1);
+			st3.close();			
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
