@@ -18,12 +18,6 @@ import model.types.TypePaid;
 public class RegisterDAO implements PersistentBean, Listable {
 	
 	private Connection connection;
-	private String queryStat = "SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
-			"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
-			"ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
-			"FROM ucbm_register "+
-			"INNER JOIN ucbm_category ON ucbm_register.category_id = ucbm_category.id_category "+ 
-			"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment ";
 	
 	public RegisterDAO() {
 		this.connection = ConnectionFactory.getConnection();
@@ -76,32 +70,20 @@ public class RegisterDAO implements PersistentBean, Listable {
 		
 	}
 	
-	public ArrayList<Persistent> getItens(int offset, int limit, int typeList, int paidOrNot){
+	public ArrayList<Persistent> getItens(int offset,int limit,int type,int pay){
 		ArrayList<Persistent> list = new ArrayList<>();
-		String query = this.queryStat;
 		
-		if(typeList == TypeList.EXPENSE)
-			query += "WHERE type='"+typeList+"' ";
-		else if(typeList == TypeList.REVENUE)
-			query += "WHERE type='"+typeList+"' ";
-		else if(typeList == TypeList.FAV)
-			query += "WHERE favorite='1' ";
-		
-		if(paidOrNot == TypePaid.NOTPAID)
-			query += "AND paid='"+paidOrNot+"' ";
-		else if(paidOrNot == TypePaid.PAID)
-			query += "AND paid='"+paidOrNot+"' ";
-		
-		query += "LIMIT "+limit+" OFFSET "+offset;
+		String query = getDataStatment();
+		query += getFilter(type,pay);
+		query += getPagination(offset,limit);
 			
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
-			ResultSet r = statement.executeQuery();
+			ResultSet result = statement.executeQuery();
 			
-			while(r.next()){				
-				list.add(new Register(r.getInt(1),r.getString(2),r.getFloat(3),r.getInt(4),intToBool(r.getInt(5)),
-						r.getTimestamp(6),r.getTimestamp(7),r.getInt(8),intToBool(r.getInt(9)),new Category(r.getInt(10), r.getString(11)),new Payment(r.getInt(12), r.getString(13))));
-			}
+			while(result.next())				
+				list.add(getRegisterFromResultSet(result));
+			
 			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -114,25 +96,14 @@ public class RegisterDAO implements PersistentBean, Listable {
 	{
 		ArrayList<Persistent> list = new ArrayList<>();
 		
-		String query = this.queryStat+"LIMIT "+limit+" OFFSET "+offset;
+		String query = getDataStatment();
+		query += getPagination(offset, limit);
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			
 			while(result.next()){
-				Integer id = result.getInt(1);
-				String code = result.getString(2);
-				float value = result.getFloat(3);
-				int parcel = result.getInt(4);
-				boolean paid = intToBool(result.getInt(5));
-				Timestamp exp = result.getTimestamp(6);
-				Timestamp inc = result.getTimestamp(7);
-				int type = result.getInt(8);
-				boolean fav = intToBool(result.getInt(9));
-				Category cat = new Category(result.getInt(10), result.getString(11));
-				Payment pay = new Payment(result.getInt(12), result.getString(13));
-				
-				list.add(new Register(id,code,value,parcel,paid,exp,inc,type,fav,cat,pay));
+				list.add(getRegisterFromResultSet(result));
 			}
 			statement.close();
 		} catch (SQLException e) {
@@ -173,9 +144,8 @@ public class RegisterDAO implements PersistentBean, Listable {
 	}
 	
 	private boolean intToBool(int i) {
-		boolean val = false;
-		if(i==1)
-			val = true;
+		boolean val=false;
+		if(i==1)val=true;
 		return val;
 	}
 
@@ -183,31 +153,16 @@ public class RegisterDAO implements PersistentBean, Listable {
 	public ArrayList<Persistent> findItens(int offset, int limit, String input) {
 		ArrayList<Persistent> list = new ArrayList<>();
 		
-		String query = "SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
-				"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
-				"ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
-				"FROM ucbm_register "+
-				"INNER JOIN ucbm_category ON ucbm_register.category_id = ucbm_category.id_category "+ 
-				"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment "+
-				"WHERE ucbm_register.code LIKE '%"+input+"%' LIMIT "+limit+" OFFSET "+offset;
+		String query = getDataStatment();
+		query += "WHERE ucbm_register.code LIKE '%"+input+"%' ";
+		query += getPagination(offset, limit);
+		
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			
 			while(result.next()){
-				Integer id = result.getInt(1);
-				String code = result.getString(2);
-				float value = result.getFloat(3);
-				int parcel = result.getInt(4);
-				boolean paid = intToBool(result.getInt(5));
-				Timestamp exp = result.getTimestamp(6);
-				Timestamp inc = result.getTimestamp(7);
-				int type = result.getInt(8);
-				boolean fav = intToBool(result.getInt(9));
-				Category cat = new Category(result.getInt(10), result.getString(11));
-				Payment pay = new Payment(result.getInt(12), result.getString(13));
-				
-				list.add(new Register(id,code,value,parcel,paid,exp,inc,type,fav,cat,pay));
+				list.add(getRegisterFromResultSet(result));
 			}
 			statement.close();
 		} catch (SQLException e) {
@@ -216,32 +171,10 @@ public class RegisterDAO implements PersistentBean, Listable {
 		return list;
 	}
 	
-
 	public int totaRegister(int typeFilter, int payFilter) {
 		int total = 0;
 		String query = "SELECT COUNT(id_register) FROM ucbm_register";
-		
-		//if have some filter, add to statement
-		if((typeFilter!=TypeList.ALL)||(payFilter!=TypePaid.ALL)) {
-			query += " WHERE ";
-			
-			//if have some filter by register type or favorite
-			if(typeFilter!=TypeList.ALL) {
-				if(typeFilter==TypeList.EXPENSE || typeFilter==TypeList.REVENUE)
-					query += "type='"+typeFilter+"' ";
-				else if(typeFilter==TypeList.FAV)
-					query += "favorite='1' ";
-			}
-			
-			//if have some filter by pay status
-			if(payFilter!=TypePaid.ALL) {
-				if(typeFilter!=TypeList.ALL)
-					query += "AND ";
-				
-				if(payFilter==TypePaid.NOTPAID || payFilter==TypePaid.PAID)
-					query += "paid='"+payFilter+"' ";
-			}
-		}
+		query += getFilter(typeFilter, payFilter);
 			
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
@@ -257,11 +190,66 @@ public class RegisterDAO implements PersistentBean, Listable {
 		return total;
 	}
 	
-	public void deleteItens(ArrayList<Persistent> list) {
-		for(Persistent p : list) {
-			p.deleteThis();
-		}
+	private String getDataStatment() {
+		return 
+		"SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
+		"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
+		"ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
+		"FROM ucbm_register "+
+		"INNER JOIN ucbm_category ON ucbm_register.category_id = ucbm_category.id_category "+ 
+		"INNER JOIN ucbm_payments ON ucbm_register.payment_id = ucbm_payments.id_payment ";
 	}
+	
+	private String getFilter(int type, int pay) {
+		String filter = "";
+		
+		if((type!=TypeList.ALL)||(pay!=TypePaid.ALL)) {
+			filter+= " WHERE ";
+					
+			if(type!=TypeList.ALL) {
+				if(type==TypeList.EXPENSE || type==TypeList.REVENUE)
+					filter += "type='"+type+"' ";
+				else if(type==TypeList.FAV)
+					filter += "favorite='1' ";
+			}
+					
+			if(pay!=TypePaid.ALL) {
+				if(type!=TypeList.ALL)
+					filter += "AND ";
+						
+				if(pay==TypePaid.NOTPAID || pay==TypePaid.PAID)
+					filter += "paid='"+pay+"' ";
+			}
+		}
+		return filter;
+	}
+	
+	private String getPagination(int offset,int limit) {
+		return "LIMIT "+limit+" OFFSET "+offset;
+	}
+	
+	private Register getRegisterFromResultSet(ResultSet result) {
+		Register register = null;
+		try {
+			register = new Register(
+				result.getInt(1),
+				result.getString(2),
+				result.getFloat(3),
+				result.getInt(4),
+				intToBool(result.getInt(5)),
+				result.getTimestamp(6),
+				result.getTimestamp(7),
+				result.getInt(8),
+				intToBool(result.getInt(9)),
+				new Category(result.getInt(10), result.getString(11)),
+				new Payment(result.getInt(12), result.getString(13))
+			);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return register;
+	}
+	
 	public void changeFavoriteStatus(int id, boolean status){
 		int bit = (status)?1:0;
 		String update = "UPDATE ucbm_register SET favorite="+bit+" WHERE id_register='"+id+"'";
