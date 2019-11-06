@@ -96,22 +96,11 @@ public class RegisterDAO implements PersistentBean, Listable {
 			
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
-			ResultSet result = statement.executeQuery();
+			ResultSet r = statement.executeQuery();
 			
-			while(result.next()){
-				Integer id = result.getInt(1);
-				String code = result.getString(2);
-				float value = result.getFloat(3);
-				int parcel = result.getInt(4);
-				boolean paid = intToBool(result.getInt(5));
-				Timestamp exp = result.getTimestamp(6);
-				Timestamp inc = result.getTimestamp(7);
-				int type = result.getInt(8);
-				boolean fav = intToBool(result.getInt(9));
-				Category cat = new Category(result.getInt(10), result.getString(11));
-				Payment pay = new Payment(result.getInt(12), result.getString(13));
-				
-				list.add(new Register(id,code,value,parcel,paid,exp,inc,type,fav,cat,pay));
+			while(r.next()){				
+				list.add(new Register(r.getInt(1),r.getString(2),r.getFloat(3),r.getInt(4),intToBool(r.getInt(5)),
+						r.getTimestamp(6),r.getTimestamp(7),r.getInt(8),intToBool(r.getInt(9)),new Category(r.getInt(10), r.getString(11)),new Payment(r.getInt(12), r.getString(13))));
 			}
 			statement.close();
 		} catch (SQLException e) {
@@ -227,55 +216,47 @@ public class RegisterDAO implements PersistentBean, Listable {
 		return list;
 	}
 	
-	public int[] loadDatasToInitList()
-	{
-		int[] datas = new int[4];
-		String query1 = "SELECT count(id_register) FROM ucbm_register";
-		String query2 = "SELECT count(id_register) FROM ucbm_register WHERE type='"+TypeList.EXPENSE+"'";
-		String query3 = "SELECT count(id_register) FROM ucbm_register WHERE type='"+TypeList.REVENUE+"'";
-		String query4 = "SELECT count(id_register) FROM ucbm_register WHERE favorite='1'";
+
+	public int totaRegister(int typeFilter, int payFilter) {
+		int total = 0;
+		String query = "SELECT COUNT(id_register) FROM ucbm_register";
 		
-		try {
-			PreparedStatement stat1 = this.connection.prepareStatement(query1);
-			PreparedStatement stat2 = this.connection.prepareStatement(query2);
-			PreparedStatement stat3 = this.connection.prepareStatement(query3);
-			PreparedStatement stat4 = this.connection.prepareStatement(query4);
+		//if have some filter, add to statement
+		if((typeFilter!=TypeList.ALL)||(payFilter!=TypePaid.ALL)) {
+			query += " WHERE ";
 			
-			ResultSet r = stat1.executeQuery();
-			while(r.next()) {
-				datas[0] = r.getInt(1);
-				break;
+			//if have some filter by register type or favorite
+			if(typeFilter!=TypeList.ALL) {
+				if(typeFilter==TypeList.EXPENSE || typeFilter==TypeList.REVENUE)
+					query += "type='"+typeFilter+"' ";
+				else if(typeFilter==TypeList.FAV)
+					query += "favorite='1' ";
 			}
 			
-			r = stat2.executeQuery();
-			while(r.next()) {
-				datas[1] = r.getInt(1);
-				break;
-			}
-			
-			r = stat3.executeQuery();
-			while(r.next()) {
-				datas[2] = r.getInt(1);
-				break;
-			}
-			
-			r = stat4.executeQuery();
-			while(r.next()) {
-				datas[3] = r.getInt(1);
-				break;
-			}
-			stat1.close();
-			stat2.close();
-			stat3.close();
-			stat4.close();
+			//if have some filter by pay status
+			if(payFilter!=TypePaid.ALL) {
+				if(typeFilter!=TypeList.ALL)
+					query += "AND ";
 				
+				if(payFilter==TypePaid.NOTPAID || payFilter==TypePaid.PAID)
+					query += "paid='"+payFilter+"' ";
+			}
+		}
+			
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			while(result.next()) {
+				total = result.getInt(1);
+				break;
+			}
+			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		return datas;
+		return total;
 	}
-
+	
 	public void deleteItens(ArrayList<Persistent> list) {
 		for(Persistent p : list) {
 			p.deleteThis();

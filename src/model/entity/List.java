@@ -56,7 +56,7 @@ public class List {
 	
 	public ArrayList<Persistent> getItens(int type, int paid){
 		this.itensList = dataAcess.getItens(this.offset, this.limit, type, paid);
-		this.totalRegisters = this.totalValues[type];
+		this.totalRegisters = dataAcess.totaRegister(type, paid);
 		return this.itensList;
 	}
 	
@@ -88,11 +88,9 @@ public class List {
 		return ok;
 	}
 	
-	private void initValues(){
-		 this.totalValues = new RegisterDAO().loadDatasToInitList();
-		 this.totalRegisters = totalValues[0];
-		
+	private void initValues(){		
 		 this.offset = 0;
+		 this.totalRegisters = dataAcess.totaRegister(TypeList.ALL,TypePaid.ALL);
 		 
 		 if(this.totalRegisters <= 15)
 			 this.limit = this.totalRegisters;
