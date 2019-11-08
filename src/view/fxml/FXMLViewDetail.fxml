@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="anchorViewDetail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewDetailController">
+<AnchorPane fx:id="anchorViewDetail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#hideOptionIfIsVisible" prefHeight="650.0" prefWidth="900.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewDetailController">
    <children>
-      <AnchorPane layoutX="117.0" layoutY="40.0" prefHeight="543.0" prefWidth="590.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
+      <AnchorPane layoutX="117.0" layoutY="40.0" prefHeight="543.0" prefWidth="570.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>
             <Label fx:id="labelCode" graphicTextGap="10.0" layoutX="30.0" layoutY="27.0" styleClass="h2" text="\$code" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="78.0">
                <graphic>
@@ -53,10 +53,10 @@
                   <Label graphicTextGap="8.0" layoutX="20.0" layoutY="15.0" style="-fx-text-fill: #FF3366;" styleClass="h3" text="VALORES" />
                </children>
             </Pane>
-            <Pane fx:id="paneOptions" layoutX="428.0" layoutY="30.0" prefHeight="65.0" prefWidth="90.0" style="-fx-background-color: #F3F4F5;" visible="false" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="63.0">
+            <Pane fx:id="paneOptions" layoutX="428.0" layoutY="30.0" prefHeight="65.0" prefWidth="90.0" style="-fx-border-color: #DDD;" visible="false" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="63.0">
                <children>
-                  <Button graphicTextGap="0.0" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#editThisRegister" prefHeight="31.0" prefWidth="88.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-background-radius: 0; -fx-border-radius: 0; -fx-border-style: dashed;" text="Editar" />
-                  <Button layoutX="1.0" layoutY="32.0" mnemonicParsing="false" onAction="#deleteThisRegister" prefHeight="31.0" prefWidth="88.0" text="Excluir" />
+                  <Button graphicTextGap="0.0" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#editThisRegister" prefHeight="31.0" prefWidth="88.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-background-radius: 0; -fx-border-radius: 0; -fx-border-style: dashed; -fx-background-color: #fff;" text="Editar" />
+                  <Button layoutX="1.0" layoutY="32.0" mnemonicParsing="false" onAction="#deleteThisRegister" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: #fff;" text="Excluir" />
                </children>
             </Pane>
          </children>

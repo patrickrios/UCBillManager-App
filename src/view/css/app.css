@@ -71,10 +71,11 @@
 	.button-list-control:hover{-fx-background-color:#EEE;-fx-border-color:#EEE;}
 	.button-list-control-selected{-fx-background-color:#F5F6F7;-fx-border-color:#F5F6F7;}
 
-	.label-item-yes{-fx-text-fill:#009966;}
-	.label-item-not{-fx-text-fill:#FF6666;}
-	.label-item-type-out{-fx-text-fill:#FF6666;}
-	.label-item-type-in{-fx-text-fill:#0078D7;}
+	.label-item-yes{-fx-text-fill:#3A9A63;}
+	.label-item-not{-fx-text-fill:#FF5555;}
+	.label-item-type-expense,.label-item-type-revenue{-fx-padding:3 0;-fx-border-width:0 0 2 0;}
+	.label-item-type-expense{-fx-text-fill:#FF5555;-fx-border-color:#FF5555;}
+	.label-item-type-revenue{-fx-text-fill:#3A9A63;-fx-border-color:#3A9A63;}
 
     .hbox-item-options{visibility:hidden;}
         .anchor-list-item{-fx-background-color:#FFF;}

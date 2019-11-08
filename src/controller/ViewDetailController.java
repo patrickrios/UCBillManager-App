@@ -51,8 +51,9 @@ public class ViewDetailController {
 		this.labelPayment.setText(register.getPayment().toString());
 		this.labelExpirationDate.setText(register.exiprationDateFormatted());
 		this.labelPaidStatus.setText(register.getPaidStatus());
-		definePayStyle(register.isPaid());
 		this.labelValue.setText(register.getValueFormatted());
+		definePayStyle(register.isPaid());
+		defineTypeStyle(register.getTypeValue());
 	}
 	
 	@FXML
@@ -98,12 +99,26 @@ public class ViewDetailController {
 		}
 	}
 	private void definePayStyle(boolean paid) {
-		String yep = "button-item-list-paid";
-		String not = "button-item-list-notpaid";
+		String yep = "label-item-type-revenue";
+		String not = "label-item-type-expense";
 		
 		if(paid)
 			this.labelPaidStatus.getStyleClass().add(yep);
 		else
 			this.labelPaidStatus.getStyleClass().add(not);
+	}
+	private void defineTypeStyle(int type) {
+		String exp = "label-item-type-expense";
+		String rev = "label-item-type-revenue";
+		
+		if(type == 1)
+			this.labelTypeRegister.getStyleClass().add(exp);
+		else
+			this.labelTypeRegister.getStyleClass().add(rev);
+	}
+	@FXML
+	void hideOptionIfIsVisible() {
+		if(!this.showOptionControl)
+			showOptions();
 	}
 }
