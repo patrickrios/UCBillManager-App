@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -10,11 +11,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import model.dao.CategoryDAO;
+import model.dao.PaymentDAO;
+import model.entity.Category;
+import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
 
 public class EditRegisterController {
-
 	@FXML
     private AnchorPane anchorpaneEdit;
     @FXML
@@ -49,19 +53,15 @@ public class EditRegisterController {
 		this.stack = stack;
 		this.register = register;
 		this.labelCode.setText(register.getCode());
-		this.choiceboxType.getItems().add(register.getTypeName());
-		this.choiceboxType.setValue(register.getTypeName());
-		this.choiceboxCategory.getItems().add(register.getCategory());
-		this.choiceboxCategory.setValue(register.getCategory());
 		this.textfieldCode.setText(register.getCode());
 		this.textfieldParcel.setText(register.getParcel()+"");
-		this.choiceboxPayment.getItems().add(register.getPayment());
-		this.choiceboxPayment.setValue(register.getPayment());
 		this.textfieldValue.setText(register.getValueWithoutPrefix());
 		this.paidControl = !register.isPaid();
 		this.parcelValue = register.getParcel();
 		setPaid();
-		
+		initiChoiceboxCategories();
+		initiChoiceboxPayments();
+		initiChoiceboxType();
 	}
 	
 	@FXML
@@ -102,5 +102,36 @@ public class EditRegisterController {
 	@FXML
 	 void save() {
 		this.register.updateThis();
+	}
+	
+	private void initiChoiceboxCategories(){		
+		ArrayList<Persistent> list = new CategoryDAO().findAll();
+		
+		for(Persistent persistent : list) {
+			Category cat = (Category)persistent;
+			if(cat.getId() == this.register.getCategory().getId())
+				this.choiceboxCategory.getItems().add(register.getCategory());
+			else
+				this.choiceboxCategory.getItems().add(persistent);
+		}
+		this.choiceboxCategory.setValue(this.register.getCategory());
+	}
+	
+	private void initiChoiceboxPayments() {
+		ArrayList<Persistent> list = new PaymentDAO().findAll();
+		
+		for(Persistent persistent :list) {
+			Payment pay = (Payment)persistent;
+			if(pay.getId()==register.getPayment().getId())
+				this.choiceboxPayment.getItems().add(register.getPayment());
+			else
+				this.choiceboxPayment.getItems().add(persistent);
+		}
+		this.choiceboxPayment.setValue(register.getPayment());
+	}
+	
+	private void initiChoiceboxType() {
+		this.choiceboxType.getItems().addAll("Despesa", "Receita");
+		this.choiceboxType.setValue(register.getTypeName());
 	}
 }

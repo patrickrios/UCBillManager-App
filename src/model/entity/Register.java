@@ -85,8 +85,7 @@ public class Register implements Persistent{
 	
 	@Override
 	public void updateThis() {
-		// TODO Auto-generated method stub
-		
+		new RegisterDAO().update(this);
 	}
 	
 	@Override
@@ -126,6 +125,10 @@ public class Register implements Persistent{
 	
 	public Payment getPayment() {
 		return payment;
+	}
+	
+	public Integer getId() {
+		return id;
 	}
 	
 	public String getValueWithoutPrefix(){

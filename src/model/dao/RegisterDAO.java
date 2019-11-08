@@ -64,8 +64,26 @@ public class RegisterDAO implements PersistentBean, Listable {
 
 	@Override
 	public void update(Persistent register) {
-		// TODO Auto-generated method stub
-		
+		Register reg = (Register)register;
+		String update = "UPDATE ucbm_register SET code=?,value=?,parcel=?,paid=?,expiration=?, type?,"
+				   +"favorite=?,category_id=?,payment_id=? WHERE id_register=?";
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(update);
+			statement.setString(1, reg.getCode());
+			statement.setFloat(2, reg.getValue());
+			statement.setInt(3, reg.getParcel());
+			statement.setInt(4, (reg.isPaid())?1:0);
+			statement.setTimestamp(5, reg.getExpirationDate());
+			statement.setInt(6, reg.getTypeValue());
+			statement.setInt(7, (reg.isFavorite())?1:0);
+			statement.setInt(8, reg.getCategory().getId());
+			statement.setInt(9, reg.getPayment().getId());
+			statement.setInt(10, reg.getId());
+			statement.executeUpdate();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<Persistent> getItens(int offset,int limit,int type,int pay){
