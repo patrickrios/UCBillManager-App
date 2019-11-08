@@ -83,7 +83,9 @@
         .anchor-list-item:hover{-fx-background-color:#F7F7F7;}
 
      .list-sale-item-selected{-fx-background-color:#F5F6F7; -fx-border-style:solid !important; -fx-border-color:transparent transparent #DDD #009D76 !important; -fx-border-width:0 0 1 3 !important;}
-         .button-view-selected{-fx-border-color:#5192D0;-fx-background-color:#F5F6F7; }
+     .button-view-selected{-fx-border-color:#5192D0;-fx-background-color:#F5F6F7; }
+     .list-view-card{-fx-border-color:#EEE;-fx-background-radius:5;-fx-border-radius:5;-fx-background-color:#FFF;}
+     .list-view-card:hover{-fx-border-color:#D0D0D0;-fx-cursor:hand;}
 
 	.button-item-list-paid, .button-item-list-notpaid{-fx-font-size:13;-fx-padding:3 6; -fx-background-radius:3; -fx-border-radius:3;-fx-text-fill:#FFF;-fx-border-width:0 0 1 0;}
 	.button-item-list-paid{-fx-background-color:#4ABA74;-fx-border-color:#40A666;}

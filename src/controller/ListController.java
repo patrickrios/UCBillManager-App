@@ -116,25 +116,23 @@ public class ListController implements Initializable
     
     private void loadGridLayout(){
     	this.vboxListItens.getChildren().clear();
-    	FlowPane flow = new FlowPane();
-    	flow.getChildren().clear();
-    	flow.setHgap(30);
-    	flow.setVgap(25);
-    	flow.setPrefWidth(795);
     	
-    	for(Persistent p : this.itens) {
-	    	FXMLLoader grid = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItemCard.fxml"));
-	    	try {
-				Parent card = grid.load();
-				ListItemController c = grid.getController();
-				c.inti((Register)p, this.stackpaneList, this.selectedItems,this.paneOptions);
-				flow.getChildren().add(card);
-			} 
-	    	catch (IOException e) {
-				e.printStackTrace();
-			}
-    	}
-    	this.vboxListItens.getChildren().add(flow);
+    	try {
+
+        	FlowPane flow = (FlowPane)FXMLLoader.load(getClass().getResource("/view/fxml/FXMLGridViewConteiner.fxml"));
+    		for(Persistent p : this.itens) {
+    			FXMLLoader grid = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItemCard.fxml"));
+    			Parent card = grid.load();
+    			ListItemController c = grid.getController();
+    			c.inti((Register)p, this.stackpaneList, this.selectedItems,this.paneOptions);
+    			flow.getChildren().add(card);
+        	}
+
+        	this.vboxListItens.getChildren().add(flow);
+		} 
+    	catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 
     @FXML

@@ -36,12 +36,16 @@ public class ListItemController {
     private CheckBox checkboxItem;
     @FXML
     private Button buttonFavorite;
+    @FXML
+    private Pane paneOptions;
     
     private StackPane stackList;
     
     private Register register;
     
     private ArrayList<Persistent> list;
+    
+    private boolean showOptionsControl = false;
     
     private Pane opt;
     
@@ -65,7 +69,8 @@ public class ListItemController {
         }
         else{
             this.anchorListeSaleItem.getStyleClass().clear();
-            this.anchorListeSaleItem.getStyleClass().add("anchor-list-item");
+            //this.anchorListeSaleItem.getStyleClass().add("anchor-list-item");
+            this.anchorListeSaleItem.getStyleClass().add("list-view-card");
             this.list.remove(this.register);
             if(this.list.isEmpty())
             	this.opt.setVisible(false);
@@ -128,6 +133,12 @@ public class ListItemController {
     public void switchFavoriteStatus() {
     	this.register.switchFavoriteStatus();
     	markAsFavorite();
+    }
+    
+    @FXML
+    void showOptions() {
+    	showOptionsControl = !showOptionsControl;
+    	this.paneOptions.setVisible(showOptionsControl);
     }
 
     private void markAsFavorite(){
