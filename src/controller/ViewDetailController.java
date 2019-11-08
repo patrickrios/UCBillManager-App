@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.entity.Register;
@@ -13,7 +14,7 @@ import view.util.FadeEffect;
 
 public class ViewDetailController {
 	@FXML
-    private StackPane stackpaneViewDetail;
+    private AnchorPane anchorViewDetail;
 	@FXML
     private Label labelCode;
 	@FXML
@@ -50,6 +51,7 @@ public class ViewDetailController {
 		this.labelPayment.setText(register.getPayment().toString());
 		this.labelExpirationDate.setText(register.exiprationDateFormatted());
 		this.labelPaidStatus.setText(register.getPaidStatus());
+		definePayStyle(register.isPaid());
 		this.labelValue.setText(register.getValueFormatted());
 	}
 	
@@ -61,7 +63,7 @@ public class ViewDetailController {
 	
 	@FXML
 	void exitDetails(){
-		this.stack.getChildren().remove(this.stackpaneViewDetail);
+		this.stack.getChildren().remove(this.anchorViewDetail);
 	}
 	
 	@FXML
@@ -94,5 +96,14 @@ public class ViewDetailController {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	private void definePayStyle(boolean paid) {
+		String yep = "button-item-list-paid";
+		String not = "button-item-list-notpaid";
+		
+		if(paid)
+			this.labelPaidStatus.getStyleClass().add(yep);
+		else
+			this.labelPaidStatus.getStyleClass().add(not);
 	}
 }
