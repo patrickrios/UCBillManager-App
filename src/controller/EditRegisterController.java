@@ -62,6 +62,7 @@ public class EditRegisterController {
 		initiChoiceboxCategories();
 		initiChoiceboxPayments();
 		initiChoiceboxType();
+		initiDateExp();
 	}
 	
 	@FXML
@@ -91,7 +92,6 @@ public class EditRegisterController {
     		Image img = new Image(getClass().getResourceAsStream("/view/img/toggle-off-icon-min.png"));
     		this.buttonPaid.setGraphic(new ImageView(img));
     	}
-    	
     	else{
     		this.paidControl = true;
     		Image img = new Image(getClass().getResourceAsStream("/view/img/toggle-on-icon-min.png"));
@@ -133,5 +133,9 @@ public class EditRegisterController {
 	private void initiChoiceboxType() {
 		this.choiceboxType.getItems().addAll("Despesa", "Receita");
 		this.choiceboxType.setValue(register.getTypeName());
+	}
+	
+	private void initiDateExp() {
+		
 	}
 }

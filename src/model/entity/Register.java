@@ -1,8 +1,11 @@
 package model.entity;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.LocalDate;
+
 import model.dao.RegisterDAO;
 import model.types.TypeRegister;
 import view.util.RealFormat;
@@ -16,11 +19,11 @@ public class Register implements Persistent{
 	private float value;
 	private boolean paid;
 	private int parcel;
-	private Timestamp expirationDate;
+	private Date expirationDate;
 	private Timestamp inclusionDate;
 	private boolean favorite = false;
 	
-	public Register(Integer id, String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
+	public Register(Integer id, String code, Category c, Payment p, float value, boolean paid, int parcel, Date expiration, int type) {
 		this.id = id;
 		this.code = code;
 		this.category = c;
@@ -32,7 +35,7 @@ public class Register implements Persistent{
 		this.type = new TypeRegister(type);
 	}
 	
-	public Register(String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
+	public Register(String code, Category c, Payment p, float value, boolean paid, int parcel, Date expiration, int type) {
 		this.id = null;
 		this.code = code;
 		this.category = c;
@@ -55,7 +58,7 @@ public class Register implements Persistent{
 		this.type = new TypeRegister(type);
 	}
 	
-	public Register(Integer id, String code, float value, int parcel, boolean paid, Timestamp expiration, Timestamp inclusion,  int type, boolean favorite, Category c, Payment p) {
+	public Register(Integer id, String code, float value, int parcel, boolean paid, Date expiration, Timestamp inclusion,  int type, boolean favorite, Category c, Payment p) {
 		this.id = id;
 		this.code = code;
 		this.value = value;
@@ -143,7 +146,7 @@ public class Register implements Persistent{
 		return value;
 	}
 	
-	public Timestamp getExpirationDate(){
+	public Date getExpirationDate(){
 		return expirationDate;
 	}
 	
@@ -189,10 +192,9 @@ public class Register implements Persistent{
 	
 	public boolean isExpired(){
 		boolean yes = false;
-		Instant now = Instant.now();
-		Instant exp = this.expirationDate.toInstant();
+		java.util.Date now = new java.util.Date();
 		
-		if(now.isAfter(exp))
+		if(this.expirationDate.before(now))
 			yes = true;
 		
 		return yes;

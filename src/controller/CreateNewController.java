@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -70,7 +71,7 @@ public class CreateNewController implements Initializable{
 		Payment p = (Payment)this.choiceboxPayments.getValue();
 		float value = RealFormat.realStringToFloat(this.textfieldValue.getText());
 		int parcel = Integer.parseInt(this.textfieldParcel.getText());
-		Timestamp exp = getDateExpiratinFormat();
+		Date exp = getDateExpirationFormat();
 		boolean paid = this.paidControl;
 		int t = this.type;
 		
@@ -183,10 +184,9 @@ public class CreateNewController implements Initializable{
     	this.datepickerExpiration.setValue(LocalDate.now());
     }
 
-    private Timestamp getDateExpiratinFormat(){
+    private Date getDateExpirationFormat(){
     	LocalDate d = this.datepickerExpiration.getValue();
-    	Timestamp t = Timestamp.valueOf(d.toString()+" 00:00:00.00");
-    	
+    	Date t = Date.valueOf(d);//Timestamp.valueOf(d.toString()+" 00:00:00.00");    	
     	return t;
     }
     
