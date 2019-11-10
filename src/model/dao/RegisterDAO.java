@@ -24,9 +24,9 @@ public class RegisterDAO implements PersistentBean, Listable {
 	@Override
 	public void createNew(Persistent register) {
 		Register r = (Register)register;
-		
-		String sql = "INSERT INTO ucbm_register (code, value, parcel, paid, expiration, inclusion, type, favorite, category_id, payment_id) " + 
-				"VALUES (?,?,?,?,?,DEFAULT,?,?,?,?);";
+		String sql = "INSERT INTO ucbm_register (id_register, code, value, parcel, paid, expiration, inclusion, type, favorite, category_id, payment_id) " + 
+				"VALUES (DEFAULT,?,?,?,?,?,DEFAULT,?,?,?,?);";
+
 		
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
@@ -34,7 +34,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 			statement.setFloat(2, r.getValue());
 			statement.setInt(3, r.getParcel());
 			statement.setInt(4, (r.isPaid())? 1 : 0);
-			statement.setDate(5, r.getExpirationDate());
+			statement.setTimestamp(5, r.getExpirationDate());
 			statement.setInt(6, r.getTypeValue());
 			statement.setInt(7, (r.isFavorite())? 1 : 0);
 			statement.setInt(8, r.getCategory().getId());
@@ -73,7 +73,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 			statement.setFloat(2, reg.getValue());
 			statement.setInt(3, reg.getParcel());
 			statement.setInt(4, (reg.isPaid())?1:0);
-			statement.setDate(5, reg.getExpirationDate());
+			statement.setTimestamp(5, reg.getExpirationDate());
 			statement.setInt(6, reg.getTypeValue());
 			statement.setInt(7, (reg.isFavorite())?1:0);
 			statement.setInt(8, reg.getCategory().getId());
@@ -89,7 +89,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 	public ArrayList<Persistent> getItens(int offset,int limit,int type,int pay){
 		ArrayList<Persistent> list = new ArrayList<>();
 		
-		String query = getDataStatment();
+		String query = selectDataStatment();
 		query += getFilter(type,pay);
 		query += getPagination(offset,limit);
 			
@@ -112,7 +112,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 	{
 		ArrayList<Persistent> list = new ArrayList<>();
 		
-		String query = getDataStatment();
+		String query = selectDataStatment();
 		query += getPagination(offset, limit);
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
@@ -169,7 +169,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 	public ArrayList<Persistent> findItens(int offset, int limit, String input) {
 		ArrayList<Persistent> list = new ArrayList<>();
 		
-		String query = getDataStatment();
+		String query = selectDataStatment();
 		query += "WHERE ucbm_register.code LIKE '%"+input+"%' ";
 		query += getPagination(offset, limit);
 		
@@ -206,7 +206,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 		return total;
 	}
 	
-	private String getDataStatment() {
+	private String selectDataStatment() {
 		return 
 		"SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
 		"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
@@ -253,7 +253,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 				result.getFloat(3),
 				result.getInt(4),
 				intToBool(result.getInt(5)),
-				result.getDate(6),
+				result.getTimestamp(6),
 				result.getTimestamp(7),
 				result.getInt(8),
 				intToBool(result.getInt(9)),

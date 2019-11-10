@@ -2,8 +2,9 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -71,7 +72,7 @@ public class CreateNewController implements Initializable{
 		Payment p = (Payment)this.choiceboxPayments.getValue();
 		float value = RealFormat.realStringToFloat(this.textfieldValue.getText());
 		int parcel = Integer.parseInt(this.textfieldParcel.getText());
-		Date exp = getDateExpirationFormat();
+		Timestamp exp = getDateExpirationFormat();
 		boolean paid = this.paidControl;
 		int t = this.type;
 		
@@ -184,10 +185,10 @@ public class CreateNewController implements Initializable{
     	this.datepickerExpiration.setValue(LocalDate.now());
     }
 
-    private Date getDateExpirationFormat(){
-    	LocalDate d = this.datepickerExpiration.getValue();
-    	Date t = Date.valueOf(d);//Timestamp.valueOf(d.toString()+" 00:00:00.00");    	
-    	return t;
+    private Timestamp getDateExpirationFormat(){
+    	LocalDate value = this.datepickerExpiration.getValue();
+    	String time = new SimpleDateFormat("hh:mm:ss").format(new Date().getTime());
+    	return Timestamp.valueOf(value.toString()+" "+time);
     }
     
     private boolean validateTextField(TextField tf){
