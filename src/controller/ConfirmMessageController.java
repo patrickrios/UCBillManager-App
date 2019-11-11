@@ -47,6 +47,10 @@ public class ConfirmMessageController {
     		this.labelMessage.setText("apagado do sistema");
     		this.anchorConfirmMessage.getStyleClass().add("confirm-error");
     	}
+    	else if(type.equals(ConfirmMessageType.UPDATE)){
+    		this.labelMessage.setText("atualizado");
+    		this.anchorConfirmMessage.getStyleClass().add("confirm-sucess");
+    	}
     }
 
 }

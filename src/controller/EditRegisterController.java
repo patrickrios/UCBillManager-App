@@ -1,8 +1,15 @@
 package controller;
 
+import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -18,6 +25,8 @@ import model.entity.Category;
 import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
+import view.util.ConfirmMessageType;
+import view.util.RealFormat;
 
 public class EditRegisterController {
 	@FXML
@@ -59,11 +68,11 @@ public class EditRegisterController {
 		this.textfieldValue.setText(register.getValueWithoutPrefix());
 		this.paidControl = !register.isPaid();
 		this.parcelValue = register.getParcel();
-		setPaid();
+		switchPaidStatus();
 		initiChoiceboxCategories();
 		initiChoiceboxPayments();
 		initiChoiceboxType();
-		initiDateExp();
+		initiExpDate();
 	}
 	
 	@FXML
@@ -86,7 +95,7 @@ public class EditRegisterController {
 	}
 	
 	@FXML
-    void setPaid(){
+    void switchPaidStatus(){
     	
     	if(this.paidControl){
     		this.paidControl = false;
@@ -102,7 +111,13 @@ public class EditRegisterController {
 	
 	@FXML
 	 void save() {
-		this.register.updateThis();
+		updateDatasOfRegister();
+		boolean ok = this.register.updateDatas();
+		if(ok)
+			showMessage(ConfirmMessageType.UPDATE);
+		else
+			showMessage(ConfirmMessageType.ERROR);
+		
 	}
 	
 	private void initiChoiceboxCategories(){		
@@ -136,8 +151,51 @@ public class EditRegisterController {
 		this.choiceboxType.setValue(register.getTypeName());
 	}
 	
-	private void initiDateExp() {
+	private void initiExpDate() {
     	LocalDate value = this.register.getExpirationDate().toLocalDateTime().toLocalDate(); 
     	this.datepickerExpiration.setValue(value);
+	}
+	
+	private void updateDatasOfRegister() {
+		//identify
+		String   code = textfieldCode.getText();
+		int    	 type = getTypeValue();
+		Category cat  = (Category)choiceboxCategory.getSelectionModel().getSelectedItem();
+		Payment  pay  = (Payment)choiceboxPayment.getSelectionModel().getSelectedItem();
+		//values
+		float     value  = RealFormat.realStringToFloat(textfieldValue.getText());
+		int       parcel = Integer.parseInt(textfieldParcel.getText());
+		Timestamp exp    = getDateExpirationFormat();
+		boolean   paid   = paidControl;
+		
+		this.register.updateDatas(code, cat, pay, value, paid, parcel, exp, type);
+		
+	}
+	
+	private Timestamp getDateExpirationFormat(){
+    	LocalDate value = this.datepickerExpiration.getValue();
+    	String time = new SimpleDateFormat("hh:mm:ss").format(new Date().getTime());
+    	return Timestamp.valueOf(value.toString()+" "+time);
+    }
+	
+	private int getTypeValue() {
+		
+		int value = 1;
+		String type = choiceboxType.getSelectionModel().getSelectedItem();
+		
+		if(type.equals("Receita"))
+			value = 2;
+		return value;
+	}
+	
+	private void showMessage(String type) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLConfirmMessage.fxml"));
+		try {
+			loader.load();
+			ConfirmMessageController c = loader.getController();
+			c.inti(this.register.getCode(), type, this.stack);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}; 
 	}
 }

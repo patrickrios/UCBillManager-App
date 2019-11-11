@@ -36,7 +36,7 @@
             <Label layoutX="33.0" layoutY="317.0" styleClass="h3" text="Valor" />
             <TextField fx:id="textfieldValue" layoutX="33.0" layoutY="340.0" prefHeight="41.0" prefWidth="168.0" promptText="R$ 00,00" />
             <Label layoutX="275.0" layoutY="402.0" styleClass="h3" text="Pago?" />
-            <Button fx:id="buttonPaid" layoutX="275.0" layoutY="426.0" mnemonicParsing="false" onAction="#setPaid" styleClass="button-reset">
+            <Button fx:id="buttonPaid" layoutX="275.0" layoutY="426.0" mnemonicParsing="false" onAction="#switchPaidStatus" styleClass="button-reset">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                      <image>

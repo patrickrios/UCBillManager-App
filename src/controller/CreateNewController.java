@@ -67,22 +67,23 @@ public class CreateNewController implements Initializable{
 	}
 	
 	private Register getRegisterFromForm(){
-		String code = this.textfieldCode.getText();
-		Category c = (Category)this.choiceboxCatgories.getValue();
-		Payment p = (Payment)this.choiceboxPayments.getValue();
-		float value = RealFormat.realStringToFloat(this.textfieldValue.getText());
-		int parcel = Integer.parseInt(this.textfieldParcel.getText());
-		Timestamp exp = getDateExpirationFormat();
-		boolean paid = this.paidControl;
-		int t = this.type;
+		//identify
+		String   code = this.textfieldCode.getText();
+		Category cat  = (Category)this.choiceboxCatgories.getValue();
+		Payment  pay  = (Payment)this.choiceboxPayments.getValue();
+		//value
+		float 	  value  = RealFormat.realStringToFloat(this.textfieldValue.getText());
+		int       parcel = Integer.parseInt(this.textfieldParcel.getText());
+		Timestamp exp    = getDateExpirationFormat();
+		boolean   paid   = this.paidControl;
+		int 	  typ    = this.type;
 		
-		return new Register(code, c, p, value, paid, parcel, exp, t);
+		return new Register(code, cat, pay, value, paid, parcel, exp, typ);
 	}
 	
     @FXML
     void decrementParcelQuantity() {
-    	if(this.parcel > 1)
-    	{
+    	if(this.parcel > 1){
     		this.parcel--;
     		updateParcelText();
     	}

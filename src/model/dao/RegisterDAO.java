@@ -64,9 +64,14 @@ public class RegisterDAO implements PersistentBean, Listable {
 
 	@Override
 	public void update(Persistent register) {
+		//TODO
+	}
+	
+	public boolean updateDatas(Persistent register) {
+		boolean sucess = false;
 		Register reg = (Register)register;
-		String update = "UPDATE ucbm_register SET code=?,value=?,parcel=?,paid=?,expiration=?, type?,"
-				   +"favorite=?,category_id=?,payment_id=? WHERE id_register=?";
+		String update = "UPDATE ucbm_register SET code=?,value=?,parcel=?,paid=?,expiration=?, type=?,"
+				       +"favorite=?,category_id=?,payment_id=? WHERE id_register=?";
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(update);
 			statement.setString(1, reg.getCode());
@@ -81,9 +86,11 @@ public class RegisterDAO implements PersistentBean, Listable {
 			statement.setInt(10, reg.getId());
 			statement.executeUpdate();
 			statement.close();
+			sucess = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return sucess;
 	}
 	
 	public ArrayList<Persistent> getItens(int offset,int limit,int type,int pay){

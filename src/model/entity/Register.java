@@ -84,7 +84,10 @@ public class Register implements Persistent{
 	
 	@Override
 	public void updateThis() {
-		new RegisterDAO().update(this);
+		new RegisterDAO().updateDatas(this);
+	}
+	public boolean updateDatas() {
+		return new RegisterDAO().updateDatas(this);
 	}
 	
 	@Override
@@ -210,5 +213,28 @@ public class Register implements Persistent{
 	private void updatePayStatus(){
 		if(this.id != null)
 			new RegisterDAO().changePayStatus(id, paid);
+	}
+	
+	public void updateDatas(String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
+		this.code = code;
+		this.category = c;
+		this.payment = p;
+		this.value = value;
+		this.paid = paid;
+		this.parcel = parcel;
+		this.expirationDate = expiration;
+		this.type = new TypeRegister(type);
+	}
+	
+	public void printStatus() {
+		System.out.println("Register ("+this.code+")");
+		System.out.println("\tcode: "+this.code);
+		System.out.println("\tcateg: "+this.category.getName());
+		System.out.println("\tpay: "+this.payment.getName());
+		System.out.println("\tvalue: "+this.value);
+		System.out.println("\tpaid: "+this.getPaidStatus());
+		System.out.println("\tparcel: "+this.parcel);
+		System.out.println("\texp date: "+this.exiprationDateFormatted());
+		System.out.println("\ttipo: "+this.getTypeName());
 	}
 }
