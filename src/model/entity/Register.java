@@ -151,6 +151,12 @@ public class Register implements Persistent{
 		return exp.toUpperCase();
 	}
 	
+	public String inclusionDateFormatted() {
+		String date = new SimpleDateFormat("dd/M/yyyy").format(this.inclusionDate);
+		String time = new SimpleDateFormat("hh:mm").format(this.inclusionDate);
+		return "Adicionado em "+date+" às "+time;
+	}
+	
 	public int getTypeValue(){
 		return this.type.getCode();
 	}

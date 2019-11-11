@@ -32,6 +32,8 @@ public class ViewDetailController {
 	@FXML
 	private Label labelPaidStatus;
 	@FXML
+	private Label labelInclusion;
+	@FXML
     private Pane paneOptions;
 	
 	private boolean showOptionControl = true;
@@ -52,6 +54,7 @@ public class ViewDetailController {
 		this.labelExpirationDate.setText(register.exiprationDateFormatted());
 		this.labelPaidStatus.setText(register.getPaidStatus());
 		this.labelValue.setText(register.getValueFormatted());
+		this.labelInclusion.setText(register.inclusionDateFormatted());
 		definePayStyle(register.isPaid());
 		defineTypeStyle(register.getTypeValue());
 	}

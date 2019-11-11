@@ -1,5 +1,6 @@
 package controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -136,6 +137,7 @@ public class EditRegisterController {
 	}
 	
 	private void initiDateExp() {
-		
+    	LocalDate value = this.register.getExpirationDate().toLocalDateTime().toLocalDate(); 
+    	this.datepickerExpiration.setValue(value);
 	}
 }

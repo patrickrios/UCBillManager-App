@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="anchorViewDetail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#hideOptionIfIsVisible" prefHeight="650.0" prefWidth="900.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewDetailController">
    <children>
-      <AnchorPane layoutX="117.0" layoutY="40.0" prefHeight="543.0" prefWidth="570.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
+      <AnchorPane layoutX="117.0" layoutY="40.0" prefHeight="563.0" prefWidth="570.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>
             <Label fx:id="labelCode" graphicTextGap="10.0" layoutX="30.0" layoutY="27.0" styleClass="h2" text="\$code" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="78.0">
                <graphic>
@@ -21,7 +21,7 @@
                </graphic>
             </Label>
             <Label fx:id="labelValue" alignment="BASELINE_RIGHT" layoutX="30.0" layoutY="455.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-font-size: 50; -fx-text-fill: #7B458D;" text="R$ 00,00" AnchorPane.leftAnchor="30.0" />
-            <Button layoutX="456.0" layoutY="462.0" mnemonicParsing="false" onAction="#exitDetails" prefHeight="47.0" prefWidth="104.0" text="fechar" AnchorPane.rightAnchor="30.0" />
+            <Button layoutX="440.0" layoutY="503.0" mnemonicParsing="false" onAction="#exitDetails" prefHeight="47.0" prefWidth="104.0" text="fechar" AnchorPane.rightAnchor="26.0" />
             <Button layoutX="526.0" layoutY="29.0" mnemonicParsing="false" onAction="#showOptions" style="-fx-background-color: #F3F4F5; -fx-background-radius: 30; -fx-border-radius: 30;" AnchorPane.rightAnchor="30.0">
                <graphic>
                   <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
@@ -59,6 +59,7 @@
                   <Button layoutX="1.0" layoutY="32.0" mnemonicParsing="false" onAction="#deleteThisRegister" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: #fff;" text="Excluir" />
                </children>
             </Pane>
+            <Label fx:id="labelInclusion" layoutX="31.0" layoutY="532.0" style="-fx-text-fill: #777;" text="\$inclusion_date" />
          </children>
       </AnchorPane>
    </children>
