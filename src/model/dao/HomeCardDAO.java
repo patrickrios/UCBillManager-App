@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import model.util.ExpirationInterval;
 import model.util.HomeCard;
 
 public class HomeCardDAO {
@@ -18,8 +20,13 @@ public class HomeCardDAO {
 		HomeCard paidOrNot = null;
 		int total=0, subtotal=0;
 		float value=0.0f;
-		String query1 = "SELECT COUNT(id_register), SUM(value) FROM ucbm_register WHERE (type='"+type+"' AND paid='"+paid+"')";
-		String query2 = "SELECT COUNT(id_register) FROM ucbm_register WHERE type='"+type+"'";
+		
+		String query1 = "SELECT COUNT(id_register), SUM(value) FROM ucbm_register WHERE (type='"+type+"' AND paid='"+paid+"' AND  $int)";
+		String query2 = "SELECT COUNT(id_register) FROM ucbm_register WHERE (type='"+type+"' AND $int )";
+		
+		query1 = replaceWithInterval(query1);
+		query2 = replaceWithInterval(query2);
+		
 		try {
 			PreparedStatement stat1 = this.connection.prepareStatement(query2);
 			PreparedStatement stat2 = this.connection.prepareStatement(query1);
@@ -50,8 +57,11 @@ public class HomeCardDAO {
 		int subtotal = 0;
 		float value = 0.0f;
 		
-		String query1 = "SELECT COUNT(id_register), SUM(value) FROM ucbm_register WHERE type = '"+type+"' ";
-		String query2 = "SELECT COUNT(id_register) FROM ucbm_register";
+		String query1 = "SELECT COUNT(id_register), SUM(value) FROM ucbm_register WHERE (type='"+type+"' AND $int)";
+		String query2 = "SELECT COUNT(id_register) FROM ucbm_register WHERE $int";
+		
+		query1 = replaceWithInterval(query1);
+		query2 = replaceWithInterval(query2);
 		try {
 			PreparedStatement stat1 = this.connection.prepareStatement(query1);
 			PreparedStatement stat2 = this.connection.prepareStatement(query2);
@@ -74,5 +84,13 @@ public class HomeCardDAO {
 			e.printStackTrace();
 		}
 		return card;
+	}
+	
+	private String monthlyInterval() {
+		return ExpirationInterval.MONTHLY;
+	}
+	
+	private String replaceWithInterval(String query) {
+		return query.replace("$int", monthlyInterval());
 	}
 }
