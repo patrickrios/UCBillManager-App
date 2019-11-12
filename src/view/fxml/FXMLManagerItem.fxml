@@ -12,9 +12,9 @@
    <children>
       <CheckBox fx:id="checkboxMarker" layoutX="24.0" layoutY="12.0" mnemonicParsing="false" />
       <Label fx:id="labelTitle" layoutX="54.0" layoutY="11.0" styleClass="h3" text="Name of row" />
-      <HBox prefHeight="20.0" spacing="8.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="7.0">
+      <HBox prefHeight="20.0" spacing="8.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#editThisItem" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+            <Button mnemonicParsing="false" onAction="#editThisItem" style="-fx-padding: 5 7; -fx-background-radius: 30; -fx-border-radius: 30;">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -23,7 +23,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#deleteThisItem" style="-fx-border-color: #DDD; -fx-padding: 3 4;">
+            <Button mnemonicParsing="false" onAction="#deleteThisItem" style="-fx-padding: 5 7; -fx-background-radius: 30; -fx-border-radius: 30;">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                      <image>

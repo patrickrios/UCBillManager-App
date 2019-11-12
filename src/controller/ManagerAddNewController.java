@@ -34,6 +34,8 @@ public class ManagerAddNewController {
     	String input = textfieldInput.getText();
     	this.bean.createNew(input);
     	showMessage(input);
+		controller.loadItens();
+		closeAddLayout();
     }
     
     private void showMessage(String input) {
@@ -42,9 +44,8 @@ public class ManagerAddNewController {
 			loader.load();
 			ConfirmMessageController c = loader.getController();
 			c.inti(input, ConfirmMessageType.SUCESS, this.stack);
-			controller.loadItens();
-			closeAddLayout();
-		} catch (IOException e) {
+		}
+    	catch (IOException e) {
 			e.printStackTrace();
 		}
     }
