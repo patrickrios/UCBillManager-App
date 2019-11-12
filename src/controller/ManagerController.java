@@ -7,12 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.dao.PersistentBean;
 import model.entity.Persistent;
-import view.util.ConfirmMessageType;
+import view.util.FadeEffect;
 
 public class ManagerController
 {
@@ -22,8 +21,6 @@ public class ManagerController
     private Label labelTitle;
     @FXML
     private VBox vboxManagerList;
-    @FXML
-    private TextField textfieldInput;
     
     private PersistentBean persistentBean;
     
@@ -33,12 +30,12 @@ public class ManagerController
         this.labelTitle.setText(title);
         this.persistentBean = dao;
         this.deleteType = deleteType;
-        this.loadItens(dao);
+        this.loadItens();
         this.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
     }
     
-    private void loadItens(PersistentBean b){
-    	ArrayList<Persistent> list = b.findAll();
+    void loadItens(){
+    	ArrayList<Persistent> list = this.persistentBean.findAll();
     	this.vboxManagerList.getChildren().clear();
     	
     	for(Persistent p : list)
@@ -58,46 +55,19 @@ public class ManagerController
     }
     
     @FXML
-    void create()
+    void loadAddNewLayout()
     {
-    	if(textInputIsValid())
-    	{
-    		String input = this.textfieldInput.getText();
-    		
-    		if(this.persistentBean.verifyExistenceOf(input)){
-    			showMessage(input, ConfirmMessageType.ERROR);
-    		}
-    		else{
-        		this.persistentBean.createNew(input);
-        		cleanTexfieldInput();
-        		showMessage(input, ConfirmMessageType.SUCESS);
-        		loadItens(persistentBean);
-    		}
-    	}
-    	else{
-    		this.textfieldInput.getStyleClass().add("textfield-empty");
-    	}
-    }
-    
-    private boolean textInputIsValid(){
-    	return !this.textfieldInput.getText().isEmpty();
-    }
-    
-    private void cleanTexfieldInput(){
-    	this.textfieldInput.clear();
-    }
-    
-    private void showMessage(String input, String type)
-    {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLConfirmMessage.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManagerAddNew.fxml"));
     	
     	try {
-			loader.load();
-			ConfirmMessageController c = loader.getController();
-			c.inti(input, type, this.stackManegerLayout);
+			Parent parent = loader.load();
+			ManagerAddNewController controller = loader.getController();
+			controller.inti(this.persistentBean, this.stackManegerLayout, this);
+			new FadeEffect(parent);
+			stackManegerLayout.getChildren().add(parent);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-    			
+		} 
     }
+
 }

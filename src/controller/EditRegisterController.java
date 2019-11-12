@@ -6,10 +6,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -157,12 +155,11 @@ public class EditRegisterController {
 	}
 	
 	private void updateDatasOfRegister() {
-		//identify
 		String   code = textfieldCode.getText();
 		int    	 type = getTypeValue();
 		Category cat  = (Category)choiceboxCategory.getSelectionModel().getSelectedItem();
 		Payment  pay  = (Payment)choiceboxPayment.getSelectionModel().getSelectedItem();
-		//values
+		
 		float     value  = RealFormat.realStringToFloat(textfieldValue.getText());
 		int       parcel = Integer.parseInt(textfieldParcel.getText());
 		Timestamp exp    = getDateExpirationFormat();
