@@ -32,7 +32,7 @@ public class ManagerController
         this.deleteType = deleteType;
         this.loadItens();
         this.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
-        loadPicker();
+        //loadPicker();
     }
     
     void loadItens(){

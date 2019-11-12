@@ -3,6 +3,7 @@ package view.components;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Calendar;
 
 public class MonthPicker {
 	private int month;
@@ -14,8 +15,10 @@ public class MonthPicker {
 	}
 	
 	public MonthPicker() {		
-		this.month = LocalDate.now().getMonthValue();
-		this.year = LocalDate.now().getYear();
+		Calendar calendar = Calendar.getInstance();
+		
+		this.month = calendar.get(Calendar.MONTH);///LocalDate.now().getMonthValue();
+		this.year = calendar.get(Calendar.YEAR);//LocalDate.now().getYear();
 	}
 	
 	public MonthPicker(Date date) {
@@ -34,8 +37,7 @@ public class MonthPicker {
 	
 	public String monthAndYear() {
 		String m = new SimpleDateFormat("MMMM").format(this.month);
-		String y = new SimpleDateFormat("yyyy").format(this.year);
-		return m+"/"+y;
+		return m+"/"+this.year;
 	}
 	
 	public int yearNumber() {
