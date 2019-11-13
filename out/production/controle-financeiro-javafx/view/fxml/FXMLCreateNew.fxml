@@ -26,7 +26,7 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Pane layoutX="45.0" layoutY="75.0" prefHeight="266.0" prefWidth="674.0" style="-fx-border-color: #DDD; -fx-background-radius: 5 5 0 0; -fx-border-radius: 5 5 0 0; -fx-border-style: dashed; -fx-background-color: #F9FCFC;">
+            <Pane layoutX="45.0" layoutY="75.0" prefHeight="266.0" prefWidth="674.0" style="-fx-border-color: #DDD; -fx-background-radius: 5 5 0 0; -fx-border-radius: 5 5 0 0; -fx-border-style: dashed;">
                <children>
                   <Label layoutX="20.0" layoutY="12.0" style="-fx-font-size: 24; -fx-text-fill: #7B458D;" text="Identificação" />
                   <Label layoutX="20.0" layoutY="53.0" styleClass="h3" text="Tipo" />
@@ -40,7 +40,7 @@
                   <ChoiceBox fx:id="choiceboxPayments" layoutX="350.0" layoutY="80.0" prefHeight="46.0" prefWidth="244.0" />
                </children>
             </Pane>
-            <Pane layoutX="45.0" layoutY="341.0" prefHeight="255.0" prefWidth="674.0" style="-fx-border-color: #FFF #DDD #DDD #DDD; -fx-background-radius: 0 0 5 5; -fx-border-radius: 0 0 5 5; -fx-border-style: dashed; -fx-background-color: #F9FCFC;">
+            <Pane layoutX="45.0" layoutY="341.0" prefHeight="255.0" prefWidth="674.0" style="-fx-border-color: #FFF #DDD #DDD #DDD; -fx-background-radius: 0 0 5 5; -fx-border-radius: 0 0 5 5; -fx-border-style: dashed;">
                <children>
                   <Label layoutX="20.0" layoutY="12.0" style="-fx-font-size: 24; -fx-text-fill: #7B458D;" text="Valores" />
                   <TextField fx:id="textfieldValue" layoutX="25.0" layoutY="81.0" prefHeight="46.0" prefWidth="244.0" promptText="R$ 00,00" />

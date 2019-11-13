@@ -15,10 +15,11 @@ public class MonthPickerController implements Initializable {
 	@FXML
 	private VBox vboxMonthPicker;
     @FXML
-    private Button buttonCurrentMonth;
+    private AnchorPane anchorCurrentMonth;
+    @FXML
+    private Label labelMonthValue;
     @FXML
     private AnchorPane anchorMonthList;
-    
     @FXML
     private Label labelYear;
     @FXML
@@ -34,7 +35,7 @@ public class MonthPickerController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 		this.picker = new MonthPicker();
-		this.buttonCurrentMonth.setText(picker.monthAndYear());
+		this.labelMonthValue.setText(picker.monthAndYear());
 		populateCalendar();
 		this.clone = this.anchorMonthList;
 		setYearName();
@@ -47,10 +48,14 @@ public class MonthPickerController implements Initializable {
 		
 		if(this.calendarControl) {
 			this.vboxMonthPicker.getChildren().add(this.clone);
+			this.anchorCurrentMonth.getStyleClass().clear();
+			this.anchorCurrentMonth.getStyleClass().add("button-month-picker-selected");
 		}
 			
 		else {
 			this.vboxMonthPicker.getChildren().remove(this.clone);
+			this.anchorCurrentMonth.getStyleClass().clear();
+			this.anchorCurrentMonth.getStyleClass().add("button-month-picker");
 			this.clone = this.anchorMonthList;
 		}	
 	}
