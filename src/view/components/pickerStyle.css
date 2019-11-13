@@ -1,0 +1,4 @@
+
+.month-control, .month-control-selected{-fx-background-color:#FFF;-fx-border-width:2;-fx-pref-width:235;-fx-pref-height:42;-fx-cursor:hand;}
+.month-control{-fx-border-color:#DDD;-fx-border-radius:5;}
+.month-control-selected{-fx-border-radius:5 5 0 0;-fx-border-color:#067CD7;}

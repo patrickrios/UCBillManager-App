@@ -27,14 +27,14 @@ public class MonthPickerController implements Initializable {
     
     private AnchorPane clone;
     
-    private MonthPicker picker;
+    private MonthRef picker;
     
     private boolean calendarControl = true;
    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		this.picker = new MonthPicker();
+		this.picker = new MonthRef();
 		this.labelMonthValue.setText(picker.monthAndYear());
 		populateCalendar();
 		this.clone = this.anchorMonthList;
@@ -87,5 +87,9 @@ public class MonthPickerController implements Initializable {
 				m++;
 			}
 		}
+	}
+	
+	private MonthRef getMonthRef() {
+		return this.picker;
 	}
 }

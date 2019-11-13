@@ -12,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -28,6 +27,7 @@ import model.entity.Category;
 import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
+import view.components.MonthPicker;
 import view.util.ConfirmMessageType;
 import view.util.RealFormat;
 
@@ -54,6 +54,8 @@ public class CreateNewController implements Initializable{
     private Button buttonInType;
     @FXML
     private Pane paneMonthPicker;
+    
+    private MonthPicker monthPicker;
     
 	private boolean paidControl = false;
 	
@@ -227,11 +229,7 @@ public class CreateNewController implements Initializable{
     
     
   	private void loadMonthPicker() {
-  		try {
-  			Parent p = FXMLLoader.load(getClass().getResource("/view/components/FXMLMonthPicker.fxml"));
-  			this.paneMonthPicker.getChildren().add(p);
-  		} catch (IOException e) {
-  			e.printStackTrace();
-  		}
+  		this.monthPicker = new MonthPicker();
+  		this.paneMonthPicker.getChildren().add(this.monthPicker);
   	}
 }
