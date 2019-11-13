@@ -1,4 +1,4 @@
-package view.components;
+package view.monthpicker;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -8,7 +8,7 @@ public class MonthPicker extends VBox{
 	private MonthPickerControl header;
 	private MonthPickerCalendar calendar;
 	private MonthPickerCalendar clone;
-	private MonthRef monthRef;
+	protected MonthRef monthRef;
 	private boolean displayControl = false;
 	
 	public MonthPicker() {
@@ -23,10 +23,10 @@ public class MonthPicker extends VBox{
 		
 		if(this.displayControl) {
 
-			//this.getChildren().add(clone);
+			this.getChildren().add(clone);
 			this.header.markAsSelected();
 		}else {
-			//this.getChildren().remove(clone);
+			this.getChildren().remove(clone);
 			this.header.markAsUnselected();
 		}
 			
@@ -35,7 +35,7 @@ public class MonthPicker extends VBox{
 	private void initiComponents() {
 		this.monthRef = new MonthRef();
 		this.header = new MonthPickerControl(this.monthRef.monthAndYear());
-		this.calendar = new MonthPickerCalendar(this.monthRef.yearNumber());
+		this.calendar = new MonthPickerCalendar(this);
 		this.getChildren().add(header);
 	}
 	

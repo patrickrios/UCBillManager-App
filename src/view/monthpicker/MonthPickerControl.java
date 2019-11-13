@@ -1,4 +1,4 @@
-package view.components;
+package view.monthpicker;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;

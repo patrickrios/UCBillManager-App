@@ -91,9 +91,3 @@
 	.button-item-list-paid{-fx-background-color:#4ABA74;-fx-border-color:#40A666;}
 	.button-item-list-notpaid{-fx-background-color:#EE6969;-fx-border-color:#EC4F4F;}
 	
-	/** Month picker*/
-	.button-month-picker{-fx-background-color:#FFF;-fx-border-width:2;-fx-border-color:#DDD;-fx-border-radius:5;-fx-cursor:hand;}
-	.button-month-picker-selected{-fx-border-width:2; -fx-border-radius:5 5 0 0;-fx-border-color:#067CD7;-fx-cursor:hand;}
-	.button-month-unselected{-fx-background-color:#FFF;-fx-text-fill:#00A8FF;-fx-border-width:0;}
-	.button-month-unselected:hover{-fx-background-color:#F3F4F5;}
-	.button-month-selected{-fx-background-color:#0078D7;-fx-text-fill:#FFF;}

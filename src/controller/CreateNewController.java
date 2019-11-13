@@ -27,7 +27,7 @@ import model.entity.Category;
 import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
-import view.components.MonthPicker;
+import view.monthpicker.MonthPicker;
 import view.util.ConfirmMessageType;
 import view.util.RealFormat;
 

@@ -1,4 +1,4 @@
-package view.components;
+package view.monthpicker;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -42,6 +42,10 @@ public class MonthRef {
 	
 	public int yearNumber() {
 		return this.year;
+	}
+	
+	public String year() {
+		return this.year+"";
 	}
 	
 	public int nextYear() {
