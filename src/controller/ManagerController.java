@@ -32,7 +32,6 @@ public class ManagerController
         this.deleteType = deleteType;
         this.loadItens();
         this.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
-        //loadPicker();
     }
     
     void loadItens(){
@@ -70,16 +69,5 @@ public class ManagerController
 			e.printStackTrace();
 		} 
     }
-
-  //só para teste
-  /*	private void loadPicker() {
-  		try {
-  			Parent p = FXMLLoader.load(getClass().getResource("/view/components/FXMLMonthPicker.fxml"));
-  			this.vboxManagerList.getChildren().add(p);
-  		} catch (IOException e) {
-  			// TODO Auto-generated catch block
-  			e.printStackTrace();
-  		}
-  	}
-  	*/
+  	
 }

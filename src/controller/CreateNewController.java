@@ -12,12 +12,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.dao.CategoryDAO;
 import model.dao.PaymentDAO;
@@ -50,6 +52,8 @@ public class CreateNewController implements Initializable{
     private Button buttonOutType;
     @FXML
     private Button buttonInType;
+    @FXML
+    private Pane paneMonthPicker;
     
 	private boolean paidControl = false;
 	
@@ -63,6 +67,7 @@ public class CreateNewController implements Initializable{
 		populatePayments();
 		updateParcelText();
 		initiExpiration();
+		loadMonthPicker();
 		this.stackCreateNew.setAlignment(Pos.TOP_LEFT);
 	}
 	
@@ -219,4 +224,14 @@ public class CreateNewController implements Initializable{
     	this.textfieldParcel.setText("1");
     	this.textfieldValue.setText("");
     }
+    
+    
+  	private void loadMonthPicker() {
+  		try {
+  			Parent p = FXMLLoader.load(getClass().getResource("/view/components/FXMLMonthPicker.fxml"));
+  			this.paneMonthPicker.getChildren().add(p);
+  		} catch (IOException e) {
+  			e.printStackTrace();
+  		}
+  	}
 }

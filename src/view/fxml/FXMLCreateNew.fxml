@@ -45,8 +45,8 @@
                   <Label layoutX="20.0" layoutY="12.0" style="-fx-font-size: 24; -fx-text-fill: #7B458D;" text="Valores" />
                   <TextField fx:id="textfieldValue" layoutX="25.0" layoutY="81.0" prefHeight="46.0" prefWidth="244.0" promptText="R$ 00,00" />
                   <Label layoutX="27.0" layoutY="51.0" styleClass="h3" text="Valor" />
-                  <Label layoutX="28.0" layoutY="149.0" styleClass="h3" text="Vencimento" />
-                  <DatePicker fx:id="datepickerExpiration" layoutX="28.0" layoutY="178.0" prefHeight="43.0" prefWidth="244.0" />
+                  <Label layoutX="350.0" layoutY="160.0" styleClass="h3" text="Vencimento" />
+                  <DatePicker fx:id="datepickerExpiration" layoutX="350.0" layoutY="189.0" prefHeight="43.0" prefWidth="244.0" />
                   <Label layoutX="350.0" layoutY="51.0" styleClass="h3" text="Parcelas" />
                   <TextField fx:id="textfieldParcel" layoutX="350.0" layoutY="81.0" prefHeight="46.0" prefWidth="82.0" text="1" />
                   <VBox layoutX="440.0" layoutY="81.0" prefHeight="43.0" prefWidth="26.0">
@@ -71,8 +71,8 @@
                         </Button>
                      </children>
                   </VBox>
-                  <Label layoutX="350.0" layoutY="149.0" styleClass="h3" text="Pago?" />
-                  <Button fx:id="buttonPaid" layoutX="350.0" layoutY="183.0" mnemonicParsing="false" onAction="#setPaid" styleClass="button-reset">
+                  <Label layoutX="518.0" layoutY="51.0" styleClass="h3" text="Pago?" />
+                  <Button fx:id="buttonPaid" layoutX="518.0" layoutY="85.0" mnemonicParsing="false" onAction="#setPaid" styleClass="button-reset">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -81,6 +81,8 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Label layoutX="27.0" layoutY="160.0" styleClass="h3" text="Mês Referente" />
+                  <Pane fx:id="paneMonthPicker" layoutX="27.0" layoutY="190.0" />
                </children>
             </Pane>
          </children>
