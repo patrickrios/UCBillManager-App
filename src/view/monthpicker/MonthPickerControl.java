@@ -1,6 +1,5 @@
 package view.monthpicker;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,14 +24,14 @@ public class MonthPickerControl extends AnchorPane {
 	
 	private void initiComponents(String value) {
 		this.monthValue = new Label(value);
-		this.monthValue.setAlignment(Pos.CENTER);
+		this.monthValue.setStyle("-fx-font-size:15");
 		
 		this.calendarIcon = createImageIcon("calendarIcon.png");
 		this.chevronDownIcon = createImageIcon("chevron-down-dark.png");
 		
 		AnchorConstraints.addLeft(this.calendarIcon,11,8);
-		AnchorConstraints.addRight(this.chevronDownIcon,15,15);
-		AnchorConstraints.add(this.monthValue,9,1,5,1);	
+		AnchorConstraints.addRight(this.chevronDownIcon,18,15);
+		AnchorConstraints.addHorizon(this.monthValue,33,25,9);	
 	}
 	
 	private void addComponents() {

@@ -27,24 +27,10 @@ public class MonthPickerCalendar extends AnchorPane{
 	}
 	
 	private void initiComponents() {
-		this.labeYear = new Label(this.picker.monthRef.year());
-		styleLabel();
-		AnchorConstraints.addHorizon(this.labeYear,0,0,0);
-		
-		this.buttonPrev = new Button();
-		styleButtonControl(this.buttonPrev,"month-previous-year-min.png");
-		prevYearAction();
-		AnchorConstraints.addLeft(this.buttonPrev, 3,3);
-		
-		this.buttonNext = new Button();
-		styleButtonControl(this.buttonNext,"month-next-year-min.png");
-		nextYearAction();
-		AnchorConstraints.addRight(this.buttonNext,3,3);
-		
-		this.calGrid = new GridPane();
-		createMonthButtons();
-		AnchorConstraints.add(this.calGrid,35,2,2,2);
-		
+		initiYearLabel();
+		initPrevButton();
+		initNextButton();
+		initGridButtons();
 	}
 	
 	private void addComponents() {
@@ -96,9 +82,31 @@ public class MonthPickerCalendar extends AnchorPane{
 		this.getStyleClass().add("month-calendar");
 	}
 	
-	private void styleLabel() {
+	private void initiYearLabel() {
+		this.labeYear = new Label(this.picker.monthRef.year());
+		AnchorConstraints.addHorizon(this.labeYear,0,0,0);
 		this.labeYear.getStyleClass().add("month-calendar-year-label");
 		this.labeYear.setAlignment(Pos.CENTER);
+	}
+	
+	private void initPrevButton() {
+		this.buttonPrev = new Button();
+		styleButtonControl(this.buttonPrev,"month-previous-year-min.png");
+		prevYearAction();
+		AnchorConstraints.addLeft(this.buttonPrev, 3,3);
+	}
+	
+	private void initNextButton() {
+		this.buttonNext = new Button();
+		styleButtonControl(this.buttonNext,"month-next-year-min.png");
+		nextYearAction();
+		AnchorConstraints.addRight(this.buttonNext,3,3);
+	}
+	
+	private void initGridButtons() {
+		this.calGrid = new GridPane();
+		createMonthButtons();
+		AnchorConstraints.add(this.calGrid,35,2,2,2);
 	}
 	
 	private void styleButtonControl(Button b, String path) {
