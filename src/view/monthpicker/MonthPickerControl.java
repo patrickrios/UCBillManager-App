@@ -60,5 +60,8 @@ public class MonthPickerControl extends AnchorPane {
 		this.getStyleClass().add("anchor-pane");
 		this.getStyleClass().add("month-control-selected");
 	}
-
+			
+	protected void updateValue(String value) {
+		this.monthValue.setText(value);
+	}
 }

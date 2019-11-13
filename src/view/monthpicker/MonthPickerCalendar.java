@@ -15,9 +15,10 @@ public class MonthPickerCalendar extends AnchorPane{
 	private Label labeYear;
 	private Button buttonNext;
 	private Button buttonPrev;
-	private GridPane calGrid;
-	private Button monthsButton[] = new Button[12];
+	private GridPane gridMonths;
+	private Button[] buttonsMonths = new Button[12];
 	private MonthPicker picker;
+	private Button currentSelected;
 	
 	public MonthPickerCalendar(MonthPicker picker) {
 		this.picker = picker;
@@ -37,7 +38,7 @@ public class MonthPickerCalendar extends AnchorPane{
 		this.getChildren().add(this.labeYear);
 		this.getChildren().add(this.buttonPrev);
 		this.getChildren().add(this.buttonNext);
-		this.getChildren().add(this.calGrid);
+		this.getChildren().add(this.gridMonths);
 	}
 	
 	private void nextYearAction() {
@@ -64,17 +65,51 @@ public class MonthPickerCalendar extends AnchorPane{
 	
 	private void createMonthButtons() {
 		String[] names = {"jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"};
-		int m=0,i,j;
+		int monthIndex=0;
+		int current = this.picker.monthRef.monthNumber();
 		
-		for(i=0; i<3; i++) {
-			for(j=0; j<4; j++) {
-				Button b = new Button(names[m]);
-				b.getStyleClass().add("month-button-unselected");
-				this.calGrid.add(b,j,i);
-				this.monthsButton[m] = b;
-				m++;
+		for(int i=0; i<3; i++) {
+			for(int j=0; j<4; j++) {
+				Button newButton = new Button(names[monthIndex]);
+				
+				if(monthIndex+1==current) {
+					this.currentSelected = newButton;
+					newButton.getStyleClass().add("month-button-selected");
+				}
+				else {
+					newButton.getStyleClass().add("month-button-unselected");
+				}
+				
+				addSelectionMonthListener(newButton, monthIndex+1);
+				this.gridMonths.add(newButton,j,i);
+				this.buttonsMonths[monthIndex] = newButton;
+				monthIndex++;
 			}
 		}
+	}
+	
+	private void addSelectionMonthListener(Button b, int index) {
+		b.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				currentSelected.getStyleClass().clear();
+				currentSelected.getStyleClass().addAll("button", "month-button-unselected");
+				
+				b.getStyleClass().clear();
+				b.getStyleClass().addAll("button", "month-button-selected");
+				
+				setSelectedMonth(b);
+				picker.monthRef.changeMonth(index);
+				picker.updateHeaderValue();
+				picker.displayCalendar();
+			}
+		});
+	}
+	
+	private void setSelectedMonth(Button button) {
+		this.currentSelected = button;
 	}
 	private void styling() {
 		String style = getClass().getResource("pickerStyle.css").toExternalForm();
@@ -104,9 +139,9 @@ public class MonthPickerCalendar extends AnchorPane{
 	}
 	
 	private void initGridButtons() {
-		this.calGrid = new GridPane();
+		this.gridMonths = new GridPane();
 		createMonthButtons();
-		AnchorConstraints.add(this.calGrid,35,2,2,2);
+		AnchorConstraints.add(this.gridMonths,35,2,2,2);
 	}
 	
 	private void styleButtonControl(Button b, String path) {

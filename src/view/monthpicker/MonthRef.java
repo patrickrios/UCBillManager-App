@@ -31,6 +31,12 @@ public class MonthRef {
 		return m;
 	}
 	
+	public void changeMonth(int value)
+	{
+		if(value>=1 && value <=12)
+			this.month = value;
+	}
+	
 	public int monthNumber() {
 		return this.month;
 	}

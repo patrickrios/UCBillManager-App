@@ -17,7 +17,7 @@ public class MonthPicker extends VBox{
 		setHeaderAction();
 	}
 	
-	public void displayCalendar() {
+	protected void displayCalendar() {
 		clone = this.calendar;
 		this.displayControl = !this.displayControl;
 		
@@ -50,6 +50,10 @@ public class MonthPicker extends VBox{
 				displayCalendar();
 			}
 		});
+	}
+	
+	protected void updateHeaderValue() {
+		this.header.updateValue(this.monthRef.monthAndYear());
 	}
 
 }
