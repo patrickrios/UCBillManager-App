@@ -16,38 +16,38 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css">
          <children>
-            <Button layoutX="45.0" layoutY="545.0" mnemonicParsing="false" onAction="#save" prefHeight="62.0" prefWidth="183.0" style="-fx-background-color: #D02F67; -fx-text-fill: #FFF; -fx-border-color: #801C3F; -fx-border-width: 0 0 2 0; -fx-font-size: 22;" text="Salvar" />
-            <Label graphicTextGap="10.0" layoutX="45.0" layoutY="25.0" style="-fx-text-fill: #484E5C;" styleClass="h1" text="Adicionar novo">
+            <Button layoutX="45.0" layoutY="492.0" mnemonicParsing="false" onAction="#save" prefHeight="54.0" prefWidth="130.0" style="-fx-background-color: #4FBD59; -fx-text-fill: #FFF; -fx-border-color: #348B3D; -fx-border-width: 0 0 2 0; -fx-font-size: 17;" text="SALVAR" />
+            <Label graphicTextGap="10.0" layoutX="45.0" layoutY="23.0" prefHeight="45.0" style="-fx-text-fill: #565E6D;" styleClass="h1" text="Adicionar novo">
                <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/add-new-header-icon.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Label>
-            <Pane layoutX="45.0" layoutY="110.0" prefHeight="415.0" prefWidth="300.0" style="-fx-border-color: #DDD; -fx-background-radius: 5 5 0 0; -fx-border-radius: 5 5 0 0; -fx-border-style: dashed; -fx-background-color: #F9F9F9;">
+            <Pane layoutX="45.0" layoutY="90.0" prefHeight="390.0" prefWidth="300.0" style="-fx-border-color: #DDD; -fx-border-style: dashed; -fx-border-width: 0 1 0 0;">
                <children>
-                  <Label layoutX="28.0" layoutY="22.0" styleClass="h3" text="Tipo" />
-                  <Button fx:id="buttonOutType" layoutX="28.0" layoutY="50.0" mnemonicParsing="false" onAction="#markRegisterAsOut" prefHeight="46.0" prefWidth="113.0" styleClass="choice-button-selected" text="Despesa" />
-                  <Button fx:id="buttonInType" layoutX="159.0" layoutY="51.0" mnemonicParsing="false" onAction="#markRegisterAsIn" prefHeight="46.0" prefWidth="113.0" styleClass="choice-button" text="Receita" />
-                  <TextField fx:id="textfieldCode" layoutX="28.0" layoutY="144.0" prefHeight="46.0" prefWidth="244.0" promptText="Identificador" />
-                  <Label layoutX="28.0" layoutY="122.0" styleClass="h3" text="Código" />
-                  <Label layoutX="28.0" layoutY="301.0" styleClass="h3" text="Pagamento" />
-                  <ChoiceBox fx:id="choiceboxCatgories" layoutX="28.0" layoutY="233.0" prefHeight="46.0" prefWidth="244.0" />
-                  <Label layoutX="28.0" layoutY="211.0" styleClass="h3" text="Categoria" />
-                  <ChoiceBox fx:id="choiceboxPayments" layoutX="28.0" layoutY="324.0" prefHeight="46.0" prefWidth="244.0" />
+                  <Label styleClass="label-textfield-legend" text="TIPO :" />
+                  <Button fx:id="buttonOutType" layoutY="30.0" mnemonicParsing="false" onAction="#markRegisterAsOut" prefHeight="46.0" prefWidth="113.0" styleClass="choice-button-selected" text="DESPESA" />
+                  <Button fx:id="buttonInType" layoutX="131.0" layoutY="30.0" mnemonicParsing="false" onAction="#markRegisterAsIn" prefHeight="46.0" prefWidth="113.0" styleClass="choice-button" text="RECEITA" />
+                  <TextField fx:id="textfieldCode" layoutY="122.0" prefHeight="46.0" prefWidth="244.0" promptText="Identificador" />
+                  <Label layoutY="100.0" styleClass="label-textfield-legend" text="CÓDIGO :" />
+                  <Label layoutY="282.0" styleClass="label-textfield-legend" text="PAGAMENTO :" />
+                  <ChoiceBox fx:id="choiceboxCatgories" layoutY="214.0" prefHeight="46.0" prefWidth="244.0" />
+                  <Label layoutY="192.0" styleClass="label-textfield-legend" text="CATEGORIA :" />
+                  <ChoiceBox fx:id="choiceboxPayments" layoutY="307.0" prefHeight="46.0" prefWidth="244.0" />
                </children>
             </Pane>
-            <Pane layoutX="388.0" layoutY="110.0" prefHeight="415.0" prefWidth="300.0" style="-fx-border-color: #DDD; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-style: dashed; -fx-background-color: #F9F9F9;">
+            <Pane layoutX="368.0" layoutY="90.0" prefHeight="415.0" prefWidth="300.0">
                <children>
-                  <TextField fx:id="textfieldValue" layoutX="25.0" layoutY="50.0" prefHeight="46.0" prefWidth="244.0" promptText="R$ 00,00" />
-                  <Label layoutX="27.0" layoutY="22.0" styleClass="h3" text="Valor" />
-                  <Label layoutX="27.0" layoutY="211.0" styleClass="h3" text="Vencimento" />
-                  <DatePicker fx:id="datepickerExpiration" layoutX="27.0" layoutY="233.0" prefHeight="43.0" prefWidth="244.0" />
-                  <Label layoutX="27.0" layoutY="301.0" styleClass="h3" text="Parcelas" />
-                  <TextField fx:id="textfieldParcel" layoutX="27.0" layoutY="324.0" prefHeight="46.0" prefWidth="82.0" text="1" />
-                  <VBox layoutX="117.0" layoutY="324.0" prefHeight="43.0" prefWidth="26.0">
+                  <TextField fx:id="textfieldValue" layoutX="25.0" layoutY="30.0" prefHeight="46.0" prefWidth="244.0" promptText="R$ 00,00" />
+                  <Label layoutX="27.0" styleClass="label-textfield-legend" text="VALOR :" />
+                  <Label layoutX="27.0" layoutY="192.0" styleClass="label-textfield-legend" text="VENCIMENTO :" />
+                  <DatePicker fx:id="datepickerExpiration" layoutX="27.0" layoutY="214.0" prefHeight="43.0" prefWidth="244.0" />
+                  <Label layoutX="27.0" layoutY="282.0" styleClass="label-textfield-legend" text="PARCELAS :" />
+                  <TextField fx:id="textfieldParcel" layoutX="27.0" layoutY="307.0" prefHeight="46.0" prefWidth="82.0" text="1" />
+                  <VBox layoutX="117.0" layoutY="307.0" prefHeight="43.0" prefWidth="26.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#incrementParcelQuantity" style="-fx-padding: 2 7; -fx-border-color: #ccc; -fx-border-width: 0 0 1 0; -fx-background-color: #e4e4e4;">
                            <graphic>
@@ -69,8 +69,8 @@
                         </Button>
                      </children>
                   </VBox>
-                  <Label layoutX="195.0" layoutY="301.0" styleClass="h3" text="Pago?" />
-                  <Button fx:id="buttonPaid" layoutX="195.0" layoutY="324.0" mnemonicParsing="false" onAction="#setPaid" styleClass="button-reset">
+                  <Label layoutX="195.0" layoutY="282.0" styleClass="label-textfield-legend" text="PAGO ?" />
+                  <Button fx:id="buttonPaid" layoutX="195.0" layoutY="311.0" mnemonicParsing="false" onAction="#setPaid" styleClass="button-reset">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -79,12 +79,10 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label layoutX="27.0" layoutY="122.0" styleClass="h3" text="Mês Referente" />
-                  <Pane fx:id="paneMonthPicker" layoutX="27.0" layoutY="144.0" />
+                  <Label layoutX="27.0" layoutY="100.0" styleClass="label-textfield-legend" text="MÊS REFERENTE :." />
+                  <Pane fx:id="paneMonthPicker" layoutX="27.0" layoutY="122.0" />
                </children>
             </Pane>
-            <Label layoutX="45.0" layoutY="75.0" style="-fx-font-size: 24; -fx-text-fill: #7B458D;" text="Identificação" />
-            <Label layoutX="388.0" layoutY="75.0" style="-fx-font-size: 24; -fx-text-fill: #7B458D;" text="Valores" />
          </children>
       </AnchorPane>
    </children>

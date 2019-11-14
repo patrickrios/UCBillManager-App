@@ -51,9 +51,10 @@
 	.choice-button-selected{-fx-text-fill:#21AF84; -fx-border-width:2;-fx-background-color:#FFF;-fx-border-color:#21AF84;-fx-border-radius:2; -fx-background-radius:2;}
 	.pane-row-content{-fx-padding:10 20; -fx-border-color:#DDD;}
 
-	.scroll-pane > .viewport {  //not .scrollpane but .scroll-pane
-       -fx-background-color: transparent;
-    }
+	.scroll-pane > .viewport {  //not .scrollpane but .scroll-pane 
+	-fx-background-color: transparent;}
+
+	.label-textfield-legend{-fx-text-fill:#0084F0;-fx-font-size:14;}
 	.textfield-empty{-fx-border-color:#EE6969;}
 	.confirm-sucess{-fx-border-color:#43BA82; -fx-border-width:0 0 2 0;}
 	.confirm-error{-fx-border-color:#EE6969; -fx-border-width:0 0 2 0;}
