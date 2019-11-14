@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import model.util.ExpirationInterval;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import model.util.HomeCard;
 
 public class HomeCardDAO {
@@ -14,6 +14,7 @@ public class HomeCardDAO {
 	
 	public HomeCardDAO() {
 		this.connection = ConnectionFactory.getConnection();
+		this.thisMonthlyInterval();
 	}
 	
 	public HomeCard loadInfo(int type, int paid){
@@ -86,11 +87,13 @@ public class HomeCardDAO {
 		return card;
 	}
 	
-	private String monthlyInterval() {
-		return ExpirationInterval.MONTHLY;
+	private String thisMonthlyInterval() {
+		Date d = new Date();
+		String inter = new SimpleDateFormat("yyyy-MM-15").format(d);
+		return "month='"+inter+"'";
 	}
 	
 	private String replaceWithInterval(String query) {
-		return query.replace("$int", monthlyInterval());
+		return query.replace("$int", thisMonthlyInterval());
 	}
 }
