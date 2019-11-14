@@ -12,6 +12,7 @@ import model.entity.Persistent;
 import model.entity.Register;
 import model.types.TypeList;
 import model.types.TypePaid;
+import view.monthpicker.MonthRef;
 
 public class RegisterDAO implements PersistentBean, Listable {
 	
@@ -24,8 +25,8 @@ public class RegisterDAO implements PersistentBean, Listable {
 	@Override
 	public void createNew(Persistent register) {
 		Register r = (Register)register;
-		String sql = "INSERT INTO ucbm_register (id_register, code, value, parcel, paid, expiration, inclusion, type, favorite, category_id, payment_id) " + 
-				"VALUES (DEFAULT,?,?,?,?,?,DEFAULT,?,?,?,?);";
+		String sql = "INSERT INTO ucbm_register (id_register, code, value, parcel, paid, month, expiration, inclusion, type, favorite, category_id, payment_id) " + 
+				"VALUES (DEFAULT,?,?,?,?,?,?,DEFAULT,?,?,?,?);";
 
 		
 		try {
@@ -34,11 +35,12 @@ public class RegisterDAO implements PersistentBean, Listable {
 			statement.setFloat(2, r.getValue());
 			statement.setInt(3, r.getParcel());
 			statement.setInt(4, (r.isPaid())? 1 : 0);
-			statement.setTimestamp(5, r.getExpirationDate());
-			statement.setInt(6, r.getTypeValue());
-			statement.setInt(7, (r.isFavorite())? 1 : 0);
-			statement.setInt(8, r.getCategory().getId());
-			statement.setInt(9, r.getPayment().getId());
+			statement.setDate(5, r.getDateValueMonth());
+			statement.setTimestamp(6, r.getExpirationDate());
+			statement.setInt(7, r.getTypeValue());
+			statement.setInt(8, (r.isFavorite())? 1 : 0);
+			statement.setInt(9, r.getCategory().getId());
+			statement.setInt(10, r.getPayment().getId());
 			statement.executeUpdate();
 			statement.close();
 		} catch (SQLException e) {
@@ -216,7 +218,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 	private String selectDataStatment() {
 		return 
 		"SELECT ucbm_register.id_register, ucbm_register.code, ucbm_register.value, ucbm_register.parcel, ucbm_register.paid, "+ 
-		"ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
+		"ucbm_register.month, ucbm_register.expiration, ucbm_register.inclusion, ucbm_register.type, ucbm_register.favorite, "+ 
 		"ucbm_register.category_id, ucbm_category.name, ucbm_register.payment_id, ucbm_payments.name "+ 
 		"FROM ucbm_register "+
 		"INNER JOIN ucbm_category ON ucbm_register.category_id = ucbm_category.id_category "+ 
@@ -260,12 +262,13 @@ public class RegisterDAO implements PersistentBean, Listable {
 				result.getFloat(3),
 				result.getInt(4),
 				intToBool(result.getInt(5)),
-				result.getTimestamp(6),
+				new MonthRef(result.getDate(6)),
 				result.getTimestamp(7),
-				result.getInt(8),
-				intToBool(result.getInt(9)),
-				new Category(result.getInt(10), result.getString(11)),
-				new Payment(result.getInt(12), result.getString(13))
+				result.getTimestamp(8),
+				result.getInt(9),
+				intToBool(result.getInt(10)),
+				new Category(result.getInt(11), result.getString(12)),
+				new Payment(result.getInt(13), result.getString(14))
 			);
 		} catch (SQLException e) {
 			e.printStackTrace();

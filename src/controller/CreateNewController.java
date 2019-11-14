@@ -28,6 +28,7 @@ import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
 import view.monthpicker.MonthPicker;
+import view.monthpicker.MonthRef;
 import view.util.ConfirmMessageType;
 import view.util.RealFormat;
 
@@ -81,11 +82,12 @@ public class CreateNewController implements Initializable{
 		//value
 		float 	  value  = RealFormat.realStringToFloat(this.textfieldValue.getText());
 		int       parcel = Integer.parseInt(this.textfieldParcel.getText());
+		MonthRef  month  = this.monthPicker.getValue();
 		Timestamp exp    = getDateExpirationFormat();
 		boolean   paid   = this.paidControl;
 		int 	  typ    = this.type;
 		
-		return new Register(code, cat, pay, value, paid, parcel, exp, typ);
+		return new Register(code, cat, pay, value, paid, parcel, month, exp, typ);
 	}
 	
     @FXML

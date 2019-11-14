@@ -2,7 +2,6 @@ package view.monthpicker;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Calendar;
 
 public class MonthRef {
 	private int month;
@@ -15,10 +14,8 @@ public class MonthRef {
 	}
 	
 	public MonthRef() {		
-		//Calendar calendar = Calendar.getInstance();
-		
-		this.month = LocalDate.now().getMonthValue();//calendar.get(Calendar.MONTH);///
-		this.year = LocalDate.now().getYear();//calendar.get(Calendar.YEAR);//
+		this.month = LocalDate.now().getMonthValue();
+		this.year = LocalDate.now().getYear();
 	}
 	
 	public MonthRef(Date date) {
@@ -63,5 +60,14 @@ public class MonthRef {
 		this.year--;
 		return this.year;
 	}
+	
+	public Date getDateValue() {
+		LocalDate localDate = LocalDate.of(year,month,15);
+		Date sqlDate = Date.valueOf(localDate);
+		
+		return sqlDate;
+	}
+	
+	
 }
 

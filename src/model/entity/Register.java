@@ -1,9 +1,11 @@
 package model.entity;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import model.dao.RegisterDAO;
 import model.types.TypeRegister;
+import view.monthpicker.MonthRef;
 import view.util.RealFormat;
 
 public class Register implements Persistent{
@@ -15,11 +17,12 @@ public class Register implements Persistent{
 	private float value;
 	private boolean paid;
 	private int parcel;
+	private MonthRef month;
 	private Timestamp expirationDate;
 	private Timestamp inclusionDate;
 	private boolean favorite = false;
 	
-	public Register(Integer id, String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
+	public Register(Integer id, String code, Category c, Payment p, float value, boolean paid, int parcel, MonthRef month, Timestamp expiration, int type) {
 		this.id = id;
 		this.code = code;
 		this.category = c;
@@ -27,11 +30,12 @@ public class Register implements Persistent{
 		this.value = value;
 		this.paid = paid;
 		this.parcel = parcel;
+		this.month = month;
 		this.expirationDate = expiration;
 		this.type = new TypeRegister(type);
 	}
 	
-	public Register(String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
+	public Register(String code, Category c, Payment p, float value, boolean paid, int parcel,MonthRef month, Timestamp expiration, int type) {
 		this.id = null;
 		this.code = code;
 		this.category = c;
@@ -39,6 +43,7 @@ public class Register implements Persistent{
 		this.value = value;
 		this.paid = paid;
 		this.parcel = parcel;
+		this.month = month;
 		this.expirationDate = expiration;
 		this.type = new TypeRegister(type);
 	}
@@ -54,12 +59,13 @@ public class Register implements Persistent{
 		this.type = new TypeRegister(type);
 	}
 	
-	public Register(Integer id, String code, float value, int parcel, boolean paid, Timestamp expiration, Timestamp inclusion,  int type, boolean favorite, Category c, Payment p) {
+	public Register(Integer id, String code, float value, int parcel, boolean paid, MonthRef month, Timestamp expiration, Timestamp inclusion,  int type, boolean favorite, Category c, Payment p) {
 		this.id = id;
 		this.code = code;
 		this.value = value;
 		this.parcel = parcel;
 		this.paid = paid;
+		this.month = month;
 		this.expirationDate = expiration;
 		this.inclusionDate = inclusion;
 		this.type = new TypeRegister(type);
@@ -143,6 +149,10 @@ public class Register implements Persistent{
 	
 	public float getValue(){
 		return value;
+	}
+	
+	public Date getDateValueMonth() {
+		return this.month.getDateValue();
 	}
 	
 	public Timestamp getExpirationDate(){

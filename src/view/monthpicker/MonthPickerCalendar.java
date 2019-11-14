@@ -104,6 +104,7 @@ public class MonthPickerCalendar extends AnchorPane{
 				picker.monthRef.changeMonth(index);
 				picker.updateHeaderValue();
 				picker.displayCalendar();
+				
 			}
 		});
 	}

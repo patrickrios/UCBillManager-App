@@ -55,5 +55,9 @@ public class MonthPicker extends VBox{
 	protected void updateHeaderValue() {
 		this.header.updateValue(this.monthRef.monthAndYear());
 	}
+	
+	public MonthRef getValue() {
+		return this.monthRef;
+	}
 
 }
