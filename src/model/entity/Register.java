@@ -155,6 +155,10 @@ public class Register implements Persistent{
 		return this.month.getDateValue();
 	}
 	
+	public MonthRef getMonth() {
+		return this.month;
+	}
+	
 	public String getMonthFormatted() {
 		return this.month.monthAndYear();
 	}

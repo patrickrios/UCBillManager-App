@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.dao.CategoryDAO;
 import model.dao.PaymentDAO;
@@ -23,6 +24,8 @@ import model.entity.Category;
 import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
+import view.monthpicker.MonthPicker;
+import view.monthpicker.MonthRef;
 import view.util.ConfirmMessageType;
 import view.util.RealFormat;
 
@@ -47,6 +50,8 @@ public class EditRegisterController {
     private Label labelCode;
     @FXML
     private TextField textfieldCode;
+    @FXML
+    private Pane paneMonthPicker;
     
 	private StackPane stack;
 	
@@ -55,6 +60,8 @@ public class EditRegisterController {
 	private boolean paidControl;
 	
 	private int parcelValue;
+	
+	private MonthPicker monthPicker;
 	
 	public void initi(StackPane stack, Register register)
 	{
@@ -65,8 +72,9 @@ public class EditRegisterController {
 		this.textfieldParcel.setText(register.getParcel()+"");
 		this.textfieldValue.setText(register.getValueWithoutPrefix());
 		this.paidControl = !register.isPaid();
-		this.parcelValue = register.getParcel();
+		this.parcelValue = register.getParcel(); 
 		switchPaidStatus();
+		initMonthPicker(register.getMonth());
 		initiChoiceboxCategories();
 		initiChoiceboxPayments();
 		initiChoiceboxType();
@@ -152,6 +160,11 @@ public class EditRegisterController {
 	private void initiExpDate() {
     	LocalDate value = this.register.getExpirationDate().toLocalDateTime().toLocalDate(); 
     	this.datepickerExpiration.setValue(value);
+	}
+	
+	private void initMonthPicker(MonthRef month) {
+		this.monthPicker = new MonthPicker(month);
+		this.paneMonthPicker.getChildren().add(this.monthPicker);
 	}
 	
 	private void updateDatasOfRegister() {

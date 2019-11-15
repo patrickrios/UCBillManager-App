@@ -12,6 +12,14 @@ public class MonthPicker extends VBox{
 	private boolean displayControl = false;
 	
 	public MonthPicker() {
+		this.monthRef = new MonthRef();
+		initiComponents();
+		stylingConteiner();
+		setHeaderAction();
+	}
+	
+	public MonthPicker(MonthRef month) {
+		this.monthRef = month;
 		initiComponents();
 		stylingConteiner();
 		setHeaderAction();
@@ -33,7 +41,6 @@ public class MonthPicker extends VBox{
 	}
 	
 	private void initiComponents() {
-		this.monthRef = new MonthRef();
 		this.header = new MonthPickerControl(this.monthRef.monthAndYear());
 		this.calendar = new MonthPickerCalendar(this);
 		this.getChildren().add(header);
