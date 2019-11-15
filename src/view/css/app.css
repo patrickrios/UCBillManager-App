@@ -91,4 +91,6 @@
 	.button-item-list-paid, .button-item-list-notpaid{-fx-font-size:13;-fx-padding:3 6; -fx-background-radius:3; -fx-border-radius:3;-fx-text-fill:#FFF;-fx-border-width:0 0 1 0;}
 	.button-item-list-paid{-fx-background-color:#4ABA74;-fx-border-color:#40A666;}
 	.button-item-list-notpaid{-fx-background-color:#EE6969;-fx-border-color:#EC4F4F;}
+
+	.label-detail-row-legend{-fx-border-color:#DDD;-fx-border-style:dashed;-fx-border-width:0 0 1 0;-fx-padding:12 15;-fx-text-fill:#777;}
 	

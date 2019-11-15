@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import view.util.AnchorConstraints;
 
-public class MonthPickerControl extends AnchorPane {
+class MonthPickerControl extends AnchorPane {
 	private Label monthValue;
 	private ImageView calendarIcon;
 	private ImageView chevronDownIcon;

@@ -4,7 +4,7 @@
 .month-control-selected{-fx-border-radius:5 5 0 0;-fx-border-color:#067CD7;}
 
 .month-calendar{-fx-background-color:#FFF;-fx-pref-width:235;-fx-pref-height:145;-fx-border-color: #DDD #067CD7 #067CD7 #067CD7;-fx-border-width: 0 2 2 2;-fx-border-radius:0 0 5 5;}
-.month-calendar-year-label{-fx-border-color:#DDD;-fx-border-with:0 0 1 0;-fx-font-size:15;-fx-text-fill: #E94057;-fx-pref-height:32;}
+.month-calendar-year-label{-fx-border-color:#DDD;-fx-border-width:0 0 1 0;-fx-font-size:15;-fx-text-fill: #E94057;-fx-pref-height:32;}
 .month-calendar-year-control{-fx-padding:2 9;-fx-background-color:#F3F4F5;}
 
 .month-button-unselected, .month-button-selected{-fx-border-width:0;-fx-border-radius:0;-fx-background-radius:0;-fx-padding:9 15;}

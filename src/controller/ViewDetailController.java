@@ -15,26 +15,36 @@ import view.util.FadeEffect;
 public class ViewDetailController {
 	@FXML
     private AnchorPane anchorViewDetail;
-	@FXML
-    private Label labelCode;
-	@FXML
-	private Label labelValue;
-	@FXML
-	private Label labelTypeRegister;
-	@FXML
-	private Label labelCategoryName;
-	@FXML
-	private Label labelParcel;
-	@FXML
-	private Label labelPayment;
-	@FXML
-	private Label labelExpirationDate;
-	@FXML
-	private Label labelPaidStatus;
-	@FXML
-	private Label labelInclusion;
-	@FXML
+
+    @FXML
+    private Label labelValue;
+
+    @FXML
+    private Label labelParcel;
+
+    @FXML
+    private Label labelPayment;
+
+    @FXML
+    private Label labelExpirationDate;
+
+    @FXML
+    private Label labelPaidStatus;
+
+    @FXML
+    private Label labelMonthRef;
+
+    @FXML
     private Pane paneOptions;
+
+    @FXML
+    private Label labelInclusion;
+
+    @FXML
+    private Label labelCode;
+
+    @FXML
+    private Label labelTypeCategory;
 	
 	private boolean showOptionControl = true;
 
@@ -47,16 +57,15 @@ public class ViewDetailController {
 		this.stack = stack;
 		this.register = register;
 		this.labelCode.setText(register.getCode());
-		this.labelTypeRegister.setText(register.getTypeName());
-		this.labelCategoryName.setText(register.getCategoryName());
+		this.labelTypeCategory.setText(register.getTypeName()+", "+register.getCategoryName());
 		this.labelParcel.setText(register.getParcel()+"");
 		this.labelPayment.setText(register.getPayment().toString());
 		this.labelExpirationDate.setText(register.exiprationDateFormatted());
 		this.labelPaidStatus.setText(register.getPaidStatus());
 		this.labelValue.setText(register.getValueFormatted());
 		this.labelInclusion.setText(register.inclusionDateFormatted());
+		this.labelMonthRef.setText(register.getMonthFormatted());
 		definePayStyle(register.isPaid());
-		defineTypeStyle(register.getTypeValue());
 	}
 	
 	@FXML
@@ -110,15 +119,7 @@ public class ViewDetailController {
 		else
 			this.labelPaidStatus.getStyleClass().add(not);
 	}
-	private void defineTypeStyle(int type) {
-		String exp = "label-item-type-expense";
-		String rev = "label-item-type-revenue";
-		
-		if(type == 1)
-			this.labelTypeRegister.getStyleClass().add(exp);
-		else
-			this.labelTypeRegister.getStyleClass().add(rev);
-	}
+	
 	@FXML
 	void hideOptionIfIsVisible() {
 		if(!this.showOptionControl)

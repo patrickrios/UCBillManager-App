@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import view.util.AnchorConstraints;
 
-public class MonthPickerCalendar extends AnchorPane{
+class MonthPickerCalendar extends AnchorPane{
 	private Label labeYear;
 	private Button buttonNext;
 	private Button buttonPrev;
