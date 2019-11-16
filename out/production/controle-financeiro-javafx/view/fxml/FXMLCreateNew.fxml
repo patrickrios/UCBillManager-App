@@ -16,7 +16,14 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css">
          <children>
-            <Button layoutX="45.0" layoutY="500.0" mnemonicParsing="false" onAction="#save" prefHeight="54.0" prefWidth="130.0" style="-fx-background-color: #4FBD59; -fx-text-fill: #FFF; -fx-border-color: #348B3D; -fx-border-width: 0 0 2 0; -fx-font-size: 17;" text="SALVAR" />
+            <Button graphicTextGap="10.0" layoutX="45.0" layoutY="500.0" mnemonicParsing="false" onAction="#save" prefHeight="54.0" prefWidth="142.0" style="-fx-background-color: #4FBD59; -fx-text-fill: #FFF; -fx-border-color: #348B3D; -fx-border-width: 0 0 2 0; -fx-font-size: 17;" text="SALVAR">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/save-min.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             <Label graphicTextGap="10.0" layoutX="45.0" layoutY="23.0" prefHeight="45.0" style="-fx-text-fill: #565E6D;" styleClass="h1" text="Adicionar novo">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">

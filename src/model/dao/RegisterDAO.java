@@ -72,7 +72,7 @@ public class RegisterDAO implements PersistentBean, Listable {
 	public boolean updateDatas(Persistent register) {
 		boolean sucess = false;
 		Register reg = (Register)register;
-		String update = "UPDATE ucbm_register SET code=?,value=?,parcel=?,paid=?,expiration=?, type=?,"
+		String update = "UPDATE ucbm_register SET code=?,value=?,parcel=?,paid=?,month=?,expiration=?, type=?,"
 				       +"favorite=?,category_id=?,payment_id=? WHERE id_register=?";
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(update);
@@ -80,12 +80,13 @@ public class RegisterDAO implements PersistentBean, Listable {
 			statement.setFloat(2, reg.getValue());
 			statement.setInt(3, reg.getParcel());
 			statement.setInt(4, (reg.isPaid())?1:0);
-			statement.setTimestamp(5, reg.getExpirationDate());
-			statement.setInt(6, reg.getTypeValue());
-			statement.setInt(7, (reg.isFavorite())?1:0);
-			statement.setInt(8, reg.getCategory().getId());
-			statement.setInt(9, reg.getPayment().getId());
-			statement.setInt(10, reg.getId());
+			statement.setDate(5, reg.getDateValueMonth());
+			statement.setTimestamp(6, reg.getExpirationDate());
+			statement.setInt(7, reg.getTypeValue());
+			statement.setInt(8, (reg.isFavorite())?1:0);
+			statement.setInt(9, reg.getCategory().getId());
+			statement.setInt(10, reg.getPayment().getId());
+			statement.setInt(11, reg.getId());
 			statement.executeUpdate();
 			statement.close();
 			sucess = true;

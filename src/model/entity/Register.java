@@ -233,13 +233,14 @@ public class Register implements Persistent{
 			new RegisterDAO().changePayStatus(id, paid);
 	}
 	
-	public void updateDatas(String code, Category c, Payment p, float value, boolean paid, int parcel, Timestamp expiration, int type) {
+	public void updateDatas(String code, Category c, Payment p, float value, boolean paid, int parcel, MonthRef month, Timestamp expiration, int type) {
 		this.code = code;
 		this.category = c;
 		this.payment = p;
 		this.value = value;
 		this.paid = paid;
 		this.parcel = parcel;
+		this.month = month;
 		this.expirationDate = expiration;
 		this.type = new TypeRegister(type);
 	}

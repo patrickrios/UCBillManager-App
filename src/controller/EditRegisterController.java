@@ -175,10 +175,11 @@ public class EditRegisterController {
 		
 		float     value  = RealFormat.realStringToFloat(textfieldValue.getText());
 		int       parcel = Integer.parseInt(textfieldParcel.getText());
+		MonthRef  month  = this.monthPicker.getValue();
 		Timestamp exp    = getDateExpirationFormat();
 		boolean   paid   = paidControl;
 		
-		this.register.updateDatas(code, cat, pay, value, paid, parcel, exp, type);
+		this.register.updateDatas(code,cat,pay,value,paid,parcel,month,exp,type);
 		
 	}
 	
