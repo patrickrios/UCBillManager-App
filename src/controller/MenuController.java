@@ -146,8 +146,7 @@ public class MenuController
         this.iconPathUnmark = unmarkPath;
     }
 
-    private void unmarkButton()
-    {    	
+    private void unmarkButton(){    	
         this.buttonSel.getStyleClass().clear();
         this.buttonSel.getStyleClass().add("main-button-menu");
         
