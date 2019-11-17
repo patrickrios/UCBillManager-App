@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportController">
    <children>
-      <Button layoutX="651.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #FF416b; -fx-text-fill: #FFF;" text="salvar pdf">
+      <Button layoutX="638.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: #FF416b; -fx-text-fill: #FFF;" text="salvar pdf">
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -18,7 +18,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="762.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #0092DF; -fx-text-fill: #FFF;" text="imprimir">
+      <Button layoutX="749.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: #0092DF; -fx-text-fill: #FFF;" text="imprimir">
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -27,9 +27,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <AnchorPane layoutX="38.0" layoutY="72.0" prefHeight="250.0" prefWidth="820.0" style="-fx-background-color: #FCFCFC; -fx-border-color: #EEE; -fx-background-radius: 5; -fx-border-radius: 5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+      <AnchorPane layoutX="38.0" layoutY="72.0" prefHeight="250.0" prefWidth="807.0" style="-fx-background-color: #FCFCFC; -fx-border-color: #EEE; -fx-background-radius: 5; -fx-border-radius: 5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="53.0">
          <children>
-            <AnchorPane layoutX="456.0" layoutY="23.0" prefWidth="343.0" style="-fx-border-color: #EEE; -fx-background-color: #FFF;">
+            <AnchorPane layoutX="456.0" layoutY="23.0" prefWidth="343.0" style="-fx-border-color: #EEE; -fx-background-color: #FFF;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                <children>
                   <Label alignment="CENTER_RIGHT" layoutX="158.0" layoutY="14.0" style="-fx-font-size: 14; -fx-text-fill: #999; -fx-padding: 8 18; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="TOTAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <Label layoutX="147.0" layoutY="8.0" style="-fx-text-fill: #999; -fx-font-size: 14;" text="QUANT." />
@@ -52,5 +52,75 @@
          </children>
       </AnchorPane>
       <Pane fx:id="paneMonthFilter" layoutX="40.0" layoutY="19.0" />
+      <AnchorPane layoutX="40.0" layoutY="350.0" prefHeight="295.0" prefWidth="385.0" style="-fx-background-color: #FCFCFC; -fx-border-color: #EEE; -fx-background-radius: 5; -fx-border-radius: 5;">
+         <children>
+            <Label graphicTextGap="8.0" layoutX="14.0" layoutY="14.0" style="-fx-font-size: 14; -fx-text-fill: #2C599C;" text="RANKING CATEGORIAS">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/trophy-min.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <AnchorPane layoutX="14.0" layoutY="39.0" prefWidth="343.0" style="-fx-border-color: #EEE; -fx-background-color: #FFF;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="38.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" layoutX="158.0" layoutY="14.0" style="-fx-font-size: 14; -fx-text-fill: #999; -fx-padding: 8 18; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="PERC.(%)" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label layoutX="147.0" layoutY="8.0" style="-fx-text-fill: #999; -fx-font-size: 14;" text="QUANT." />
+                  <Label layoutX="1.0" layoutY="36.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="CAT 1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0" />
+                  <Label layoutY="74.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="CAT 2" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="74.0" />
+                  <Label layoutX="2.0" layoutY="118.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="CAT 3" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="113.0" />
+                  <Label fx:id="labelGenQuant1" layoutX="155.0" layoutY="49.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelExpenseQuant1" layoutX="155.0" layoutY="85.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelRevenueQuant1" layoutX="155.0" layoutY="124.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelGenTotal1" layoutX="290.0" layoutY="49.0" style="-fx-font-size: 15;" text="00,0%" AnchorPane.rightAnchor="23.0" />
+                  <Label fx:id="labelExpenseTotal1" layoutX="289.0" layoutY="85.0" style="-fx-font-size: 15;" text="0,00%" AnchorPane.rightAnchor="24.0" />
+                  <Label fx:id="labelRevenueTotal1" layoutX="288.0" layoutY="124.0" style="-fx-font-size: 15;" text="0,00%" AnchorPane.rightAnchor="25.0" />
+                  <Label layoutX="23.0" layoutY="10.0" style="-fx-text-fill: #999; -fx-font-size: 14;" text="CAT." />
+                  <Label layoutX="1.0" layoutY="153.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="CAT 4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="152.0" />
+                  <Label layoutX="-3.0" layoutY="192.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14;" text="CAT 5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="192.0" />
+                  <Label fx:id="labelRevenueQuant11" layoutX="155.0" layoutY="163.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelRevenueTotal11" layoutX="288.0" layoutY="163.0" style="-fx-font-size: 15;" text="0,00%" />
+                  <Label fx:id="labelRevenueQuant111" layoutX="155.0" layoutY="203.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelRevenueTotal111" layoutX="288.0" layoutY="203.0" style="-fx-font-size: 15;" text="0,00%" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="462.0" layoutY="350.0" prefHeight="295.0" prefWidth="385.0" style="-fx-background-color: #FCFCFC; -fx-border-color: #EEE; -fx-background-radius: 5; -fx-border-radius: 5;">
+         <children>
+            <Label graphicTextGap="8.0" layoutX="14.0" layoutY="14.0" style="-fx-font-size: 14; -fx-text-fill: #2C599C;" text="RANKING PAGAMENTOS">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/trophy-min.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <AnchorPane layoutX="14.0" layoutY="37.0" prefWidth="343.0" style="-fx-border-color: #EEE; -fx-background-color: #FFF;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="38.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" layoutX="158.0" layoutY="14.0" style="-fx-font-size: 14; -fx-text-fill: #999; -fx-padding: 8 18; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="PERC.(%)" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label layoutX="147.0" layoutY="8.0" style="-fx-text-fill: #999; -fx-font-size: 14;" text="QUANT." />
+                  <Label layoutX="1.0" layoutY="36.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="CAT 1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0" />
+                  <Label layoutY="74.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="CAT 2" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="74.0" />
+                  <Label layoutX="2.0" layoutY="118.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="CAT 3" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="113.0" />
+                  <Label fx:id="labelGenQuant11" layoutX="155.0" layoutY="49.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelExpenseQuant11" layoutX="155.0" layoutY="85.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelRevenueQuant11" layoutX="155.0" layoutY="124.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelGenTotal11" layoutX="290.0" layoutY="49.0" style="-fx-font-size: 15;" text="00,0%" AnchorPane.rightAnchor="23.0" />
+                  <Label fx:id="labelExpenseTotal11" layoutX="289.0" layoutY="85.0" style="-fx-font-size: 15;" text="0,00%" AnchorPane.rightAnchor="24.0" />
+                  <Label fx:id="labelRevenueTotal11" layoutX="288.0" layoutY="124.0" style="-fx-font-size: 15;" text="0,00%" AnchorPane.rightAnchor="25.0" />
+                  <Label layoutX="23.0" layoutY="10.0" style="-fx-text-fill: #999; -fx-font-size: 14;" text="CAT." />
+                  <Label layoutX="1.0" layoutY="153.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="CAT 4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="152.0" />
+                  <Label layoutX="-3.0" layoutY="192.0" style="-fx-padding: 10 20; -fx-text-fill: #9D5B9B; -fx-font-size: 14;" text="CAT 5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="192.0" />
+                  <Label fx:id="labelRevenueQuant111" layoutX="155.0" layoutY="163.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelRevenueTotal111" layoutX="288.0" layoutY="163.0" style="-fx-font-size: 15;" text="0,00%" />
+                  <Label fx:id="labelRevenueQuant1111" layoutX="155.0" layoutY="203.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelRevenueTotal1111" layoutX="288.0" layoutY="203.0" style="-fx-font-size: 15;" text="0,00%" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
