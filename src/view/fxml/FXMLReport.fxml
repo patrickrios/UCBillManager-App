@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportController">
    <children>
-      <Label layoutX="28.0" layoutY="22.0" styleClass="h1" text="Suas vendas" />
-      <Button layoutX="665.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #FF416b; -fx-text-fill: #FFF;" text="salvar pdf">
+      <Button layoutX="651.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #FF416b; -fx-text-fill: #FFF;" text="salvar pdf">
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -22,7 +17,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="776.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #0092DF; -fx-text-fill: #FFF;" text="imprimir">
+      <Button layoutX="762.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #0092DF; -fx-text-fill: #FFF;" text="imprimir">
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,21 +26,29 @@
             </ImageView>
          </graphic>
       </Button>
-      <Pane layoutX="28.0" layoutY="68.0" prefHeight="110.0" prefWidth="840.0" style="-fx-border-color: #CCC; -fx-border-width: 1 0 1 0; -fx-border-style: dashed;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+      <AnchorPane layoutX="38.0" layoutY="72.0" prefHeight="250.0" prefWidth="820.0" style="-fx-background-color: #FCFCFC; -fx-border-color: #EEE; -fx-background-radius: 5; -fx-border-radius: 5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <children>
-            <Label layoutY="14.0" style="-fx-font-size: 42; -fx-text-fill: #8D52B1;" text="R$ 12.456,87" />
-            <Label layoutY="75.0" styleClass="h3" text="Total em vendas" />
-            <Label alignment="BASELINE_RIGHT" layoutX="740.0" layoutY="14.0" style="-fx-font-size: 42; -fx-text-fill: #8D52B1;" text="1376" />
-            <Label layoutX="712.0" layoutY="75.0" styleClass="h3" text="Vendas realizadas" />
+            <AnchorPane layoutX="456.0" layoutY="23.0" prefHeight="200.0" prefWidth="343.0" style="-fx-border-color: #EEE;">
+               <children>
+                  <Label alignment="CENTER_RIGHT" layoutX="158.0" layoutY="14.0" style="-fx-font-size: 14; -fx-text-fill: #999; -fx-padding: 8 18; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="TOTAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label layoutX="147.0" layoutY="8.0" style="-fx-text-fill: #999; -fx-font-size: 14;" text="QUANT." />
+                  <Label layoutX="1.0" layoutY="36.0" style="-fx-padding: 18 20; -fx-text-fill: #39454B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="GERAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0" />
+                  <Label layoutY="92.0" style="-fx-padding: 18 20; -fx-text-fill: #FC4E71; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="DESPESA" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="92.0" />
+                  <Label layoutY="148.0" style="-fx-padding: 18 20; -fx-text-fill: #85C468; -fx-font-size: 14;" text="RECEITA" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="148.0" />
+                  <Label fx:id="labelGenQuant" layoutX="155.0" layoutY="57.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelExpenseQuant" layoutX="155.0" layoutY="114.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelRevenueQuant" layoutX="155.0" layoutY="170.0" style="-fx-font-size: 15;" text="00" />
+                  <Label fx:id="labelGenTotal" layoutX="293.0" layoutY="56.0" style="-fx-font-size: 15;" text="R$ 00,00" AnchorPane.rightAnchor="22.0" />
+                  <Label fx:id="labelExpenseTotal" layoutX="293.0" layoutY="113.0" style="-fx-font-size: 15;" text="R$ 00,00" AnchorPane.rightAnchor="22.0" />
+                  <Label fx:id="labelRevenueTotal" layoutX="293.0" layoutY="169.0" style="-fx-font-size: 15;" text="R$00,00" AnchorPane.rightAnchor="22.0" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="200.0" fitWidth="265.0" layoutX="27.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/donut-chart-min.png" />
+               </image>
+            </ImageView>
          </children>
-      </Pane>
-      <LineChart fx:id="lineChartSales" layoutX="30.0" layoutY="192.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="460.0" prefWidth="855.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
-        <xAxis>
-          <CategoryAxis fx:id="catAxis" side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis fx:id="numbAxis" side="LEFT" />
-        </yAxis>
-      </LineChart>
+      </AnchorPane>
    </children>
 </AnchorPane>
