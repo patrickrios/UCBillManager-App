@@ -99,9 +99,9 @@
                </children>
             </Group>
             <Label fx:id="labelTotalRegisters" layoutX="207.0" layoutY="11.0" style="-fx-text-fill: #0099CC;" styleClass="h2" text="(3)" />
-            <ScrollPane fx:id="scrollListItens" layoutX="121.0" layoutY="105.0" prefHeight="200.0" prefWidth="795.0" style="-fx-background-color: #FFF;" styleClass="scrol-list" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="90.0">
+            <ScrollPane fx:id="scrollListItens" layoutX="121.0" layoutY="105.0" prefHeight="200.0" prefWidth="795.0" style="-fx-background-color: #FFF; -fx-border-color: #DDD; -fx-border-width: 0 1 1 1;" styleClass="scrol-list" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="90.0">
                <content>
-                  <VBox fx:id="vboxListItens" style="-fx-border-color: #DDD; -fx-border-width: 0 1 1 1;" />
+                  <VBox fx:id="vboxListItens" />
                </content>
             </ScrollPane>
          </children>
