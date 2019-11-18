@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.dao.ReportDAO;
 import model.util.ReportCardItem;
+import view.donutchart.DonutChartController;
 import view.monthpicker.MonthPicker;
 
 public class ReportController implements Initializable{
@@ -125,9 +125,14 @@ public class ReportController implements Initializable{
                 new PieChart.Data(exp, expPer),
                 new PieChart.Data(rev, revPerc));
 		
-        final PieChart chart = new PieChart(pieChartData);
-        chart.setPrefSize(416,248);
-        chart.setLegendVisible(false);
-        this.paneChart.getChildren().add(chart);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/donutchart/FXMLDonutChart.fxml"));
+		try {
+			Parent p = loader.load();
+			DonutChartController c = loader.getController();
+			c.init(pieChartData);
+			this.paneChart.getChildren().add(p);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
