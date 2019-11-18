@@ -30,6 +30,10 @@ public class ReportCardItem {
 		String p = String.format("%.2f", perc);
 		p += "%";
 		return p;
-		
+	}
+	
+	public int getPercIntegerValue(int t) {
+		int p = (this.quantity*100)/t;
+		return p;
 	}
 }

@@ -45,11 +45,7 @@
                   <Label fx:id="labelRevenueTotal" layoutX="293.0" layoutY="169.0" style="-fx-font-size: 15;" text="R$00,00" AnchorPane.rightAnchor="22.0" />
                </children>
             </AnchorPane>
-            <ImageView fitHeight="200.0" fitWidth="265.0" layoutX="27.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/donut-chart-min.png" />
-               </image>
-            </ImageView>
+            <Pane fx:id="paneChart" layoutX="2.0" layoutY="2.0" prefHeight="248.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
       <Pane fx:id="paneMonthFilter" layoutX="40.0" layoutY="19.0" />

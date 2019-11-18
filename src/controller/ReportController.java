@@ -4,10 +4,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -34,6 +38,8 @@ public class ReportController implements Initializable{
     private VBox vboxPayRanking;
     @FXML
     private Pane paneMonthFilter;
+    @FXML
+    private Pane paneChart;
     
     private MonthPicker monthPicker;
     
@@ -53,6 +59,7 @@ public class ReportController implements Initializable{
 		initiGeneralCard();
 		initCategoriesCard();
 		initPaymentsCard();
+		initPieChart();
 	}
 	
 	private void loadInitialDatas() {
@@ -103,5 +110,24 @@ public class ReportController implements Initializable{
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void initPieChart() {
+		ReportCardItem item = this.genList.get(1);
+		String exp = item.getName()+" ("+item.getPercIntegerValue(numberRegisters)+"%)";
+		int expPer = item.getPercIntegerValue(numberRegisters);
+		item = this.genList.get(2);
+		String rev = item.getName()+" ("+item.getPercIntegerValue(numberRegisters)+"%)";
+		int revPerc = item.getPercIntegerValue(numberRegisters);
+		
+		ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+                new PieChart.Data(exp, expPer),
+                new PieChart.Data(rev, revPerc));
+		
+        final PieChart chart = new PieChart(pieChartData);
+        chart.setPrefSize(416,248);
+        chart.setLegendVisible(false);
+        this.paneChart.getChildren().add(chart);
 	}
 }
