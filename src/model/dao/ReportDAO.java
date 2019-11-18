@@ -79,6 +79,23 @@ public class ReportDAO {
 		return list;
 	}
 	
+	public int numberRegister() {
+		int num = 0;
+		String query = "SELECT COUNT(id_register) FROM ucbm_register LIMIT 1";
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(query);
+			ResultSet r = statement.executeQuery();
+			while(r.next()) {
+				num = r.getInt(1);
+				break;
+			}
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+	
 	private String generalSelectionStatement() {
 		return "SELECT count(id_register), SUM(value) FROM ucbm_register ";
 	}
