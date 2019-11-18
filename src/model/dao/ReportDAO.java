@@ -19,9 +19,9 @@ public class ReportDAO {
 		ArrayList<ReportCardItem> list = new ArrayList<>();
 		String[] names = {"GERAL","DESPESA","RECEITA"};
 		
-		String queryGer = selectionStatement();
-		String queryExp = selectionStatement();
-		String queryRev = selectionStatement();
+		String queryGer = generalSelectionStatement();
+		String queryExp = generalSelectionStatement();
+		String queryRev = generalSelectionStatement();
 		
 		queryExp += "WHERE type='1'";
 		queryRev += "WHERE type='2'";
@@ -45,8 +45,19 @@ public class ReportDAO {
 	}
 	
 	public ArrayList<ReportCardItem> getCategoriesDatas(){
-		//
-		return null;
+		ArrayList<ReportCardItem> list = new ArrayList<>();
+		String query = categoriesSelectionStatement();
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			while(result.next()) {
+				list.add(new ReportCardItem(result.getString(1), result.getInt(2), result.getFloat(3)));
+			}
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 	public ArrayList<ReportCardItem> getPaymentsDatas(){
@@ -54,8 +65,14 @@ public class ReportDAO {
 		return null;
 	}
 	
-	private String selectionStatement() {
+	private String generalSelectionStatement() {
 		return "SELECT count(id_register), SUM(value) FROM ucbm_register ";
+	}
+	
+	private String categoriesSelectionStatement() {
+		return "SELECT c.name, COUNT(r.id_register), SUM(r.value) FROM ucbm_register AS r " + 
+				"INNER JOIN ucbm_category AS c ON r.category_id=c.id_category " + 
+				"GROUP BY r.category_id LIMIT 5";
 	}
 
 }

@@ -37,6 +37,10 @@ public class ReportController implements Initializable{
 		this.paneMonthFilter.getChildren().add(this.monthPicker);
 		this.genList = new ReportDAO().getRegistersDatas();
 		initiGeneralCard();
+		
+		/**for(ReportCardItem i : new ReportDAO().getCategoriesDatas()) {
+			System.out.println("Item {name='"+i.getName()+"', quantity='"+i.getQuantity()+"', total='"+i.getTotalFormatted()+"', perc='"+i.getPerc(4)+"'}");
+		}**/
 	}
 	
 	private void initiGeneralCard() {
