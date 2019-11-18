@@ -38,7 +38,7 @@ public class ReportController implements Initializable{
 		this.genList = new ReportDAO().getRegistersDatas();
 		initiGeneralCard();
 		
-		/**for(ReportCardItem i : new ReportDAO().getCategoriesDatas()) {
+		/**for(ReportCardItem i : new ReportDAO().getPaymentsDatas()) {
 			System.out.println("Item {name='"+i.getName()+"', quantity='"+i.getQuantity()+"', total='"+i.getTotalFormatted()+"', perc='"+i.getPerc(4)+"'}");
 		}**/
 	}

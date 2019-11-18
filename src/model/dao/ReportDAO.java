@@ -61,8 +61,22 @@ public class ReportDAO {
 	}
 	
 	public ArrayList<ReportCardItem> getPaymentsDatas(){
-		//TODO
-		return null;
+		ArrayList<ReportCardItem> list = new ArrayList<>();
+		String query = paymentSelectionStatement();
+		
+		try {
+			PreparedStatement statement =this.connection.prepareStatement(query);
+			ResultSet r = statement.executeQuery();
+			
+			while(r.next()) {
+				list.add(new ReportCardItem(r.getString(1), r.getInt(2), r.getFloat(3)));
+			}
+			
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 	private String generalSelectionStatement() {
@@ -73,6 +87,12 @@ public class ReportDAO {
 		return "SELECT c.name, COUNT(r.id_register), SUM(r.value) FROM ucbm_register AS r " + 
 				"INNER JOIN ucbm_category AS c ON r.category_id=c.id_category " + 
 				"GROUP BY r.category_id LIMIT 5";
+	}
+	
+	private String paymentSelectionStatement() {
+		return "SELECT p.name, COUNT(r.id_register), SUM(r.value) FROM ucbm_register AS r " + 
+				"INNER JOIN ucbm_payments AS p ON r.payment_id=p.id_payment " + 
+				"GROUP BY r.payment_id LIMIT 5";
 	}
 
 }
