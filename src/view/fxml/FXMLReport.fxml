@@ -33,9 +33,9 @@
                <children>
                   <Label alignment="CENTER_RIGHT" layoutX="158.0" layoutY="14.0" style="-fx-font-size: 14; -fx-text-fill: #999; -fx-padding: 8 18; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="TOTAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <Label layoutX="147.0" layoutY="8.0" style="-fx-text-fill: #999; -fx-font-size: 14;" text="QUANT." />
-                  <Label layoutX="1.0" layoutY="36.0" style="-fx-padding: 18 20; -fx-text-fill: #39454B; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="GERAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0" />
-                  <Label layoutY="92.0" style="-fx-padding: 18 20; -fx-text-fill: #FC4E71; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="DESPESA" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="92.0" />
-                  <Label layoutY="148.0" style="-fx-padding: 18 20; -fx-text-fill: #85C468; -fx-font-size: 14;" text="RECEITA" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="148.0" />
+                  <Label layoutX="1.0" layoutY="36.0" style="-fx-padding: 18 20; -fx-text-fill: #0080FF; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="GERAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0" />
+                  <Label layoutY="92.0" style="-fx-padding: 18 20; -fx-text-fill: #0080FF; -fx-font-size: 14; -fx-border-color: #EEE; -fx-border-width: 0 0 1 0;" text="DESPESA" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="92.0" />
+                  <Label layoutY="148.0" style="-fx-padding: 18 20; -fx-text-fill: #0080FF; -fx-font-size: 14;" text="RECEITA" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="148.0" />
                   <Label fx:id="labelGenQuant" layoutX="155.0" layoutY="57.0" style="-fx-font-size: 15;" text="00" />
                   <Label fx:id="labelExpenseQuant" layoutX="155.0" layoutY="114.0" style="-fx-font-size: 15;" text="00" />
                   <Label fx:id="labelRevenueQuant" layoutX="155.0" layoutY="170.0" style="-fx-font-size: 15;" text="00" />
