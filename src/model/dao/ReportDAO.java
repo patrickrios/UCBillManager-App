@@ -16,6 +16,9 @@ public class ReportDAO {
 	}
 	
 	public ArrayList<ReportCardItem> getRegistersDatas(){
+		ArrayList<ReportCardItem> list = new ArrayList<>();
+		String[] names = {"GERAL","DESPESA","RECEITA"};
+		
 		String queryGer = selectionStatement();
 		String queryExp = selectionStatement();
 		String queryRev = selectionStatement();
@@ -28,16 +31,21 @@ public class ReportDAO {
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
-			//TODO
+			int i=0;
+			while (result.next()) {
+				list.add(new ReportCardItem(names[i], result.getInt(1),result.getFloat(2)));
+				i++;
+			}
+			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		};
 		
-		return null;
+		return list;
 	}
 	
 	public ArrayList<ReportCardItem> getCategoriesDatas(){
-		//TODO
+		//
 		return null;
 	}
 	
