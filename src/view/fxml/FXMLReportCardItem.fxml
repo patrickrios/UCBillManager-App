@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane fx:id="paneReportCardItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="350.0" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportCardItemController">
+<Pane fx:id="paneReportCardItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="355.0" style="-fx-border-color: #EEE; -fx-border-width: 0 1 1 1; -fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportCardItemController">
    <children>
-      <Label fx:id="labelName" layoutX="14.0" layoutY="11.0" style="-fx-text-fill: #9D5B9B; -fx-font-size: 14;" text="\$name" />
-      <Label fx:id="labelQuant" layoutX="139.0" layoutY="10.0" style="-fx-font-size: 15;" text="\$00" />
-      <Label fx:id="labelPerc" layoutX="191.0" layoutY="10.0" style="-fx-font-size: 15;" text="\$perc" />
-      <Label fx:id="labelTotalValue" layoutX="254.0" layoutY="10.0" style="-fx-font-size: 15;" text="\$val" />
+      <Label fx:id="labelName" layoutX="23.0" layoutY="11.0" style="-fx-text-fill: #9D5B9B; -fx-font-size: 14;" text="\$name" />
+      <Label fx:id="labelQuant" layoutX="147.0" layoutY="10.0" style="-fx-font-size: 15;" text="\$00" />
+      <Label fx:id="labelPerc" layoutX="212.0" layoutY="10.0" style="-fx-font-size: 15;" text="\$perc" />
+      <Label fx:id="labelTotalValue" layoutX="278.0" layoutY="10.0" style="-fx-font-size: 15;" text="\$val" />
    </children>
 </Pane>
