@@ -120,10 +120,7 @@ public class ReportController implements Initializable{
 		String rev = item.getName()+" ("+item.getPercIntegerValue(numberRegisters)+"%)";
 		int revPerc = item.getPercIntegerValue(numberRegisters);
 		
-		ObservableList<PieChart.Data> pieChartData =
-                FXCollections.observableArrayList(
-                new PieChart.Data(exp, expPer),
-                new PieChart.Data(rev, revPerc));
+		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(new PieChart.Data(exp,expPer),new PieChart.Data(rev,revPerc));
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/donutchart/FXMLDonutChart.fxml"));
 		try {

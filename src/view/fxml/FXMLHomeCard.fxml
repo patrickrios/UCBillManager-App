@@ -4,31 +4,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
 <AnchorPane style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeCardController">
    <children>
-      <AnchorPane layoutY="14.0" prefHeight="204.0" prefWidth="423.0" style="-fx-border-color: #EEE #EEE #EEE #E7EAEC; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-width: 2 1 1 1;" stylesheets="@../css/app.css">
+      <AnchorPane prefHeight="210.0" prefWidth="423.0" style="-fx-border-color: #EEE; -fx-background-radius: 3; -fx-border-radius: 3;" stylesheets="@../css/app.css">
          <children>
-            <Pane layoutX="1.0" layoutY="57.0" prefHeight="115.0" prefWidth="210.0" style="-fx-border-color: #EEE; -fx-border-width: 0 1 0 0;" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="30.0">
+            <Pane layoutX="22.0" layoutY="42.0" prefHeight="115.0" prefWidth="187.0" style="-fx-border-color: #EEE; -fx-background-radius: 4 0 0 4; -fx-border-radius: 4 0 0 4;" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label layoutX="21.0" layoutY="5.0" style="-fx-text-fill: #868695;" styleClass="h3" text="Não pagas" />
+                  <Label layoutX="21.0" layoutY="10.0" style="-fx-text-fill: #868695;" styleClass="h3" text="Não pagas" />
                   <Label fx:id="labelNotPaidValue" layoutX="21.0" layoutY="41.0" styleClass="h1" text="R$ 00,00" />
-                  <Label fx:id="notPaidTotal" layoutX="105.0" layoutY="5.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="(0)" />
+                  <Label fx:id="notPaidTotal" layoutX="105.0" layoutY="10.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="(0)" />
                   <Label fx:id="labelNotPaidPercent" alignment="BASELINE_RIGHT" layoutX="21.0" layoutY="87.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
                </children>
             </Pane>
-            <Pane layoutX="212.0" layoutY="58.0" prefHeight="115.0" prefWidth="210.0" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="30.0">
+            <Pane layoutX="209.0" layoutY="42.0" prefHeight="115.0" prefWidth="210.0" style="-fx-border-color: #EEE; -fx-border-width: 1 1 1 0; -fx-background-radius: 0 4 4 0; -fx-border-radius: 0 4 4 0;" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label layoutX="21.0" layoutY="5.0" style="-fx-text-fill: #868695;" styleClass="h3" text="Pagas" />
+                  <Label layoutX="21.0" layoutY="10.0" style="-fx-text-fill: #868695;" styleClass="h3" text="Pagas" />
                   <Label fx:id="labelPaidValue" layoutX="21.0" layoutY="41.0" styleClass="h1" text="R$ 00,00" />
-                  <Label fx:id="labelPaidTotal" layoutX="75.0" layoutY="6.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="(0)" />
+                  <Label fx:id="labelPaidTotal" layoutX="75.0" layoutY="10.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="(0)" />
                   <Label fx:id="labelPaidPercent" alignment="BASELINE_RIGHT" layoutX="19.0" layoutY="87.0" style="-fx-text-fill: #0080FF;" styleClass="h4" text="00,00%" />
                </children>
             </Pane>
             <Label fx:id="labelCardTotal" layoutX="21.0" layoutY="187.0" style="-fx-text-fill: #777; -fx-label-padding: 5 0;" styleClass="h4" text="total: 16" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" />
             <Label fx:id="labelCardValue" layoutX="354.0" layoutY="187.0" style="-fx-text-fill: #777; -fx-label-padding: 5 0;" styleClass="h4" text="R$ 00,00" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="20.0" />
+            <Label fx:id="labelCardTitle" layoutX="20.0" layoutY="13.0" style="-fx-text-fill: #2B59AC;" styleClass="h2" text="title" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="12.0" />
          </children>
       </AnchorPane>
-      <Label fx:id="labelCardTitle" style="-fx-background-color: #FFF; -fx-padding: 0 9;" styleClass="h2" text="title" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="1.0" />
    </children>
 </AnchorPane>

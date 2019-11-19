@@ -73,11 +73,11 @@
                   </Pane>
                </children>
             </AnchorPane>
-            <VBox fx:id="vboxCards" layoutX="442.0" layoutY="74.0" spacing="15.0" style="-fx-border-color: #DDD; -fx-padding: 10 15; -fx-background-radius: 5; -fx-border-radius: 5;" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="80.0">
+            <VBox fx:id="vboxCards" layoutX="442.0" layoutY="74.0" spacing="15.0" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="80.0">
                <children>
                   <Label style="-fx-background-color: #9B59AE; -fx-text-fill: #EEE; -fx-padding: 5 7; -fx-background-radius: 3; -fx-border-radius: 3;" text="Novembro/2019">
                      <VBox.margin>
-                        <Insets top="7.0" />
+                        <Insets />
                      </VBox.margin>
                   </Label>
                </children></VBox>
