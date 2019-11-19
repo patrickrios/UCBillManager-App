@@ -66,8 +66,11 @@ public class MenuController
     @FXML
     public void loadCreateNewLayout()
     {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLCreateNew.fxml"));
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLCreateNew.fxml"));
+            Parent parent = loader.load();
+            CreateNewController c = loader.getController();
+            c.initi(this.mainStack);
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();

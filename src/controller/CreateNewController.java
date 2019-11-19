@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -33,8 +32,6 @@ import view.util.ConfirmMessageType;
 import view.util.RealFormat;
 
 public class CreateNewController implements Initializable{
-	@FXML
-    private StackPane stackCreateNew;
 	@FXML
     private TextField textfieldCode;
     @FXML
@@ -58,6 +55,8 @@ public class CreateNewController implements Initializable{
     
     private MonthPicker monthPicker;
     
+    private StackPane stackCreateNew;
+    
 	private boolean paidControl = false;
 	
 	private int parcel = 1;
@@ -71,7 +70,10 @@ public class CreateNewController implements Initializable{
 		updateParcelText();
 		initiExpiration();
 		loadMonthPicker();
-		this.stackCreateNew.setAlignment(Pos.TOP_LEFT);
+	}
+	
+	public void initi(StackPane stack) {
+		this.stackCreateNew = stack;
 	}
 	
 	private Register getRegisterFromForm(){
