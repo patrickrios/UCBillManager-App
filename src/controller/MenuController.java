@@ -106,7 +106,7 @@ public class MenuController
         try {
             Parent parent = loader.load();
             ManagerController controller = loader.getController();
-            controller.initi("Categorias", new CategoryDAO(), TypeDeleting.CATEGORY);
+            controller.initi("Categorias", new CategoryDAO(), TypeDeleting.CATEGORY, this.mainStack);
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
@@ -125,7 +125,7 @@ public class MenuController
         try {
             Parent parent = loader.load();
             ManagerController controller = loader.getController();
-            controller.initi("Pagamentos", new PaymentDAO(), TypeDeleting.PAYMENT);
+            controller.initi("Pagamentos", new PaymentDAO(), TypeDeleting.PAYMENT, this.mainStack);
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();

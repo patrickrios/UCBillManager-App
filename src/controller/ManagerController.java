@@ -15,21 +15,22 @@ import view.util.FadeEffect;
 
 public class ManagerController
 {
-	@FXML
-    private StackPane stackManegerLayout;
     @FXML
     private Label labelTitle;
     @FXML
     private VBox vboxManagerList;
     
+    private StackPane stackManegerLayout;
+    
     private PersistentBean persistentBean;
     
     private int deleteType;
 
-    public void initi(String title, PersistentBean dao, int deleteType){
+    public void initi(String title, PersistentBean dao, int deleteType, StackPane stack){
         this.labelTitle.setText(title);
         this.persistentBean = dao;
         this.deleteType = deleteType;
+        this.stackManegerLayout = stack;
         this.loadItens();
         this.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
     }
