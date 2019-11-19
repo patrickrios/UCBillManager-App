@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 
 <AnchorPane prefHeight="650.0" prefWidth="1366.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
@@ -16,10 +17,14 @@
             </ImageView>
          </children></AnchorPane>
       <AnchorPane fx:id="menuConteiner" prefHeight="650.0" prefWidth="350.0" style="-fx-background-color: #F4F5F6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="42.0" />
-      <ScrollPane layoutX="350.0" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
-         <content>
-            <AnchorPane fx:id="anchorpaneContent" style="-fx-background-color: #FFF;" />
-         </content>
-      </ScrollPane>
+      <StackPane fx:id="stackMainContent" layoutX="350.0" layoutY="42.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+         <children>
+            <ScrollPane style="-fx-background-color: #FFF;">
+               <content>
+                  <AnchorPane fx:id="anchorpaneContent" style="-fx-background-color: #FFF;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

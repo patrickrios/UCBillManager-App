@@ -19,8 +19,6 @@ import model.types.TypeRegister;
 public class HomepageController implements Initializable
 {
 	@FXML
-    private StackPane stackpaneHomepage;
-	@FXML
     private Label labelCurrentDate;
 	@FXML
     private Label labelDailyExp;
@@ -31,12 +29,18 @@ public class HomepageController implements Initializable
 	@FXML
     private VBox vboxCards;
 
+    private StackPane stackHome;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		initiCurrentDate();
 		loadCard(TypeRegister.DESPESA);
 		loadCard(TypeRegister.RECEITA);
 		initExpLabels();
+	}
+	
+	public void initi(StackPane mainStack) {
+		this.stackHome = mainStack;
 	}
 	
 	@FXML
@@ -61,7 +65,7 @@ public class HomepageController implements Initializable
 			ExpirationListController c = loader.getController();
 			c.initi(loadNumbersExpirations(), typeExpInt);
 			new FadeEffect(parent);
-			this.stackpaneHomepage.getChildren().add(parent);
+			this.stackHome.getChildren().add(parent);
 		} 
 		catch (IOException e) {
 			e.printStackTrace();

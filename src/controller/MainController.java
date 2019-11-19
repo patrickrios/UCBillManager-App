@@ -32,7 +32,7 @@ public class MainController implements Initializable
         try {
             Parent parent = loader.load();
             MenuController controller = loader.getController();
-            controller.initi(this.anchorpaneContent);
+            controller.initi(this.anchorpaneContent,this.stackMainContent);
             this.menuConteiner.getChildren().setAll(parent);
         } catch (IOException e) {
             e.printStackTrace();

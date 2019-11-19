@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import model.dao.CategoryDAO;
 import model.dao.PaymentDAO;
 import model.types.TypeDeleting;
@@ -27,22 +28,31 @@ public class MenuController
     private Button buttonCategory;
     @FXML
     private Button buttonPayment;
+    
     private Button buttonSel;
+    
     private AnchorPane anchorPane;
+    
     private String iconPathUnmark = "";
+    
+    private StackPane mainStack;
 
-    public void initi(AnchorPane anchorPane)
+    public void initi(AnchorPane anchorPane, StackPane stack)
     {
     	this.anchorPane = anchorPane;
         this.buttonSel = this.buttonHomepage;
+        this.mainStack = stack;
         loadHomepage();
     }
 
     @FXML
     public void loadHomepage()
     {
+    	FXMLLoader loader = new FXMLLoader((getClass().getResource("/view/fxml/FXMLHomepage.fxml")));
         try{
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLHomepage.fxml"));
+            Parent parent = loader.load();
+            HomepageController c = loader.getController();
+            c.initi(this.mainStack);
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
