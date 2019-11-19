@@ -4,8 +4,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -26,16 +24,11 @@ import model.entity.Register;
 import model.types.TypeList;
 import model.types.TypeListLayout;
 import model.types.TypePaid;
-
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
-public class ListController implements Initializable
+public class ListController
 {
-	@FXML
-	private StackPane stackpaneList;
     @FXML
     private Label labelListTitle;
     @FXML
@@ -65,6 +58,8 @@ public class ListController implements Initializable
     @FXML
     private VBox vboxListItens;
     
+    private StackPane stackpaneList;
+    
     private ArrayList<Persistent> itens;
     
     private ArrayList<Persistent> selectedItems = new ArrayList<>();
@@ -76,9 +71,9 @@ public class ListController implements Initializable
     private int itensType = TypeList.ALL;
     
     private int payType = TypePaid.ALL;
-    
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	
+	public void initi(StackPane stack) {
+		this.stackpaneList = stack;
 		loadList();
 		loadViewLayout();
 		initComponents();
@@ -251,7 +246,6 @@ public class ListController implements Initializable
     	updatePaginationInfo();
     	updatePaginationControls();
     	this.scrollListItens.setHbarPolicy(ScrollBarPolicy.NEVER);
-		this.stackpaneList.setAlignment(Pos.TOP_LEFT);
 		initiChoicebox();
     }
 

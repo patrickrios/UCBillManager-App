@@ -79,14 +79,16 @@ public class MenuController
         catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
     public void loadListRegisterLayout()
     {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLList.fxml"));
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLList.fxml"));
+            Parent parent = loader.load();
+            ListController c = loader.getController();
+            c.initi(this.mainStack);
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
