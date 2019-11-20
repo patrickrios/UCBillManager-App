@@ -48,6 +48,7 @@ public class MenuController
     @FXML
     public void loadHomepage()
     {
+    	clearStack();
     	FXMLLoader loader = new FXMLLoader((getClass().getResource("/view/fxml/FXMLHomepage.fxml")));
         try{
             Parent parent = loader.load();
@@ -66,6 +67,7 @@ public class MenuController
     @FXML
     public void loadCreateNewLayout()
     {
+    	clearStack();
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLCreateNew.fxml"));
         try {
             Parent parent = loader.load();
@@ -84,6 +86,7 @@ public class MenuController
     @FXML
     public void loadListRegisterLayout()
     {
+    	clearStack();
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLList.fxml"));
         try {
             Parent parent = loader.load();
@@ -101,6 +104,7 @@ public class MenuController
     @FXML
     public void loadCategoryManagementLayout()
     {
+    	clearStack();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManager.fxml"));
 
         try {
@@ -120,6 +124,7 @@ public class MenuController
     @FXML
     public void loadPaymentsManagementLayout()
     {
+    	clearStack();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManager.fxml"));
 
         try {
@@ -139,6 +144,7 @@ public class MenuController
     @FXML
     public void loadReportLayout()
     {
+    	clearStack();
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLReport.fxml"));
             new FadeEffect(parent);
@@ -169,5 +175,10 @@ public class MenuController
     	ImageView g = new ImageView(icon);
     	
     	this.buttonSel.setGraphic(g);        	
+    }
+    
+    private void clearStack() {
+    	this.mainStack.getChildren().clear();
+    	this.mainStack.getChildren().add(this.anchorPane);
     }
 }
