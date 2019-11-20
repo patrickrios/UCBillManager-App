@@ -106,9 +106,10 @@ public class ListItemController {
     	try {
 			Parent edit = loader.load();
 			EditRegisterController c = loader.getController();
-			c.initi(this.stackList, this.register);
+			c.initi(this.stackList,this.register);
 			new FadeEffect(edit);
 			this.stackList.getChildren().add(edit);
+			c.fullSizeConteiner();
 		} 
     	catch (IOException e) {
 			e.printStackTrace();

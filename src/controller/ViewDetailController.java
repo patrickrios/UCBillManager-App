@@ -97,8 +97,7 @@ public class ViewDetailController {
 	}
 	
 	@FXML
-	void editThisRegister()
-	{
+	void editThisRegister(){
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLEditRegister.fxml"));
 		try {
 			Parent edit = loader.load();
@@ -106,11 +105,13 @@ public class ViewDetailController {
 			c.initi(this.stack, this.register);
 			new FadeEffect(edit);
 			this.stack.getChildren().add(edit);
+			c.fullSizeConteiner();
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	
 	private void definePayStyle(boolean paid) {
 		String yep = "label-item-type-revenue";
 		String not = "label-item-type-expense";

@@ -27,11 +27,12 @@ import model.entity.Register;
 import view.monthpicker.MonthPicker;
 import view.monthpicker.MonthRef;
 import view.util.ConfirmMessageType;
+import view.util.FullSizeOnStack;
 import view.util.RealFormat;
 
 public class EditRegisterController {
 	@FXML
-    private AnchorPane anchorpaneEdit;
+    private AnchorPane anchorEditRegister;
     @FXML
     private ChoiceBox<String> choiceboxType;
     @FXML
@@ -97,7 +98,7 @@ public class EditRegisterController {
 	
 	@FXML
 	void closeEdit(){
-		this.stack.getChildren().remove(this.anchorpaneEdit);
+		this.stack.getChildren().remove(this.anchorEditRegister);
 	}
 	
 	@FXML
@@ -208,5 +209,9 @@ public class EditRegisterController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}; 
+	}
+	
+	void fullSizeConteiner() {
+		FullSizeOnStack.extend(this.anchorEditRegister);
 	}
 }
