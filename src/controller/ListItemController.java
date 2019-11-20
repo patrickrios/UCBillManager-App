@@ -92,6 +92,7 @@ public class ListItemController {
 			c.initi(this.stackList,this.register);
 			new FadeEffect(detailLayout);
 			this.stackList.getChildren().add(detailLayout);
+			c.fullSizeConteiner();
     	} 
     	catch (IOException e) {
 			e.printStackTrace();

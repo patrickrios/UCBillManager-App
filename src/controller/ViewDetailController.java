@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import model.entity.Register;
 import model.types.TypeDeleting;
 import view.util.FadeEffect;
+import view.util.FullSizeOnStack;
 
 public class ViewDetailController {
 	@FXML
@@ -124,5 +125,9 @@ public class ViewDetailController {
 	void hideOptionIfIsVisible() {
 		if(!this.showOptionControl)
 			showOptions();
+	}
+	
+	void fullSizeConteiner() {
+		FullSizeOnStack.extend(this.anchorViewDetail);
 	}
 }
