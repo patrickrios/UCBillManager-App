@@ -10,12 +10,20 @@ public class DonutChartController {
     
     public void init(ObservableList<PieChart.Data> datas) {
     	this.pieChart.setData(datas);
-    	initPieChart();
+    	initPieChart(datas);
     }
     
-    private void initPieChart() {
-    	//this.pieChart.setPrefSize(416,248);
+    private void initPieChart(ObservableList<PieChart.Data> datas) {
+    	applyCustomColorSequence(datas,"#FE8086","#66CC99");
         this.pieChart.setLegendVisible(false);
+    }
+    
+    private void applyCustomColorSequence(ObservableList<PieChart.Data> pieChartData, String... pieColors) {
+        int i = 0;
+        for (PieChart.Data data : pieChartData) {
+          data.getNode().setStyle("-fx-pie-color: " + pieColors[i % pieColors.length] + ";");
+          i++;
+        }
     }
 
 }

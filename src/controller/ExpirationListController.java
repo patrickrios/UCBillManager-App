@@ -16,6 +16,7 @@ import model.dao.ExpiredDAO;
 import model.util.ExpirationInterval;
 import model.util.ExpiredRegister;
 import view.util.ExtendedAnchorConst;
+import view.util.FullSizeOnStack;
 
 public class ExpirationListController{
 
@@ -90,5 +91,9 @@ public class ExpirationListController{
 	
 	private void selectChoiceInt(int index){
 		this.choiceboxInterval.setValue(choiceboxInterval.getItems().get(index));
+	}
+	
+	public void extendedTransparent() {
+		FullSizeOnStack.extend(this.anchorTransparent);
 	}
 }

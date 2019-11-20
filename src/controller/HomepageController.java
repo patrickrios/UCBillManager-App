@@ -66,6 +66,7 @@ public class HomepageController implements Initializable
 			c.initi(loadNumbersExpirations(), typeExpInt);
 			new FadeEffect(parent);
 			this.stackHome.getChildren().add(parent);
+			c.extendedTransparent();
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
