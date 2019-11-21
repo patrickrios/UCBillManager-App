@@ -69,7 +69,7 @@ public class List {
 		if((this.offset+this.limit) > this.totalRegisters)
 			pagInfo = (this.offset+1)+"-"+(this.totalRegisters)+" de "+this.totalRegisters;
 		else
-			pagInfo = (this.offset+1)+"-"+(this.offset+this.limit+1)+" de "+this.totalRegisters;
+			pagInfo = (this.offset+1)+"-"+(this.offset+this.limit)+" de "+this.totalRegisters;
 		return pagInfo;
 	}
 

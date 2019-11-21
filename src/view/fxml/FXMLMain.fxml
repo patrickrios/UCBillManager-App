@@ -10,9 +10,9 @@
    <children>
       <AnchorPane prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #192E39; -fx-border-color: #18B197; -fx-border-width: 0 0 2 0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="20.0" fitWidth="136.0" layoutX="163.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="26.0" fitWidth="170.0" layoutX="163.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/lightgreen-logo-min.png" />
+                  <Image url="@../img/uc-logo.png" />
                </image>
             </ImageView>
          </children></AnchorPane>

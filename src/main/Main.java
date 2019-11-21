@@ -13,7 +13,7 @@ public class Main extends Application
     public void start(Stage primaryStage) throws Exception
     {
         Parent root = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLMain.fxml"));
-        primaryStage.setTitle("Controle Financeiro");
+        primaryStage.setTitle("UC BillManager - Controle Financeiro");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.setMaximized(true);
         primaryStage.show();

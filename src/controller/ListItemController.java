@@ -154,7 +154,6 @@ public class ListItemController {
             icon = new Image(getClass().getResourceAsStream("/view/img/list/favorite-star-unselected-light-15x14.png"));
             this.buttonFavorite.getStyleClass().addAll("button","button-reset","button-fav-item");
         }
-
         this.buttonFavorite.setGraphic(new ImageView(icon));
     }
 
