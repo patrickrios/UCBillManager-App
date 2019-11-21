@@ -119,13 +119,13 @@ public class ListItemController {
     @FXML
     public void deleteThisItem(){
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLDeletePopup.fxml"));
-    	
     	try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
 			c.initi(this.register, this.stackList, TypeDeleting.REGISTER);
 			new FadeEffect(popup);
 			this.stackList.getChildren().add(popup);
+			c.fullSizeConteiner();
 		} 
     	catch (IOException e) {
 			e.printStackTrace();

@@ -73,7 +73,6 @@ public class List {
 		return pagInfo;
 	}
 
-	
 	public boolean isFirstPage(){
 		boolean ok = false;
 		if(this.offset <= 1)	ok=true;

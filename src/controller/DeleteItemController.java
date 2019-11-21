@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import model.entity.Persistent;
 import model.types.TypeDeleting;
 import view.util.ConfirmMessageType;
+import view.util.FullSizeOnStack;
 
 public class DeleteItemController {
 
@@ -67,5 +68,9 @@ public class DeleteItemController {
 				icon = new Image(getClass().getResourceAsStream("/view/img/delete-ribbon.png"));	
 		
 		this.imageviewTypeIcon.setImage(icon);			
+	}
+	
+	void fullSizeConteiner() {
+		FullSizeOnStack.extend(this.paneDelete);
 	}
 }

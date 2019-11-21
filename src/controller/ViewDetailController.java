@@ -16,34 +16,24 @@ import view.util.FullSizeOnStack;
 public class ViewDetailController {
 	@FXML
     private AnchorPane anchorViewDetail;
-
     @FXML
     private Label labelValue;
-
     @FXML
     private Label labelParcel;
-
     @FXML
     private Label labelPayment;
-
     @FXML
     private Label labelExpirationDate;
-
     @FXML
     private Label labelPaidStatus;
-
     @FXML
     private Label labelMonthRef;
-
     @FXML
     private Pane paneOptions;
-
     @FXML
     private Label labelInclusion;
-
     @FXML
     private Label labelCode;
-
     @FXML
     private Label labelTypeCategory;
 	
@@ -90,6 +80,7 @@ public class ViewDetailController {
 			c.initi(this.register, this.stack, TypeDeleting.REGISTER);
 			new FadeEffect(popup);
 			this.stack.getChildren().add(popup);
+			c.fullSizeConteiner();
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
