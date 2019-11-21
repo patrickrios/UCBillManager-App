@@ -78,10 +78,18 @@
 	.label-item-type-expense{-fx-text-fill:#FF5555;-fx-border-color:#FF5555;}
 	.label-item-type-revenue{-fx-text-fill:#3A9A63;-fx-border-color:#3A9A63;}
 
-    .hbox-item-options{visibility:hidden;}
+    .hbox-item-options{visibility:hidden;-fx-background-color:#FCF9FC;}
         .anchor-list-item{-fx-background-color:#FFF;}
+	.anchor-list-item:hover{-fx-background-color:#FCF9FC;}
         .anchor-list-item:hover .hbox-item-options{visibility:visible;}
-        .anchor-list-item:hover{-fx-background-color:#F7F7F7;}
+	.anchor-list-item:hover .button-fav-item{-fx-opacity:1.0;}
+	.anchor-list-item:hover .label-list-item{-fx-text-fill:#000;}
+	.anchor-list-item:hover .check-list-item .box{-fx-border-color:#0099CC;}
+	.label-list-item{-fx-text-fill:#999;}
+	.button-fav-item{-fx-opacity:0.3;}
+	.button-fav-item-selected{-fx-opacity:1.0;}
+	.button-item-option{-fx-background-radius:30;-fx-border-radius:30;-fx-background-color:transparent;}
+	.button-item-option:hover{-fx-background-color:#FFF;}
 
      .list-sale-item-selected{-fx-background-color:#F5F6F7; -fx-border-style:solid !important; -fx-border-color:transparent transparent #DDD #009D76 !important; -fx-border-width:0 0 1 3 !important;}
      .button-view-selected{-fx-border-color:#5192D0;-fx-background-color:#F5F6F7; }

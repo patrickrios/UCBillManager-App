@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -10,32 +11,53 @@
 
 <AnchorPane fx:id="anchorListeSaleItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#viewDetails" prefHeight="40.0" prefWidth="793.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-cursor: hand; -fx-border-style: dashed;" styleClass="anchor-list-item" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ListItemController">
    <children>
-      <Label fx:id="labelCode" layoutX="75.0" layoutY="10.0" prefHeight="20.0" styleClass="h3" text="\$code" />
+      <Label fx:id="labelCode" layoutX="75.0" layoutY="10.0" prefHeight="20.0" text="\$code">
+         <styleClass>
+            <String fx:value="h3" />
+            <String fx:value="label-list-item" />
+         </styleClass></Label>
       <Label fx:id="labelTotalValue" layoutX="645.0" layoutY="10.0" prefHeight="20.0" style="-fx-text-fill: #8B4D9F;" styleClass="h3" text="\$value_price" />
-      <CheckBox fx:id="checkboxItem" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#checkboxSelected" />
-      <HBox layoutX="503.0" layoutY="7.0" prefHeight="20.0" spacing="8.0" styleClass="hbox-item-options" AnchorPane.rightAnchor="10.0">
+      <CheckBox fx:id="checkboxItem" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#checkboxSelected" styleClass="check-list-item" />
+      <HBox layoutX="503.0" layoutY="5.0" prefHeight="20.0" spacing="3.0" styleClass="hbox-item-options" AnchorPane.rightAnchor="10.0">
          <children>
-            <Button mnemonicParsing="false" style="-fx-border-color: #CCC; -fx-padding: 4 8; -fx-background-radius: 30; -fx-border-radius: 30;">
+            <Button mnemonicParsing="false" onAction="#editThisItem" styleClass="button-item-option">
                <graphic>
-                  <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/show-more-button-with-three-dots.png" />
+                        <Image url="@../img/list/item-edit-option-dark-14x14.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#deleteThisItem" styleClass="button-item-option">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/list/item-delete-icon-dark-11x14.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
          </children>
       </HBox>
-      <Button fx:id="buttonFavorite" layoutX="35.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchFavoriteStatus" styleClass="button-reset">
+      <Button fx:id="buttonFavorite" layoutX="35.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchFavoriteStatus">
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/list/favorite-star-unselected-light-15x14.png" />
+                  <Image url="@../img/list/favorite-star-unselected-dark-15x14.png" />
                </image>
             </ImageView>
          </graphic>
+         <styleClass>
+            <String fx:value="button-reset" />
+            <String fx:value="button-fav-item" />
+         </styleClass>
       </Button>
-      <Label fx:id="labelCategoryName" layoutX="215.0" layoutY="10.0" style="-fx-text-fill: #888;" styleClass="h3" text="\$category_name" />
+      <Label fx:id="labelCategoryName" layoutX="215.0" layoutY="10.0" text="\$category_name">
+         <styleClass>
+            <String fx:value="h3" />
+            <String fx:value="label-list-item" />
+         </styleClass></Label>
       <Label fx:id="labelExpired" layoutX="510.0" layoutY="10.0" style="-fx-text-fill: #888;" styleClass="h3" />
       <Button fx:id="buttonPaidStatus" layoutX="450.0" layoutY="8.0" mnemonicParsing="false" onAction="#switchPaymentStatus" text="não" />
    </children>

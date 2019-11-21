@@ -145,12 +145,14 @@ public class ListItemController {
 
     private void markAsFavorite(){
         Image icon = null;
-
+        this.buttonFavorite.getStyleClass().clear();
         if(this.register.isFavorite()){
             icon = new Image(getClass().getResourceAsStream("/view/img/list/star-favorite-selected.png"));
+            this.buttonFavorite.getStyleClass().addAll("button","button-reset","button-fav-item-selected");
         }
         else{
             icon = new Image(getClass().getResourceAsStream("/view/img/list/favorite-star-unselected-light-15x14.png"));
+            this.buttonFavorite.getStyleClass().addAll("button","button-reset","button-fav-item");
         }
 
         this.buttonFavorite.setGraphic(new ImageView(icon));
