@@ -58,6 +58,7 @@ public class ManagerItemController {
 			c.initi(this.persistent, this.stack, this.deleteType);
 			new FadeEffect(delete);
 			this.stack.getChildren().add(delete);
+			c.fullSizeConteiner();
 		} 
     	
     	catch (IOException e) {
