@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import model.dao.PersistentBean;
 import view.util.ConfirmMessageType;
+import view.util.FullSizeOnStack;
 
 public class ManagerAddNewController {
 	@FXML
@@ -48,5 +49,9 @@ public class ManagerAddNewController {
     	catch (IOException e) {
 			e.printStackTrace();
 		}
+    }
+    
+    void fullSizeConteiner() {
+    	FullSizeOnStack.extend(this.anchorAddNewManager);
     }
 }

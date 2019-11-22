@@ -66,6 +66,7 @@ public class ManagerController
 			controller.inti(this.persistentBean, this.stackManegerLayout, this);
 			new FadeEffect(parent);
 			stackManegerLayout.getChildren().add(parent);
+			controller.fullSizeConteiner();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
