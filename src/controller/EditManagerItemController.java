@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.entity.Persistent;
+import view.util.FullSizeOnStack;
 
 public class EditManagerItemController {
 
@@ -36,6 +37,10 @@ public class EditManagerItemController {
     void updateItem() {
     	String newName = this.textfieldItemName.getText();
     	this.persistent.updateIdentify(newName);
+    }
+    
+    void fullSizeConteiner() {
+    	FullSizeOnStack.extend(this.paneEditManegerItem);
     }
     
 }

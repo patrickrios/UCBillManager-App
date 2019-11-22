@@ -41,6 +41,7 @@ public class ManagerItemController {
 			c.initi(this.persistent, this.stack);
 			new FadeEffect(popup);
 			this.stack.getChildren().add(popup);
+			c.fullSizeConteiner();
 		} 
     	catch (IOException e) {
 			e.printStackTrace();
