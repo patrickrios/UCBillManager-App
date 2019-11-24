@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="40.0" prefWidth="608.0" style="-fx-background-color: #FFF; -fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-border-style: dashed;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManagerItemController">
+<AnchorPane prefHeight="40.0" prefWidth="608.0" styleClass="anchor-manager-item" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManagerItemController">
    <children>
       <CheckBox fx:id="checkboxMarker" layoutX="24.0" layoutY="12.0" mnemonicParsing="false" />
       <Label fx:id="labelTitle" layoutX="54.0" layoutY="11.0" styleClass="h3" text="Name of row" />
-      <HBox prefHeight="20.0" spacing="8.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+      <HBox prefHeight="20.0" spacing="8.0" style="-fx-background-color: #FFF;" styleClass="hbox-item-options" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
          <children>
             <Button mnemonicParsing="false" onAction="#editThisItem" style="-fx-padding: 5 7; -fx-background-radius: 30; -fx-border-radius: 30;">
                <graphic>
