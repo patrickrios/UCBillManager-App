@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -19,6 +18,8 @@ public class ManagerController
     private Label labelTitle;
     @FXML
     private VBox vboxManagerList;
+    @FXML
+    private Label labelTotal;
     
     private StackPane stackManegerLayout;
     
@@ -28,11 +29,12 @@ public class ManagerController
 
     public void initi(String title, PersistentBean dao, int deleteType, StackPane stack){
         this.labelTitle.setText(title);
+        this.labelTotal.setText("("+dao.numberOfRegisters()+")");
         this.persistentBean = dao;
         this.deleteType = deleteType;
         this.stackManegerLayout = stack;
         this.loadItens();
-        this.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
+        //.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
     }
     
     void loadItens(){

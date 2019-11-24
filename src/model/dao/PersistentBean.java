@@ -13,5 +13,6 @@ public interface PersistentBean {
 	ArrayList<Persistent> findGroup(int offset, int limit);
 	ArrayList<Persistent> findAll();
 	boolean verifyExistenceOf(String identifyCode);
+	int numberOfRegisters();
 	
 }

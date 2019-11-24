@@ -302,4 +302,22 @@ public class RegisterDAO implements PersistentBean, Listable {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public int numberOfRegisters() {
+		int total = 0;
+		String query = "SELECT COUNT(id_register) FROM ucbm_register LIMIT 1";
+		try {
+			PreparedStatement stat = this.connection.prepareStatement(query);
+			ResultSet r = stat.executeQuery();
+			while(r.next()) {
+				total = r.getInt(1);
+				break;
+			}
+			stat.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return total;
+	}
 }

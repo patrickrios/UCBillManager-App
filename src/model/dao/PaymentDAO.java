@@ -120,4 +120,22 @@ public class PaymentDAO implements PersistentBean {
 		return list;
 	}
 
+	@Override
+	public int numberOfRegisters() {
+		int total = 0;
+		String sql = "SELECT COUNT(id_payment) FROM ucbm_payments LIMIT 1";
+		try {
+			PreparedStatement stat = this.connection.prepareStatement(sql);
+			ResultSet r = stat.executeQuery();
+			while(r.next()) {
+				total = r.getInt(1);
+				break;
+			}
+			stat.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return total;
+	}
+
 }
