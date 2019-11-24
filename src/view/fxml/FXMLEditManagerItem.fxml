@@ -23,7 +23,16 @@
             <Label fx:id="labelItemName" layoutX="123.0" layoutY="11.0" style="-fx-text-fill: #0099CC;" styleClass="h3" text="item name" AnchorPane.leftAnchor="118.0" AnchorPane.topAnchor="15.0" />
             <TextField fx:id="textfieldItemName" layoutX="26.0" layoutY="63.0" prefHeight="51.0" prefWidth="359.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
             <Button layoutX="25.0" layoutY="135.0" mnemonicParsing="false" onAction="#updateItem" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #45B978; -fx-text-fill: #FFF;" text="Atualizar" />
-            <Button layoutX="295.0" layoutY="135.0" mnemonicParsing="false" onAction="#cancelEditing" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #EEE; -fx-text-fill: #777;" text="cancelar" />
+            <Button layoutX="295.0" layoutY="135.0" mnemonicParsing="false" onAction="#cancelEditing" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #EEE; -fx-text-fill: #888;" text="cancelar" />
+            <Button mnemonicParsing="false" onAction="#cancelEditing" styleClass="button-reset" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="11.0">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/close-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </children>
