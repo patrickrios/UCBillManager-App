@@ -2,6 +2,7 @@ package model.exception;
 
 import model.entity.Register;
 
+@SuppressWarnings("serial")
 public class RegisterAlreadyExistException extends Exception {
 	private Register register;
 	

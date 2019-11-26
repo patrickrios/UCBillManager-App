@@ -25,6 +25,7 @@ import model.entity.Category;
 import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
+import model.exception.EmptyInputException;
 import model.exception.RegisterAlreadyExistException;
 import view.monthpicker.MonthPicker;
 import view.monthpicker.MonthRef;
@@ -136,28 +137,25 @@ public class CreateNewController implements Initializable{
     
     @FXML
     void save(){
-    	if(validateTextField(this.textfieldCode)&& validateTextField(this.textfieldValue)){
-    		String code = this.textfieldCode.getText();
+    	
+    	try {
+    		validateTextField(this.textfieldCode);
+    		validateTextField(this.textfieldValue);
     		
     		try {
     			Register reg = getRegisterFromForm();
 				reg.createNewIfNotExists();
 	            clearForm();
-	            showMessage(code, ConfirmMessageType.SUCESS);
+	            showMessage(this.textfieldCode.getText(), ConfirmMessageType.SUCESS);
 			} 
     		catch (RegisterAlreadyExistException e) {
-				showMessage(code, ConfirmMessageType.ERROR);
+				showMessage(this.textfieldCode.getText(), ConfirmMessageType.ERROR);
 				e.printStackTrace();
 			}	
-    	}
-    	
-    	else{
-    		if(!validateTextField(this.textfieldCode))
-    			markTextfieldAsEmpty(this.textfieldCode);
     		
-    		if(!validateTextField(this.textfieldValue))
-    			markTextfieldAsEmpty(this.textfieldValue);
-    	}
+		} catch (EmptyInputException ex) {
+			ex.printStackTrace();
+		}
     }
     
     private void updateParcelText(){
@@ -203,8 +201,11 @@ public class CreateNewController implements Initializable{
     	return Timestamp.valueOf(value.toString()+" "+time);
     }
     
-    private boolean validateTextField(TextField tf){
-    	return !tf.getText().isEmpty();
+    private void validateTextField(TextField tf) throws EmptyInputException{
+    	if(tf.getText().isEmpty()) {
+    		markTextfieldAsEmpty(tf);
+			throw new EmptyInputException(tf.getId());
+    	}
     }
     
     private void markTextfieldAsEmpty(TextField tf){

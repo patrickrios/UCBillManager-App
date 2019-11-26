@@ -79,14 +79,15 @@ public class Register implements Persistent{
 	public void createNewIfNotExists() throws RegisterAlreadyExistException {
 		if(this.id == null)
 		{
-			if(new RegisterDAO().verifyExistenceOf(this.code)) {
+			RegisterDAO dao = new RegisterDAO();
+			
+			if(dao.verifyExistenceOf(this.code)) {
 				throw new RegisterAlreadyExistException(this);
 			}
 			else {
-				new RegisterDAO().createNew(this);
+				dao.createNew(this);
 			}
 		}
-		
 	}
 	
 	@Override
