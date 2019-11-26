@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import model.dao.RegisterDAO;
+import model.exception.RegisterAlreadyExistException;
 import model.types.TypeRegister;
 import view.monthpicker.MonthRef;
 import view.util.RealFormat;
@@ -75,10 +76,15 @@ public class Register implements Persistent{
 	}
 	
 	@Override
-	public void createNewIfNotExists() {
+	public void createNewIfNotExists() throws RegisterAlreadyExistException {
 		if(this.id == null)
 		{
-			new RegisterDAO().createNew(this);
+			if(new RegisterDAO().verifyExistenceOf(this.code)) {
+				throw new RegisterAlreadyExistException(this);
+			}
+			else {
+				new RegisterDAO().createNew(this);
+			}
 		}
 		
 	}

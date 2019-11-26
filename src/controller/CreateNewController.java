@@ -21,11 +21,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.dao.CategoryDAO;
 import model.dao.PaymentDAO;
-import model.dao.RegisterDAO;
 import model.entity.Category;
 import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
+import model.exception.RegisterAlreadyExistException;
 import view.monthpicker.MonthPicker;
 import view.monthpicker.MonthRef;
 import view.util.ConfirmMessageType;
@@ -139,16 +139,16 @@ public class CreateNewController implements Initializable{
     	if(validateTextField(this.textfieldCode)&& validateTextField(this.textfieldValue)){
     		String code = this.textfieldCode.getText();
     		
-    		if(!new RegisterDAO().verifyExistenceOf(code))
-    		{
+    		try {
     			Register reg = getRegisterFromForm();
-            	reg.createNewIfNotExists();
-            	clearForm();
-            	showMessage(code, ConfirmMessageType.SUCESS);
-    		}
-    		else{
-    			showMessage(code, ConfirmMessageType.ERROR);
-    		}
+				reg.createNewIfNotExists();
+	            clearForm();
+	            showMessage(code, ConfirmMessageType.SUCESS);
+			} 
+    		catch (RegisterAlreadyExistException e) {
+				showMessage(code, ConfirmMessageType.ERROR);
+				e.printStackTrace();
+			}	
     	}
     	
     	else{
