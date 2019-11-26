@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import view.util.ConfirmMessageType;
 import view.util.FadeEffect;
+import view.util.FullSizeOnStack;
 
 public class ConfirmMessageController {
 
@@ -50,6 +51,10 @@ public class ConfirmMessageController {
     		this.labelMessage.setText("atualizado");
     		this.anchorConfirmMessage.getStyleClass().add("confirm-sucess");
     	}
+    }
+    
+    void fullConteinerSize() {
+    	FullSizeOnStack.extendeWidth(this.anchorConfirmMessage);
     }
 
 }

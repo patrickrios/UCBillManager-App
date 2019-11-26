@@ -146,11 +146,10 @@ public class CreateNewController implements Initializable{
     			Register reg = getRegisterFromForm();
 				reg.createNewIfNotExists();
 	            clearForm();
-	            showMessage(this.textfieldCode.getText(), ConfirmMessageType.SUCESS);
+	            showMessage(reg.getCode(), ConfirmMessageType.SUCESS);
 			} 
     		catch (RegisterAlreadyExistException e) {
 				showMessage(this.textfieldCode.getText(), ConfirmMessageType.ERROR);
-				e.printStackTrace();
 			}	
     		
 		} catch (EmptyInputException ex) {
@@ -220,18 +219,17 @@ public class CreateNewController implements Initializable{
 			loader.load();
 			ConfirmMessageController c = loader.getController();
 			c.inti(code, type, this.stackCreateNew);
+			c.fullConteinerSize();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
     }
     
-    private void clearForm()
-    {
+    private void clearForm(){
     	this.textfieldCode.setText("");
     	this.textfieldParcel.setText("1");
     	this.textfieldValue.setText("");
     }
-    
     
   	private void loadMonthPicker() {
   		this.monthPicker = new MonthPicker();

@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.entity.Register;
 import model.types.TypeDeleting;
@@ -29,15 +28,11 @@ public class ViewDetailController {
     @FXML
     private Label labelMonthRef;
     @FXML
-    private Pane paneOptions;
-    @FXML
     private Label labelInclusion;
     @FXML
     private Label labelCode;
     @FXML
     private Label labelTypeCategory;
-	
-	private boolean showOptionControl = true;
 
 	private StackPane stack;
 	
@@ -58,12 +53,6 @@ public class ViewDetailController {
 		this.labelMonthRef.setText(register.getMonthFormatted());
 		definePayStyle(register.isPaid());
 	}
-	
-	@FXML
-    void showOptions() {
-		this.paneOptions.setVisible(showOptionControl);
-		this.showOptionControl = !this.showOptionControl;
-    }
 	
 	@FXML
 	void exitDetails(){
@@ -113,11 +102,6 @@ public class ViewDetailController {
 			this.labelPaidStatus.getStyleClass().add(not);
 	}
 	
-	@FXML
-	void hideOptionIfIsVisible() {
-		if(!this.showOptionControl)
-			showOptions();
-	}
 	
 	void fullSizeConteiner() {
 		FullSizeOnStack.extend(this.anchorViewDetail);

@@ -6,15 +6,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane fx:id="anchorViewDetail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#hideOptionIfIsVisible" prefHeight="600.0" prefWidth="750.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewDetailController">
+<AnchorPane fx:id="anchorViewDetail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewDetailController">
    <children>
-      <AnchorPane layoutX="117.0" layoutY="40.0" prefHeight="500.0" prefWidth="469.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
+      <AnchorPane layoutX="117.0" layoutY="40.0" prefHeight="475.0" prefWidth="469.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>
-            <Label fx:id="labelValue" alignment="CENTER_RIGHT" layoutX="276.0" layoutY="353.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-font-size: 42; -fx-text-fill: #7B458D;" text="R$ 00,00" AnchorPane.rightAnchor="30.0" />
-            <Button layoutX="335.0" layoutY="426.0" mnemonicParsing="false" onAction="#exitDetails" prefHeight="47.0" prefWidth="104.0" text="fechar" AnchorPane.rightAnchor="30.0" />
-            <AnchorPane layoutX="30.0" layoutY="115.0" style="-fx-border-color: #DDD;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+            <AnchorPane layoutX="30.0" layoutY="103.0" style="-fx-border-color: #DDD;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <children>
                   <Label graphicTextGap="10.0" layoutX="1.0" layoutY="141.0" prefHeight="45.0" prefWidth="510.0" text="Parcelas" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="138.0">
                      <styleClass>
@@ -53,29 +51,42 @@
                   <Label fx:id="labelMonthRef" alignment="CENTER_RIGHT" layoutX="340.0" layoutY="163.0" prefHeight="24.0" style="-fx-font-size: 20; -fx-text-fill: #009D76;" text="month" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
                </children>
             </AnchorPane>
-            <Pane fx:id="paneOptions" layoutX="428.0" layoutY="30.0" prefHeight="65.0" prefWidth="90.0" style="-fx-border-color: #DDD;" visible="false" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="63.0">
-               <children>
-                  <Button graphicTextGap="0.0" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#editThisRegister" prefHeight="31.0" prefWidth="88.0" style="-fx-border-color: #DDD; -fx-border-width: 0 0 1 0; -fx-background-radius: 0; -fx-border-radius: 0; -fx-border-style: dashed; -fx-background-color: #fff;" text="Editar" />
-                  <Button layoutX="1.0" layoutY="32.0" mnemonicParsing="false" onAction="#deleteThisRegister" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: #fff;" text="Excluir" />
-               </children>
-            </Pane>
-            <Label fx:id="labelInclusion" layoutX="33.0" layoutY="353.0" style="-fx-text-fill: #777;" text="\$inclusion_date" />
-            <Label fx:id="labelCode" layoutX="30.0" layoutY="96.0" style="-fx-text-fill: #2C599C;" styleClass="h2" text="\$code" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="32.0" />
-            <Label fx:id="labelTypeCategory" layoutX="30.0" layoutY="115.0" style="-fx-text-fill: #999;" styleClass="h4" text="\$type, $category" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="67.0" />
-            <ImageView fitHeight="56.0" fitWidth="45.0" layoutX="32.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
-               <image>
-                  <Image url="@../img/detail-card-header.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="526.0" layoutY="29.0" mnemonicParsing="false" onAction="#showOptions" style="-fx-background-color: #F3F4F5; -fx-background-radius: 30; -fx-border-radius: 30;" AnchorPane.rightAnchor="30.0">
+            <Label fx:id="labelInclusion" layoutX="30.0" layoutY="437.0" style="-fx-text-fill: #777;" text="\$inclusion_date" />
+            <Label fx:id="labelCode" layoutX="30.0" layoutY="96.0" style="-fx-text-fill: #FE5A67; -fx-font-size: 30;" text="\$code" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="20.0" />
+            <Label fx:id="labelTypeCategory" layoutX="30.0" layoutY="115.0" style="-fx-text-fill: #999;" styleClass="h4" text="\$type, $category" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="63.0" />
+            <Button layoutX="235.0" layoutY="20.0" mnemonicParsing="false" onAction="#exitDetails" styleClass="button-reset" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
                <graphic>
-                  <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/show-more-button-with-three-dots.png" />
+                        <Image url="@../img/close-icon.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
+            <HBox layoutX="173.0" layoutY="23.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#editThisRegister" style="-fx-border-color: #EEE; -fx-background-radius: 5 0 0 5; -fx-border-radius: 5 0 0 5;">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/list/item-edit-option-dark-14x14.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#deleteThisRegister" style="-fx-border-color: #EEE; -fx-border-width: 1 1 1 0; -fx-background-radius: 0 5 5 0; -fx-border-radius: 0 5 5 0;">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/list/item-delete-icon-dark-11x14.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <Label fx:id="labelValue" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="372.0" style="-fx-font-size: 42; -fx-text-fill: #7B458D;" text="R$ 00,00" AnchorPane.rightAnchor="30.0" />
+            <Label layoutX="91.0" layoutY="350.0" style="-fx-font-size: 14;" text="VALOR TOTAL" AnchorPane.rightAnchor="30.0" />
          </children>
       </AnchorPane>
    </children>
