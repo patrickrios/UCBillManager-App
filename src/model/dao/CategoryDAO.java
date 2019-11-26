@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.entity.Category;
 import model.entity.Persistent;
+import model.exception.RegisterAlreadyExistException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,16 +21,24 @@ public class CategoryDAO implements PersistentBean {
 	
 
 	@Override
-	public void createNew(String name) {
-			String sql = "INSERT INTO ucbm_category (name) VALUES ('"+name+"')";
+	public void createNew(String name) throws RegisterAlreadyExistException {
 		
-		try {
-			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.executeUpdate();
-			statement.close();
-		} 
-		catch (SQLException e) {
-			e.printStackTrace();
+		try{
+			verifyExistenceOf(name);
+			
+			String sql = "INSERT INTO ucbm_category (name) VALUES ('"+name+"')";
+			
+			try {
+				PreparedStatement statement = connection.prepareStatement(sql);
+				statement.executeUpdate();
+				statement.close();
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}	
+		}
+		catch(RegisterAlreadyExistException e) {
+			throw new RegisterAlreadyExistException(name);
 		}	
 	}
 	
@@ -81,7 +90,7 @@ public class CategoryDAO implements PersistentBean {
 	}
 
 	@Override
-	public boolean verifyExistenceOf(String identifyCode) {
+	public boolean verifyExistenceOf(String identifyCode) throws RegisterAlreadyExistException{
 		
 		String sql = "SELECT * FROM ucbm_category WHERE name LIKE '"+identifyCode+"'";
 		boolean exist = true;
@@ -90,12 +99,17 @@ public class CategoryDAO implements PersistentBean {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			ResultSet r = statement.executeQuery();
 			
-			if(!r.next())
+			if(!r.next()) 
 				exist = false;
+			
 			statement.close();
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
+		}
+		
+		if(exist) {
+			throw new RegisterAlreadyExistException(identifyCode);
 		}
 		return exist;
 	}

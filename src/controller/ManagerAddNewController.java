@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import model.dao.PersistentBean;
+import model.exception.RegisterAlreadyExistException;
 import view.util.ConfirmMessageType;
 import view.util.FullSizeOnStack;
 
@@ -33,18 +34,25 @@ public class ManagerAddNewController {
     @FXML
     void createNew() {
     	String input = textfieldInput.getText();
-    	this.bean.createNew(input);
-    	showMessage(input);
-		controller.loadItens();
-		closeAddLayout();
+    	try {
+			this.bean.createNew(input);
+	    	showMessage(input, ConfirmMessageType.SUCESS);
+			controller.loadItens();
+			closeAddLayout();
+		} 
+    	catch (RegisterAlreadyExistException e) {
+			showMessage(input, ConfirmMessageType.ERROR);
+			e.printStackTrace();
+		}
     }
     
-    private void showMessage(String input) {
+    private void showMessage(String input, String messType) {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLConfirmMessage.fxml"));
     	try {
 			loader.load();
 			ConfirmMessageController c = loader.getController();
-			c.inti(input, ConfirmMessageType.SUCESS, this.stack);
+			c.inti(input, messType, this.stack);
+			c.fullConteinerSize();
 		}
     	catch (IOException e) {
 			e.printStackTrace();

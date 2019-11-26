@@ -1,16 +1,14 @@
 package model.exception;
 
-import model.entity.Register;
-
 @SuppressWarnings("serial")
 public class RegisterAlreadyExistException extends Exception {
-	private Register register;
+	private String register;
 	
-	public RegisterAlreadyExistException(Register register) {
-		this.register = register;
+	public RegisterAlreadyExistException(String code) {
+		this.register = code;
 	}
 	@Override
 	public String toString() {
-		return this.register.getCode()+" is already registered";
+		return this.register+" is already registered";
 	}
 }

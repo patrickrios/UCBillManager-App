@@ -82,7 +82,7 @@ public class Register implements Persistent{
 			RegisterDAO dao = new RegisterDAO();
 			
 			if(dao.verifyExistenceOf(this.code)) {
-				throw new RegisterAlreadyExistException(this);
+				throw new RegisterAlreadyExistException(this.code);
 			}
 			else {
 				dao.createNew(this);

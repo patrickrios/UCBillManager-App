@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import model.entity.Payment;
 import model.entity.Persistent;
+import model.exception.RegisterAlreadyExistException;
 
 public class PaymentDAO implements PersistentBean {
 	
@@ -66,7 +67,7 @@ public class PaymentDAO implements PersistentBean {
 	}
 
 	@Override
-	public boolean verifyExistenceOf(String identifyCode) 
+	public boolean verifyExistenceOf(String identifyCode) throws RegisterAlreadyExistException
 	{
 		String sql = "SELECT * FROM ucbm_payments WHERE name LIKE '"+identifyCode+"'";
 		boolean exist = true;
@@ -82,21 +83,29 @@ public class PaymentDAO implements PersistentBean {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		if(exist)
+			throw new RegisterAlreadyExistException(identifyCode);
 		return exist;
 	}
 
 	@Override
-	public void createNew(String name)
+	public void createNew(String name) throws RegisterAlreadyExistException
 	{
-		String sql = "INSERT INTO ucbm_payments (name) VALUES ('"+name+"')";
-		
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sql);
-			statement.executeUpdate();
-			statement.close();
-		} 
-		catch (SQLException e) {
-			e.printStackTrace();
+			verifyExistenceOf(name);
+			
+			String sql = "INSERT INTO ucbm_payments (name) VALUES ('"+name+"')";
+			try {
+				PreparedStatement statement = this.connection.prepareStatement(sql);
+				statement.executeUpdate();
+				statement.close();
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		catch(RegisterAlreadyExistException e) {
+			throw new RegisterAlreadyExistException(name);
 		}
 	}
 

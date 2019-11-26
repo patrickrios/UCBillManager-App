@@ -38,7 +38,6 @@ public class ViewDetailController {
 	
 	private Register register;
 	
-	
 	public void initi(StackPane stack, Register register){
 		this.stack = stack;
 		this.register = register;
