@@ -24,6 +24,7 @@ public class ManagerAddNewController {
     	this.bean = manager;
     	this.stack = stack;
     	this.controller = controller;
+    	this.textfieldInput.setFocusTraversable(true);
     }
 
     @FXML

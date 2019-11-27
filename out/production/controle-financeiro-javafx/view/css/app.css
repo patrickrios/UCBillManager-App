@@ -85,7 +85,7 @@
 	.anchor-list-item:hover .button-fav-item{-fx-opacity:1.0;}
 	.anchor-list-item:hover .label-list-item{-fx-text-fill:#000;}
 	.anchor-list-item:hover .check-list-item .box{-fx-border-color:#0099CC;}
-	.label-list-item{-fx-text-fill:#888;}
+	.label-list-item{-fx-text-fill:#666;}
 	.button-fav-item{-fx-opacity:0.3;}
 	.button-fav-item-selected{-fx-opacity:1.0;}
 	.button-item-option{-fx-background-radius:30;-fx-border-radius:30;-fx-background-color:transparent;}

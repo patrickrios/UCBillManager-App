@@ -52,6 +52,7 @@ public class DeleteItemController {
 			loader.load();
 			ConfirmMessageController c = loader.getController();
 			c.inti(this.persistent.toString(), ConfirmMessageType.DELETING, this.stack);
+			c.fullConteinerSize();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
