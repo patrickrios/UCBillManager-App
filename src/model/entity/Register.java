@@ -1,10 +1,12 @@
 package model.entity;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import model.dao.RegisterDAO;
 import model.exception.RegisterAlreadyExistException;
+import model.exception.RegisterUpdatingException;
 import model.types.TypeRegister;
 import view.monthpicker.MonthRef;
 import view.util.RealFormat;
@@ -96,11 +98,9 @@ public class Register implements Persistent{
 	}
 	
 	@Override
-	public void updateThis() {
-		new RegisterDAO().updateDatas(this);
-	}
-	public boolean updateDatas() {
-		return new RegisterDAO().updateDatas(this);
+	public void updateThis()  throws RegisterUpdatingException{
+		if(!new RegisterDAO().updateDatas(this))
+			throw new RegisterUpdatingException(code);
 	}
 	
 	@Override

@@ -24,6 +24,7 @@ import model.entity.Category;
 import model.entity.Payment;
 import model.entity.Persistent;
 import model.entity.Register;
+import model.exception.RegisterUpdatingException;
 import view.monthpicker.MonthPicker;
 import view.monthpicker.MonthRef;
 import view.util.ConfirmMessageType;
@@ -119,12 +120,14 @@ public class EditRegisterController {
 	@FXML
 	 void save() {
 		updateDatasOfRegister();
-		boolean ok = this.register.updateDatas();
-		if(ok)
+		try {
+			this.register.updateThis();
 			showMessage(ConfirmMessageType.UPDATE);
-		else
+			
+		} catch (RegisterUpdatingException e) {
 			showMessage(ConfirmMessageType.ERROR);
-		
+			e.toString();
+		}	
 	}
 	
 	private void initiChoiceboxCategories(){		
@@ -206,9 +209,10 @@ public class EditRegisterController {
 			loader.load();
 			ConfirmMessageController c = loader.getController();
 			c.inti(this.register.getCode(), type, this.stack);
+			c.fullConteinerSize();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}; 
+		} 
 	}
 	
 	void fullSizeConteiner() {
