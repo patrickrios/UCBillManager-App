@@ -15,15 +15,6 @@
    <children>
       <AnchorPane layoutX="93.0" layoutY="30.0" prefHeight="575.0" prefWidth="615.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>
-            <Label graphicTextGap="10.0" layoutX="30.0" layoutY="22.0" styleClass="h2" text="Editando:">
-               <graphic>
-                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/edit-register.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Label>
-            <Button layoutX="516.0" layoutY="510.0" mnemonicParsing="false" onAction="#closeEdit" prefHeight="41.0" prefWidth="88.0" text="cancelar" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
             <Label layoutX="32.0" layoutY="90.0" styleClass="h3" text="Tipo" />
             <Label layoutX="333.0" layoutY="90.0" styleClass="h3" text="Categoria" />
             <Label layoutX="331.0" layoutY="373.0" styleClass="h3" text="Parcelas" />
@@ -47,7 +38,7 @@
                </graphic>
             </Button>
             <Button layoutX="36.0" layoutY="495.0" mnemonicParsing="false" onAction="#save" prefHeight="48.0" prefWidth="141.0" style="-fx-background-color: #D02F67; -fx-text-fill: #FFF; -fx-border-color: #801C3F; -fx-border-width: 0 0 2 0;" text="Salvar" />
-            <Label fx:id="labelCode" layoutX="165.0" layoutY="22.0" style="-fx-text-fill: #0078D7;" styleClass="h2" text="\$code" />
+            <Label fx:id="labelCode" layoutX="32.0" layoutY="28.0" style="-fx-text-fill: #0078D7;" styleClass="h1" text="\$code" />
             <Label layoutX="34.0" layoutY="171.0" styleClass="h3" text="Código" />
             <TextField fx:id="textfieldCode" layoutX="34.0" layoutY="192.0" prefHeight="40.0" prefWidth="244.0" promptText="code" />
             <Button layoutX="416.0" layoutY="24.0" mnemonicParsing="false" onAction="#closeEdit" styleClass="button-reset" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">

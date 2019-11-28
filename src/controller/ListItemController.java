@@ -82,22 +82,6 @@ public class ListItemController {
     	this.register.switchPaymentStatus();
     	defineButtonPaymentStatus(this.register.isPaid());
     }
-
-    @FXML
-    public void viewDetails(){
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLViewDetail.fxml"));
-    	try {
-			Parent detailLayout = loader.load();
-			ViewDetailController c = loader.getController();
-			c.initi(this.stackList,this.register);
-			new FadeEffect(detailLayout);
-			this.stackList.getChildren().add(detailLayout);
-			c.fullSizeConteiner();
-    	} 
-    	catch (IOException e) {
-			e.printStackTrace();
-		}
-    }
     
     @FXML
     public void editThisItem(){
