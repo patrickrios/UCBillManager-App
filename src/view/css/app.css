@@ -103,4 +103,11 @@
 	.button-item-list-notpaid{-fx-background-color:#EE6969;-fx-border-color:#EC4F4F;}
 
 	.label-detail-row-legend{-fx-border-color:#DDD;-fx-border-style:dashed;-fx-border-width:0 0 1 0;-fx-padding:12 15;-fx-text-fill:#777;}
+
+	/**Deleting list items*/
+	.label-deleted-item, .label-failed-item{-fx-background-color:rgba(255,255,255,0.93);-fx-font-size:14;}
+	.label-deleted-item{-fx-text-fill:#FF3333;}
+	.label-failed-item{-fx-text-fill:#FF9933;}	
+
+
 	

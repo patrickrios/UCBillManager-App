@@ -189,7 +189,7 @@ public class ListController implements DisposableList
     		try {
 				Parent parent = loader.load();
 				DeleteListItensController c = loader.getController();
-				c.init(this.selectedItems, this.stackpaneList);
+				c.init(this.selectedItems,this.stackpaneList,this);
 				this.stackpaneList.getChildren().add(parent);
 				c.fullSizeConteiner();
 			} catch (IOException e) {
@@ -324,5 +324,7 @@ public class ListController implements DisposableList
 		updateTotalInfo();
 		updatePaginationInfo();
     	updatePaginationControls();
+    	this.selectedItems.clear();
+    	this.paneOptions.setVisible(false);
 	}
 }

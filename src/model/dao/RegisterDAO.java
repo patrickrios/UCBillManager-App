@@ -49,19 +49,21 @@ public class RegisterDAO implements PersistentBean, Listable {
 	}
 
 	@Override
-	public void delete(int idRegister) {
-		
+	public boolean delete(int idRegister) {
+		boolean ok = false;
 		String sql = "DELETE FROM ucbm_register WHERE id_register='"+idRegister+"'";
 		
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			statement.executeUpdate();
 			statement.close();
+			ok = true;
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
+			ok = false;
 		}
-		
+		return ok;
 	}
 
 	@Override

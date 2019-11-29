@@ -1,6 +1,7 @@
 package model.entity;
 
 import model.dao.CategoryDAO;
+import model.exception.DeleteITemException;
 
 public class Category implements Persistent {
 	private Integer id;
@@ -23,8 +24,11 @@ public class Category implements Persistent {
 	}
 
 	@Override
-	public void deleteThis() {
-		new CategoryDAO().delete(this.id);
+	public void deleteThis() throws DeleteITemException{
+		boolean status = new CategoryDAO().delete(this.id);
+		
+		if(!status)
+			throw new DeleteITemException(name);
 		
 	}
 

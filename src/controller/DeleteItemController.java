@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.entity.Persistent;
+import model.exception.DeleteITemException;
 import model.util.DisposableList;
 import view.util.ConfirmMessageType;
 import view.util.FullSizeOnStack;
@@ -38,19 +39,26 @@ public class DeleteItemController {
 	
 	@FXML
 	void deleteItem(){
-		this.persistent.deleteThis();
-		showMessage();
-		this.list.updateListAfterDeleting();
-		cancelDeleting();
+		try {
+			this.persistent.deleteThis();
+			showMessage(ConfirmMessageType.DELETING);
+			this.list.updateListAfterDeleting();
+			cancelDeleting();
+			
+		} catch (DeleteITemException e) {
+			showMessage(ConfirmMessageType.ERROR);
+			e.printStackTrace();
+		}
+		
 	}
 	
-	private void showMessage(){
+	private void showMessage(String type){
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLConfirmMessage.fxml"));
 		
 		try {
 			loader.load();
 			ConfirmMessageController c = loader.getController();
-			c.inti(this.persistent.toString(), ConfirmMessageType.DELETING, this.stack);
+			c.inti(this.persistent.toString(), type, this.stack);
 			c.fullConteinerSize();
 			
 		} catch (IOException e) {

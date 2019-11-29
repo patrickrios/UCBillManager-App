@@ -40,12 +40,6 @@ public class List {
 		return new RegisterDAO().findItens(this.offset, this.limit, input);
 	}
 	
-	void deleteAllSelectedItens(ArrayList<Persistent> itens){
-		for(Persistent p : itens){
-			p.deleteThis();
-		}
-	}
-	
 	void markAllSelectedAsFavorite(ArrayList<Persistent> itens){
 		//TODO
 	}

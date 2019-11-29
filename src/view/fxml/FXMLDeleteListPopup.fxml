@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane fx:id="anchorDeleteList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" styleClass="transparent-panel" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteListItensController">
@@ -28,7 +29,6 @@
                </padding>
             </VBox>
             <Button fx:id="deleteAllItens" mnemonicParsing="false" onAction="#deleteAll" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #EE6969; -fx-text-fill: #FFF;" text="Apagar" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-            <Button fx:id="closeDeleting" mnemonicParsing="false" onAction="#cancelDeleting" prefHeight="36.0" prefWidth="82.0" text="Cancelar" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="110.0" />
             <Button layoutX="397.0" layoutY="24.0" mnemonicParsing="false" onAction="#cancelDeleting" styleClass="button-reset" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="12.0">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
@@ -38,6 +38,12 @@
                   </ImageView>
                </graphic>
             </Button>
+            <HBox fx:id="hboxConfirm" alignment="CENTER" layoutX="139.0" layoutY="51.0" spacing="10.0" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="20.0">
+               <children>
+                  <Label fx:id="labelTotalAfterDeleting" style="-fx-text-fill: #0099CC;" styleClass="h4" text="\$num" />
+                  <Button mnemonicParsing="false" onAction="#cancelDeleting" prefHeight="36.0" prefWidth="51.0" text="Ok" />
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
    </children>

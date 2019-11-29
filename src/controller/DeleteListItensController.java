@@ -9,10 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.entity.Persistent;
 import model.entity.Register;
+import model.util.DisposableList;
 import view.util.FullSizeOnStack;
 
 public class DeleteListItensController {
@@ -25,17 +27,24 @@ public class DeleteListItensController {
     @FXML
     private Button deleteAllItens;
     @FXML
-    private Button closeDeleting;
+    private HBox hboxConfirm;
+    @FXML
+    private Label labelTotalAfterDeleting;
     
     private ArrayList<Persistent> list;
     
     private StackPane stack;
     
-    int total;
+    private int total;
     
-    public void init(ArrayList<Persistent> list, StackPane stack) {
+    private DisposableList dList;
+    
+    private ArrayList<DeleteListItemController> controllers = new ArrayList<>();
+    
+    public void init(ArrayList<Persistent> list, StackPane stack, DisposableList disList) {
     	this.list = list;
     	this.stack = stack;
+    	this.dList = disList;
     	this.total = list.size();
     	this.labelTotalItens.setText("("+this.total+")");
     	loadList();
@@ -48,23 +57,27 @@ public class DeleteListItensController {
 
     @FXML
     void deleteAll() {
-    	for(Persistent p : this.list) {
-    		//p.deleteThis();
+    	int count = 0;
+    	for(DeleteListItemController c : this.controllers) {
+    		count += c.deleteThisItem();
     	}
-
+    	this.deleteAllItens.setDisable(true);
+    	this.labelTotalAfterDeleting.setText(count+" itens apagados.");
+    	this.hboxConfirm.setVisible(true);
+    	this.dList.updateListAfterDeleting();
     }
     
     private void loadList() {
     	
     	for(Persistent p : this.list) {
     		Register r = (Register)p;
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLExpirationItem.fxml"));
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLDeleteListItem.fxml"));
     		try {
 				Parent item = loader.load();
-				ExpirationItemController c = loader.getController();
-				c.initi(r);
+				DeleteListItemController c = loader.getController();
+				c.init(r);
 				this.vboxItens.getChildren().add(item);
-				
+				this.controllers.add(c);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

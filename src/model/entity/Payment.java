@@ -1,6 +1,7 @@
 package model.entity;
 
 import model.dao.PaymentDAO;
+import model.exception.DeleteITemException;
 
 public class Payment implements Persistent{
 	private Integer id;
@@ -23,9 +24,10 @@ public class Payment implements Persistent{
 	}
 	
 	@Override
-	public void deleteThis() {
-		new PaymentDAO().delete(this.id);
-		
+	public void deleteThis() throws DeleteITemException {
+		boolean status = new PaymentDAO().delete(this.id);
+		if(!status)
+			throw new DeleteITemException(name);
 	}
 	
 	@Override

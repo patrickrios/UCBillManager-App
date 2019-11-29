@@ -1,10 +1,10 @@
 package model.entity;
 
 import java.sql.Date;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import model.dao.RegisterDAO;
+import model.exception.DeleteITemException;
 import model.exception.RegisterAlreadyExistException;
 import model.exception.RegisterUpdatingException;
 import model.types.TypeRegister;
@@ -93,8 +93,10 @@ public class Register implements Persistent{
 	}
 	
 	@Override
-	public void deleteThis() {
-		new RegisterDAO().delete(this.id);
+	public void deleteThis() throws DeleteITemException{
+		boolean del = new RegisterDAO().delete(this.id);
+		if(!del)
+			throw new DeleteITemException(code);	
 	}
 	
 	@Override

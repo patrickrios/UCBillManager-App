@@ -9,7 +9,7 @@ public interface PersistentBean {
 
 	void createNew(Persistent register);
 	void createNew(String name) throws RegisterAlreadyExistException;
-	void delete(int idRegister);
+	boolean delete(int idRegister);
 	void update(Persistent register);
 	ArrayList<Persistent> findGroup(int offset, int limit);
 	ArrayList<Persistent> findAll();
