@@ -13,6 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.entity.Persistent;
 import model.entity.Register;
+import view.util.FullSizeOnStack;
 
 public class DeleteListItensController {
 	@FXML
@@ -68,6 +69,10 @@ public class DeleteListItensController {
 				e.printStackTrace();
 			}
     	}
+    }
+    
+    void fullSizeConteiner() {
+    	FullSizeOnStack.extend(this.anchorDeleteList);
     }
 
 }

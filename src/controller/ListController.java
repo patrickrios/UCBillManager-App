@@ -189,6 +189,7 @@ public class ListController
 				DeleteListItensController c = loader.getController();
 				c.init(this.selectedItems, this.stackpaneList);
 				this.stackpaneList.getChildren().add(parent);
+				c.fullSizeConteiner();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}    		

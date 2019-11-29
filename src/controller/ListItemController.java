@@ -69,8 +69,8 @@ public class ListItemController {
         }
         else{
             this.anchorListeSaleItem.getStyleClass().clear();
-            //this.anchorListeSaleItem.getStyleClass().add("anchor-list-item");
-            this.anchorListeSaleItem.getStyleClass().add("list-view-card");
+            this.anchorListeSaleItem.getStyleClass().add("anchor-list-item");
+            //this.anchorListeSaleItem.getStyleClass().add("list-view-card");
             this.list.remove(this.register);
             if(this.list.isEmpty())
             	this.opt.setVisible(false);
