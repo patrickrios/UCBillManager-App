@@ -10,9 +10,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.dao.PersistentBean;
 import model.entity.Persistent;
+import model.util.DisposableList;
 import view.util.FadeEffect;
 
-public class ManagerController
+public class ManagerController implements DisposableList
 {
     @FXML
     private Label labelTitle;
@@ -27,11 +28,10 @@ public class ManagerController
 
     public void initi(String title, PersistentBean dao, StackPane stack){
         this.labelTitle.setText(title);
-        this.labelTotal.setText("("+dao.numberOfRegisters()+")");
         this.persistentBean = dao;
         this.stackManegerLayout = stack;
         this.loadItens();
-        //.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
+        this.displayNumberOfRegisters();
     }
     
     void loadItens(){
@@ -45,7 +45,7 @@ public class ManagerController
 	    	try {
 				Parent parent = loader.load();
 				ManagerItemController controller = loader.getController();
-				controller.initi(p, this.stackManegerLayout);
+				controller.initi(p, this.stackManegerLayout,this);
 				this.vboxManagerList.getChildren().add(parent);
 			} 
 	    	catch (IOException e) {
@@ -70,5 +70,15 @@ public class ManagerController
 			e.printStackTrace();
 		} 
     }
+
+	@Override
+	public void updateListAfterDeleting() {
+		loadItens();
+		displayNumberOfRegisters();
+	}
+	
+	private void displayNumberOfRegisters() {
+		this.labelTotal.setText("("+this.persistentBean.numberOfRegisters()+")");
+	}
   	
 }

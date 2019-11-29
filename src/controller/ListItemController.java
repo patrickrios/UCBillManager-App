@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.entity.Persistent;
 import model.entity.Register;
+import model.util.DisposableList;
 import view.util.FadeEffect;
 
 public class ListItemController {
@@ -47,11 +48,14 @@ public class ListItemController {
     
     private Pane opt;
     
-    public void inti(Register register, StackPane stack, ArrayList<Persistent> list, Pane opt){
+    private DisposableList dispList;
+    
+    public void inti(Register register, StackPane stack, ArrayList<Persistent> list, Pane opt, DisposableList dispList){
     	this.register = register;
     	this.stackList = stack;
     	this.list = list;
     	this.opt = opt;
+    	this.dispList = dispList;
     	initializeDatas();
     	initiFavorite();
     }
@@ -104,7 +108,7 @@ public class ListItemController {
     	try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi(this.register, this.stackList);
+			c.initi(this.register,this.stackList,this.dispList);
 			new FadeEffect(popup);
 			this.stackList.getChildren().add(popup);
 			c.fullSizeConteiner();

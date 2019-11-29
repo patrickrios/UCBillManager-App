@@ -24,10 +24,12 @@ import model.entity.Register;
 import model.types.TypeList;
 import model.types.TypeListLayout;
 import model.types.TypePaid;
+import model.util.DisposableList;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ListController
+public class ListController implements DisposableList
 {
     @FXML
     private Label labelListTitle;
@@ -100,7 +102,7 @@ public class ListController
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItem.fxml"));
 				Parent item = loader.load();
 				ListItemController c = loader.getController();
-				c.inti((Register)p, this.stackpaneList, this.selectedItems, this.paneOptions);
+				c.inti((Register)p, this.stackpaneList, this.selectedItems, this.paneOptions,this);
 				this.vboxListItens.getChildren().add(item);
 			}
 		} 
@@ -119,7 +121,7 @@ public class ListController
     			FXMLLoader grid = new FXMLLoader(getClass().getResource("/view/fxml/FXMLListItemCard.fxml"));
     			Parent card = grid.load();
     			ListItemController c = grid.getController();
-    			c.inti((Register)p, this.stackpaneList, this.selectedItems,this.paneOptions);
+    			c.inti((Register)p, this.stackpaneList, this.selectedItems,this.paneOptions,this);
     			flow.getChildren().add(card);
         	}
 
@@ -314,4 +316,13 @@ public class ListController
 				}		
 		});
     }
+
+	@Override
+	public void updateListAfterDeleting() {
+		loadList();
+		loadViewLayout();
+		updateTotalInfo();
+		updatePaginationInfo();
+    	updatePaginationControls();
+	}
 }

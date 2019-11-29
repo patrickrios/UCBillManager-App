@@ -9,6 +9,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import model.entity.Persistent;
+import model.util.DisposableList;
 import view.util.FadeEffect;
 
 public class ManagerItemController {
@@ -23,10 +24,13 @@ public class ManagerItemController {
     
     private Persistent persistent;
     
-    public void initi(Persistent p, StackPane stack){
+    private DisposableList dispList;
+    
+    public void initi(Persistent p, StackPane stack, DisposableList dispList){
     	this.labelTitle.setText(p.toString());
     	this.stack = stack;
     	this.persistent = p;
+    	this.dispList = dispList;
     }
     
     @FXML
@@ -53,7 +57,7 @@ public class ManagerItemController {
     	try {
 			Parent delete = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi(this.persistent, this.stack);
+			c.initi(this.persistent,this.stack,this.dispList);
 			new FadeEffect(delete);
 			this.stack.getChildren().add(delete);
 			c.fullSizeConteiner();

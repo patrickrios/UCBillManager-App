@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.entity.Persistent;
+import model.util.DisposableList;
 import view.util.ConfirmMessageType;
 import view.util.FullSizeOnStack;
 
@@ -21,10 +22,13 @@ public class DeleteItemController {
 	
 	private Persistent persistent;
 	
-	public void initi(Persistent p, StackPane stack){
+	private DisposableList list;
+	
+	public void initi(Persistent p, StackPane stack, DisposableList list){
 		this.labelCode.setText(p.toString());
 		this.stack = stack;
 		this.persistent = p;
+		this.list = list;
 	}
 	
 	@FXML
@@ -36,6 +40,7 @@ public class DeleteItemController {
 	void deleteItem(){
 		this.persistent.deleteThis();
 		showMessage();
+		this.list.updateListAfterDeleting();
 		cancelDeleting();
 	}
 	
