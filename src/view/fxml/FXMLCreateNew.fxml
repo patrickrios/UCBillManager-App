@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #FFF;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateNewController">
    <children>
-      <Button graphicTextGap="10.0" layoutX="45.0" layoutY="548.0" mnemonicParsing="false" onAction="#save" prefHeight="46.0" prefWidth="118.0" style="-fx-background-color: #4FBD59; -fx-text-fill: #FFF; -fx-border-color: #348B3D; -fx-border-width: 0 0 2 0; -fx-font-size: 17;" text="SALVAR" />
+      <Button graphicTextGap="10.0" layoutX="45.0" layoutY="548.0" mnemonicParsing="false" onAction="#save" prefHeight="46.0" prefWidth="118.0" style="-fx-background-color: #4FBD59; -fx-text-fill: #FFF; -fx-font-size: 17;" text="SALVAR" />
       <Pane layoutX="45.0" layoutY="90.0" prefHeight="200.0" prefWidth="612.0">
          <children>
             <TextField fx:id="textfieldCode" layoutY="36.0" prefHeight="46.0" prefWidth="244.0" promptText="Identificador" />

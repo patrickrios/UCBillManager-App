@@ -37,7 +37,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="36.0" layoutY="495.0" mnemonicParsing="false" onAction="#save" prefHeight="48.0" prefWidth="141.0" style="-fx-background-color: #D02F67; -fx-text-fill: #FFF; -fx-border-color: #801C3F; -fx-border-width: 0 0 2 0;" text="Salvar" />
+            <Button layoutX="36.0" layoutY="495.0" mnemonicParsing="false" onAction="#save" prefHeight="48.0" prefWidth="125.0" style="-fx-background-color: #D02F67; -fx-text-fill: #FFF;" text="SALVAR" />
             <Label fx:id="labelCode" layoutX="32.0" layoutY="28.0" style="-fx-text-fill: #0078D7;" styleClass="h1" text="\$code" />
             <Label layoutX="34.0" layoutY="171.0" styleClass="h3" text="Código" />
             <TextField fx:id="textfieldCode" layoutX="34.0" layoutY="192.0" prefHeight="40.0" prefWidth="244.0" promptText="code" />
