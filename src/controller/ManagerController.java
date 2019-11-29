@@ -24,14 +24,11 @@ public class ManagerController
     private StackPane stackManegerLayout;
     
     private PersistentBean persistentBean;
-    
-    private int deleteType;
 
-    public void initi(String title, PersistentBean dao, int deleteType, StackPane stack){
+    public void initi(String title, PersistentBean dao, StackPane stack){
         this.labelTitle.setText(title);
         this.labelTotal.setText("("+dao.numberOfRegisters()+")");
         this.persistentBean = dao;
-        this.deleteType = deleteType;
         this.stackManegerLayout = stack;
         this.loadItens();
         //.stackManegerLayout.setAlignment(Pos.TOP_LEFT);
@@ -48,7 +45,7 @@ public class ManagerController
 	    	try {
 				Parent parent = loader.load();
 				ManagerItemController controller = loader.getController();
-				controller.initi(p, this.stackManegerLayout, this.deleteType);
+				controller.initi(p, this.stackManegerLayout);
 				this.vboxManagerList.getChildren().add(parent);
 			} 
 	    	catch (IOException e) {

@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +15,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.entity.Persistent;
 import model.entity.Register;
-import model.types.TypeDeleting;
 import view.util.FadeEffect;
 
 public class ListItemController {
@@ -106,7 +104,7 @@ public class ListItemController {
     	try {
 			Parent popup = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi(this.register, this.stackList, TypeDeleting.REGISTER);
+			c.initi(this.register, this.stackList);
 			new FadeEffect(popup);
 			this.stackList.getChildren().add(popup);
 			c.fullSizeConteiner();

@@ -12,10 +12,7 @@
       <AnchorPane layoutX="191.0" layoutY="136.0" prefHeight="189.0" prefWidth="433.0" style="-fx-background-color: #FFF; -fx-background-radius: 5; -fx-border-radius: 5;">
          <children>
             <Label alignment="CENTER" layoutX="140.0" layoutY="90.0" styleClass="h3" text="Tem certeza que quer apagar?" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="0.0" />
-            <Label fx:id="labelCode" alignment="CENTER" graphicTextGap="8.0" layoutX="122.0" layoutY="43.0" prefHeight="34.0" prefWidth="252.0" style="-fx-text-fill: #303E49;" styleClass="h1" text="\$code_register" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="0.0">
-               <graphic>
-                  <ImageView fx:id="imageviewTypeIcon" fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic></Label>
+            <Label fx:id="labelCode" alignment="CENTER" graphicTextGap="8.0" layoutX="122.0" layoutY="43.0" prefHeight="34.0" prefWidth="252.0" style="-fx-text-fill: #303E49;" styleClass="h1" text="\$code_register" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="0.0" />
             <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="38.0" layoutY="25.0" prefWidth="120.0" style="-fx-border-color: #EEE; -fx-border-width: 0 1 0 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <graphic>
                   <ImageView fitHeight="54.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">

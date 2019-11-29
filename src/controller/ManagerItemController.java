@@ -23,13 +23,10 @@ public class ManagerItemController {
     
     private Persistent persistent;
     
-    private int deleteType;
-    
-    public void initi(Persistent p, StackPane stack, int deleteType){
+    public void initi(Persistent p, StackPane stack){
     	this.labelTitle.setText(p.toString());
     	this.stack = stack;
     	this.persistent = p;
-    	this.deleteType = deleteType;
     }
     
     @FXML
@@ -56,7 +53,7 @@ public class ManagerItemController {
     	try {
 			Parent delete = loader.load();
 			DeleteItemController c = loader.getController();
-			c.initi(this.persistent, this.stack, this.deleteType);
+			c.initi(this.persistent, this.stack);
 			new FadeEffect(delete);
 			this.stack.getChildren().add(delete);
 			c.fullSizeConteiner();

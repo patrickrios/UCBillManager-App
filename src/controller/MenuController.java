@@ -10,7 +10,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import model.dao.CategoryDAO;
 import model.dao.PaymentDAO;
-import model.types.TypeDeleting;
 import view.util.FadeEffect;
 import java.io.IOException;
 
@@ -110,7 +109,7 @@ public class MenuController
         try {
             Parent parent = loader.load();
             ManagerController controller = loader.getController();
-            controller.initi("Categorias", new CategoryDAO(), TypeDeleting.CATEGORY, this.mainStack);
+            controller.initi("Categorias",new CategoryDAO(),this.mainStack);
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
@@ -130,7 +129,7 @@ public class MenuController
         try {
             Parent parent = loader.load();
             ManagerController controller = loader.getController();
-            controller.initi("Pagamentos", new PaymentDAO(), TypeDeleting.PAYMENT, this.mainStack);
+            controller.initi("Pagamentos",new PaymentDAO(),this.mainStack);
             new FadeEffect(parent);
             this.anchorPane.getChildren().setAll(parent);
             unmarkButton();
