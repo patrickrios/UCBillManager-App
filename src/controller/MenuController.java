@@ -13,8 +13,9 @@ import model.dao.PaymentDAO;
 import view.util.FadeEffect;
 import java.io.IOException;
 
-public class MenuController
-{
+public class MenuController{
+	@FXML
+    private AnchorPane anchorMenu;
     @FXML
     private Button buttonHomepage;
     @FXML
@@ -36,17 +37,16 @@ public class MenuController
     
     private StackPane mainStack;
 
-    public void initi(AnchorPane anchorPane, StackPane stack)
-    {
+    public void initi(AnchorPane anchorPane, StackPane stack){
     	this.anchorPane = anchorPane;
         this.buttonSel = this.buttonHomepage;
         this.mainStack = stack;
         loadHomepage();
+        fullHeightSize();
     }
 
     @FXML
-    public void loadHomepage()
-    {
+    public void loadHomepage(){
     	clearStack();
     	FXMLLoader loader = new FXMLLoader((getClass().getResource("/view/fxml/FXMLHomepage.fxml")));
         try{
@@ -64,8 +64,7 @@ public class MenuController
     }
 
     @FXML
-    public void loadCreateNewLayout()
-    {
+    public void loadCreateNewLayout() {
     	clearStack();
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLCreateNew.fxml"));
         try {
@@ -83,8 +82,7 @@ public class MenuController
     }
 
     @FXML
-    public void loadListRegisterLayout()
-    {
+    public void loadListRegisterLayout() {
     	clearStack();
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLList.fxml"));
         try {
@@ -101,8 +99,7 @@ public class MenuController
     }
 
     @FXML
-    public void loadCategoryManagementLayout()
-    {
+    public void loadCategoryManagementLayout(){
     	clearStack();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManager.fxml"));
 
@@ -121,8 +118,7 @@ public class MenuController
     }
 
     @FXML
-    public void loadPaymentsManagementLayout()
-    {
+    public void loadPaymentsManagementLayout(){
     	clearStack();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLManager.fxml"));
 
@@ -141,8 +137,7 @@ public class MenuController
     }
 
     @FXML
-    public void loadReportLayout()
-    {
+    public void loadReportLayout(){
     	clearStack();
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXMLReport.fxml"));
@@ -179,5 +174,11 @@ public class MenuController
     private void clearStack() {
     	this.mainStack.getChildren().clear();
     	this.mainStack.getChildren().add(this.anchorPane);
+    }
+    
+    private void fullHeightSize() {
+    	AnchorPane.setBottomAnchor(this.anchorMenu,0.0);
+    	AnchorPane.setTopAnchor(this.anchorMenu,0.0);
+    	AnchorPane.setRightAnchor(this.anchorMenu,0.0);
     }
 }
