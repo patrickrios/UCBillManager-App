@@ -11,32 +11,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable
+public class MainController extends MenuController implements Initializable
 {
 	@FXML
     private StackPane stackMainContent;
     @FXML
     private AnchorPane anchorpaneContent;
-    @FXML
-    private AnchorPane menuConteiner;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        loadMenu();
+    	this.initi(this.anchorpaneContent,this.stackMainContent);
         initStackAligment();
-    }
-
-    private void loadMenu(){
-        FXMLLoader loader  = new FXMLLoader(getClass().getResource("/view/fxml/FXMLMenu.fxml"));
-
-        try {
-            Parent parent = loader.load();
-            MenuController controller = loader.getController();
-            controller.initi(this.anchorpaneContent,this.stackMainContent);
-            this.menuConteiner.getChildren().setAll(parent);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     
     private void initStackAligment() {

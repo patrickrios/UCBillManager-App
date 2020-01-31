@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorMenu" prefHeight="650.0" prefWidth="350.0" style="-fx-background-color: #F4F5F6; -fx-border-color: #CCC; -fx-border-width: 0 1 0 0;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+<AnchorPane fx:id="anchorMenu" prefHeight="650.0" prefWidth="240.0" style="-fx-background-color: #F4F5F6; -fx-border-color: #CCC; -fx-border-width: 0 1 0 0;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
    <children>
       <ScrollPane layoutX="150.0" layoutY="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>

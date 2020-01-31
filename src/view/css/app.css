@@ -45,6 +45,9 @@
 	.main-button-menu-selected{-fx-background-color:#EEE;-fx-cursor:hand;  -fx-border-color:#4F87E6; -fx-text-fill:#4F87E6;-fx-padding:8 12;-fx-pref-width:165; -fx-font-size:16; -fx-background-radius:3; -fx-border-radius:3;}
 	.home-card-title-receita{-fx-text-fill:#3A9A63;}
 	.home-card-title-despesa{-fx-text-fill:#FF5555;}
+	
+	.split-pane *.split-pane-divider {-fx-padding: 0 1 0 1;-fx-background-color:#EEE;}
+	.split-pane{-fx-background-color:transparent;-fx-border-width:0;}
 
 	/** Add novo*/
 	.choice-button{-fx-border-width:2; -fx-text-fill:#999;-fx-background-color:#FFF; -fx-border-color:#CCC; -fx-border-radius:3; -fx-background-radius:3;}
