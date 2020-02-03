@@ -28,7 +28,7 @@
     	.scroll-bar:horizontal .track, .scroll-bar:horizontal .thumb, .scroll-bar:horizontal .increment, .scroll-bar:horizontal .decrement{-fx-background-color:transparent;}
 	.stack-pane{-fx-alignment:left;}
 	.transparent-panel{-fx-background-color:rgba(0,0,0,0.20)}
-	.scrol-list .scroll-bar:vertical{-fx-border-color:#DDD; -fx-border-width:0 1 1 0;}
+	.scroll-list .scroll-bar:vertical{-fx-border-color:#DDD; -fx-border-width:0 1 1 0;}
 
 
 	/** Textos*/
@@ -40,13 +40,14 @@
 	.h2-label{-fx-font-family:"Roboto", sans-serif; -fx-font-size:15; -fx-text-fill:#515F66;}
 
 	/** Main*/
-	.main-button-menu{-fx-background-color:transparent;-fx-cursor:hand; -fx-border-color:#F4F5F6;-fx-text-fill:#354751; -fx-padding:8 12;-fx-pref-width:165; -fx-font-size:16; -fx-background-radius:3; -fx-border-radius:3;}
+	.main-button-menu, .main-button-menu-selected{-fx-background-radius:0;-fx-border-radius:0;-fx-font-size:16;-fx-padding:10 30;-fx-cursor:hand;}
+	.main-button-menu{-fx-background-color:transparent;-fx-cursor:hand; -fx-border-color:transparent;-fx-text-fill:#354751;  }
 	.main-button-menu:hover{-fx-background-color:#E3E3E3;-fx-border-color:#E3E3E3;}
-	.main-button-menu-selected{-fx-background-color:#EEE;-fx-cursor:hand;  -fx-border-color:#4F87E6; -fx-text-fill:#4F87E6;-fx-padding:8 12;-fx-pref-width:165; -fx-font-size:16; -fx-background-radius:3; -fx-border-radius:3;}
+	.main-button-menu-selected{-fx-background-color:#4F87E6;-fx-border-color:#4F87E6;-fx-text-fill:#FFF;-fx-border-width:0 2 0 0;-fx-border-color:#2864B5;}
 	.home-card-title-receita{-fx-text-fill:#3A9A63;}
 	.home-card-title-despesa{-fx-text-fill:#FF5555;}
 	
-	.split-pane *.split-pane-divider {-fx-padding: 0 1 0 1;-fx-background-color:#EEE;}
+	.split-pane *.split-pane-divider {-fx-padding: 0 1 0 1;-fx-background-color:#FFF;}
 	.split-pane{-fx-background-color:transparent;-fx-border-width:0;}
 
 	/** Add novo*/
