@@ -188,6 +188,15 @@ public class CreateNewController implements Initializable{
     	unselected.getStyleClass().clear();
     	unselected.getStyleClass().add("button");
     	unselected.getStyleClass().add(unselectedStyle);
+    	
+    	if(selected.getId().equals("#buttonOutType")) {
+    		selected.getStyleClass().add("choice-button-left");
+    		unselected.getStyleClass().add("choice-button-right");
+    	}
+    	else {
+    		selected.getStyleClass().add("choice-button-right");
+    		unselected.getStyleClass().add("choice-button-left");
+    	}
     }
     
     private void initiExpiration(){

@@ -43,7 +43,7 @@
 	.main-button-menu, .main-button-menu-selected{-fx-background-radius:0;-fx-border-radius:0;-fx-font-size:16;-fx-padding:10 30;-fx-cursor:hand;}
 	.main-button-menu{-fx-background-color:transparent;-fx-cursor:hand; -fx-border-color:transparent;-fx-text-fill:#354751;  }
 	.main-button-menu:hover{-fx-background-color:#E3E3E3;-fx-border-color:#E3E3E3;}
-	.main-button-menu-selected{-fx-background-color:#4F87E6;-fx-border-color:#4F87E6;-fx-text-fill:#FFF;-fx-border-width:0 2 0 0;-fx-border-color:#2864B5;}
+	.main-button-menu-selected{-fx-background-color:#4F87E6;-fx-text-fill:#FFF;}
 	.home-card-title-receita{-fx-text-fill:#3A9A63;}
 	.home-card-title-despesa{-fx-text-fill:#FF5555;}
 	
@@ -51,19 +51,25 @@
 	.split-pane{-fx-background-color:transparent;-fx-border-width:0;}
 
 	/** Add novo*/
-	.choice-button{-fx-border-width:2; -fx-text-fill:#999;-fx-background-color:#FFF; -fx-border-color:#CCC; -fx-border-radius:3; -fx-background-radius:3;}
-	.choice-button-selected{-fx-text-fill:#21AF84; -fx-border-width:2;-fx-background-color:#FFF;-fx-border-color:#21AF84;-fx-border-radius:2; -fx-background-radius:2;}
+	.choice-button{-fx-text-fill:#999;-fx-background-color:#FCFCFC; -fx-border-color:#CCC; }
+	.choice-button-selected{-fx-text-fill:#21AF84;-fx-background-color:#FAFAFA;-fx-border-color:#21AF84;}
+	.choice-button-right{-fx-border-radius:0 3 3 0;-fx-background-radius:0 3 3 0;}
+	.choice-button-left{-fx-border-radius:3 0 0 3; -fx-background-radius:3 0 0 3;}
 	.pane-row-content{-fx-padding:10 20; -fx-border-color:#DDD;}
+	.textfield-create-new{-fx-border-radius:0;-fx-background-radius:0;-fx-font-size:18;-fx-border-color:#E3E3E3;-fx-border-width:1 1 2 1;-fx-padding:15 10;}
+	.textfield-create-new:hover{-fx-border-color:#AAA;}
+	.textfield-create-new:focused{-fx-border-color:#0093E1;-fx-background-color:#F9F9F9;}
+	
 
 	.scroll-pane > .viewport {  //not .scrollpane but .scroll-pane 
 	-fx-background-color: transparent;}
 
-	.label-textfield-legend{-fx-text-fill:#2C599C;-fx-font-size:14;}/**#0084F0*/
+	.label-textfield-legend{-fx-text-fill:#333;-fx-font-size:16;}/**#0084F0*/
 	.textfield-empty{-fx-border-color:#EE6969;}
 	.confirm-sucess{-fx-border-color:#43BA82; -fx-border-width:0 0 2 0;}
 	.confirm-error{-fx-border-color:#EE6969; -fx-border-width:0 0 2 0;}
 
-    /** Quantify/pagination buttons*/
+    	/** Quantify/pagination buttons*/
         .button-pagination-nav{-fx-border-color:#F5F6F7; -fx-border-radius:30; -fx-background-radius:30;}
     	.button-quantity-right{-fx-border-color:#CCC; -fx-border-radius:0 5 5 0;}
     	.button-quantity-left{-fx-border-color:#CCC; -fx-border-radius:5 0 0 5;}
