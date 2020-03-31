@@ -27,7 +27,7 @@
                   </Button>
                   <Label style="-fx-label-padding: 20 25 10 25; -fx-background-color: linear-gradient(to bottom, #EEE,#F9F9F9);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="30.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/uc-logo.png" />
                            </image>

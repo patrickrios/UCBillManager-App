@@ -1,7 +1,7 @@
 
     /** Lato Custom Font*/
-    @font-face { src: url("../fonts/Roboto-Regular.ttf");}
-    .text{-fx-font-family:'Roboto';}
+    /**@font-face { src: url("../fonts/Roboto-Regular.ttf");}*/
+    .text{-fx-font-family:"Martel Sans";}
 
     /** Buttons*/
 	.button{-fx-border-width:1; -fx-border-color:transparent; -fx-cursor:hand; -fx-border-radius:5; -fx-font-family:"Roboto", sans-serif; -fx-font-size:15; -fx-background-color:#F5F6F7; -fx-text-fill:#3A454B;}
@@ -32,7 +32,7 @@
 
 
 	/** Textos*/
-	.h1, .h2, .h3, .h4{-fx-font-family:"Roboto", sans-serif; -fx-text-fill:#3A454B;}
+	.h1, .h2, .h3, .h4{-fx-text-fill:#3A454B;}
 	.h1{-fx-font-size:28;}
 	.h2{-fx-font-size:22;}
 	.h3{-fx-font-size:16;}
@@ -42,8 +42,8 @@
 	/** Main*/
 	.main-button-menu, .main-button-menu-selected{-fx-background-radius:0;-fx-border-radius:0;-fx-font-size:16;-fx-padding:10 30;-fx-cursor:hand;}
 	.main-button-menu{-fx-background-color:transparent;-fx-cursor:hand; -fx-border-color:transparent;-fx-text-fill:#354751;  }
-	.main-button-menu:hover{-fx-background-color:#E3E3E3;-fx-border-color:#E3E3E3;}
-	.main-button-menu-selected{-fx-background-color:#4F87E6;-fx-text-fill:#FFF;}
+	.main-button-menu:hover{-fx-background-color:#EEE;-fx-border-color:#EEE;}
+	.main-button-menu-selected{-fx-background-color:#EEE;-fx-text-fill:#4F87E6;}
 	.home-card-title-receita{-fx-text-fill:#3A9A63;}
 	.home-card-title-despesa{-fx-text-fill:#FF5555;}
 	
